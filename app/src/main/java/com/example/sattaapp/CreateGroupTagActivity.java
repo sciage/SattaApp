@@ -19,32 +19,110 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
     boolean select_category = false;
     ProgressBar create_new_group;
 
-    TextView group_interest_politics;
-    TextView group_interest_celebrities;
-    TextView group_interest_music;
-    TextView group_interest_technology;
-    TextView group_interest_fashion;
-    TextView group_interest_business;
-    TextView group_interest_school;
-    TextView group_interest_art;
-    TextView group_interest_photography;
-    TextView group_interest_lgbt;
-    TextView group_interest_relationship;
-    TextView group_interest_sports;
-    TextView group_interest_funny;
-    TextView group_interest_confessions;
-    TextView group_interest_family;
-    TextView group_interest_work;
-    TextView group_interest_faith;
-    TextView group_interest_food;
-    TextView group_interest_entertainment;
-    TextView group_interest_personal;
-    TextView group_interest_women_issues;
-    TextView group_interest_sex;
-    TextView group_interest_science;
-    TextView group_interest_health;
-    TextView group_interest_men_issues;
-    TextView group_interest_teen;
+
+    TextView one_number;
+    TextView two_number;
+    TextView three_number;
+    TextView four_number;
+    TextView number_five;
+    TextView number_six;
+    TextView number_seven;
+    TextView number_eight;
+    TextView number_nine;
+    TextView ten_number;
+    TextView eleven_number;
+    TextView twelve_number;
+    TextView thirteen_number;
+    TextView fourteen_number;
+    TextView fifteen_number;
+    TextView sixteen_number;
+    TextView seventeen_number;
+    TextView eighteen_number;
+    TextView nineteen_number;
+    TextView twenty_number;
+    TextView twentyone_number;
+    TextView twentytwo;
+    TextView twentythree;
+    TextView twentyfour;
+    TextView twentyfive;
+    TextView twentysix;
+
+    TextView twentyseven;
+    TextView twentyeight;
+    TextView twentynine;
+    TextView thirty;
+    TextView thirtyone;
+    TextView thirtytwo;
+    TextView thirtythree;
+    TextView thirtyfour;
+    TextView thirtyyfive;
+    TextView thirtysix;
+    TextView thirtyseven;
+    TextView thirtyeight;
+    TextView thirtynine;
+    TextView forty;
+    TextView fortyone;
+    TextView fortytwo;
+    TextView fortythree;
+    TextView fortyfour;
+    TextView fortyfive;
+    TextView fortysix;
+    TextView fortyseven;
+    TextView fortyeight;
+    TextView fortynine;
+    TextView fifty;
+    TextView fiftyone;
+    TextView fiftytwo;
+    TextView fiftythree;
+    TextView fiftyfour;
+    TextView fiftyfive;
+    TextView fiftysix;
+    TextView fiftyseven;
+    TextView fiftyeight;
+    TextView fiftynine;
+    TextView sixty;
+    TextView sixtyone;
+    TextView sixtytwo;
+    TextView sixtythree;
+    TextView sixtyfour;
+    TextView sixtyfive;
+    TextView sixtysix;
+    TextView sixtyseven;
+    TextView sixtyeight;
+    TextView sixtynine;
+    TextView seventy;
+    TextView seventyone;
+    TextView seventytwo;
+    TextView seventythree;
+    TextView seventyfour;
+    TextView seventyfive;
+    TextView seventysix;
+    TextView seventyseven;
+    TextView seventyeight;
+    TextView seventynine;
+    TextView eighty;
+    TextView eightyone;
+    TextView eightytwo;
+    TextView eightythree;
+    TextView eightyfour;
+    TextView eightyfive;
+    TextView eightysix;
+    TextView eightyseven;
+    TextView eightyeight;
+    TextView eightynine;
+    TextView ninety;
+    TextView ninetyone;
+    TextView ninetytwo;
+    TextView ninetythree;
+    TextView ninetyfour;
+    TextView ninetyfive;
+    TextView ninetysix;
+    TextView ninetyseven;
+    TextView ninetyeight;
+    TextView ninetynine;
+
+
+
 
     boolean boolean_group_interest_science;
     boolean boolean_group_interest_health;
@@ -88,63 +166,63 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
         image_location = intent.getStringExtra("locationPOJO");
         create_new_group = (ProgressBar) findViewById(R.id.create_new_group);
 
-        group_interest_science = (TextView) findViewById(R.id.number_eight);
-        group_interest_health = (TextView) findViewById(R.id.twentyfour);
-        group_interest_men_issues = (TextView) findViewById(R.id.twentyfive);
-        group_interest_teen = (TextView) findViewById(R.id.twentysix);
+        number_eight = (TextView) findViewById(R.id.number_eight);
+        twentyfour = (TextView) findViewById(R.id.twentyfour);
+        twentyfive = (TextView) findViewById(R.id.twentyfive);
+        twentysix = (TextView) findViewById(R.id.twentysix);
 
-        group_interest_politics = (TextView) findViewById(R.id.one_number);
-        group_interest_personal = (TextView) findViewById(R.id.sixteen_number);
-        group_interest_celebrities = (TextView) findViewById(R.id.two_number);
-        group_interest_music = (TextView) findViewById(R.id.fifteen_number);
-        group_interest_technology = (TextView) findViewById(R.id.four_number);
-        group_interest_fashion = (TextView) findViewById(R.id.number_five);
-        group_interest_business = (TextView) findViewById(R.id.number_six);
-        group_interest_school = (TextView) findViewById(R.id.number_seven);
-        group_interest_art = (TextView) findViewById(R.id.number_nine);
-        group_interest_photography = (TextView) findViewById(R.id.twentythree);
-        group_interest_lgbt = (TextView) findViewById(R.id.ten_number);
-        group_interest_relationship = (TextView) findViewById(R.id.eleven_number);
-        group_interest_sports = (TextView) findViewById(R.id.twelve_number);
-        group_interest_funny = (TextView) findViewById(R.id.thirteen_number);
-        group_interest_confessions = (TextView) findViewById(R.id.fourteen_number);
-        group_interest_family = (TextView) findViewById(R.id.eighteen_number);
-        group_interest_work = (TextView) findViewById(R.id.nineteen_number);
-        group_interest_faith = (TextView) findViewById(R.id.twenty_number);
-        group_interest_food = (TextView) findViewById(R.id.twentyone_number);
-        group_interest_women_issues = (TextView) findViewById(R.id.three_number);
-        group_interest_entertainment = (TextView) findViewById(R.id.twentytwo);
-        group_interest_sex = (TextView) findViewById(R.id.seventeen_number);
+        one_number = (TextView) findViewById(R.id.one_number);
+        sixteen_number = (TextView) findViewById(R.id.sixteen_number);
+        two_number = (TextView) findViewById(R.id.two_number);
+        fifteen_number = (TextView) findViewById(R.id.fifteen_number);
+        four_number = (TextView) findViewById(R.id.four_number);
+        number_five = (TextView) findViewById(R.id.number_five);
+        number_six = (TextView) findViewById(R.id.number_six);
+        number_seven = (TextView) findViewById(R.id.number_seven);
+        number_nine = (TextView) findViewById(R.id.number_nine);
+        twentythree = (TextView) findViewById(R.id.twentythree);
+        ten_number = (TextView) findViewById(R.id.ten_number);
+        eleven_number = (TextView) findViewById(R.id.eleven_number);
+        twelve_number = (TextView) findViewById(R.id.twelve_number);
+        thirteen_number = (TextView) findViewById(R.id.thirteen_number);
+        fourteen_number = (TextView) findViewById(R.id.fourteen_number);
+        eighteen_number = (TextView) findViewById(R.id.eighteen_number);
+        nineteen_number = (TextView) findViewById(R.id.nineteen_number);
+        twenty_number = (TextView) findViewById(R.id.twenty_number);
+        twentyone_number = (TextView) findViewById(R.id.twentyone_number);
+        three_number = (TextView) findViewById(R.id.three_number);
+        twentytwo = (TextView) findViewById(R.id.twentytwo);
+        seventeen_number = (TextView) findViewById(R.id.seventeen_number);
 
         create_new_group.setVisibility(View.INVISIBLE);
 
 
-        group_interest_science.setOnClickListener(this);
-        group_interest_health.setOnClickListener(this);
-        group_interest_men_issues.setOnClickListener(this);
-        group_interest_teen.setOnClickListener(this);
-        group_interest_personal.setOnClickListener(this);
-        group_interest_politics.setOnClickListener(this);
-        group_interest_celebrities.setOnClickListener(this);
-        group_interest_music.setOnClickListener(this);
-        group_interest_technology.setOnClickListener(this);
-        group_interest_fashion.setOnClickListener(this);
-        group_interest_business.setOnClickListener(this);
-        group_interest_school.setOnClickListener(this);
-        group_interest_art.setOnClickListener(this);
-        group_interest_photography.setOnClickListener(this);
-        group_interest_lgbt.setOnClickListener(this);
-        group_interest_relationship.setOnClickListener(this);
-        group_interest_sports.setOnClickListener(this);
-        group_interest_funny.setOnClickListener(this);
-        group_interest_confessions.setOnClickListener(this);
-        group_interest_family.setOnClickListener(this);
-        group_interest_work.setOnClickListener(this);
-        group_interest_faith.setOnClickListener(this);
-        group_interest_food.setOnClickListener(this);
-        group_interest_entertainment.setOnClickListener(this);
-        group_interest_women_issues.setOnClickListener(this);
-        group_interest_sex.setOnClickListener(this);
+        number_eight.setOnClickListener(this);
+        twentyfour.setOnClickListener(this);
+        twentyfive.setOnClickListener(this);
+        twentysix.setOnClickListener(this);
+        sixteen_number.setOnClickListener(this);
+        one_number.setOnClickListener(this);
+        two_number.setOnClickListener(this);
+        fifteen_number.setOnClickListener(this);
+        four_number.setOnClickListener(this);
+        number_five.setOnClickListener(this);
+        number_six.setOnClickListener(this);
+        number_seven.setOnClickListener(this);
+        number_nine.setOnClickListener(this);
+        twentythree.setOnClickListener(this);
+        ten_number.setOnClickListener(this);
+        eleven_number.setOnClickListener(this);
+        twelve_number.setOnClickListener(this);
+        thirteen_number.setOnClickListener(this);
+        fourteen_number.setOnClickListener(this);
+        eighteen_number.setOnClickListener(this);
+        nineteen_number.setOnClickListener(this);
+        twenty_number.setOnClickListener(this);
+        twentyone_number.setOnClickListener(this);
+        twentytwo.setOnClickListener(this);
+        three_number.setOnClickListener(this);
+        seventeen_number.setOnClickListener(this);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,8 +261,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 setGroup("1");
                 boolean_group_interest_politics = true;
                 //setGroupId
-                group_interest_politics.setTextColor(getResources().getColor(R.color.white));
-                group_interest_politics.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                one_number.setTextColor(getResources().getColor(R.color.white));
+                one_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
                 break;
 
             case R.id.sixteen_number:
@@ -193,8 +271,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 setGroup("15");
                 boolean_group_interest_personal = true;
                 //setGroupId
-                group_interest_personal.setTextColor(getResources().getColor(R.color.white));
-                group_interest_personal.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                sixteen_number.setTextColor(getResources().getColor(R.color.white));
+                sixteen_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -204,8 +282,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 setGroup("2");
                 boolean_group_interest_celebrities = true;
                 //setGroupId
-                group_interest_celebrities.setTextColor(getResources().getColor(R.color.white));
-                group_interest_celebrities.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                two_number.setTextColor(getResources().getColor(R.color.white));
+                two_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -215,8 +293,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 setGroup("3");
                 boolean_group_interest_music = true;
                 //setGroupId
-                group_interest_music.setTextColor(getResources().getColor(R.color.white));
-                group_interest_music.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                fifteen_number.setTextColor(getResources().getColor(R.color.white));
+                fifteen_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -226,9 +304,9 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 boolean_group_interest_technology = true;
                 setGroup("4");
                 //setGroupId
-                group_interest_technology.setTextColor(getResources().getColor(R.color.white));
-                group_interest_technology.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
-                group_interest_technology.setCompoundDrawablePadding(10);
+                four_number.setTextColor(getResources().getColor(R.color.white));
+                four_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                four_number.setCompoundDrawablePadding(10);
 
 
                 break;
@@ -238,9 +316,9 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 boolean_group_interest_fashion = true;
                 setGroup("5");
                 //setGroupId
-                group_interest_fashion.setTextColor(getResources().getColor(R.color.white));
-                group_interest_fashion.setCompoundDrawablePadding(10);
-                group_interest_fashion.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                number_five.setTextColor(getResources().getColor(R.color.white));
+                number_five.setCompoundDrawablePadding(10);
+                number_five.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -250,8 +328,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 setGroup("6");
                 boolean_group_interest_business = true;
                 //setGroupId
-                group_interest_business.setTextColor(getResources().getColor(R.color.white));
-                group_interest_business.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                number_six.setTextColor(getResources().getColor(R.color.white));
+                number_six.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -261,8 +339,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 boolean_group_interest_school = true;
                 setGroup("7");
                 //setGroupId
-                group_interest_school.setTextColor(getResources().getColor(R.color.white));
-                group_interest_school.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                number_seven.setTextColor(getResources().getColor(R.color.white));
+                number_seven.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -273,8 +351,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 getSelectedButton();
                 boolean_group_interest_art = true;
                 //setGroupId
-                group_interest_art.setTextColor(getResources().getColor(R.color.white));
-                group_interest_art.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                number_nine.setTextColor(getResources().getColor(R.color.white));
+                number_nine.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -283,8 +361,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 boolean_group_interest_photography = true;
                 setGroup("9");
                 //setGroupId
-                group_interest_photography.setTextColor(getResources().getColor(R.color.white));
-                group_interest_photography.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                twentythree.setTextColor(getResources().getColor(R.color.white));
+                twentythree.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -293,8 +371,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 setGroup("10");
                 boolean_group_interest_lgbt = true;
                 //setGroupId
-                group_interest_lgbt.setTextColor(getResources().getColor(R.color.white));
-                group_interest_lgbt.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                ten_number.setTextColor(getResources().getColor(R.color.white));
+                ten_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -303,8 +381,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 setGroup("11");
                 //setGroupId
                 boolean_group_interest_relationship = true;
-                group_interest_relationship.setTextColor(getResources().getColor(R.color.white));
-                group_interest_relationship.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                eleven_number.setTextColor(getResources().getColor(R.color.white));
+                eleven_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -313,8 +391,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 //setGroupId
                 setGroup("12");
                 boolean_group_interest_sports = true;
-                group_interest_sports.setTextColor(getResources().getColor(R.color.white));
-                group_interest_sports.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                twelve_number.setTextColor(getResources().getColor(R.color.white));
+                twelve_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
                 break;
             case R.id.thirteen_number:
@@ -323,8 +401,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 boolean_group_interest_funny = true;
                 setGroup("13");
                 //setGroupId
-                group_interest_funny.setTextColor(getResources().getColor(R.color.white));
-                group_interest_funny.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                thirteen_number.setTextColor(getResources().getColor(R.color.white));
+                thirteen_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -334,8 +412,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 boolean_group_interest_confessions = true;
                 setGroup("14");
                 //setGroupId
-                group_interest_confessions.setTextColor(getResources().getColor(R.color.white));
-                group_interest_confessions.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                fourteen_number.setTextColor(getResources().getColor(R.color.white));
+                fourteen_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -345,8 +423,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 setGroup("17");
                 boolean_group_interest_family= true;
                 //setGroupId
-                group_interest_family.setTextColor(getResources().getColor(R.color.white));
-                group_interest_family.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                eighteen_number.setTextColor(getResources().getColor(R.color.white));
+                eighteen_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -356,8 +434,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 boolean_group_interest_work = true;
                 setGroup("18");
                 //setGroupId
-                group_interest_work.setTextColor(getResources().getColor(R.color.white));
-                group_interest_work.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                nineteen_number.setTextColor(getResources().getColor(R.color.white));
+                nineteen_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -367,8 +445,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 boolean_group_interest_faith = true;
                 setGroup("19");
                 //setGroupId
-                group_interest_faith.setTextColor(getResources().getColor(R.color.white));
-                group_interest_faith.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                twenty_number.setTextColor(getResources().getColor(R.color.white));
+                twenty_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -378,8 +456,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 setGroup("20");
                 boolean_group_interest_food = true;
                 //setGroupId
-                group_interest_food.setTextColor(getResources().getColor(R.color.white));
-                group_interest_food.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                twentyone_number.setTextColor(getResources().getColor(R.color.white));
+                twentyone_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -389,8 +467,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 boolean_group_interest_entertainment = true;
                 setGroup("21");
                 //setGroupId
-                group_interest_entertainment.setTextColor(getResources().getColor(R.color.white));
-                group_interest_entertainment.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                twentytwo.setTextColor(getResources().getColor(R.color.white));
+                twentytwo.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -400,8 +478,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 boolean_group_interest_sex = true;
                 setGroup("16");
                 //setGroupId
-                group_interest_sex.setTextColor(getResources().getColor(R.color.white));
-                group_interest_sex.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                seventeen_number.setTextColor(getResources().getColor(R.color.white));
+                seventeen_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
 
                 break;
@@ -411,8 +489,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 setGroup("22");
                 boolean_group_interest_women_issues = true;
                 //setGroupId
-                group_interest_women_issues.setTextColor(getResources().getColor(R.color.white));
-                group_interest_women_issues.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                three_number.setTextColor(getResources().getColor(R.color.white));
+                three_number.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
                 break;
 
@@ -422,8 +500,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 setGroup("25");
                 boolean_group_interest_science = true;
                 //setGroupId
-                group_interest_science.setTextColor(getResources().getColor(R.color.white));
-                group_interest_science.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                number_eight.setTextColor(getResources().getColor(R.color.white));
+                number_eight.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
                 break;
             case R.id.twentyfour:
@@ -432,8 +510,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 setGroup("23");
                 boolean_group_interest_health = true;
                 //setGroupId
-                group_interest_health.setTextColor(getResources().getColor(R.color.white));
-                group_interest_health.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                twentyfour.setTextColor(getResources().getColor(R.color.white));
+                twentyfour.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
                 break;
             case R.id.twentyfive:
@@ -442,8 +520,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 setGroup("24");
                 boolean_group_interest_men_issues = true;
                 //setGroupId
-                group_interest_men_issues.setTextColor(getResources().getColor(R.color.white));
-                group_interest_men_issues.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                twentyfive.setTextColor(getResources().getColor(R.color.white));
+                twentyfive.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
                 break;
             case R.id.twentysix:
@@ -452,8 +530,8 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
                 setGroup("26");
                 boolean_group_interest_teen = true;
                 //setGroupId
-                group_interest_teen.setTextColor(getResources().getColor(R.color.white));
-                group_interest_teen.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
+                twentysix.setTextColor(getResources().getColor(R.color.white));
+                twentysix.setBackground(getResources().getDrawable(R.drawable.button_tag_selected));
 
                 break;
 
@@ -470,110 +548,110 @@ public class CreateGroupTagActivity extends AppCompatActivity implements View.On
     private void getSelectedButton(){
         if (boolean_group_interest_politics){
             boolean_group_interest_politics = false;
-            group_interest_politics.setTextColor(getResources().getColor(R.color.black));
-            group_interest_politics.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            one_number.setTextColor(getResources().getColor(R.color.black));
+            one_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_celebrities){
             boolean_group_interest_celebrities = false;
-            group_interest_celebrities.setTextColor(getResources().getColor(R.color.black));
-            group_interest_celebrities.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            two_number.setTextColor(getResources().getColor(R.color.black));
+            two_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_music){
             boolean_group_interest_music = false;
-            group_interest_music.setTextColor(getResources().getColor(R.color.black));
-            group_interest_music.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            fifteen_number.setTextColor(getResources().getColor(R.color.black));
+            fifteen_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_technology){
             boolean_group_interest_technology = false;
-            group_interest_technology.setTextColor(getResources().getColor(R.color.black));
-            group_interest_technology.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            four_number.setTextColor(getResources().getColor(R.color.black));
+            four_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_fashion){
             boolean_group_interest_fashion = false;
-            group_interest_fashion.setTextColor(getResources().getColor(R.color.black));
-            group_interest_fashion.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            number_five.setTextColor(getResources().getColor(R.color.black));
+            number_five.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_business){
 
             boolean_group_interest_business = false;
-            group_interest_business.setTextColor(getResources().getColor(R.color.black));
-            group_interest_business.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            number_six.setTextColor(getResources().getColor(R.color.black));
+            number_six.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_school){
             boolean_group_interest_school = false;
-            group_interest_school.setTextColor(getResources().getColor(R.color.black));
-            group_interest_school.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            number_seven.setTextColor(getResources().getColor(R.color.black));
+            number_seven.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_art){
             boolean_group_interest_art = false;
-            group_interest_art.setTextColor(getResources().getColor(R.color.black));
-            group_interest_art.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            number_nine.setTextColor(getResources().getColor(R.color.black));
+            number_nine.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_photography){
             boolean_group_interest_photography = false;
-            group_interest_photography.setTextColor(getResources().getColor(R.color.black));
-            group_interest_photography.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            twentythree.setTextColor(getResources().getColor(R.color.black));
+            twentythree.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_lgbt){
             boolean_group_interest_lgbt = false;
-            group_interest_lgbt.setTextColor(getResources().getColor(R.color.black));
-            group_interest_lgbt.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            ten_number.setTextColor(getResources().getColor(R.color.black));
+            ten_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_relationship){
             boolean_group_interest_relationship = false;
-            group_interest_relationship.setTextColor(getResources().getColor(R.color.black));
-            group_interest_relationship.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            eleven_number.setTextColor(getResources().getColor(R.color.black));
+            eleven_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_sports){
             boolean_group_interest_sports = false;
-            group_interest_sports.setTextColor(getResources().getColor(R.color.black));
-            group_interest_sports.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            twelve_number.setTextColor(getResources().getColor(R.color.black));
+            twelve_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_funny){
             boolean_group_interest_funny = false;
-            group_interest_funny.setTextColor(getResources().getColor(R.color.black));
-            group_interest_funny.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            thirteen_number.setTextColor(getResources().getColor(R.color.black));
+            thirteen_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_confessions){
             boolean_group_interest_confessions = false;
-            group_interest_confessions.setTextColor(getResources().getColor(R.color.black));
-            group_interest_confessions.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            fourteen_number.setTextColor(getResources().getColor(R.color.black));
+            fourteen_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_family){
             boolean_group_interest_family = false;
-            group_interest_family.setTextColor(getResources().getColor(R.color.black));
-            group_interest_family.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            eighteen_number.setTextColor(getResources().getColor(R.color.black));
+            eighteen_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_work){
             boolean_group_interest_work = false;
-            group_interest_work.setTextColor(getResources().getColor(R.color.black));
-            group_interest_work.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            nineteen_number.setTextColor(getResources().getColor(R.color.black));
+            nineteen_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_faith){
             boolean_group_interest_faith = false;
-            group_interest_faith.setTextColor(getResources().getColor(R.color.black));
-            group_interest_faith.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            twenty_number.setTextColor(getResources().getColor(R.color.black));
+            twenty_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_food){
             boolean_group_interest_food=  false;
-            group_interest_food.setTextColor(getResources().getColor(R.color.black));
-            group_interest_food.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            twentyone_number.setTextColor(getResources().getColor(R.color.black));
+            twentyone_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_entertainment){
             boolean_group_interest_entertainment = false;
-            group_interest_entertainment.setTextColor(getResources().getColor(R.color.black));
-            group_interest_entertainment.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            twentytwo.setTextColor(getResources().getColor(R.color.black));
+            twentytwo.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_personal){
             boolean_group_interest_personal = false;
-            group_interest_personal.setTextColor(getResources().getColor(R.color.black));
-            group_interest_personal.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            sixteen_number.setTextColor(getResources().getColor(R.color.black));
+            sixteen_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_women_issues){
             boolean_group_interest_women_issues = false;
-            group_interest_women_issues.setTextColor(getResources().getColor(R.color.black));
-            group_interest_women_issues.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            three_number.setTextColor(getResources().getColor(R.color.black));
+            three_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
         } else if (boolean_group_interest_sex){
             boolean_group_interest_sex= false;
-            group_interest_sex.setTextColor(getResources().getColor(R.color.black));
-            group_interest_sex.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            seventeen_number.setTextColor(getResources().getColor(R.color.black));
+            seventeen_number.setBackground(getResources().getDrawable(R.drawable.button_tag));
 
         }else if (boolean_group_interest_science){
             boolean_group_interest_science= false;
-            group_interest_science.setTextColor(getResources().getColor(R.color.black));
-            group_interest_science.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            number_eight.setTextColor(getResources().getColor(R.color.black));
+            number_eight.setBackground(getResources().getDrawable(R.drawable.button_tag));
         }else if (boolean_group_interest_health){
             boolean_group_interest_health= false;
-            group_interest_health.setTextColor(getResources().getColor(R.color.black));
-            group_interest_health.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            twentyfour.setTextColor(getResources().getColor(R.color.black));
+            twentyfour.setBackground(getResources().getDrawable(R.drawable.button_tag));
         }else if (boolean_group_interest_men_issues){
             boolean_group_interest_men_issues= false;
-            group_interest_men_issues.setTextColor(getResources().getColor(R.color.black));
-            group_interest_men_issues.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            twentyfive.setTextColor(getResources().getColor(R.color.black));
+            twentyfive.setBackground(getResources().getDrawable(R.drawable.button_tag));
         }else if (boolean_group_interest_teen){
             boolean_group_interest_teen= false;
-            group_interest_teen.setTextColor(getResources().getColor(R.color.black));
-            group_interest_teen.setBackground(getResources().getDrawable(R.drawable.button_tag));
+            twentysix.setTextColor(getResources().getColor(R.color.black));
+            twentysix.setBackground(getResources().getDrawable(R.drawable.button_tag));
         }
     }
 }

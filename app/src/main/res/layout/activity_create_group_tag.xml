@@ -24,28 +24,28 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/bidName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="16dp"
         android:text="Bid Value"
         android:textSize="23sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/bidValue"
         app:layout_constraintTop_toBottomOf="@+id/currentBalance" />
 
     <EditText
         android:id="@+id/bidValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="80dp"
         android:text="Enter Bid Value"
         android:textSize="18sp"
-        app:layout_constraintLeft_toRightOf="@+id/bidName"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currentBalance" />
-
 
     <TextView
         android:id="@+id/choose_one_interest"
