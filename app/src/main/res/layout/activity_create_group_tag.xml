@@ -1,0 +1,1738 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+
+
+    <TextView
+        android:id="@+id/currentBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Your Current Balance : 2500"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bidName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Bid Value"
+        android:textSize="23sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/bidValue"
+        app:layout_constraintTop_toBottomOf="@+id/currentBalance" />
+
+    <EditText
+        android:id="@+id/bidValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Enter Bid Value"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@+id/bidName"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentBalance" />
+
+
+    <TextView
+        android:id="@+id/choose_one_interest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Choose your Bid Number"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bidValue" />
+
+    <Button
+        android:id="@+id/singleSelect"
+        android:textColor="@color/black"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bubble"
+        android:text="Single Select"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/harasSelect"
+        app:layout_constraintTop_toBottomOf="@+id/choose_one_interest"
+
+        />
+
+    <Button
+        android:id="@+id/harasSelect"
+        android:textColor="@color/black"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bubble"
+        android:text="Haras Select"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/singleSelect"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_one_interest"
+        />
+
+
+
+    <TextView
+        android:id="@+id/zero_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="00"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/one_number"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/singleSelect"
+
+        />
+
+    <TextView
+        android:id="@+id/one_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="01"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/zero_number"
+        app:layout_constraintTop_toBottomOf="@+id/singleSelect" />
+
+    <TextView
+        android:id="@+id/two_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="02"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/one_number"
+        app:layout_constraintTop_toBottomOf="@+id/singleSelect" />
+
+    <TextView
+        android:id="@+id/three_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="03"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/two_number"
+        app:layout_constraintTop_toBottomOf="@+id/singleSelect" />
+
+    <TextView
+        android:id="@+id/four_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="04"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/three_number"
+        app:layout_constraintTop_toBottomOf="@+id/singleSelect" />
+
+    <TextView
+        android:id="@+id/number_five"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="05"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/four_number"
+        app:layout_constraintTop_toBottomOf="@+id/singleSelect" />
+
+    <TextView
+        android:id="@+id/number_six"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="06"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/number_five"
+        app:layout_constraintTop_toBottomOf="@+id/singleSelect" />
+
+     <TextView
+        android:id="@+id/number_seven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="07"
+         android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/number_six"
+        app:layout_constraintTop_toBottomOf="@+id/singleSelect" />
+
+     <TextView
+        android:id="@+id/number_eight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="08"
+         android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/number_seven"
+        app:layout_constraintTop_toBottomOf="@+id/singleSelect" />
+
+    <TextView
+        android:id="@+id/number_nine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="09"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/number_eight"
+        app:layout_constraintTop_toBottomOf="@+id/singleSelect" />
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/ten_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="10"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/one_number"
+
+        />
+
+    <TextView
+        android:id="@+id/eleven_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="11"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/ten_number"
+        app:layout_constraintTop_toBottomOf="@+id/one_number" />
+
+    <TextView
+        android:id="@+id/twelve_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="12"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/eleven_number"
+        app:layout_constraintTop_toBottomOf="@+id/one_number" />
+
+    <TextView
+        android:id="@+id/thirteen_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="13"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/twelve_number"
+        app:layout_constraintTop_toBottomOf="@+id/one_number" />
+
+
+    <TextView
+        android:id="@+id/fourteen_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="14"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/thirteen_number"
+        app:layout_constraintTop_toBottomOf="@+id/one_number" />
+
+    <TextView
+        android:id="@+id/fifteen_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="15"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fourteen_number"
+        app:layout_constraintTop_toBottomOf="@+id/one_number" />
+
+    <TextView
+        android:id="@+id/sixteen_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="16"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fifteen_number"
+        app:layout_constraintTop_toBottomOf="@+id/one_number" />
+
+    <TextView
+        android:id="@+id/seventeen_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="17"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/sixteen_number"
+        app:layout_constraintTop_toBottomOf="@+id/one_number" />
+
+    <TextView
+        android:id="@+id/eighteen_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="18"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/seventeen_number"
+        app:layout_constraintTop_toBottomOf="@+id/one_number" />
+
+
+    <TextView
+        android:id="@+id/nineteen_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="19"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/eighteen_number"
+        app:layout_constraintTop_toBottomOf="@+id/one_number" />
+
+
+    <TextView
+        android:id="@+id/twenty_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="20"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/twentyone_number"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ten_number"
+
+        />
+
+
+
+    <TextView
+        android:id="@+id/twentyone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="21"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/twenty_number"
+        app:layout_constraintTop_toBottomOf="@+id/ten_number" />
+
+    <TextView
+        android:id="@+id/twentytwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="22"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/twentyone_number"
+        app:layout_constraintTop_toBottomOf="@+id/ten_number" />
+
+
+    <TextView
+        android:id="@+id/twentythree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="23"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/twentytwo"
+        app:layout_constraintTop_toBottomOf="@+id/ten_number" />
+
+    <TextView
+        android:id="@+id/twentyfour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="24"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/twentythree"
+        app:layout_constraintTop_toBottomOf="@+id/ten_number" />
+
+    <TextView
+        android:id="@+id/twentyfive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="25"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/twentyfour"
+        app:layout_constraintTop_toBottomOf="@+id/ten_number" />
+
+    <TextView
+        android:id="@+id/twentysix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="26"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/twentyfive"
+        app:layout_constraintTop_toBottomOf="@+id/ten_number" />
+
+    <TextView
+        android:id="@+id/twentyseven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="27"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/twentysix"
+        app:layout_constraintTop_toBottomOf="@+id/ten_number" />
+
+     <TextView
+        android:id="@+id/twentyeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="28"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/twentyseven"
+        app:layout_constraintTop_toBottomOf="@+id/ten_number" />
+
+
+    <TextView
+        android:id="@+id/twentynine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="29"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/twentyeight"
+        app:layout_constraintTop_toBottomOf="@+id/nineteen_number" />
+
+
+    <TextView
+        android:id="@+id/thirty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="30"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/thirtyone"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/twenty_number"
+
+        />
+
+    <TextView
+        android:id="@+id/thirtyone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="31"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/thirty"
+        app:layout_constraintTop_toBottomOf="@+id/twenty_number" />
+
+
+    <TextView
+        android:id="@+id/thirtytwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="32"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/thirtyone"
+        app:layout_constraintTop_toBottomOf="@+id/twenty_number" />
+
+    <TextView
+        android:id="@+id/thirtythree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="33"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/thirtytwo"
+        app:layout_constraintTop_toBottomOf="@+id/twenty_number" />
+
+    <TextView
+        android:id="@+id/thirtyfour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="34"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/thirtythree"
+        app:layout_constraintTop_toBottomOf="@+id/twenty_number" />
+
+    <TextView
+        android:id="@+id/thirtyfive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="35"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/thirtyfour"
+        app:layout_constraintTop_toBottomOf="@+id/twenty_number" />
+
+
+    <TextView
+        android:id="@+id/thirtysix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="36"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/thirtyfive"
+        app:layout_constraintTop_toBottomOf="@+id/twenty_number" />
+
+    <TextView
+        android:id="@+id/thirtyseven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="37"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/thirtysix"
+        app:layout_constraintTop_toBottomOf="@+id/twenty_number" />
+
+
+
+    <TextView
+        android:id="@+id/thirtyeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="38"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/thirtyseven"
+        app:layout_constraintTop_toBottomOf="@+id/twentyeight" />
+
+
+    <TextView
+        android:id="@+id/thirtynine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="39"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/thirtyeight"
+        app:layout_constraintTop_toBottomOf="@+id/twentyeight" />
+
+    <TextView
+        android:id="@+id/forty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="40"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/fortyone"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thirty"
+
+        />
+
+
+    <TextView
+        android:id="@+id/fortyone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="41"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/forty"
+        app:layout_constraintTop_toBottomOf="@+id/thirty" />
+
+    <TextView
+        android:id="@+id/fortytwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="42"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fortyone"
+        app:layout_constraintTop_toBottomOf="@+id/thirty" />
+
+    <TextView
+        android:id="@+id/fortythree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="43"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fortytwo"
+        app:layout_constraintTop_toBottomOf="@+id/thirty" />
+
+    <TextView
+        android:id="@+id/fortyfour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="44"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fortythree"
+        app:layout_constraintTop_toBottomOf="@+id/thirty" />
+
+    <TextView
+        android:id="@+id/fortyfive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="45"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fortyfour"
+        app:layout_constraintTop_toBottomOf="@+id/thirty" />
+
+    <TextView
+        android:id="@+id/fortysix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="46"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fortyfive"
+        app:layout_constraintTop_toBottomOf="@+id/thirty" />
+
+    <TextView
+        android:id="@+id/fortyseven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="47"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fortysix"
+        app:layout_constraintTop_toBottomOf="@+id/thirty" />
+
+
+
+    <TextView
+        android:id="@+id/fortyeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="48"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fortyseven"
+        app:layout_constraintTop_toBottomOf="@+id/thirtyseven" />
+
+    <TextView
+        android:id="@+id/fortynine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="59"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fortyeight"
+        app:layout_constraintTop_toBottomOf="@+id/thirtyseven" />
+
+
+
+    <TextView
+        android:id="@+id/fifty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="50"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/fiftyone"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forty"
+
+        />
+
+    <TextView
+        android:id="@+id/fiftyone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="51"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fifty"
+        app:layout_constraintTop_toBottomOf="@+id/forty" />
+
+    <TextView
+        android:id="@+id/fiftytwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="52"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fiftyone"
+        app:layout_constraintTop_toBottomOf="@+id/forty" />
+
+    <TextView
+        android:id="@+id/fiftythree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="53"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fiftytwo"
+        app:layout_constraintTop_toBottomOf="@+id/forty" />
+
+
+    <TextView
+        android:id="@+id/fiftyfour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="54"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fiftythree"
+        app:layout_constraintTop_toBottomOf="@+id/forty" />
+
+    <TextView
+        android:id="@+id/fiftyfive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="55"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fiftyfour"
+        app:layout_constraintTop_toBottomOf="@+id/forty" />
+
+
+
+    <TextView
+        android:id="@+id/fiftysix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="56"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fiftyfive"
+        app:layout_constraintTop_toBottomOf="@+id/forty" />
+
+
+    <TextView
+        android:id="@+id/fiftyseven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="57"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fiftysix"
+        app:layout_constraintTop_toBottomOf="@+id/forty" />
+
+    <TextView
+        android:id="@+id/fiftyeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="58"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/fiftyseven"
+        app:layout_constraintTop_toBottomOf="@+id/forty" />
+
+
+    <TextView
+        android:id="@+id/fiftynine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="59"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fiftyeight"
+        app:layout_constraintTop_toBottomOf="@+id/forty" />
+
+    <TextView
+        android:id="@+id/sixty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="60"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/sixtyone"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fifty"
+
+        />
+
+    <TextView
+        android:id="@+id/sixtyone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="61"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/sixty"
+        app:layout_constraintTop_toBottomOf="@+id/fifty" />
+
+    <TextView
+        android:id="@+id/sixtytwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="62"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/sixtyone"
+        app:layout_constraintTop_toBottomOf="@+id/fifty" />
+
+    <TextView
+        android:id="@+id/sixtythree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="63"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/sixtytwo"
+        app:layout_constraintTop_toBottomOf="@+id/fifty" />
+
+    <TextView
+        android:id="@+id/sixtyfour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="64"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/sixtythree"
+        app:layout_constraintTop_toBottomOf="@+id/fifty" />
+
+
+
+    <TextView
+        android:id="@+id/sixtyfive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="65"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/sixtyfour"
+        app:layout_constraintTop_toBottomOf="@+id/fiftyfive" />
+
+
+    <TextView
+        android:id="@+id/sixtysix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="66"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/sixtyfive"
+        app:layout_constraintTop_toBottomOf="@+id/fiftyfive" />
+
+    <TextView
+        android:id="@+id/sixtyseven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="67"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/sixtysix"
+        app:layout_constraintTop_toBottomOf="@+id/fiftyfive" />
+
+
+    <TextView
+        android:id="@+id/sixtyeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="68"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/sixtyseven"
+        app:layout_constraintTop_toBottomOf="@+id/fiftyfive" />
+
+    <TextView
+        android:id="@+id/sixtynine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="69"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sixtyeight"
+        app:layout_constraintTop_toBottomOf="@+id/fiftyfive" />
+
+    <TextView
+        android:id="@+id/seventy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="70"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/seventyone"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sixty"
+
+        />
+
+
+
+    <TextView
+        android:id="@+id/seventyone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="71"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/seventy"
+        app:layout_constraintTop_toBottomOf="@+id/sixty" />
+
+    <TextView
+        android:id="@+id/seventytwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="72"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/seventyone"
+        app:layout_constraintTop_toBottomOf="@+id/sixty" />
+
+        <TextView
+        android:id="@+id/seventythree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="73"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/seventytwo"
+        app:layout_constraintTop_toBottomOf="@+id/sixty" />
+
+
+    <TextView
+        android:id="@+id/seventyfour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="73"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/seventythree"
+        app:layout_constraintTop_toBottomOf="@+id/sixty" />
+
+
+
+    <TextView
+        android:id="@+id/seventyfive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="75"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/seventyfour"
+        app:layout_constraintTop_toBottomOf="@+id/sixtyfour" />
+
+
+    <TextView
+        android:id="@+id/seventysix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="76"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/seventyfive"
+        app:layout_constraintTop_toBottomOf="@+id/sixtyfour" />
+
+    <TextView
+        android:id="@+id/seventyseven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="77"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/seventysix"
+        app:layout_constraintTop_toBottomOf="@+id/sixtyfour" />
+
+    <TextView
+        android:id="@+id/seventyeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="78"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/seventyseven"
+        app:layout_constraintTop_toBottomOf="@+id/sixtyfour" />
+
+    <TextView
+        android:id="@+id/seventynine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="79"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/seventyeight"
+        app:layout_constraintTop_toBottomOf="@+id/sixtyfour" />
+
+
+    <TextView
+        android:id="@+id/eighty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="80"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/eightyone"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seventy"
+
+        />
+
+
+    <TextView
+        android:id="@+id/eightyone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="81"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/eighty"
+        app:layout_constraintTop_toBottomOf="@+id/seventy" />
+
+    <TextView
+        android:id="@+id/eightytwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="82"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/eightyone"
+        app:layout_constraintTop_toBottomOf="@+id/seventy" />
+
+
+    <TextView
+        android:id="@+id/eightythree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="83"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/eightytwo"
+        app:layout_constraintTop_toBottomOf="@+id/seventy" />
+
+    <TextView
+        android:id="@+id/eightyfour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="84"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/eightythree"
+        app:layout_constraintTop_toBottomOf="@+id/seventy" />
+
+    <TextView
+        android:id="@+id/eightyfive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="85"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/eightyfour"
+        app:layout_constraintTop_toBottomOf="@+id/seventy" />
+
+    <TextView
+        android:id="@+id/eightysix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="86"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/eightyfive"
+        app:layout_constraintTop_toBottomOf="@+id/seventy" />
+
+    <TextView
+        android:id="@+id/eightyseven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="87"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/eightysix"
+        app:layout_constraintTop_toBottomOf="@+id/seventy" />
+
+    <TextView
+        android:id="@+id/eightyeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="88"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/eightyseven"
+        app:layout_constraintTop_toBottomOf="@+id/seventy" />
+
+    <TextView
+        android:id="@+id/eightynine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="89"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/eightyeight"
+        app:layout_constraintTop_toBottomOf="@+id/seventy" />
+
+    <TextView
+        android:id="@+id/ninety"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="90"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/ninetyone"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eighty"
+
+        />
+
+    <TextView
+        android:id="@+id/ninetyone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="91"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/ninety"
+        app:layout_constraintTop_toBottomOf="@+id/eighty" />
+
+    <TextView
+        android:id="@+id/ninetytwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="92"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/ninetyone"
+        app:layout_constraintTop_toBottomOf="@+id/eighty" />
+
+    <TextView
+        android:id="@+id/ninetythree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="93"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/ninetytwo"
+        app:layout_constraintTop_toBottomOf="@+id/eighty" />
+
+    <TextView
+        android:id="@+id/ninetyfour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="94"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/ninetythree"
+        app:layout_constraintTop_toBottomOf="@+id/eighty" />
+
+    <TextView
+        android:id="@+id/ninetyfive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="95"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/ninetyfour"
+        app:layout_constraintTop_toBottomOf="@+id/eighty" />
+
+    <TextView
+        android:id="@+id/ninetysix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="96"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/ninetyfive"
+        app:layout_constraintTop_toBottomOf="@+id/eighty" />
+
+    <TextView
+        android:id="@+id/ninetyseven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="97"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/ninetysix"
+        app:layout_constraintTop_toBottomOf="@+id/eighty" />
+
+    <TextView
+        android:id="@+id/ninetyeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="98"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/ninetyseven"
+        app:layout_constraintTop_toBottomOf="@+id/eighty" />
+
+    <TextView
+        android:id="@+id/ninetynine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_tag_big"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="99"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ninetyeight"
+        app:layout_constraintTop_toBottomOf="@+id/eighty" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Submit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ninetynine"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/create_new_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

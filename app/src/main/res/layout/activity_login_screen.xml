@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".LoginScreenActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/secondPage"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Satta"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:textColor="#ffffff"
+        android:textSize="40sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        />
+
+
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="92dp"
+        android:background="@drawable/bubble"
+        android:gravity="center_vertical"
+        android:hint="username"
+        android:inputType="text"
+        android:id="@+id/username"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#8effffff" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bubble"
+        android:id="@+id/password"
+
+        android:gravity="center_vertical"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:paddingStart="32dp"
+        android:textColor="#ffffff"
+        android:paddingEnd="32dp"
+        android:textColorHint="#8effffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/forgot_password"
+        android:layout_marginTop="64dp"
+        android:gravity="center"
+        android:text="forgot password"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/loginbutton"
+        android:textColor="#ffffff"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bubble"
+        android:text="Login"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+
+</LinearLayout>
+</FrameLayout>
