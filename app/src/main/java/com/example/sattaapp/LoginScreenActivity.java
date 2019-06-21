@@ -1,7 +1,5 @@
 package com.example.sattaapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -30,11 +28,12 @@ public class LoginScreenActivity extends BaseActivity {
                 if (password.getText().toString().isEmpty() || username.getText().toString().isEmpty()){
                     Toast.makeText(LoginScreenActivity.this, "Please enter value", Toast.LENGTH_LONG);
                 } else {
+                    isLoggedIn = true;
                     MySharedPreferences.registerUserId(preferences, "1");
-                    Intent intent = new Intent(LoginScreenActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LoginScreenActivity.this, LocationPageActivity.class);
                     startActivity(intent);
                 }
-                Intent intent = new Intent(LoginScreenActivity.this, MainActivity.class);
+                Intent intent = new Intent(LoginScreenActivity.this, LocationPageActivity.class);
                 startActivity(intent);
             }
         });

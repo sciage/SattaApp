@@ -9,28 +9,19 @@ import android.widget.Button;
 import android.widget.GridView;
 
 public class MainActivity extends BaseActivity {
-    Button place_bid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_launcher);
 
-
-        if (MySharedPreferences.getUserId(preferences) == null){
-            Intent intent = new Intent(MainActivity.this, LoginScreenActivity.class);
-            startActivity(intent);
-        }
-        GridView view = (GridView) findViewById(R.id.grid);
+        GridView view = (GridView) findViewById(R.id.gridmain);
         Button place_bid = (Button) findViewById(R.id.place_bid);
 
-        place_bid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CreateGroupTagActivity.class);
-                startActivity(intent);
-            }
-        });
+
+        getSupportActionBar().setTitle("Home Page");
+
+
         view.setAdapter(new GridAdapter(getBaseContext()));
     }
 }
