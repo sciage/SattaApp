@@ -8,6 +8,7 @@ import android.widget.GridView;
 
 public class LocationPageActivity extends BaseActivity {
     Button place_bid;
+    LocationGridAdapter locationGridAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,9 @@ public class LocationPageActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
-        view.setAdapter(new LocationGridAdapter(getBaseContext()));
+
+        locationGridAdapter = new LocationGridAdapter(getBaseContext());
+        view.setAdapter(locationGridAdapter);
+        view.setFocusable(false);
     }
 }

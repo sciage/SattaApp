@@ -11,6 +11,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 public class LocationGridAdapter extends BaseAdapter{
     public static class Item{
         public String text;
@@ -52,6 +54,14 @@ public class LocationGridAdapter extends BaseAdapter{
 
         TextView last_time = (TextView) convertView.findViewById(R.id.last_time);
         TextView new_time = (TextView) convertView.findViewById(R.id.new_time);
+        ConstraintLayout location_back = (ConstraintLayout) convertView.findViewById(R.id.location_back);
+
+        location_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
       //  ImageView image = (ImageView) convertView.findViewById(R.id.icon);

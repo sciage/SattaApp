@@ -19,9 +19,11 @@ public class MainActivity extends BaseActivity {
         Button place_bid = (Button) findViewById(R.id.place_bid);
 
 
-        getSupportActionBar().setTitle("Home Page");
+        getSupportActionBar().setTitle("Satta Home Page");
 
 
         view.setAdapter(new GridAdapter(getBaseContext()));
+        view.setFocusable(false);
+
     }
 }
