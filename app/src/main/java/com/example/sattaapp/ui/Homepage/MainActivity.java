@@ -1,12 +1,10 @@
-package com.example.sattaapp;
+package com.example.sattaapp.ui.Homepage;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
+
+import com.example.sattaapp.R;
 
 public class MainActivity extends BaseActivity {
 

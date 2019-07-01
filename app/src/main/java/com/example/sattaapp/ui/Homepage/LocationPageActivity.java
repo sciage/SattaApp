@@ -1,10 +1,13 @@
-package com.example.sattaapp;
+package com.example.sattaapp.ui.Homepage;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
+
+import com.example.sattaapp.R;
+import com.example.sattaapp.ui.CreateGroupTagActivity;
 
 public class LocationPageActivity extends BaseActivity {
     Button place_bid;

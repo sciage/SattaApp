@@ -1,4 +1,4 @@
-package com.example.sattaapp;
+package com.example.sattaapp.ui.Homepage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.sattaapp.MySharedPreferences;
+import com.example.sattaapp.R;
 
 public class LoginScreenActivity extends BaseActivity {
     private Button loginbutton;

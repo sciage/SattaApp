@@ -1,16 +1,17 @@
-package com.example.sattaapp;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.sattaapp.ui.Contact;
 
 import android.os.Bundle;
 import android.view.View;
 
-public class SingleLocationPage extends BaseActivity {
+import com.example.sattaapp.R;
+import com.example.sattaapp.ui.Homepage.BaseActivity;
+
+public class ContactUsActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_location_page);
+        setContentView(R.layout.activity_contact_us);
 
         toolbar.setNavigationIcon(R.drawable.ic_clear_black_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -19,6 +20,6 @@ public class SingleLocationPage extends BaseActivity {
                 finish();
             }
         });
-        getSupportActionBar().setTitle("Edit Group");
+        getSupportActionBar().setTitle("Contact Us");
     }
 }

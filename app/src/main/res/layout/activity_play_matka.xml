@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.PlayMatka.PlayMatkaActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/include_toolbar" />
+
+        <TextView
+            android:id="@+id/balance_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Wallet Balance"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_toolbar" />
+
+        <TextView
+            android:id="@+id/balance_amount_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Rs. 10000"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/balance_amount"
+            app:layout_constraintLeft_toLeftOf="@+id/balance_amount"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/balance_amount" />
+
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="username"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_toolbar" />
+
+        <TextView
+            android:id="@+id/user_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:text="8800128259"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_name" />
+
+        <TextView
+            android:id="@+id/satta_heading_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Dhai / Andar / Open"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_mobile" />
+
+        <TextView
+            android:id="@+id/andar_00_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="00"
+            android:textColor="@color/black"
+            app:layout_constraintRight_toLeftOf="@+id/andar_01_view"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_01" />
+
+        <EditText
+            android:id="@+id/andar_00_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rectangle"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/andar_00_view"
+            app:layout_constraintRight_toRightOf="@+id/andar_00_view"
+            app:layout_constraintTop_toBottomOf="@+id/andar_00_view" />
+
+
+        <TextView
+            android:id="@+id/andar_01_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="01"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/andar_00_edittext"
+            app:layout_constraintRight_toLeftOf="@+id/andar_02_view"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_01" />
+
+        <EditText
+            android:id="@+id/andar_01_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rectangle"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/andar_01_view"
+            app:layout_constraintRight_toRightOf="@+id/andar_01_view"
+            app:layout_constraintTop_toBottomOf="@+id/andar_00_view" />
+
+
+        <TextView
+            android:id="@+id/andar_02_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="02"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_01" />
+
+        <EditText
+            android:id="@+id/andar_02_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/andar_02_view"
+            app:layout_constraintRight_toRightOf="@+id/andar_02_view"
+            android:background="@drawable/rectangle"
+            app:layout_constraintTop_toBottomOf="@+id/andar_02_view" />
+
+
+        <TextView
+            android:id="@+id/andar_03_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="03"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/andar_02_view"
+            app:layout_constraintRight_toLeftOf="@+id/andar_04_view"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_01" />
+
+        <EditText
+            android:id="@+id/andar_03_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/andar_03_view"
+            app:layout_constraintRight_toRightOf="@+id/andar_03_view"
+            android:background="@drawable/rectangle"
+            app:layout_constraintTop_toBottomOf="@+id/andar_03_view" />
+
+
+        <TextView
+            android:id="@+id/andar_04_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="04"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/andar_03_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_01" />
+
+        <EditText
+            android:id="@+id/andar_04_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/andar_04_view"
+            app:layout_constraintRight_toRightOf="@+id/andar_04_view"
+            android:background="@drawable/rectangle"
+            app:layout_constraintTop_toBottomOf="@+id/andar_04_view" />
+
+
+        <TextView
+            android:id="@+id/andar_05_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="05"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintRight_toLeftOf="@+id/andar_06_view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/andar_04_edittext" />
+
+        <EditText
+            android:id="@+id/andar_05_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:background="@drawable/rectangle"
+            app:layout_constraintLeft_toLeftOf="@+id/andar_05_view"
+            app:layout_constraintRight_toRightOf="@+id/andar_05_view"
+            app:layout_constraintTop_toBottomOf="@+id/andar_05_view" />
+
+
+        <TextView
+            android:id="@+id/andar_06_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="06"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/andar_05_view"
+            app:layout_constraintRight_toLeftOf="@+id/andar_07_view"
+            app:layout_constraintTop_toBottomOf="@+id/andar_04_edittext" />
+
+        <EditText
+            android:id="@+id/andar_06_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:background="@drawable/rectangle"
+            app:layout_constraintLeft_toLeftOf="@+id/andar_06_view"
+            app:layout_constraintRight_toRightOf="@+id/andar_06_view"
+            app:layout_constraintTop_toBottomOf="@+id/andar_06_view" />
+
+
+        <TextView
+            android:id="@+id/andar_07_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="07"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/andar_04_edittext" />
+
+        <EditText
+            android:id="@+id/andar_07_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:background="@drawable/rectangle"
+
+            app:layout_constraintLeft_toLeftOf="@+id/andar_07_view"
+            app:layout_constraintRight_toRightOf="@+id/andar_07_view"
+            app:layout_constraintTop_toBottomOf="@+id/andar_07_view" />
+
+
+        <TextView
+            android:id="@+id/andar_08_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="08"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/andar_07_view"
+            app:layout_constraintRight_toLeftOf="@+id/andar_09_view"
+            app:layout_constraintTop_toBottomOf="@+id/andar_04_edittext" />
+
+        <EditText
+            android:id="@+id/andar_08_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:background="@drawable/rectangle"
+
+            app:layout_constraintLeft_toLeftOf="@+id/andar_08_view"
+            app:layout_constraintRight_toRightOf="@+id/andar_08_view"
+            app:layout_constraintTop_toBottomOf="@+id/andar_08_view" />
+
+
+        <TextView
+            android:id="@+id/andar_09_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="09"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/andar_08_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/andar_04_edittext" />
+
+        <EditText
+            android:id="@+id/andar_09_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:background="@drawable/rectangle"
+
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/andar_09_view"
+            app:layout_constraintRight_toRightOf="@+id/andar_09_view"
+            app:layout_constraintTop_toBottomOf="@+id/andar_09_view" />
+
+
+
+        <TextView
+            android:id="@+id/satta_heading_01_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Total Andar"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/satta_heading_01_total_value"
+            app:layout_constraintTop_toBottomOf="@+id/andar_09_edittext" />
+
+        <EditText
+            android:id="@+id/satta_heading_01_total_value"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:background="@drawable/rectangle"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/satta_heading_01_total"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/andar_09_edittext" />
+
+        <TextView
+            android:id="@+id/satta_heading_02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:text="Harap / Bahar / Close"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_01_total" />
+
+        <TextView
+            android:id="@+id/bahar_00_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="00"
+            android:textColor="@color/black"
+            app:layout_constraintRight_toLeftOf="@+id/bahar_01_view"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_02" />
+
+        <EditText
+            android:id="@+id/bahar_00_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rectangle"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/bahar_00_view"
+            app:layout_constraintRight_toRightOf="@+id/bahar_00_view"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_00_view" />
+
+
+        <TextView
+            android:id="@+id/bahar_01_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="01"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/bahar_00_edittext"
+            app:layout_constraintRight_toLeftOf="@+id/bahar_02_view"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_02" />
+
+        <EditText
+            android:id="@+id/bahar_01_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rectangle"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/bahar_01_view"
+            app:layout_constraintRight_toRightOf="@+id/bahar_01_view"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_00_view" />
+
+
+        <TextView
+            android:id="@+id/bahar_02_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="02"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_02" />
+
+        <EditText
+            android:id="@+id/bahar_02_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/bahar_02_view"
+            app:layout_constraintRight_toRightOf="@+id/bahar_02_view"
+            android:background="@drawable/rectangle"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_02_view" />
+
+
+        <TextView
+            android:id="@+id/bahar_03_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="03"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/bahar_02_view"
+            app:layout_constraintRight_toLeftOf="@+id/bahar_04_view"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_02" />
+
+        <EditText
+            android:id="@+id/bahar_03_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/bahar_03_view"
+            app:layout_constraintRight_toRightOf="@+id/bahar_03_view"
+            android:background="@drawable/rectangle"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_03_view" />
+
+
+        <TextView
+            android:id="@+id/bahar_04_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="04"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/bahar_03_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_02" />
+
+        <EditText
+            android:id="@+id/bahar_04_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/bahar_04_view"
+            app:layout_constraintRight_toRightOf="@+id/bahar_04_view"
+            android:background="@drawable/rectangle"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_04_view" />
+
+
+        <TextView
+            android:id="@+id/bahar_05_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="05"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintRight_toLeftOf="@+id/bahar_06_view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_04_edittext" />
+
+        <EditText
+            android:id="@+id/bahar_05_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:background="@drawable/rectangle"
+            app:layout_constraintLeft_toLeftOf="@+id/bahar_05_view"
+            app:layout_constraintRight_toRightOf="@+id/bahar_05_view"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_05_view" />
+
+
+        <TextView
+            android:id="@+id/bahar_06_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="06"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/bahar_05_view"
+            app:layout_constraintRight_toLeftOf="@+id/bahar_07_view"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_04_edittext" />
+
+        <EditText
+            android:id="@+id/bahar_06_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:background="@drawable/rectangle"
+            app:layout_constraintLeft_toLeftOf="@+id/bahar_06_view"
+            app:layout_constraintRight_toRightOf="@+id/bahar_06_view"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_06_view" />
+
+
+        <TextView
+            android:id="@+id/bahar_07_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="07"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_04_edittext" />
+
+        <EditText
+            android:id="@+id/bahar_07_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:background="@drawable/rectangle"
+
+            app:layout_constraintLeft_toLeftOf="@+id/bahar_07_view"
+            app:layout_constraintRight_toRightOf="@+id/bahar_07_view"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_07_view" />
+
+
+        <TextView
+            android:id="@+id/bahar_08_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="08"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/bahar_07_view"
+            app:layout_constraintRight_toLeftOf="@+id/bahar_09_view"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_04_edittext" />
+
+        <EditText
+            android:id="@+id/bahar_08_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:background="@drawable/rectangle"
+
+            app:layout_constraintLeft_toLeftOf="@+id/bahar_08_view"
+            app:layout_constraintRight_toRightOf="@+id/bahar_08_view"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_08_view" />
+
+
+        <TextView
+            android:id="@+id/bahar_09_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="09"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/bahar_08_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_04_edittext" />
+
+        <EditText
+            android:id="@+id/bahar_09_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:background="@drawable/rectangle"
+
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/bahar_09_view"
+            app:layout_constraintRight_toRightOf="@+id/bahar_09_view"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_09_view" />
+
+        <TextView
+            android:id="@+id/satta_heading_02_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Total Bahar"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/satta_heading_02_total_value"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_09_edittext" />
+
+        <EditText
+            android:id="@+id/satta_heading_02_total_value"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:background="@drawable/rectangle"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/satta_heading_01_total"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bahar_09_edittext" />
+
+        <TextView
+            android:id="@+id/satta_heading_03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:text="Combination"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_02_total_value" />
+
+
+        <EditText
+            android:id="@+id/comb_00_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rectangle"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintRight_toLeftOf="@+id/comb_01_edittext"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_03" />
+
+
+        <EditText
+            android:id="@+id/comb_01_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rectangle"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/comb_00_edittext"
+            app:layout_constraintRight_toLeftOf="@+id/comb_02_edittext"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_03" />
+
+
+        <EditText
+            android:id="@+id/comb_02_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@drawable/rectangle"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_03" />
+
+        <EditText
+            android:id="@+id/comb_03_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/comb_02_edittext"
+            app:layout_constraintRight_toLeftOf="@+id/comb_04_edittext"
+            android:background="@drawable/rectangle"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_03" />
+
+        <EditText
+            android:id="@+id/comb_04_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/comb_03_edittext"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@drawable/rectangle"
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_03" />
+
+
+        <EditText
+            android:id="@+id/comb_05_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rectangle"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintRight_toLeftOf="@+id/comb_06_edittext"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/comb_04_edittext" />
+
+
+        <EditText
+            android:id="@+id/comb_06_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rectangle"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/comb_05_edittext"
+            app:layout_constraintRight_toLeftOf="@+id/comb_07_edittext"
+            app:layout_constraintTop_toBottomOf="@+id/comb_04_edittext" />
+
+
+        <EditText
+            android:id="@+id/comb_07_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@drawable/rectangle"
+            app:layout_constraintTop_toBottomOf="@+id/comb_04_edittext" />
+
+        <EditText
+            android:id="@+id/comb_08_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/comb_07_edittext"
+            app:layout_constraintRight_toLeftOf="@+id/comb_09_edittext"
+            android:background="@drawable/rectangle"
+            app:layout_constraintTop_toBottomOf="@+id/comb_04_edittext" />
+
+        <EditText
+            android:id="@+id/comb_09_edittext"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/comb_08_edittext"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@drawable/rectangle"
+            app:layout_constraintTop_toBottomOf="@+id/comb_04_edittext" />
+
+
+        <TextView
+            android:id="@+id/satta_heading_03_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Total Comb"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/satta_heading_03_total_value"
+            app:layout_constraintTop_toBottomOf="@+id/comb_09_edittext" />
+
+        <EditText
+            android:id="@+id/satta_heading_03_total_value"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:background="@drawable/rectangle"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/satta_heading_03_total"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/comb_09_edittext" />
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

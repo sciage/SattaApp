@@ -1,6 +1,4 @@
-package com.example.sattaapp;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.sattaapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +8,13 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.sattaapp.R;
+import com.example.sattaapp.ui.Homepage.BaseActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class CreateGroupTagActivity extends AppCompatActivity implements View.OnClickListener {
+public class CreateGroupTagActivity extends BaseActivity implements View.OnClickListener {
     Button btnSubmit;
     String group_name;
     String group_description;

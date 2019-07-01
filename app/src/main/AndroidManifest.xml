@@ -10,21 +10,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResultActivity"></activity>
-        <activity android:name=".HistoryActivity" />
-        <activity android:name=".WithdrawActivity" />
-        <activity android:name=".ContactUsActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.PlayMatka.PlayMatkaActivity"></activity>
+        <activity android:name=".ui.Result.ResultActivity" />
+        <activity android:name=".ui.History.HistoryActivity" />
+        <activity android:name=".ui.Withdraw.WithdrawActivity" />
+        <activity android:name=".ui.Contact.ContactUsActivity" />
+        <activity android:name=".ui.Homepage.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SingleLocationPage" />
-        <activity android:name=".CreateGroupTagActivity" />
-        <activity android:name=".LoginScreenActivity" />
-        <activity android:name=".LocationPageActivity" />
+        <activity android:name=".ui.SingleLocationPage" />
+        <activity android:name=".ui.CreateGroupTagActivity" />
+        <activity android:name=".ui.Homepage.LoginScreenActivity" />
+        <activity android:name=".ui.Homepage.LocationPageActivity" />
     </application>
 
 </manifest>

@@ -6,4 +6,4 @@
     android:layout_height="wrap_content"
     android:titleTextColor="@color/black_semi_transparent"
     android:id="@+id/include_toolbar"
-    android:background="@color/md_blue_grey_50"/>
+    android:background="@color/toolbar_color"/>

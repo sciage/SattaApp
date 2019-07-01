@@ -12,6 +12,9 @@
     <color name="transparent">#00000000</color>
 
     <color name="black_semi_transparent">#B2000000</color>
+    <color name="toolbar_color">#F2F2F2</color>
+    <color name="grid_back">#C7E9FF</color>
+    <color name="below_toolbar">#E8E8E8</color>
 
     <color name="md_blue_grey_50">#ECEFF1</color>
     <color name="md_blue_grey_100">#CFD8DC</color>

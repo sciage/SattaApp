@@ -1,9 +1,10 @@
-package com.example.sattaapp;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.sattaapp.ui.Result;
 
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.sattaapp.R;
+import com.example.sattaapp.ui.Homepage.BaseActivity;
 
 public class ResultActivity extends BaseActivity {
 

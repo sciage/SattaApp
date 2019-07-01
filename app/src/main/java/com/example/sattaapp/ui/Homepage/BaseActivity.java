@@ -1,4 +1,4 @@
-package com.example.sattaapp;
+package com.example.sattaapp.ui.Homepage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,6 +7,9 @@ import android.os.Bundle;
 import androidx.annotation.LayoutRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.example.sattaapp.R;
+import com.example.sattaapp.VoicemeApplication;
 
 public abstract class BaseActivity extends AppCompatActivity {
     protected SharedPreferences preferences;

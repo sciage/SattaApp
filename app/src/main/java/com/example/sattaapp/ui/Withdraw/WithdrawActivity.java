@@ -1,16 +1,17 @@
-package com.example.sattaapp;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.sattaapp.ui.Withdraw;
 
 import android.os.Bundle;
 import android.view.View;
 
-public class ContactUsActivity extends BaseActivity {
+import com.example.sattaapp.R;
+import com.example.sattaapp.ui.Homepage.BaseActivity;
+
+public class WithdrawActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact_us);
+        setContentView(R.layout.activity_withdraw);
 
         toolbar.setNavigationIcon(R.drawable.ic_clear_black_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -19,6 +20,6 @@ public class ContactUsActivity extends BaseActivity {
                 finish();
             }
         });
-        getSupportActionBar().setTitle("History");
+        getSupportActionBar().setTitle("Withdraw Balance");
     }
 }

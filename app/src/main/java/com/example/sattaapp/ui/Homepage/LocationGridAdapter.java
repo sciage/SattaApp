@@ -1,9 +1,10 @@
-package com.example.sattaapp;
+package com.example.sattaapp.ui.Homepage;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.example.sattaapp.R;
+import com.example.sattaapp.ui.Contact.ContactUsActivity;
+import com.example.sattaapp.ui.PlayMatka.PlayMatkaActivity;
 
 public class LocationGridAdapter extends BaseAdapter{
     public static class Item{
@@ -60,6 +65,8 @@ public class LocationGridAdapter extends BaseAdapter{
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                v.getContext().startActivity(intent);
             }
         });
 

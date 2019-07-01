@@ -1,4 +1,4 @@
-package com.example.sattaapp;
+package com.example.sattaapp.ui.Homepage;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.example.sattaapp.R;
+import com.example.sattaapp.SquareLayout;
+import com.example.sattaapp.ui.Contact.ContactUsActivity;
+import com.example.sattaapp.ui.History.HistoryActivity;
+import com.example.sattaapp.ui.Result.ResultActivity;
+import com.example.sattaapp.ui.Withdraw.WithdrawActivity;
 
 import java.util.ArrayList;
 import java.util.List;
