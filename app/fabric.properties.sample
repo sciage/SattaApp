@@ -1,0 +1,7 @@
+#These keys are provisioned on the plugin. Copy the keys on the plugin here.
+twitterConsumerKey=USSXVl0YS1qANkt89InmmooOi
+twitterConsumerSecret=o60RkWA98xuS81WV0TUdyrIgdHGl98W7zUNeB7TzHavqVFSE7d
+
+#Contains API Secret used to validate your application. Commit to internal source control; avoid making secret public.
+apiKey=cMaUHyFhtUwSC91MkWGJdyzyU
+apiSecret=0Na0wxuUSs6w6UqqelfqcnBKzzHlvHWQNn5ONveQyzJrU5tKlR

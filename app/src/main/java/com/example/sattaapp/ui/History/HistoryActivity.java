@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.sattaapp.R;
-import com.example.sattaapp.ui.Homepage.BaseActivity;
+import com.example.sattaapp.ui.base.BaseActivity;
 
 public class HistoryActivity extends BaseActivity {
 
@@ -21,5 +21,10 @@ public class HistoryActivity extends BaseActivity {
             }
         });
         getSupportActionBar().setTitle("History");
+    }
+
+    @Override
+    protected void setUp() {
+
     }
 }

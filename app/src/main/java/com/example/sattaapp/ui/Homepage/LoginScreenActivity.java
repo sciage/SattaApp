@@ -7,7 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.sattaapp.MySharedPreferences;
+import com.example.sattaapp.ui.base.BaseActivity;
+import com.example.sattaapp.ui.base.MySharedPreferences;
 import com.example.sattaapp.R;
 
 public class LoginScreenActivity extends BaseActivity {
@@ -31,7 +32,7 @@ public class LoginScreenActivity extends BaseActivity {
                 if (password.getText().toString().isEmpty() || username.getText().toString().isEmpty()){
                     Toast.makeText(LoginScreenActivity.this, "Please enter value", Toast.LENGTH_LONG);
                 } else {
-                    isLoggedIn = true;
+                  //  isLoggedIn = true;
                     MySharedPreferences.registerUserId(preferences, "1");
                     Intent intent = new Intent(LoginScreenActivity.this, LocationPageActivity.class);
                     startActivity(intent);
@@ -40,5 +41,10 @@ public class LoginScreenActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void setUp() {
+
     }
 }

@@ -57,9 +57,6 @@ public class GridAdapter extends BaseAdapter{
         mItems.add(object05);
         notifyDataSetChanged();
 
-
-
-
         mContext = context;
     }
 

@@ -3,7 +3,7 @@
     package="com.example.sattaapp">
 
     <application
-        android:name=".VoicemeApplication"
+        android:name=".ui.base.VoicemeApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -26,6 +26,10 @@
         <activity android:name=".ui.CreateGroupTagActivity" />
         <activity android:name=".ui.Homepage.LoginScreenActivity" />
         <activity android:name=".ui.Homepage.LocationPageActivity" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="1e2f28aa200384a5a0a6e225a62ffc68045dea51" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

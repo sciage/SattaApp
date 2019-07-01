@@ -1,6 +1,8 @@
-package com.example.sattaapp;
+package com.example.sattaapp.ui.base;
 
 import android.content.SharedPreferences;
+
+import com.example.sattaapp.Constants;
 
 
 /**
@@ -36,37 +38,37 @@ public class MySharedPreferences {
     }
 
     public static void registerFirebaseToken(SharedPreferences sharedPreferences, String userId) {
-        MySharedPreferences.storeValueInSharedPreferences2(sharedPreferences, Constants.FIREBASETOKEN, userId);
+        MySharedPreferences.storeValueInSharedPreferences2(sharedPreferences, com.example.sattaapp.Constants.FIREBASETOKEN, userId);
     }
 
 
     public static void registerFacebook(SharedPreferences sharedPreferences, String userId) {
-        MySharedPreferences.storeValueInSharedPreferences2(sharedPreferences, Constants.FACEBOOK_ID, userId);
+        MySharedPreferences.storeValueInSharedPreferences2(sharedPreferences, com.example.sattaapp.Constants.FACEBOOK_ID, userId);
     }
 
     public static void registerSecretToken(SharedPreferences sharedPreferences, String secretToken) {
-        MySharedPreferences.storeValueInSharedPreferences2(sharedPreferences, Constants.SECRET_TOKEN, secretToken);
+        MySharedPreferences.storeValueInSharedPreferences2(sharedPreferences, com.example.sattaapp.Constants.SECRET_TOKEN, secretToken);
     }
 
 
     public static void RegisterBelow18(SharedPreferences sharedPreferences, String username) {
-        MySharedPreferences.storeValueInSharedPreferences(sharedPreferences, Constants.BELOW18, username);
+        MySharedPreferences.storeValueInSharedPreferences(sharedPreferences, com.example.sattaapp.Constants.BELOW18, username);
     }
 
     public static String getBelow18(SharedPreferences sharedPreferences) {
-        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, Constants.BELOW18);
+        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, com.example.sattaapp.Constants.BELOW18);
     }
 
     public static String getFireBaseToken(SharedPreferences sharedPreferences) {
-        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, Constants.FIREBASETOKEN);
+        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, com.example.sattaapp.Constants.FIREBASETOKEN);
     }
 
     public static String getFacebook(SharedPreferences sharedPreferences) {
-        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, Constants.FACEBOOK_ID);
+        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, com.example.sattaapp.Constants.FACEBOOK_ID);
     }
 
     public static String getImageUrl(SharedPreferences sharedPreferences) {
-        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, Constants.IMAGE_URL);
+        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, com.example.sattaapp.Constants.IMAGE_URL);
     }
 
     public static String getUserId(SharedPreferences sharedPreferences) {

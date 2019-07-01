@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.sattaapp.R;
-import com.example.sattaapp.ui.Homepage.BaseActivity;
+import com.example.sattaapp.ui.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -478,6 +478,11 @@ public class CreateGroupTagActivity extends BaseActivity implements View.OnClick
 
 
         });
+
+    }
+
+    @Override
+    protected void setUp() {
 
     }
 

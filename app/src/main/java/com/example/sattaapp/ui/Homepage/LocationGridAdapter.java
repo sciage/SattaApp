@@ -16,7 +16,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.sattaapp.R;
 import com.example.sattaapp.ui.Contact.ContactUsActivity;
+import com.example.sattaapp.ui.History.HistoryActivity;
 import com.example.sattaapp.ui.PlayMatka.PlayMatkaActivity;
+import com.example.sattaapp.ui.Result.ResultActivity;
+import com.example.sattaapp.ui.Withdraw.WithdrawActivity;
 
 public class LocationGridAdapter extends BaseAdapter{
     public static class Item{
@@ -28,11 +31,36 @@ public class LocationGridAdapter extends BaseAdapter{
     private Context mContext;
     public LocationGridAdapter(Context context) {
 
-        for (int i = 0; i < 5; i++) {
-            Item object = new Item();
-            object.text = "Text "+i;
-            mItems.add(object);
-        }
+
+        LocationGridAdapter.Item object = new LocationGridAdapter.Item();
+        object.text = "Faridabad";
+        mItems.add(object);
+        notifyDataSetChanged();
+
+
+        LocationGridAdapter.Item object02 = new LocationGridAdapter.Item();
+        object02.text = "Disawar";
+        mItems.add(object02);
+        notifyDataSetChanged();
+
+
+        LocationGridAdapter.Item object03 = new LocationGridAdapter.Item();
+        object03.text = "Gaziabad";
+        mItems.add(object03);
+        notifyDataSetChanged();
+
+
+        LocationGridAdapter.Item object04 = new LocationGridAdapter.Item();
+        object04.text = "Gali";
+        mItems.add(object04);
+        notifyDataSetChanged();
+
+
+        LocationGridAdapter.Item object05 = new LocationGridAdapter.Item();
+        object05.text = "Rewari";
+        mItems.add(object05);
+        notifyDataSetChanged();
+
         mContext = context;
     }
 
@@ -61,15 +89,47 @@ public class LocationGridAdapter extends BaseAdapter{
         TextView new_time = (TextView) convertView.findViewById(R.id.new_time);
         ConstraintLayout location_back = (ConstraintLayout) convertView.findViewById(R.id.location_back);
 
-        location_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
-                v.getContext().startActivity(intent);
-            }
-        });
-
+        if (position == 0){
+            location_back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
+        } else if (position == 1){
+            location_back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
+        } else if (position == 2){
+            location_back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
+        } else if (position == 3){
+            location_back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
+        } else if (position == 4){
+            location_back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
+        }
 
       //  ImageView image = (ImageView) convertView.findViewById(R.id.icon);
       //  TextView text = (TextView) convertView.findViewById(R.id.text);

@@ -8,6 +8,7 @@ import android.widget.GridView;
 
 import com.example.sattaapp.R;
 import com.example.sattaapp.ui.CreateGroupTagActivity;
+import com.example.sattaapp.ui.base.BaseActivity;
 
 public class LocationPageActivity extends BaseActivity {
     Button place_bid;
@@ -48,5 +49,10 @@ public class LocationPageActivity extends BaseActivity {
         locationGridAdapter = new LocationGridAdapter(getBaseContext());
         view.setAdapter(locationGridAdapter);
         view.setFocusable(false);
+    }
+
+    @Override
+    protected void setUp() {
+
     }
 }
