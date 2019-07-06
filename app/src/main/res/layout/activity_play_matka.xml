@@ -853,6 +853,31 @@
 
 
         <TextView
+            android:id="@+id/satta_heading_03_bid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Bid Amount"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/satta_heading_03_bid_value"
+            app:layout_constraintTop_toBottomOf="@+id/comb_09_edittext" />
+
+        <EditText
+            android:id="@+id/satta_heading_03_bid_value"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:background="@drawable/rectangle"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/satta_heading_03_bid"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/comb_09_edittext" />
+
+        <TextView
             android:id="@+id/satta_heading_03_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -862,7 +887,7 @@
             android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/satta_heading_03_total_value"
-            app:layout_constraintTop_toBottomOf="@+id/comb_09_edittext" />
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_03_bid_value" />
 
         <EditText
             android:id="@+id/satta_heading_03_total_value"
@@ -875,7 +900,7 @@
             android:textSize="18sp"
             app:layout_constraintLeft_toRightOf="@+id/satta_heading_03_total"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/comb_09_edittext" />
+            app:layout_constraintTop_toBottomOf="@+id/satta_heading_03_bid_value" />
 
         <View
             android:layout_width="match_parent"
