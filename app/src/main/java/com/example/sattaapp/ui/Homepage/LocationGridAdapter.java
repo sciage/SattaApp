@@ -24,7 +24,7 @@ import com.example.sattaapp.ui.Withdraw.WithdrawActivity;
 public class LocationGridAdapter extends BaseAdapter{
     public static class Item{
         public String text;
-        public int resId;
+        public String time;
     }
 
     private List<Item> mItems = new ArrayList<Item>();
@@ -34,30 +34,40 @@ public class LocationGridAdapter extends BaseAdapter{
 
         LocationGridAdapter.Item object = new LocationGridAdapter.Item();
         object.text = "Faridabad";
+        object.time = "06:30 pm";
         mItems.add(object);
         notifyDataSetChanged();
 
 
         LocationGridAdapter.Item object02 = new LocationGridAdapter.Item();
         object02.text = "Disawar";
+        object02.time = "05:30 am";
+
         mItems.add(object02);
         notifyDataSetChanged();
 
 
         LocationGridAdapter.Item object03 = new LocationGridAdapter.Item();
         object03.text = "Gaziabad";
+        object03.time = "08:00 pm";
+
         mItems.add(object03);
         notifyDataSetChanged();
 
 
         LocationGridAdapter.Item object04 = new LocationGridAdapter.Item();
         object04.text = "Gali";
+        object04.time = "11:00 pm";
+
         mItems.add(object04);
         notifyDataSetChanged();
 
 
         LocationGridAdapter.Item object05 = new LocationGridAdapter.Item();
         object05.text = "Rewari";
+        object05.time = "10:00 am";
+
+
         mItems.add(object05);
         notifyDataSetChanged();
 
@@ -85,9 +95,15 @@ public class LocationGridAdapter extends BaseAdapter{
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item, null);
         }
 
+        TextView location_id = (TextView) convertView.findViewById(R.id.location_id);
+        TextView location_time = (TextView) convertView.findViewById(R.id.location_time);
         TextView last_time = (TextView) convertView.findViewById(R.id.last_time);
         TextView new_time = (TextView) convertView.findViewById(R.id.new_time);
         ConstraintLayout location_back = (ConstraintLayout) convertView.findViewById(R.id.location_back);
+
+        location_id.setText(mItems.get(position).text);
+        location_time.setText(mItems.get(position).time);
+
 
         if (position == 0){
             location_back.setOnClickListener(new View.OnClickListener() {

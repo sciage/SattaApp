@@ -18,7 +18,12 @@ package com.example.sattaapp.di.component;
 
 import com.example.sattaapp.di.PerActivity;
 import com.example.sattaapp.di.module.ActivityModule;
+import com.example.sattaapp.ui.History.HistoryActivity;
+import com.example.sattaapp.ui.Homepage.LocationPageActivity;
 import com.example.sattaapp.ui.Homepage.MainActivity;
+import com.example.sattaapp.ui.PlayMatka.PlayMatkaActivity;
+import com.example.sattaapp.ui.Result.ResultActivity;
+import com.example.sattaapp.ui.Withdraw.WithdrawActivity;
 
 import dagger.Component;
 
@@ -28,10 +33,14 @@ import dagger.Component;
 
 @PerActivity
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
-//@Component
 public interface ActivityComponent {
 
     void inject(MainActivity activity);
+    void inject(PlayMatkaActivity activity);
+    void inject(HistoryActivity activity);
+    void inject(LocationPageActivity activity);
+    void inject(ResultActivity activity);
+    void inject(WithdrawActivity activity);
 
 
 

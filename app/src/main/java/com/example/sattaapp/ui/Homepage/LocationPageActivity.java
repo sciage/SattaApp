@@ -8,11 +8,19 @@ import android.widget.GridView;
 
 import com.example.sattaapp.R;
 import com.example.sattaapp.ui.CreateGroupTagActivity;
+import com.example.sattaapp.ui.PlayMatka.PlayMatkaActivity;
 import com.example.sattaapp.ui.base.BaseActivity;
 
-public class LocationPageActivity extends BaseActivity {
+import javax.inject.Inject;
+
+import butterknife.ButterKnife;
+
+public class LocationPageActivity extends BaseActivity implements LocationPageMvpView {
     Button place_bid;
     LocationGridAdapter locationGridAdapter;
+
+    @Inject
+    LocationPageMvpPresenter<LocationPageMvpView> mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +31,13 @@ public class LocationPageActivity extends BaseActivity {
             Intent intent = new Intent(LocationPageActivity.this, LoginScreenActivity.class);
             startActivity(intent);
         }
-
        */
+
+        getActivityComponent().inject(this);
+
+        setUnBinder(ButterKnife.bind(this));
+
+        mPresenter.onAttach(LocationPageActivity.this);
 
         toolbar.setNavigationIcon(R.drawable.ic_clear_black_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -33,7 +46,7 @@ public class LocationPageActivity extends BaseActivity {
                 finish();
             }
         });
-        getSupportActionBar().setTitle("History");
+        getSupportActionBar().setTitle("Satta");
 
         GridView view = (GridView) findViewById(R.id.grid);
         Button place_bid = (Button) findViewById(R.id.place_bid);

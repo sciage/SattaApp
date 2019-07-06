@@ -20,6 +20,24 @@ import android.content.Context;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sattaapp.di.ActivityContext;
+import com.example.sattaapp.ui.History.HistoryActivityMvpPresenter;
+import com.example.sattaapp.ui.History.HistoryActivityMvpView;
+import com.example.sattaapp.ui.History.HistoryActivityPresenter;
+import com.example.sattaapp.ui.Homepage.LocationPageMvpPresenter;
+import com.example.sattaapp.ui.Homepage.LocationPageMvpView;
+import com.example.sattaapp.ui.Homepage.LocationPagePresenter;
+import com.example.sattaapp.ui.Homepage.MainActivityMvpPresenter;
+import com.example.sattaapp.ui.Homepage.MainActivityMvpView;
+import com.example.sattaapp.ui.Homepage.MainActivityPresenter;
+import com.example.sattaapp.ui.PlayMatka.PlayMatkaActivityMvpPresenter;
+import com.example.sattaapp.ui.PlayMatka.PlayMatkaActivityMvpView;
+import com.example.sattaapp.ui.PlayMatka.PlayMatkaActivityPresenter;
+import com.example.sattaapp.ui.Result.ResultActivityMvpPresenter;
+import com.example.sattaapp.ui.Result.ResultActivityMvpView;
+import com.example.sattaapp.ui.Result.ResultActivityPresenter;
+import com.example.sattaapp.ui.Withdraw.WithdrawMvpPresenter;
+import com.example.sattaapp.ui.Withdraw.WithdrawMvpView;
+import com.example.sattaapp.ui.Withdraw.WithdrawPresenter;
 import com.example.sattaapp.utils.rx.AppSchedulerProvider;
 import com.example.sattaapp.utils.rx.SchedulerProvider;
 
@@ -61,6 +79,42 @@ public class ActivityModule {
         return new AppSchedulerProvider();
     }
 
+
+    @Provides
+    HistoryActivityMvpPresenter<HistoryActivityMvpView> provideHistoryActivityMvpPresenter(
+            HistoryActivityPresenter<HistoryActivityMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    LocationPageMvpPresenter<LocationPageMvpView> provideLocationPageMvpPresenter(
+            LocationPagePresenter<LocationPageMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    MainActivityMvpPresenter<MainActivityMvpView> provideMainActivityMvpPresenter(
+            MainActivityPresenter<MainActivityMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    PlayMatkaActivityMvpPresenter<PlayMatkaActivityMvpView> providePlayMatkaMvpPresenter(
+            PlayMatkaActivityPresenter<PlayMatkaActivityMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    ResultActivityMvpPresenter<ResultActivityMvpView> provideResultMvpPresenter(
+            ResultActivityPresenter<ResultActivityMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    WithdrawMvpPresenter<WithdrawMvpView> provideWithdrawtMvpPresenter(
+            WithdrawPresenter<WithdrawMvpView> presenter) {
+        return presenter;
+    }
 
    /* @Provides
     ChatMvpPresenter<ChatMvpView> provideChatMvpPresenter(
