@@ -82,10 +82,13 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         TextWatcher textWatcher = new TextWatcher() {
             public void afterTextChanged(Editable s) {
-                calculateResult();
+
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){}
-            public void onTextChanged(CharSequence s, int start, int before, int count){}
+            public void onTextChanged(CharSequence s, int start, int before, int count){
+
+                calculateResult();
+            }
         };
 
         andar_00_edittext.addTextChangedListener(textWatcher);
@@ -103,52 +106,57 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
     // The function called to calculate and display the result of the multiplication
     private void calculateResult() throws NumberFormatException {
+
         // Gets the two EditText controls' Editable values
-        Editable editableValue1 = andar_01_edittext.getText(),
-                editableValue2 = andar_02_edittext.getText(),
-                editableValue3 = andar_03_edittext.getText(),
-                editableValue4 = andar_04_edittext.getText(),
-                editableValue5 = andar_05_edittext.getText(),
-                editableValue6 = andar_06_edittext.getText(),
-                editableValue7 = andar_07_edittext.getText(),
-                editableValue8 = andar_08_edittext.getText(),
-                editableValue9 = andar_09_edittext.getText();
+        String editableValue0 = andar_00_edittext.getText().toString(),
+                editableValue1 = andar_01_edittext.getText().toString(),
+                editableValue2 = andar_02_edittext.getText().toString(),
+                editableValue3 = andar_03_edittext.getText().toString(),
+                editableValue4 = andar_04_edittext.getText().toString(),
+                editableValue5 = andar_05_edittext.getText().toString(),
+                editableValue6 = andar_06_edittext.getText().toString(),
+                editableValue7 = andar_07_edittext.getText().toString(),
+                editableValue8 = andar_08_edittext.getText().toString(),
+                editableValue9 = andar_09_edittext.getText().toString();
 
         // Initializes the double values and result
-        int value1 = 0,
+        int value0 = 0, value1 = 0,
                 value2 = 0, value3 = 0, value4 = 0, value5 = 0,value6 = 0, value7 = 0,value8 = 0, value9 = 0,
                 result;
 
         // If the Editable values are not null, obtains their double values by parsing
-        if (editableValue1 != null)
+        if (!editableValue0.isEmpty())
+            value0 = Integer.parseInt(andar_00_edittext.getText().toString());
+
+        if (!editableValue1.isEmpty())
             value1 = Integer.parseInt(andar_01_edittext.getText().toString());
 
-        if (editableValue2 != null)
+        if (!editableValue2.isEmpty())
             value2 = Integer.parseInt(andar_02_edittext.getText().toString());
 
-        if (editableValue3 != null)
+        if (!editableValue3.isEmpty())
             value3 = Integer.parseInt(andar_03_edittext.getText().toString());
 
-        if (editableValue4 != null)
+        if (!editableValue4.isEmpty())
             value4 = Integer.parseInt(andar_04_edittext.getText().toString());
 
-        if (editableValue5 != null)
+        if (!editableValue5.isEmpty())
             value5 = Integer.parseInt(andar_05_edittext.getText().toString());
 
-        if (editableValue6 != null)
+        if (!editableValue6.isEmpty())
             value6 = Integer.parseInt(andar_06_edittext.getText().toString());
 
-        if (editableValue7 != null)
+        if (!editableValue7.isEmpty())
             value7 = Integer.parseInt(andar_07_edittext.getText().toString());
 
-        if (editableValue8 != null)
+        if (!editableValue8.isEmpty())
             value8 = Integer.parseInt(andar_08_edittext.getText().toString());
 
-        if (editableValue9 != null)
+        if (!editableValue9.isEmpty())
             value9 = Integer.parseInt(andar_09_edittext.getText().toString());
 
         // Calculates the result
-        result = value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9;
+        result = value0 + value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9;
 
         // Displays the calculated result
         satta_heading_01_total_value.setText(String.valueOf(result));
