@@ -98,6 +98,13 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     @BindView(R.id.satta_heading_03_bid_value) TextView satta_heading_03_bid_value;
     @BindView(R.id.satta_heading_04_total_value) TextView satta_heading_04_total_value;
 
+    @BindView(R.id.satta_net_total_value) TextView satta_net_total_value;
+
+    int totalAndar = 0;
+    int totalBahar = 0;
+    int totalComb = 0;
+    int totalSingle = 0;
+
 
 
 
@@ -372,8 +379,18 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         // Calculates the result
         result = value0 + value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9;
 
+
+        totalAndar = result;
+
+        int finalResult = totalAndar + totalBahar + totalComb + totalSingle;
+
+        satta_net_total_value.setText(String.valueOf(finalResult));
+
+
+
         // Displays the calculated result
         satta_heading_01_total_value.setText(String.valueOf(result));
+
     }
 
     private void calculateResult02() throws NumberFormatException {
@@ -430,6 +447,14 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         // Calculates the result
         result = value0 + value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9;
+
+        totalBahar = result;
+
+        int finalResult = totalAndar + totalBahar + totalComb + totalSingle;
+
+        satta_net_total_value.setText(String.valueOf(finalResult));
+
+
 
         // Displays the calculated result
         satta_heading_02_total_value.setText(String.valueOf(result));
@@ -496,9 +521,17 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         // Calculates the result
         result = (value0 + value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9) *
                 (value0 + value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9) * value10;
-
         // Displays the calculated result
         satta_heading_03_total_value.setText(String.valueOf(result));
+
+        totalComb = result;
+
+        int finalResult = totalAndar + totalBahar + totalComb + totalSingle;
+
+        satta_net_total_value.setText(String.valueOf(finalResult));
+
+
+
     }
 
     private void calculateResult04() throws NumberFormatException {
@@ -591,6 +624,14 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         // Displays the calculated result
         satta_heading_04_total_value.setText(String.valueOf(result));
+
+        totalSingle = result;
+
+        int finalResult = totalAndar + totalBahar + totalComb + totalSingle;
+
+        satta_net_total_value.setText(String.valueOf(finalResult));
+
+
     }
 
     private void clearEdittext(EditText editText){
