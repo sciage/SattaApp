@@ -56,12 +56,47 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     @BindView(R.id.comb_08_edittext) EditText comb_08_edittext;
     @BindView(R.id.comb_09_edittext) EditText comb_09_edittext;
 
+    @BindView(R.id.single_00_edittext) EditText single_00_edittext;
+    @BindView(R.id.single_01_edittext) EditText single_01_edittext;
+    @BindView(R.id.single_02_edittext) EditText single_02_edittext;
+    @BindView(R.id.single_03_edittext) EditText single_03_edittext;
+    @BindView(R.id.single_04_edittext) EditText single_04_edittext;
+    @BindView(R.id.single_05_edittext) EditText single_05_edittext;
+    @BindView(R.id.single_06_edittext) EditText single_06_edittext;
+    @BindView(R.id.single_07_edittext) EditText single_07_edittext;
+    @BindView(R.id.single_08_edittext) EditText single_08_edittext;
+    @BindView(R.id.single_09_edittext) EditText single_09_edittext;
+
+    @BindView(R.id.single_10_edittext) EditText single_10_edittext;
+    @BindView(R.id.single_11_edittext) EditText single_11_edittext;
+    @BindView(R.id.single_12_edittext) EditText single_12_edittext;
+    @BindView(R.id.single_13_edittext) EditText single_13_edittext;
+    @BindView(R.id.single_14_edittext) EditText single_14_edittext;
+    @BindView(R.id.single_15_edittext) EditText single_15_edittext;
+    @BindView(R.id.single_16_edittext) EditText single_16_edittext;
+    @BindView(R.id.single_17_edittext) EditText single_17_edittext;
+    @BindView(R.id.single_18_edittext) EditText single_18_edittext;
+    @BindView(R.id.single_19_edittext) EditText single_19_edittext;
+
+    @BindView(R.id.single_20_edittext) EditText single_20_edittext;
+    @BindView(R.id.single_21_edittext) EditText single_21_edittext;
+    @BindView(R.id.single_22_edittext) EditText single_22_edittext;
+    @BindView(R.id.single_23_edittext) EditText single_23_edittext;
+    @BindView(R.id.single_24_edittext) EditText single_24_edittext;
+    @BindView(R.id.single_25_edittext) EditText single_25_edittext;
+    @BindView(R.id.single_26_edittext) EditText single_26_edittext;
+    @BindView(R.id.single_27_edittext) EditText single_27_edittext;
+
+
+
+
 
 
     @BindView(R.id.satta_heading_01_total_value) TextView satta_heading_01_total_value;
     @BindView(R.id.satta_heading_02_total_value) TextView satta_heading_02_total_value;
     @BindView(R.id.satta_heading_03_total_value) TextView satta_heading_03_total_value;
     @BindView(R.id.satta_heading_03_bid_value) TextView satta_heading_03_bid_value;
+    @BindView(R.id.satta_heading_04_total_value) TextView satta_heading_04_total_value;
 
 
 
@@ -106,16 +141,50 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         setFilter(bahar_08_edittext);
         setFilter(bahar_09_edittext);
 
-        setFilter(comb_00_edittext);
-        setFilter(comb_01_edittext);
-        setFilter(comb_02_edittext);
-        setFilter(comb_03_edittext);
-        setFilter(comb_04_edittext);
-        setFilter(comb_05_edittext);
-        setFilter(comb_06_edittext);
-        setFilter(comb_07_edittext);
-        setFilter(comb_08_edittext);
-        setFilter(comb_09_edittext);
+        setFilter02(comb_00_edittext);
+        setFilter02(comb_01_edittext);
+        setFilter02(comb_02_edittext);
+        setFilter02(comb_03_edittext);
+        setFilter02(comb_04_edittext);
+        setFilter02(comb_05_edittext);
+        setFilter02(comb_06_edittext);
+        setFilter02(comb_07_edittext);
+        setFilter02(comb_08_edittext);
+        setFilter02(comb_09_edittext);
+
+        setFilter03(single_00_edittext);
+        setFilter(single_01_edittext);
+        setFilter03(single_02_edittext);
+        setFilter(single_03_edittext);
+        setFilter03(single_04_edittext);
+        setFilter(single_05_edittext);
+        setFilter03(single_06_edittext);
+        setFilter(single_07_edittext);
+        setFilter03(single_08_edittext);
+        setFilter(single_09_edittext);
+
+        setFilter03(single_10_edittext);
+        setFilter(single_11_edittext);
+        setFilter03(single_12_edittext);
+        setFilter(single_13_edittext);
+        setFilter03(single_14_edittext);
+        setFilter(single_15_edittext);
+        setFilter03(single_16_edittext);
+        setFilter(single_17_edittext);
+        setFilter03(single_18_edittext);
+        setFilter(single_19_edittext);
+
+        setFilter03(single_20_edittext);
+        setFilter(single_21_edittext);
+        setFilter03(single_22_edittext);
+        setFilter(single_23_edittext);
+        setFilter03(single_24_edittext);
+        setFilter(single_25_edittext);
+        setFilter03(single_26_edittext);
+        setFilter(single_27_edittext);
+
+
+
 
 
         TextWatcher textWatcher = new TextWatcher() {
@@ -148,6 +217,17 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
             public void onTextChanged(CharSequence s, int start, int before, int count){
 
                 calculateResult03();
+            }
+        };
+
+        TextWatcher textWatcher04 = new TextWatcher() {
+            public void afterTextChanged(Editable s) {
+
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+            public void onTextChanged(CharSequence s, int start, int before, int count){
+
+                calculateResult04();
             }
         };
 
@@ -186,6 +266,38 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         comb_09_edittext.addTextChangedListener(textWatcher03);
         satta_heading_03_bid_value.addTextChangedListener(textWatcher03);
 
+        single_00_edittext.addTextChangedListener(textWatcher04);
+        single_01_edittext.addTextChangedListener(textWatcher04);
+        single_02_edittext.addTextChangedListener(textWatcher04);
+        single_03_edittext.addTextChangedListener(textWatcher04);
+        single_04_edittext.addTextChangedListener(textWatcher04);
+        single_05_edittext.addTextChangedListener(textWatcher04);
+        single_06_edittext.addTextChangedListener(textWatcher04);
+        single_07_edittext.addTextChangedListener(textWatcher04);
+        single_08_edittext.addTextChangedListener(textWatcher04);
+        single_09_edittext.addTextChangedListener(textWatcher04);
+
+
+        single_10_edittext.addTextChangedListener(textWatcher04);
+        single_11_edittext.addTextChangedListener(textWatcher04);
+        single_12_edittext.addTextChangedListener(textWatcher04);
+        single_13_edittext.addTextChangedListener(textWatcher04);
+        single_14_edittext.addTextChangedListener(textWatcher04);
+        single_15_edittext.addTextChangedListener(textWatcher04);
+        single_16_edittext.addTextChangedListener(textWatcher04);
+        single_17_edittext.addTextChangedListener(textWatcher04);
+        single_18_edittext.addTextChangedListener(textWatcher04);
+        single_19_edittext.addTextChangedListener(textWatcher04);
+
+        single_20_edittext.addTextChangedListener(textWatcher04);
+        single_21_edittext.addTextChangedListener(textWatcher04);
+        single_22_edittext.addTextChangedListener(textWatcher04);
+        single_23_edittext.addTextChangedListener(textWatcher04);
+        single_24_edittext.addTextChangedListener(textWatcher04);
+        single_25_edittext.addTextChangedListener(textWatcher04);
+        single_26_edittext.addTextChangedListener(textWatcher04);
+        single_27_edittext.addTextChangedListener(textWatcher04);
+
 
 
 
@@ -195,6 +307,14 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
     private void setFilter(EditText editText){
         editText.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "9999")});
+    }
+
+    private void setFilter02(EditText editText){
+        editText.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "9")});
+    }
+
+    private void setFilter03(EditText editText){
+        editText.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "99")});
     }
 
 
@@ -379,6 +499,98 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         // Displays the calculated result
         satta_heading_03_total_value.setText(String.valueOf(result));
+    }
+
+    private void calculateResult04() throws NumberFormatException {
+
+        // Gets the two EditText controls' Editable values
+        String
+                editableValue1 = single_01_edittext.getText().toString(),
+
+                editableValue3 = single_03_edittext.getText().toString(),
+
+                editableValue5 = single_05_edittext.getText().toString(),
+
+                editableValue7 = single_07_edittext.getText().toString(),
+
+                editableValue9 = single_09_edittext.getText().toString(),
+
+                editableValue11 = single_11_edittext.getText().toString(),
+
+                editableValue13 = single_13_edittext.getText().toString(),
+
+                editableValue15 = single_15_edittext.getText().toString(),
+
+                editableValue17 = single_17_edittext.getText().toString(),
+
+                editableValue19 = single_19_edittext.getText().toString(),
+
+                editableValue21 = single_21_edittext.getText().toString(),
+
+                editableValue23 = single_23_edittext.getText().toString(),
+
+                editableValue25 = single_25_edittext.getText().toString(),
+
+                editableValue27 = single_27_edittext.getText().toString();
+
+
+
+        // Initializes the double values and result
+        int value1 = 0, value3 = 0, value5 = 0, value7 = 0, value9 = 0, value11 = 0, value13 = 0, value15 = 0,  value17 = 0,  value19 = 0,
+                  value21 = 0, value23 = 0, value25 = 0,  value27 = 0,
+                result;
+
+        // If the Editable values are not null, obtains their double values by parsing
+
+        if (!editableValue1.isEmpty())
+            value1 = Integer.parseInt(single_01_edittext.getText().toString());
+
+        if (!editableValue3.isEmpty())
+            value3 = Integer.parseInt(single_03_edittext.getText().toString());
+
+        if (!editableValue5.isEmpty())
+            value5 = Integer.parseInt(single_05_edittext.getText().toString());
+
+        if (!editableValue7.isEmpty())
+            value7 = Integer.parseInt(single_07_edittext.getText().toString());
+
+        if (!editableValue9.isEmpty())
+            value9 = Integer.parseInt(single_09_edittext.getText().toString());
+
+        if (!editableValue11.isEmpty())
+            value11 = Integer.parseInt(single_11_edittext.getText().toString());
+
+        if (!editableValue13.isEmpty())
+            value13 = Integer.parseInt(single_13_edittext.getText().toString());
+
+        if (!editableValue15.isEmpty())
+            value15 = Integer.parseInt(single_15_edittext.getText().toString());
+
+        if (!editableValue17.isEmpty())
+            value17 = Integer.parseInt(single_17_edittext.getText().toString());
+
+        if (!editableValue19.isEmpty())
+            value19 = Integer.parseInt(single_19_edittext.getText().toString());
+
+        if (!editableValue21.isEmpty())
+            value21 = Integer.parseInt(single_21_edittext.getText().toString());
+
+        if (!editableValue23.isEmpty())
+            value23 = Integer.parseInt(single_23_edittext.getText().toString());
+
+        if (!editableValue25.isEmpty())
+            value25 = Integer.parseInt(single_25_edittext.getText().toString());
+
+        if (!editableValue27.isEmpty())
+            value27 = Integer.parseInt(single_27_edittext.getText().toString());
+
+
+
+        // Calculates the result
+        result = value1 + value3 + value5 + value7 + value9 + value11 + value13 + value15 + value17 + value19 + value21 + value23 + value25 + value27;
+
+        // Displays the calculated result
+        satta_heading_04_total_value.setText(String.valueOf(result));
     }
 
     private void clearEdittext(EditText editText){
