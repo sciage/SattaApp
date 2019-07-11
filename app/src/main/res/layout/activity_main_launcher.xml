@@ -17,7 +17,8 @@
     <include
         layout="@layout/include_toolbar" />
 
-    <include layout="@layout/top_balance_layout" />
+    <include
+        layout="@layout/top_balance_layout" />
 
     <GridView
         android:id="@+id/gridmain"
@@ -37,17 +38,8 @@
         android:verticalSpacing="4dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/balance_amount_value" />
+        app:layout_constraintTop_toBottomOf="@+id/moderator" />
 
-
-    <Button
-        android:id="@+id/place_bid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BID"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gridmain" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

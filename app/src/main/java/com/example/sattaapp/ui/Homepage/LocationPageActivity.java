@@ -49,15 +49,7 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
         getSupportActionBar().setTitle("Satta");
 
         GridView view = (GridView) findViewById(R.id.grid);
-        Button place_bid = (Button) findViewById(R.id.place_bid);
 
-        place_bid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LocationPageActivity.this, CreateGroupTagActivity.class);
-                startActivity(intent);
-            }
-        });
 
         locationGridAdapter = new LocationGridAdapter(getBaseContext());
         view.setAdapter(locationGridAdapter);

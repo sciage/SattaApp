@@ -36,7 +36,6 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView{
 
 
         GridView view = (GridView) findViewById(R.id.gridmain);
-        Button place_bid = (Button) findViewById(R.id.place_bid);
 
 
         getSupportActionBar().setTitle("Satta Home Page");
