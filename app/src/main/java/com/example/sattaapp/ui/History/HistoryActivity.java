@@ -2,19 +2,29 @@ package com.example.sattaapp.ui.History;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sattaapp.R;
 import com.example.sattaapp.ui.PlayMatka.PlayMatkaActivity;
 import com.example.sattaapp.ui.base.BaseActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 
-public class HistoryActivity extends BaseActivity implements HistoryActivityMvpView {
-
+public class HistoryActivity extends BaseActivity implements HistoryActivityMvpView ,MyRecyclerViewAdapter.ItemClickListener
+{
     @Inject
     HistoryActivityMvpPresenter<HistoryActivityMvpView> mPresenter;
+
+    MyRecyclerViewAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +45,26 @@ public class HistoryActivity extends BaseActivity implements HistoryActivityMvpV
             }
         });
         getSupportActionBar().setTitle("History");
+
+        // data to populate the RecyclerView with
+        List<HistoryPojo> animalNames = new ArrayList<>();
+        animalNames.add(new HistoryPojo("Faridabad", "Andar", "17-07-2019", "1,2,3,4,5", "1000"));
+        animalNames.add(new HistoryPojo("Faridabad", "Andar", "17-07-2019", "1,2,3,4,5", "1000"));
+        animalNames.add(new HistoryPojo("Faridabad", "Andar", "17-07-2019", "1,2,3,4,5", "1000"));
+        animalNames.add(new HistoryPojo("Faridabad", "Andar", "17-07-2019", "1,2,3,4,5", "1000"));
+
+        // set up the RecyclerView
+        RecyclerView recyclerView = findViewById(R.id.history_recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new MyRecyclerViewAdapter(this, animalNames);
+        adapter.setClickListener(this);
+        recyclerView.setAdapter(adapter);
+
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+       // Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
     }
 
     @Override

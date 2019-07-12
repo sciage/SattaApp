@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.sattaapp.R;
 import com.example.sattaapp.ui.base.BaseActivity;
@@ -17,6 +18,15 @@ public class PastResultActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_past_result);
+
+        toolbar.setNavigationIcon(R.drawable.ic_clear_black_24dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        getSupportActionBar().setTitle("Past Results");
 
         RecyclerView recyclerView = findViewById(R.id.recyclerViewDeliveryProductList);
 
