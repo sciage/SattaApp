@@ -745,14 +745,14 @@
             app:layout_constraintTop_toBottomOf="@+id/below_bahar" />
 
 
-        <EditText
+        <TextView
             android:id="@+id/comb_00_edittext"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/rectangle"
             android:gravity="center"
-            android:inputType="number"
+            android:text="0"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintRight_toLeftOf="@+id/comb_01_edittext"
@@ -760,14 +760,14 @@
             app:layout_constraintTop_toBottomOf="@+id/satta_heading_03" />
 
 
-        <EditText
+        <TextView
             android:id="@+id/comb_01_edittext"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/rectangle"
             android:gravity="center"
-            android:inputType="number"
+            android:text="1"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintLeft_toRightOf="@+id/comb_00_edittext"
@@ -775,12 +775,12 @@
             app:layout_constraintTop_toBottomOf="@+id/satta_heading_03" />
 
 
-        <EditText
+        <TextView
             android:id="@+id/comb_02_edittext"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
-            android:inputType="number"
+            android:text="2"
             android:textColor="@color/black"
             android:gravity="center"
             android:textSize="18sp"
@@ -789,13 +789,13 @@
             android:background="@drawable/rectangle"
             app:layout_constraintTop_toBottomOf="@+id/satta_heading_03" />
 
-        <EditText
+        <TextView
             android:id="@+id/comb_03_edittext"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
             android:gravity="center"
-            android:inputType="number"
+            android:text="3"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintLeft_toRightOf="@+id/comb_02_edittext"
@@ -803,12 +803,12 @@
             android:background="@drawable/rectangle"
             app:layout_constraintTop_toBottomOf="@+id/satta_heading_03" />
 
-        <EditText
+        <TextView
             android:id="@+id/comb_04_edittext"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
-            android:inputType="number"
+            android:text="4"
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -818,14 +818,14 @@
             app:layout_constraintTop_toBottomOf="@+id/satta_heading_03" />
 
 
-        <EditText
+        <TextView
             android:id="@+id/comb_05_edittext"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/rectangle"
             android:gravity="center"
-            android:inputType="number"
+            android:text="5"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintRight_toLeftOf="@+id/comb_06_edittext"
@@ -833,13 +833,13 @@
             app:layout_constraintTop_toBottomOf="@+id/comb_04_edittext" />
 
 
-        <EditText
+        <TextView
             android:id="@+id/comb_06_edittext"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/rectangle"
-            android:inputType="number"
+            android:text="6"
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -848,12 +848,12 @@
             app:layout_constraintTop_toBottomOf="@+id/comb_04_edittext" />
 
 
-        <EditText
+        <TextView
             android:id="@+id/comb_07_edittext"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
-            android:inputType="number"
+            android:text="7"
             android:textColor="@color/black"
             android:gravity="center"
             android:textSize="18sp"
@@ -862,13 +862,13 @@
             android:background="@drawable/rectangle"
             app:layout_constraintTop_toBottomOf="@+id/comb_04_edittext" />
 
-        <EditText
+        <TextView
             android:id="@+id/comb_08_edittext"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
             android:gravity="center"
-            android:inputType="number"
+            android:text="8"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintLeft_toRightOf="@+id/comb_07_edittext"
@@ -876,13 +876,13 @@
             android:background="@drawable/rectangle"
             app:layout_constraintTop_toBottomOf="@+id/comb_04_edittext" />
 
-        <EditText
+        <TextView
             android:id="@+id/comb_09_edittext"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
             android:gravity="center"
-            android:inputType="number"
+            android:text="9"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintLeft_toRightOf="@+id/comb_08_edittext"

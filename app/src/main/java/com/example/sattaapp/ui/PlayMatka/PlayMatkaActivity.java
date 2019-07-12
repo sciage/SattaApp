@@ -12,16 +12,38 @@ import android.widget.TextView;
 import com.example.sattaapp.R;
 import com.example.sattaapp.ui.base.BaseActivity;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivityMvpView {
+public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivityMvpView, View.OnClickListener {
 
 
     @Inject
     PlayMatkaActivityMvpPresenter<PlayMatkaActivityMvpView> mPresenter;
+
+    @BindView(R.id.andar_00_view) TextView andar_00_view;
+
+    boolean boolean_comb_00_edittext;
+    boolean boolean_comb_01_edittext;
+    boolean boolean_comb_02_edittext;
+    boolean boolean_comb_03_edittext;
+    boolean boolean_comb_04_edittext;
+    boolean boolean_comb_05_edittext;
+    boolean boolean_comb_06_edittext;
+    boolean boolean_comb_07_edittext;
+    boolean boolean_comb_08_edittext;
+    boolean boolean_comb_09_edittext;
+
+    private List<String> joinComb;
+
+
 
     @BindView(R.id.andar_00_edittext) EditText andar_00_edittext;
     @BindView(R.id.andar_01_edittext) EditText andar_01_edittext;
@@ -45,16 +67,16 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     @BindView(R.id.bahar_08_edittext) EditText bahar_08_edittext;
     @BindView(R.id.bahar_09_edittext) EditText bahar_09_edittext;
 
-    @BindView(R.id.comb_00_edittext) EditText comb_00_edittext;
-    @BindView(R.id.comb_01_edittext) EditText comb_01_edittext;
-    @BindView(R.id.comb_02_edittext) EditText comb_02_edittext;
-    @BindView(R.id.comb_03_edittext) EditText comb_03_edittext;
-    @BindView(R.id.comb_04_edittext) EditText comb_04_edittext;
-    @BindView(R.id.comb_05_edittext) EditText comb_05_edittext;
-    @BindView(R.id.comb_06_edittext) EditText comb_06_edittext;
-    @BindView(R.id.comb_07_edittext) EditText comb_07_edittext;
-    @BindView(R.id.comb_08_edittext) EditText comb_08_edittext;
-    @BindView(R.id.comb_09_edittext) EditText comb_09_edittext;
+    @BindView(R.id.comb_00_edittext) TextView comb_00_edittext;
+    @BindView(R.id.comb_01_edittext) TextView comb_01_edittext;
+    @BindView(R.id.comb_02_edittext) TextView comb_02_edittext;
+    @BindView(R.id.comb_03_edittext) TextView comb_03_edittext;
+    @BindView(R.id.comb_04_edittext) TextView comb_04_edittext;
+    @BindView(R.id.comb_05_edittext) TextView comb_05_edittext;
+    @BindView(R.id.comb_06_edittext) TextView comb_06_edittext;
+    @BindView(R.id.comb_07_edittext) TextView comb_07_edittext;
+    @BindView(R.id.comb_08_edittext) TextView comb_08_edittext;
+    @BindView(R.id.comb_09_edittext) TextView comb_09_edittext;
 
     @BindView(R.id.single_00_edittext) EditText single_00_edittext;
     @BindView(R.id.single_01_edittext) EditText single_01_edittext;
@@ -118,6 +140,15 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         setContentView(R.layout.activity_play_matka);
 
+        toolbar.setNavigationIcon(R.drawable.ic_clear_black_24dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        getSupportActionBar().setTitle("Play Satta Matka");
+
 
         getActivityComponent().inject(this);
 
@@ -125,6 +156,8 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         mPresenter.onAttach(PlayMatkaActivity.this);
 
+
+        joinComb = new ArrayList<>();
 
         setFilter(andar_00_edittext);
         setFilter(andar_01_edittext);
@@ -148,7 +181,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         setFilter(bahar_08_edittext);
         setFilter(bahar_09_edittext);
 
-        setFilter02(comb_00_edittext);
+   /*     setFilter02(comb_00_edittext);
         setFilter02(comb_01_edittext);
         setFilter02(comb_02_edittext);
         setFilter02(comb_03_edittext);
@@ -157,7 +190,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         setFilter02(comb_06_edittext);
         setFilter02(comb_07_edittext);
         setFilter02(comb_08_edittext);
-        setFilter02(comb_09_edittext);
+        setFilter02(comb_09_edittext); */
 
         setFilter03(single_00_edittext);
         setFilter(single_01_edittext);
@@ -192,7 +225,16 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
 
 
-
+        comb_00_edittext.setOnClickListener(this);
+        comb_01_edittext.setOnClickListener(this);
+        comb_02_edittext.setOnClickListener(this);
+        comb_03_edittext.setOnClickListener(this);
+        comb_04_edittext.setOnClickListener(this);
+        comb_05_edittext.setOnClickListener(this);
+        comb_06_edittext.setOnClickListener(this);
+        comb_07_edittext.setOnClickListener(this);
+        comb_08_edittext.setOnClickListener(this);
+        comb_09_edittext.setOnClickListener(this);
 
         TextWatcher textWatcher = new TextWatcher() {
             public void afterTextChanged(Editable s) {
@@ -316,9 +358,9 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         editText.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "9999")});
     }
 
-    private void setFilter02(EditText editText){
+  /*  private void setFilter02(TextView editText){
         editText.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "9")});
-    }
+    } */
 
     private void setFilter03(EditText editText){
         editText.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "99")});
@@ -463,7 +505,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     private void calculateResult03() throws NumberFormatException {
 
         // Gets the two EditText controls' Editable values
-        String editableValue0 = comb_00_edittext.getText().toString(),
+       /* String editableValue0 = comb_00_edittext.getText().toString(),
                 editableValue1 = comb_01_edittext.getText().toString(),
                 editableValue2 = comb_02_edittext.getText().toString(),
                 editableValue3 = comb_03_edittext.getText().toString(),
@@ -514,17 +556,23 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         if (!editableValue9.isEmpty())
             value9 = 1;
 
-        if (!editableValueBid.isEmpty())
+*/
+        int value10 = 0, result, arraySize;
+
+        if (!satta_heading_03_bid_value.getText().toString().isEmpty())
         value10 = Integer.parseInt(satta_heading_03_bid_value.getText().toString());
 
+        arraySize = joinComb.size() * joinComb.size() * value10;
 
         // Calculates the result
-        result = (value0 + value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9) *
-                (value0 + value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9) * value10;
-        // Displays the calculated result
-        satta_heading_03_total_value.setText(String.valueOf(result));
+      /*  result = (value0 + value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9) *
+                (value0 + value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9) * value10; */
 
-        totalComb = result;
+
+        // Displays the calculated result
+        satta_heading_03_total_value.setText(String.valueOf(arraySize));
+
+        totalComb = arraySize;
 
         int finalResult = totalAndar + totalBahar + totalComb + totalSingle;
 
@@ -651,5 +699,200 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     @Override
     protected void setUp() {
 
+    }
+
+    private void addGroupTag(String selectedGroup){
+        joinComb.add(selectedGroup);
+    }
+
+    private void removeGroupTag(String selectedGroup){
+        joinComb.remove(selectedGroup);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.comb_00_edittext:
+
+                if (boolean_comb_00_edittext) {
+                    removeGroupTag("0");
+                    boolean_comb_00_edittext = false;
+                    comb_00_edittext.setTextColor(getResources().getColor(R.color.black));
+                    comb_00_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
+                    calculateResult03();
+                } else {
+                    boolean_comb_00_edittext = true;
+                    //setGroupId
+                    addGroupTag("0");
+                    comb_00_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
+                    comb_00_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
+
+                    calculateResult03();
+                }
+                break;
+
+            case R.id.comb_01_edittext:
+
+                if (boolean_comb_01_edittext) {
+                    removeGroupTag("1");
+                    boolean_comb_01_edittext = false;
+                    comb_01_edittext.setTextColor(getResources().getColor(R.color.black));
+                    comb_01_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
+                    calculateResult03();
+                } else {
+                    boolean_comb_01_edittext = true;
+                    //setGroupId
+                    addGroupTag("1");
+                    comb_01_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
+                    comb_01_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
+                    calculateResult03();
+
+                }
+                break;
+            case R.id.comb_02_edittext:
+
+                if (boolean_comb_02_edittext) {
+                    removeGroupTag("2");
+                    boolean_comb_02_edittext = false;
+                    comb_02_edittext.setTextColor(getResources().getColor(R.color.black));
+                    comb_02_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
+                    calculateResult03();
+                } else {
+                    boolean_comb_02_edittext = true;
+                    //setGroupId
+                    addGroupTag("2");
+                    comb_02_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
+                    comb_02_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
+                    calculateResult03();
+
+                }
+                break;
+            case R.id.comb_03_edittext:
+
+                if (boolean_comb_03_edittext) {
+                    removeGroupTag("3");
+                    boolean_comb_03_edittext = false;
+                    comb_03_edittext.setTextColor(getResources().getColor(R.color.black));
+                    comb_03_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
+                    calculateResult03();
+                } else {
+                    boolean_comb_03_edittext = true;
+                    //setGroupId
+                    addGroupTag("3");
+                    comb_03_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
+                    comb_03_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
+                    calculateResult03();
+
+                }
+                break;
+            case R.id.comb_04_edittext:
+
+                if (boolean_comb_04_edittext) {
+                    removeGroupTag("4");
+                    boolean_comb_04_edittext = false;
+                    comb_04_edittext.setTextColor(getResources().getColor(R.color.black));
+                    comb_04_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
+                    calculateResult03();
+                } else {
+                    boolean_comb_04_edittext = true;
+                    //setGroupId
+                    addGroupTag("4");
+                    comb_04_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
+                    comb_04_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
+                    calculateResult03();
+
+                }
+                break;
+            case R.id.comb_05_edittext:
+
+                if (boolean_comb_05_edittext) {
+                    removeGroupTag("5");
+                    boolean_comb_05_edittext = false;
+                    comb_05_edittext.setTextColor(getResources().getColor(R.color.black));
+                    comb_05_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
+                    calculateResult03();
+                } else {
+                    boolean_comb_05_edittext = true;
+                    //setGroupId
+                    addGroupTag("5");
+                    comb_05_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
+                    comb_05_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
+                    calculateResult03();
+
+                }
+                break;
+            case R.id.comb_06_edittext:
+
+                if (boolean_comb_06_edittext) {
+                    removeGroupTag("6");
+                    boolean_comb_06_edittext = false;
+                    comb_06_edittext.setTextColor(getResources().getColor(R.color.black));
+                    comb_06_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
+                    calculateResult03();
+                } else {
+                    boolean_comb_06_edittext = true;
+                    //setGroupId
+                    addGroupTag("6");
+                    comb_06_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
+                    comb_06_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
+
+                    calculateResult03();
+                }
+                break;
+            case R.id.comb_07_edittext:
+
+                if (boolean_comb_07_edittext) {
+                    removeGroupTag("7");
+                    boolean_comb_07_edittext = false;
+                    comb_07_edittext.setTextColor(getResources().getColor(R.color.black));
+                    comb_07_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
+                    calculateResult03();
+                } else {
+                    boolean_comb_07_edittext = true;
+                    //setGroupId
+                    addGroupTag("7");
+                    comb_07_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
+                    comb_07_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
+                    calculateResult03();
+
+                }
+                break;
+            case R.id.comb_08_edittext:
+
+                if (boolean_comb_08_edittext) {
+                    removeGroupTag("8");
+                    boolean_comb_08_edittext = false;
+                    comb_08_edittext.setTextColor(getResources().getColor(R.color.black));
+                    comb_08_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
+                    calculateResult03();
+                } else {
+                    boolean_comb_08_edittext = true;
+                    //setGroupId
+                    addGroupTag("8");
+                    comb_08_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
+                    comb_08_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
+                    calculateResult03();
+
+                }
+                break;
+            case R.id.comb_09_edittext:
+
+                if (boolean_comb_09_edittext) {
+                    removeGroupTag("9");
+                    boolean_comb_09_edittext = false;
+                    comb_09_edittext.setTextColor(getResources().getColor(R.color.black));
+                    comb_09_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
+                    calculateResult03();
+                } else {
+                    boolean_comb_09_edittext = true;
+                    //setGroupId
+                    addGroupTag("9");
+                    comb_09_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
+                    comb_09_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
+                    calculateResult03();
+
+                }
+                break;
+        }
     }
 }

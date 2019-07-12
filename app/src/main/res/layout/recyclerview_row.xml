@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:id="@+id/card_view"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="10dp"
+    android:padding="20dp"
+    card_view:cardElevation="5dp"
+    card_view:cardUseCompatPadding="true"
+    >
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="10dp">
+    >
 
     <TextView
         android:id="@+id/bid_location"
@@ -11,6 +22,8 @@
         android:layout_height="wrap_content"
         android:text="Faridabad"
         android:textSize="18sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -20,7 +33,7 @@
         android:layout_height="wrap_content"
         android:text="Andar"
         android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/bid_location"
         app:layout_constraintTop_toBottomOf="@+id/bid_location"/>
 
     <TextView
@@ -29,7 +42,7 @@
         android:layout_height="wrap_content"
         android:text="21 July 2019"
         android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/bid_location"
         app:layout_constraintTop_toBottomOf="@+id/bid_type"/>
 
     <TextView
@@ -38,7 +51,8 @@
         android:layout_height="wrap_content"
         android:text="Bid Numbers - 1,2,3,4,5"
         android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:paddingBottom="10dp"
+        app:layout_constraintLeft_toLeftOf="@+id/bid_location"
         app:layout_constraintTop_toBottomOf="@+id/bid_time"/>
 
     <TextView
@@ -54,3 +68,5 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
