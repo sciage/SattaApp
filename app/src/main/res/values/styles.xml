@@ -10,4 +10,29 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="MyButton">
+
+        <item name="android:layout_marginTop">@dimen/layout_marginTop</item>
+        <item name="android:inputType">number</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/textSize</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/rectangle</item>
+    </style>
+
+    <style name="MyButtonSingle">
+
+        <item name="android:layout_marginTop">@dimen/layout_marginTopSingle</item>
+        <item name="android:inputType">number</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/textSize</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/rectangle_without_round</item>
+    </style>
+
+    <dimen name="button_min_width">50dp</dimen>
+    <dimen name="button_min_height">40dp</dimen>
+    <dimen name="layout_marginTop">5dp</dimen>
+    <dimen name="layout_marginTopSingle">15dp</dimen>
+    <dimen name="textSize">18sp</dimen>
 </resources>

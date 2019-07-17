@@ -138,7 +138,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_play_matka);
+        setContentView(R.layout.activity_play_matka_testing);
 
         toolbar.setNavigationIcon(R.drawable.ic_clear_black_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {

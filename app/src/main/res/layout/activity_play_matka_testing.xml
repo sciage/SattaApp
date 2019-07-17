@@ -821,56 +821,56 @@
             app:layout_constraintTop_toBottomOf="@+id/below_com" />
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/value01"
-            app:layout_constraintTop_toBottomOf="@+id/satta_heading_04"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:orientation="horizontal" >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/value01"
+    app:layout_constraintTop_toBottomOf="@+id/satta_heading_04"
+    app:layout_constraintLeft_toLeftOf="parent"
+    android:orientation="horizontal" >
 
 
-            <EditText
-                android:id="@+id/single_00_edittext"
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                style="@style/MyButtonSingle"
-                android:layout_marginLeft="30dp"
-                android:hint="@string/bid_no"
-                app:layout_constraintRight_toLeftOf="@+id/single_01_edittext"
-                app:layout_constraintLeft_toLeftOf="@+id/comb_00_edittext"
-                app:layout_constraintTop_toBottomOf="@+id/satta_heading_04" />
+    <EditText
+        android:id="@+id/single_00_edittext"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        style="@style/MyButtonSingle"
+        android:layout_marginLeft="30dp"
+        android:hint="@string/bid_no"
+        app:layout_constraintRight_toLeftOf="@+id/single_01_edittext"
+        app:layout_constraintLeft_toLeftOf="@+id/comb_00_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/satta_heading_04" />
 
-            <EditText
-                android:id="@+id/single_01_edittext"
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                style="@style/MyButtonSingle"
-                android:hint="@string/bid_amount"
-                app:layout_constraintLeft_toRightOf="@+id/single_00_edittext"
-                app:layout_constraintTop_toBottomOf="@+id/satta_heading_04" />
+    <EditText
+        android:id="@+id/single_01_edittext"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        style="@style/MyButtonSingle"
+        android:hint="@string/bid_amount"
+        app:layout_constraintLeft_toRightOf="@+id/single_00_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/satta_heading_04" />
 
-            <EditText
-                android:id="@+id/single_02_edittext"
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="40dp"
-                style="@style/MyButtonSingle"
-                android:hint="@string/bid_no"
-                app:layout_constraintRight_toLeftOf="@+id/single_03_edittext"
-                app:layout_constraintLeft_toRightOf="@+id/single_01_edittext"
-                app:layout_constraintTop_toBottomOf="@+id/satta_heading_04" />
+    <EditText
+        android:id="@+id/single_02_edittext"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="40dp"
+        style="@style/MyButtonSingle"
+        android:hint="@string/bid_no"
+        app:layout_constraintRight_toLeftOf="@+id/single_03_edittext"
+        app:layout_constraintLeft_toRightOf="@+id/single_01_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/satta_heading_04" />
 
-            <EditText
-                android:id="@+id/single_03_edittext"
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                android:hint="@string/bid_amount"
-                style="@style/MyButtonSingle"
-                app:layout_constraintLeft_toRightOf="@+id/single_02_edittext"
-                app:layout_constraintTop_toBottomOf="@+id/satta_heading_04" />
+    <EditText
+        android:id="@+id/single_03_edittext"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:hint="@string/bid_amount"
+        style="@style/MyButtonSingle"
+        app:layout_constraintLeft_toRightOf="@+id/single_02_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/satta_heading_04" />
 
-        </LinearLayout>
+</LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -1884,16 +1884,16 @@
 
 
         <TextView
-            android:id="@+id/satta_heading_04_total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Total Single"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/satta_heading_04_total_value"
-            app:layout_constraintTop_toBottomOf="@+id/value20" />
+        android:id="@+id/satta_heading_04_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Total Single"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/satta_heading_04_total_value"
+        app:layout_constraintTop_toBottomOf="@+id/value20" />
 
         <TextView
             android:id="@+id/satta_heading_04_total_value"
