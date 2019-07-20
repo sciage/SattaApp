@@ -108,6 +108,65 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     @BindView(R.id.single_25_edittext) EditText single_25_edittext;
     @BindView(R.id.single_26_edittext) EditText single_26_edittext;
     @BindView(R.id.single_27_edittext) EditText single_27_edittext;
+    @BindView(R.id.single_28_edittext) EditText single_28_edittext;
+    @BindView(R.id.single_29_edittext) EditText single_29_edittext;
+
+    @BindView(R.id.single_30_edittext) EditText single_30_edittext;
+    @BindView(R.id.single_31_edittext) EditText single_31_edittext;
+    @BindView(R.id.single_32_edittext) EditText single_32_edittext;
+    @BindView(R.id.single_33_edittext) EditText single_33_edittext;
+    @BindView(R.id.single_34_edittext) EditText single_34_edittext;
+    @BindView(R.id.single_35_edittext) EditText single_35_edittext;
+    @BindView(R.id.single_36_edittext) EditText single_36_edittext;
+    @BindView(R.id.single_37_edittext) EditText single_37_edittext;
+    @BindView(R.id.single_38_edittext) EditText single_38_edittext;
+    @BindView(R.id.single_39_edittext) EditText single_39_edittext;
+
+
+    @BindView(R.id.single_40_edittext) EditText single_40_edittext;
+    @BindView(R.id.single_41_edittext) EditText single_41_edittext;
+    @BindView(R.id.single_42_edittext) EditText single_42_edittext;
+    @BindView(R.id.single_43_edittext) EditText single_43_edittext;
+    @BindView(R.id.single_44_edittext) EditText single_44_edittext;
+    @BindView(R.id.single_45_edittext) EditText single_45_edittext;
+    @BindView(R.id.single_46_edittext) EditText single_46_edittext;
+    @BindView(R.id.single_47_edittext) EditText single_47_edittext;
+    @BindView(R.id.single_48_edittext) EditText single_48_edittext;
+    @BindView(R.id.single_49_edittext) EditText single_49_edittext;
+
+    @BindView(R.id.single_50_edittext) EditText single_50_edittext;
+    @BindView(R.id.single_51_edittext) EditText single_51_edittext;
+    @BindView(R.id.single_52_edittext) EditText single_52_edittext;
+    @BindView(R.id.single_53_edittext) EditText single_53_edittext;
+    @BindView(R.id.single_54_edittext) EditText single_54_edittext;
+    @BindView(R.id.single_55_edittext) EditText single_55_edittext;
+    @BindView(R.id.single_56_edittext) EditText single_56_edittext;
+    @BindView(R.id.single_57_edittext) EditText single_57_edittext;
+    @BindView(R.id.single_58_edittext) EditText single_58_edittext;
+    @BindView(R.id.single_59_edittext) EditText single_59_edittext;
+
+
+    @BindView(R.id.single_60_edittext) EditText single_60_edittext;
+    @BindView(R.id.single_61_edittext) EditText single_61_edittext;
+    @BindView(R.id.single_62_edittext) EditText single_62_edittext;
+    @BindView(R.id.single_63_edittext) EditText single_63_edittext;
+    @BindView(R.id.single_64_edittext) EditText single_64_edittext;
+    @BindView(R.id.single_65_edittext) EditText single_65_edittext;
+    @BindView(R.id.single_66_edittext) EditText single_66_edittext;
+    @BindView(R.id.single_67_edittext) EditText single_67_edittext;
+    @BindView(R.id.single_68_edittext) EditText single_68_edittext;
+    @BindView(R.id.single_69_edittext) EditText single_69_edittext;
+
+    @BindView(R.id.single_70_edittext) EditText single_70_edittext;
+    @BindView(R.id.single_71_edittext) EditText single_71_edittext;
+    @BindView(R.id.single_72_edittext) EditText single_72_edittext;
+    @BindView(R.id.single_73_edittext) EditText single_73_edittext;
+    @BindView(R.id.single_74_edittext) EditText single_74_edittext;
+    @BindView(R.id.single_75_edittext) EditText single_75_edittext;
+    @BindView(R.id.single_76_edittext) EditText single_76_edittext;
+    @BindView(R.id.single_77_edittext) EditText single_77_edittext;
+    @BindView(R.id.single_78_edittext) EditText single_78_edittext;
+    @BindView(R.id.single_79_edittext) EditText single_79_edittext;
 
 
 
@@ -222,6 +281,63 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         setFilter(single_25_edittext);
         setFilter03(single_26_edittext);
         setFilter(single_27_edittext);
+        setFilter03(single_28_edittext);
+        setFilter(single_29_edittext);
+
+        setFilter03(single_30_edittext);
+        setFilter(single_31_edittext);
+        setFilter03(single_32_edittext);
+        setFilter(single_33_edittext);
+        setFilter03(single_34_edittext);
+        setFilter(single_35_edittext);
+        setFilter03(single_36_edittext);
+        setFilter(single_37_edittext);
+        setFilter03(single_38_edittext);
+        setFilter(single_39_edittext);
+
+        setFilter03(single_40_edittext);
+        setFilter(single_41_edittext);
+        setFilter03(single_42_edittext);
+        setFilter(single_43_edittext);
+        setFilter03(single_44_edittext);
+        setFilter(single_45_edittext);
+        setFilter03(single_46_edittext);
+        setFilter(single_47_edittext);
+        setFilter03(single_48_edittext);
+        setFilter(single_49_edittext);
+
+        setFilter03(single_50_edittext);
+        setFilter(single_51_edittext);
+        setFilter03(single_52_edittext);
+        setFilter(single_53_edittext);
+        setFilter03(single_54_edittext);
+        setFilter(single_55_edittext);
+        setFilter03(single_56_edittext);
+        setFilter(single_57_edittext);
+        setFilter03(single_58_edittext);
+        setFilter(single_59_edittext);
+
+        setFilter03(single_60_edittext);
+        setFilter(single_61_edittext);
+        setFilter03(single_62_edittext);
+        setFilter(single_63_edittext);
+        setFilter03(single_64_edittext);
+        setFilter(single_65_edittext);
+        setFilter03(single_66_edittext);
+        setFilter(single_67_edittext);
+        setFilter03(single_68_edittext);
+        setFilter(single_69_edittext);
+        setFilter03(single_70_edittext);
+        setFilter(single_71_edittext);
+        setFilter03(single_72_edittext);
+        setFilter(single_73_edittext);
+        setFilter03(single_74_edittext);
+        setFilter(single_75_edittext);
+        setFilter03(single_76_edittext);
+        setFilter(single_77_edittext);
+        setFilter03(single_78_edittext);
+        setFilter(single_79_edittext);
+
 
 
 
@@ -346,10 +462,63 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         single_25_edittext.addTextChangedListener(textWatcher04);
         single_26_edittext.addTextChangedListener(textWatcher04);
         single_27_edittext.addTextChangedListener(textWatcher04);
+        single_28_edittext.addTextChangedListener(textWatcher04);
+        single_29_edittext.addTextChangedListener(textWatcher04);
 
+        single_30_edittext.addTextChangedListener(textWatcher04);
+        single_31_edittext.addTextChangedListener(textWatcher04);
+        single_32_edittext.addTextChangedListener(textWatcher04);
+        single_33_edittext.addTextChangedListener(textWatcher04);
+        single_34_edittext.addTextChangedListener(textWatcher04);
+        single_35_edittext.addTextChangedListener(textWatcher04);
+        single_36_edittext.addTextChangedListener(textWatcher04);
+        single_37_edittext.addTextChangedListener(textWatcher04);
+        single_38_edittext.addTextChangedListener(textWatcher04);
+        single_39_edittext.addTextChangedListener(textWatcher04);
 
+        single_40_edittext.addTextChangedListener(textWatcher04);
+        single_41_edittext.addTextChangedListener(textWatcher04);
+        single_42_edittext.addTextChangedListener(textWatcher04);
+        single_43_edittext.addTextChangedListener(textWatcher04);
+        single_44_edittext.addTextChangedListener(textWatcher04);
+        single_45_edittext.addTextChangedListener(textWatcher04);
+        single_46_edittext.addTextChangedListener(textWatcher04);
+        single_47_edittext.addTextChangedListener(textWatcher04);
+        single_48_edittext.addTextChangedListener(textWatcher04);
+        single_49_edittext.addTextChangedListener(textWatcher04);
 
+        single_50_edittext.addTextChangedListener(textWatcher04);
+        single_51_edittext.addTextChangedListener(textWatcher04);
+        single_52_edittext.addTextChangedListener(textWatcher04);
+        single_53_edittext.addTextChangedListener(textWatcher04);
+        single_54_edittext.addTextChangedListener(textWatcher04);
+        single_55_edittext.addTextChangedListener(textWatcher04);
+        single_56_edittext.addTextChangedListener(textWatcher04);
+        single_57_edittext.addTextChangedListener(textWatcher04);
+        single_58_edittext.addTextChangedListener(textWatcher04);
+        single_59_edittext.addTextChangedListener(textWatcher04);
 
+        single_60_edittext.addTextChangedListener(textWatcher04);
+        single_61_edittext.addTextChangedListener(textWatcher04);
+        single_62_edittext.addTextChangedListener(textWatcher04);
+        single_63_edittext.addTextChangedListener(textWatcher04);
+        single_64_edittext.addTextChangedListener(textWatcher04);
+        single_65_edittext.addTextChangedListener(textWatcher04);
+        single_66_edittext.addTextChangedListener(textWatcher04);
+        single_67_edittext.addTextChangedListener(textWatcher04);
+        single_68_edittext.addTextChangedListener(textWatcher04);
+        single_69_edittext.addTextChangedListener(textWatcher04);
+
+        single_70_edittext.addTextChangedListener(textWatcher04);
+        single_71_edittext.addTextChangedListener(textWatcher04);
+        single_72_edittext.addTextChangedListener(textWatcher04);
+        single_73_edittext.addTextChangedListener(textWatcher04);
+        single_74_edittext.addTextChangedListener(textWatcher04);
+        single_75_edittext.addTextChangedListener(textWatcher04);
+        single_76_edittext.addTextChangedListener(textWatcher04);
+        single_77_edittext.addTextChangedListener(textWatcher04);
+        single_78_edittext.addTextChangedListener(textWatcher04);
+        single_79_edittext.addTextChangedListener(textWatcher04);
 
     }
 
@@ -585,90 +754,238 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     private void calculateResult04() throws NumberFormatException {
 
         // Gets the two EditText controls' Editable values
-        String
+        String editableValue0 = single_00_edittext.getText().toString(),
                 editableValue1 = single_01_edittext.getText().toString(),
-
+                editableValue2 = single_02_edittext.getText().toString(),
                 editableValue3 = single_03_edittext.getText().toString(),
-
+                editableValue4 = single_04_edittext.getText().toString(),
                 editableValue5 = single_05_edittext.getText().toString(),
-
+                editableValue6 = single_06_edittext.getText().toString(),
                 editableValue7 = single_07_edittext.getText().toString(),
-
+                editableValue8 = single_08_edittext.getText().toString(),
                 editableValue9 = single_09_edittext.getText().toString(),
-
+                editableValue10 = single_10_edittext.getText().toString(),
                 editableValue11 = single_11_edittext.getText().toString(),
-
+                editableValue12 = single_12_edittext.getText().toString(),
                 editableValue13 = single_13_edittext.getText().toString(),
-
+                editableValue14 = single_14_edittext.getText().toString(),
                 editableValue15 = single_15_edittext.getText().toString(),
-
+                editableValue16 = single_16_edittext.getText().toString(),
                 editableValue17 = single_17_edittext.getText().toString(),
-
+                editableValue18 = single_18_edittext.getText().toString(),
                 editableValue19 = single_19_edittext.getText().toString(),
-
+                editableValue20 = single_20_edittext.getText().toString(),
                 editableValue21 = single_21_edittext.getText().toString(),
-
+                editableValue22 = single_22_edittext.getText().toString(),
                 editableValue23 = single_23_edittext.getText().toString(),
-
+                editableValue24 = single_24_edittext.getText().toString(),
                 editableValue25 = single_25_edittext.getText().toString(),
-
-                editableValue27 = single_27_edittext.getText().toString();
+                editableValue26 = single_26_edittext.getText().toString(),
+                editableValue27 = single_27_edittext.getText().toString(),
+                editableValue28 = single_28_edittext.getText().toString(),
+                editableValue29 = single_29_edittext.getText().toString(),
+                editableValue30 = single_30_edittext.getText().toString(),
+                editableValue31 = single_31_edittext.getText().toString(),
+                editableValue32 = single_32_edittext.getText().toString(),
+                editableValue33 = single_33_edittext.getText().toString(),
+                editableValue34 = single_34_edittext.getText().toString(),
+                editableValue35 = single_35_edittext.getText().toString(),
+                editableValue36 = single_36_edittext.getText().toString(),
+                editableValue37 = single_37_edittext.getText().toString(),
+                editableValue38 = single_38_edittext.getText().toString(),
+                editableValue39 = single_39_edittext.getText().toString(),
+                editableValue40 = single_40_edittext.getText().toString(),
+                editableValue41 = single_41_edittext.getText().toString(),
+                editableValue42 = single_42_edittext.getText().toString(),
+                editableValue43 = single_43_edittext.getText().toString(),
+                editableValue44 = single_44_edittext.getText().toString(),
+                editableValue45 = single_45_edittext.getText().toString(),
+                editableValue46 = single_46_edittext.getText().toString(),
+                editableValue47 = single_47_edittext.getText().toString(),
+                editableValue48 = single_48_edittext.getText().toString(),
+                editableValue49 = single_49_edittext.getText().toString(),
+                editableValue50 = single_50_edittext.getText().toString(),
+                editableValue51 = single_51_edittext.getText().toString(),
+                editableValue52 = single_52_edittext.getText().toString(),
+                editableValue53 = single_53_edittext.getText().toString(),
+                editableValue54 = single_54_edittext.getText().toString(),
+                editableValue55 = single_55_edittext.getText().toString(),
+                editableValue56 = single_56_edittext.getText().toString(),
+                editableValue57 = single_57_edittext.getText().toString(),
+                editableValue58 = single_58_edittext.getText().toString(),
+                editableValue59 = single_59_edittext.getText().toString(),
+                editableValue60 = single_60_edittext.getText().toString(),
+                editableValue61 = single_61_edittext.getText().toString(),
+                editableValue62 = single_62_edittext.getText().toString(),
+                editableValue63 = single_63_edittext.getText().toString(),
+                editableValue64 = single_64_edittext.getText().toString(),
+                editableValue65 = single_65_edittext.getText().toString(),
+                editableValue66 = single_66_edittext.getText().toString(),
+                editableValue67 = single_67_edittext.getText().toString(),
+                editableValue68 = single_68_edittext.getText().toString(),
+                editableValue69 = single_69_edittext.getText().toString(),
+                editableValue70 = single_70_edittext.getText().toString(),
+                editableValue71 = single_71_edittext.getText().toString(),
+                editableValue72 = single_72_edittext.getText().toString(),
+                editableValue73 = single_73_edittext.getText().toString(),
+                editableValue74 = single_74_edittext.getText().toString(),
+                editableValue75 = single_75_edittext.getText().toString(),
+                editableValue76 = single_76_edittext.getText().toString(),
+                editableValue77 = single_77_edittext.getText().toString(),
+                editableValue78 = single_78_edittext.getText().toString(),
+                editableValue79 = single_79_edittext.getText().toString();
 
 
 
         // Initializes the double values and result
-        int value1 = 0, value3 = 0, value5 = 0, value7 = 0, value9 = 0, value11 = 0, value13 = 0, value15 = 0,  value17 = 0,  value19 = 0,
-                  value21 = 0, value23 = 0, value25 = 0,  value27 = 0,
+        int value0 = 0, value1 = 0, value2 = 0, value3 = 0, value4 = 0, value5 = 0, value6 = 0, value7 = 0, value8 = 0,
+                value9 = 0, value10 = 0, value11 = 0, value12 = 0, value13 = 0, value14 = 0, value15 = 0, value16 = 0,
+                value17 = 0, value18 = 0, value19 = 0, value20 = 0, value21 = 0, value22 = 0, value23 = 0, value24 = 0,
+                value25 = 0, value26 = 0, value27 = 0, value28 = 0,
+                value29 = 0,
+                value30 = 0,
+                value31 = 0,
+                value32 = 0,
+                value33 = 0,
+                value34 = 0,
+                value35 = 0,
+                value36 = 0,
+                value37 = 0,
+                value38 = 0,
+                value39 = 0,
+                value40 = 0,
+                value41 = 0,
+                value42 = 0,
+                value43 = 0,
+                value44 = 0,
+                value45 = 0,
+                value46 = 0,
+                value47 = 0,
+                value48 = 0,
+                value49 = 0,
+                value50 = 0,
+                value51 = 0,
+                value52 = 0,
+                value53 = 0,
+                value54 = 0,
+                value55 = 0,
+                value56 = 0,
+                value57 = 0,
+                value58 = 0,
+                value59 = 0,
+                value60 = 0,
+                value61 = 0,
+                value62 = 0,
+                value63 = 0,
+                value64 = 0,
+                value65 = 0,
+                value66 = 0,
+                value67 = 0,
+                value68 = 0,
+                value69 = 0,
+                value70 = 0,
+                value71 = 0,
+                value72 = 0,
+                value73 = 0,
+                value74 = 0,
+                value75 = 0,
+                value76 = 0,
+                value77 = 0,
+                value78 = 0,
+                value79 = 0,
                 result;
 
         // If the Editable values are not null, obtains their double values by parsing
 
-        if (!editableValue1.isEmpty())
-            value1 = Integer.parseInt(single_01_edittext.getText().toString());
-
-        if (!editableValue3.isEmpty())
-            value3 = Integer.parseInt(single_03_edittext.getText().toString());
-
-        if (!editableValue5.isEmpty())
-            value5 = Integer.parseInt(single_05_edittext.getText().toString());
-
-        if (!editableValue7.isEmpty())
-            value7 = Integer.parseInt(single_07_edittext.getText().toString());
-
-        if (!editableValue9.isEmpty())
-            value9 = Integer.parseInt(single_09_edittext.getText().toString());
-
-        if (!editableValue11.isEmpty())
-            value11 = Integer.parseInt(single_11_edittext.getText().toString());
-
-        if (!editableValue13.isEmpty())
-            value13 = Integer.parseInt(single_13_edittext.getText().toString());
-
-        if (!editableValue15.isEmpty())
-            value15 = Integer.parseInt(single_15_edittext.getText().toString());
-
-        if (!editableValue17.isEmpty())
-            value17 = Integer.parseInt(single_17_edittext.getText().toString());
-
-        if (!editableValue19.isEmpty())
-            value19 = Integer.parseInt(single_19_edittext.getText().toString());
-
-        if (!editableValue21.isEmpty())
-            value21 = Integer.parseInt(single_21_edittext.getText().toString());
-
-        if (!editableValue23.isEmpty())
-            value23 = Integer.parseInt(single_23_edittext.getText().toString());
-
-        if (!editableValue25.isEmpty())
-            value25 = Integer.parseInt(single_25_edittext.getText().toString());
-
-        if (!editableValue27.isEmpty())
-            value27 = Integer.parseInt(single_27_edittext.getText().toString());
+        if (!editableValue0.isEmpty()) value0 = Integer.parseInt(single_00_edittext.getText().toString());
+        if (!editableValue1.isEmpty()) value1 = Integer.parseInt(single_01_edittext.getText().toString());
+        if (!editableValue2.isEmpty()) value2 = Integer.parseInt(single_02_edittext.getText().toString());
+        if (!editableValue3.isEmpty()) value3 = Integer.parseInt(single_03_edittext.getText().toString());
+        if (!editableValue4.isEmpty()) value4 = Integer.parseInt(single_04_edittext.getText().toString());
+        if (!editableValue5.isEmpty()) value5 = Integer.parseInt(single_05_edittext.getText().toString());
+        if (!editableValue6.isEmpty()) value6 = Integer.parseInt(single_06_edittext.getText().toString());
+        if (!editableValue7.isEmpty()) value7 = Integer.parseInt(single_07_edittext.getText().toString());
+        if (!editableValue8.isEmpty()) value8 = Integer.parseInt(single_08_edittext.getText().toString());
+        if (!editableValue9.isEmpty()) value9 = Integer.parseInt(single_09_edittext.getText().toString());
+        if (!editableValue10.isEmpty()) value10 = Integer.parseInt(single_10_edittext.getText().toString());
+        if (!editableValue11.isEmpty()) value11 = Integer.parseInt(single_11_edittext.getText().toString());
+        if (!editableValue12.isEmpty()) value12 = Integer.parseInt(single_12_edittext.getText().toString());
+        if (!editableValue13.isEmpty()) value13 = Integer.parseInt(single_13_edittext.getText().toString());
+        if (!editableValue14.isEmpty()) value14 = Integer.parseInt(single_14_edittext.getText().toString());
+        if (!editableValue15.isEmpty()) value15 = Integer.parseInt(single_15_edittext.getText().toString());
+        if (!editableValue16.isEmpty()) value16 = Integer.parseInt(single_16_edittext.getText().toString());
+        if (!editableValue17.isEmpty()) value17 = Integer.parseInt(single_17_edittext.getText().toString());
+        if (!editableValue18.isEmpty()) value18 = Integer.parseInt(single_18_edittext.getText().toString());
+        if (!editableValue19.isEmpty()) value19 = Integer.parseInt(single_19_edittext.getText().toString());
+        if (!editableValue20.isEmpty()) value20 = Integer.parseInt(single_20_edittext.getText().toString());
+        if (!editableValue21.isEmpty()) value21 = Integer.parseInt(single_21_edittext.getText().toString());
+        if (!editableValue22.isEmpty()) value22 = Integer.parseInt(single_22_edittext.getText().toString());
+        if (!editableValue23.isEmpty()) value23 = Integer.parseInt(single_23_edittext.getText().toString());
+        if (!editableValue24.isEmpty()) value24 = Integer.parseInt(single_24_edittext.getText().toString());
+        if (!editableValue25.isEmpty()) value25 = Integer.parseInt(single_25_edittext.getText().toString());
+        if (!editableValue26.isEmpty()) value26 = Integer.parseInt(single_26_edittext.getText().toString());
+        if (!editableValue27.isEmpty()) value27 = Integer.parseInt(single_27_edittext.getText().toString());
+        if (!editableValue28.isEmpty()) value28 = Integer.parseInt(single_28_edittext.getText().toString());
+        if (!editableValue29.isEmpty()) value29 = Integer.parseInt(single_29_edittext.getText().toString());
+        if (!editableValue30.isEmpty()) value30 = Integer.parseInt(single_30_edittext.getText().toString());
+        if (!editableValue31.isEmpty()) value31 = Integer.parseInt(single_31_edittext.getText().toString());
+        if (!editableValue32.isEmpty()) value32 = Integer.parseInt(single_32_edittext.getText().toString());
+        if (!editableValue33.isEmpty()) value33 = Integer.parseInt(single_33_edittext.getText().toString());
+        if (!editableValue34.isEmpty()) value34 = Integer.parseInt(single_34_edittext.getText().toString());
+        if (!editableValue35.isEmpty()) value35 = Integer.parseInt(single_35_edittext.getText().toString());
+        if (!editableValue36.isEmpty()) value36 = Integer.parseInt(single_36_edittext.getText().toString());
+        if (!editableValue37.isEmpty()) value37 = Integer.parseInt(single_37_edittext.getText().toString());
+        if (!editableValue38.isEmpty()) value38 = Integer.parseInt(single_38_edittext.getText().toString());
+        if (!editableValue39.isEmpty()) value39 = Integer.parseInt(single_39_edittext.getText().toString());
+        if (!editableValue40.isEmpty()) value40 = Integer.parseInt(single_40_edittext.getText().toString());
+        if (!editableValue41.isEmpty()) value41 = Integer.parseInt(single_41_edittext.getText().toString());
+        if (!editableValue42.isEmpty()) value42 = Integer.parseInt(single_42_edittext.getText().toString());
+        if (!editableValue43.isEmpty()) value43 = Integer.parseInt(single_43_edittext.getText().toString());
+        if (!editableValue44.isEmpty()) value44 = Integer.parseInt(single_44_edittext.getText().toString());
+        if (!editableValue45.isEmpty()) value45 = Integer.parseInt(single_45_edittext.getText().toString());
+        if (!editableValue46.isEmpty()) value46 = Integer.parseInt(single_46_edittext.getText().toString());
+        if (!editableValue47.isEmpty()) value47 = Integer.parseInt(single_47_edittext.getText().toString());
+        if (!editableValue48.isEmpty()) value48 = Integer.parseInt(single_48_edittext.getText().toString());
+        if (!editableValue49.isEmpty()) value49 = Integer.parseInt(single_49_edittext.getText().toString());
+        if (!editableValue50.isEmpty()) value50 = Integer.parseInt(single_50_edittext.getText().toString());
+        if (!editableValue51.isEmpty()) value51 = Integer.parseInt(single_51_edittext.getText().toString());
+        if (!editableValue52.isEmpty()) value52 = Integer.parseInt(single_52_edittext.getText().toString());
+        if (!editableValue53.isEmpty()) value53 = Integer.parseInt(single_53_edittext.getText().toString());
+        if (!editableValue54.isEmpty()) value54 = Integer.parseInt(single_54_edittext.getText().toString());
+        if (!editableValue55.isEmpty()) value55 = Integer.parseInt(single_55_edittext.getText().toString());
+        if (!editableValue56.isEmpty()) value56 = Integer.parseInt(single_56_edittext.getText().toString());
+        if (!editableValue57.isEmpty()) value57 = Integer.parseInt(single_57_edittext.getText().toString());
+        if (!editableValue58.isEmpty()) value58 = Integer.parseInt(single_58_edittext.getText().toString());
+        if (!editableValue59.isEmpty()) value59 = Integer.parseInt(single_59_edittext.getText().toString());
+        if (!editableValue60.isEmpty()) value60 = Integer.parseInt(single_60_edittext.getText().toString());
+        if (!editableValue61.isEmpty()) value61 = Integer.parseInt(single_61_edittext.getText().toString());
+        if (!editableValue62.isEmpty()) value62 = Integer.parseInt(single_62_edittext.getText().toString());
+        if (!editableValue63.isEmpty()) value63 = Integer.parseInt(single_63_edittext.getText().toString());
+        if (!editableValue64.isEmpty()) value64 = Integer.parseInt(single_64_edittext.getText().toString());
+        if (!editableValue65.isEmpty()) value65 = Integer.parseInt(single_65_edittext.getText().toString());
+        if (!editableValue66.isEmpty()) value66 = Integer.parseInt(single_66_edittext.getText().toString());
+        if (!editableValue67.isEmpty()) value67 = Integer.parseInt(single_67_edittext.getText().toString());
+        if (!editableValue68.isEmpty()) value68 = Integer.parseInt(single_68_edittext.getText().toString());
+        if (!editableValue69.isEmpty()) value69 = Integer.parseInt(single_69_edittext.getText().toString());
+        if (!editableValue70.isEmpty()) value70 = Integer.parseInt(single_70_edittext.getText().toString());
+        if (!editableValue71.isEmpty()) value71 = Integer.parseInt(single_71_edittext.getText().toString());
+        if (!editableValue72.isEmpty()) value72 = Integer.parseInt(single_72_edittext.getText().toString());
+        if (!editableValue73.isEmpty()) value73 = Integer.parseInt(single_73_edittext.getText().toString());
+        if (!editableValue74.isEmpty()) value74 = Integer.parseInt(single_74_edittext.getText().toString());
+        if (!editableValue75.isEmpty()) value75 = Integer.parseInt(single_75_edittext.getText().toString());
+        if (!editableValue76.isEmpty()) value76 = Integer.parseInt(single_76_edittext.getText().toString());
+        if (!editableValue77.isEmpty()) value77 = Integer.parseInt(single_77_edittext.getText().toString());
+        if (!editableValue78.isEmpty()) value78 = Integer.parseInt(single_78_edittext.getText().toString());
+        if (!editableValue79.isEmpty()) value79 = Integer.parseInt(single_79_edittext.getText().toString());
 
 
 
         // Calculates the result
-        result = value1 + value3 + value5 + value7 + value9 + value11 + value13 + value15 + value17 + value19 + value21 + value23 + value25 + value27;
+        result = value1 + value3 + value5 + value7 + value9 + value11 + value13 + value15 + value17 + value19 + value21 +
+                value23 + value25 + value27 + value29 + value31 + value33 + value35 + value37 + value39 + value41 +
+                value43 + value45 + value47 + value49 + value51 + value53 + value55
+         + value57 + value59 + value61 + value63 + value65 + value67 + value69 + value71 + value73 + value75 +
+                value77 + value79;
 
         // Displays the calculated result
         satta_heading_04_total_value.setText(String.valueOf(result));

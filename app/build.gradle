@@ -25,7 +25,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "BASE_URL", "\"https://beacandid.com/nYw5JUu2ne8nCbsP\""
+        buildConfigField "String", "BASE_URL", "\"https://sattamaster.co.in/api\""
         buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
     }
     buildTypes {
