@@ -26,6 +26,9 @@ import com.example.sattaapp.ui.History.HistoryActivityPresenter;
 import com.example.sattaapp.ui.Homepage.LocationPageMvpPresenter;
 import com.example.sattaapp.ui.Homepage.LocationPageMvpView;
 import com.example.sattaapp.ui.Homepage.LocationPagePresenter;
+import com.example.sattaapp.ui.Homepage.LoginScreenMvpPresenter;
+import com.example.sattaapp.ui.Homepage.LoginScreenMvpView;
+import com.example.sattaapp.ui.Homepage.LoginScreenPresenter;
 import com.example.sattaapp.ui.Homepage.MainActivityMvpPresenter;
 import com.example.sattaapp.ui.Homepage.MainActivityMvpView;
 import com.example.sattaapp.ui.Homepage.MainActivityPresenter;
@@ -83,6 +86,12 @@ public class ActivityModule {
     @Provides
     HistoryActivityMvpPresenter<HistoryActivityMvpView> provideHistoryActivityMvpPresenter(
             HistoryActivityPresenter<HistoryActivityMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    LoginScreenMvpPresenter<LoginScreenMvpView> provideLoginScreenMvpPresenter(
+            LoginScreenPresenter<LoginScreenMvpView> presenter) {
         return presenter;
     }
 

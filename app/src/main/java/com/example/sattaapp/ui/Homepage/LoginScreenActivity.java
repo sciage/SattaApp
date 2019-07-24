@@ -11,10 +11,18 @@ import com.example.sattaapp.ui.base.BaseActivity;
 import com.example.sattaapp.ui.base.MySharedPreferences;
 import com.example.sattaapp.R;
 
-public class LoginScreenActivity extends BaseActivity {
+import javax.inject.Inject;
+
+import butterknife.ButterKnife;
+
+public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpView {
     private Button loginbutton;
     private EditText username;
     private EditText password;
+
+
+    @Inject
+    LoginScreenMvpPresenter<LoginScreenMvpView> mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +33,12 @@ public class LoginScreenActivity extends BaseActivity {
         password = (EditText) findViewById(R.id.password);
         username = (EditText) findViewById(R.id.username);
 
+        getActivityComponent().inject(this);
+
+        setUnBinder(ButterKnife.bind(this));
+
+        mPresenter.onAttach(LoginScreenActivity.this);
+
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,10 +48,10 @@ public class LoginScreenActivity extends BaseActivity {
                 } else {
                   //  isLoggedIn = true;
                     MySharedPreferences.registerUserId(preferences, "1");
-                    Intent intent = new Intent(LoginScreenActivity.this, LocationPageActivity.class);
+                    Intent intent = new Intent(LoginScreenActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
-                Intent intent = new Intent(LoginScreenActivity.this, LocationPageActivity.class);
+                Intent intent = new Intent(LoginScreenActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

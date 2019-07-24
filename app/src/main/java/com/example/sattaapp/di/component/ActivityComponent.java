@@ -20,6 +20,7 @@ import com.example.sattaapp.di.PerActivity;
 import com.example.sattaapp.di.module.ActivityModule;
 import com.example.sattaapp.ui.History.HistoryActivity;
 import com.example.sattaapp.ui.Homepage.LocationPageActivity;
+import com.example.sattaapp.ui.Homepage.LoginScreenActivity;
 import com.example.sattaapp.ui.Homepage.MainActivity;
 import com.example.sattaapp.ui.PlayMatka.PlayMatkaActivity;
 import com.example.sattaapp.ui.Result.ResultActivity;
@@ -35,6 +36,7 @@ import dagger.Component;
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
 
+    void inject(LoginScreenActivity activity);
     void inject(MainActivity activity);
     void inject(PlayMatkaActivity activity);
     void inject(HistoryActivity activity);

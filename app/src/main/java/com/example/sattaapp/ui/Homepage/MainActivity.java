@@ -1,5 +1,6 @@
 package com.example.sattaapp.ui.Homepage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.GridView;
@@ -25,8 +26,13 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main_launcher);
+
+
+        if (!isLoggedIn){
+            Intent intent = new Intent(MainActivity.this, LoginScreenActivity.class);
+            startActivity(intent);
+        }
 
         getActivityComponent().inject(this);
 
@@ -49,5 +55,12 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView{
     @Override
     protected void setUp() {
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        isLoggedIn = false;
+
+        super.onDestroy();
     }
 }

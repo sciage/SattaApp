@@ -37,6 +37,7 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
     protected VoicemeApplication application;
     protected Toolbar toolbar;
     protected SharedPreferences preferences;
+    protected boolean isLoggedIn;
 
 
     // public String id;
@@ -55,6 +56,8 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
       //  getBus = application.getBus();
       //  scheduler = new ActionScheduler(application);
         preferences = getSharedPreferences(CONSTANT_PREF_FILE, Context.MODE_PRIVATE);
+
+        isLoggedIn = false;
 
 
 

@@ -37,49 +37,8 @@ public class MySharedPreferences {
         MySharedPreferences.storeValueInSharedPreferences2(sharedPreferences, AMAZON_USER_ID, userId);
     }
 
-    public static void registerFirebaseToken(SharedPreferences sharedPreferences, String userId) {
-        MySharedPreferences.storeValueInSharedPreferences2(sharedPreferences, com.example.sattaapp.Constants.FIREBASETOKEN, userId);
-    }
-
-
-    public static void registerFacebook(SharedPreferences sharedPreferences, String userId) {
-        MySharedPreferences.storeValueInSharedPreferences2(sharedPreferences, com.example.sattaapp.Constants.FACEBOOK_ID, userId);
-    }
-
-    public static void registerSecretToken(SharedPreferences sharedPreferences, String secretToken) {
-        MySharedPreferences.storeValueInSharedPreferences2(sharedPreferences, com.example.sattaapp.Constants.SECRET_TOKEN, secretToken);
-    }
-
-
-    public static void RegisterBelow18(SharedPreferences sharedPreferences, String username) {
-        MySharedPreferences.storeValueInSharedPreferences(sharedPreferences, com.example.sattaapp.Constants.BELOW18, username);
-    }
-
-    public static String getBelow18(SharedPreferences sharedPreferences) {
-        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, com.example.sattaapp.Constants.BELOW18);
-    }
-
-    public static String getFireBaseToken(SharedPreferences sharedPreferences) {
-        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, com.example.sattaapp.Constants.FIREBASETOKEN);
-    }
-
-    public static String getFacebook(SharedPreferences sharedPreferences) {
-        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, com.example.sattaapp.Constants.FACEBOOK_ID);
-    }
-
-    public static String getImageUrl(SharedPreferences sharedPreferences) {
-        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, com.example.sattaapp.Constants.IMAGE_URL);
-    }
-
     public static String getUserId(SharedPreferences sharedPreferences) {
         return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, AMAZON_USER_ID);
     }
-
-    public static String getSecretToken(SharedPreferences sharedPreferences) {
-        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, Constants.SECRET_TOKEN);
-    }
-
-
-
 
 }

@@ -17,6 +17,7 @@ package com.example.sattaapp.data.network;
 
 
 import com.androidnetworking.common.Priority;
+import com.example.sattaapp.dto.BidResult;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import java.io.File;
@@ -24,6 +25,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
+import io.reactivex.Single;
 
 /**
  * Created by janisharali on 28/01/17.
@@ -49,22 +52,19 @@ public class AppApiHelper implements ApiHelper {
 
 
 
-  /*  @Override
-    public Single<List<Message>> getChatMessages02(String user_one, String user_two, String id_posts, String token, String page) {
+ /*   @Override
+    public Single<BidResult> doLogin(String userId, String centre_id, ) {
         return Rx2AndroidNetworking.get(ApiEndPoint.GET_CHAT_MESSAGES)
                 //  .addHeaders(mApiHeader.getProtectedApiHeader())
-                .addQueryParameter("user_one", user_one)
-                .addQueryParameter("user_two", user_two)
-                .addQueryParameter("id_posts", id_posts)
-                .addQueryParameter("token", token)
-                .addQueryParameter("page", page)
+                .addBodyParameter("user_one", user_one)
+                .addBodyParameter("user_two", user_two)
                 .build()
-                .getObjectListSingle(Message.class)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()
+                .getObjectSingle(BidResult.class)
                 );
     }
-    */
+
+  */
+
 
     // block_user_insert.php
 

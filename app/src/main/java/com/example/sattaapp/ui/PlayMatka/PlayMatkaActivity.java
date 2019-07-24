@@ -11,16 +11,21 @@ import android.widget.TextView;
 
 import com.example.sattaapp.R;
 import com.example.sattaapp.ui.base.BaseActivity;
+import com.example.sattaapp.ui.base.MySharedPreferences;
 
-import org.w3c.dom.Text;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import timber.log.Timber;
 
 public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivityMvpView, View.OnClickListener {
 
@@ -520,6 +525,66 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         single_78_edittext.addTextChangedListener(textWatcher04);
         single_79_edittext.addTextChangedListener(textWatcher04);
 
+        try {
+            writeJsonSimpleDemo();
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
+
+
+    public JSONObject writeJsonSimpleDemo() throws Exception {
+
+        JSONObject object = new JSONObject();
+        object.put("user_id", 11);
+        object.put("centre_id", 11);
+
+
+        JSONArray array = new JSONArray();
+
+        JSONObject locationOne = getLocationObject("ANDAR"); // enter type of location key value
+        JSONObject locationOneData = getLocationBidding();
+        locationOne.put("data", locationOneData);
+
+        JSONObject locationTwo = getLocationObject("BAHAR"); // enter type of location key value
+        JSONObject locationTwoData = getLocationBidding();
+        locationTwo.put("data", locationTwoData);
+
+        JSONObject locationThree = getLocationObject("SINGLE"); // enter type of location key value
+        JSONObject locationThreeData = getLocationBidding();
+        locationThree.put("data", locationThreeData);
+
+        array.put(locationOne);
+        array.put(locationTwo);
+        array.put(locationThree);
+
+        // first array top heading
+        object.put("bids", array);
+
+        Timber.d(object.toString());
+
+
+
+        return object;
+    }
+
+    private JSONObject getLocationObject(String Name) throws JSONException {
+
+        JSONObject arrayElementOne = new JSONObject();
+        arrayElementOne.put("type", Name);
+
+        return arrayElementOne;
+    }
+
+
+
+    private JSONObject getLocationBidding() throws JSONException {
+        JSONObject arrayElementOneArrayElementOne = new JSONObject();
+        arrayElementOneArrayElementOne.put("1", 100);
+        arrayElementOneArrayElementOne.put("2", 100);
+
+        return arrayElementOneArrayElementOne;
     }
 
 

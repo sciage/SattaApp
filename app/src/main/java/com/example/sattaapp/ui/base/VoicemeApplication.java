@@ -98,7 +98,10 @@ public class VoicemeApplication extends Application {
                 .build();
         applicationComponent.inject(this);
 
-     //   AppLogger.init();
+        Fabric.with(this, new Crashlytics());
+
+
+        //   AppLogger.init();
 
 
       /*  ViewPump.init(ViewPump.builder()
