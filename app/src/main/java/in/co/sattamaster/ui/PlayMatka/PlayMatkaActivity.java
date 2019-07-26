@@ -1,5 +1,6 @@
 package in.co.sattamaster.ui.PlayMatka;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
@@ -19,12 +20,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.co.sattamaster.ui.base.Constants;
+import in.co.sattamaster.ui.base.MySharedPreferences;
 import timber.log.Timber;
 
 public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivityMvpView, View.OnClickListener {
@@ -47,8 +51,6 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     boolean boolean_comb_09_edittext;
 
     private List<String> joinComb;
-
-
 
     @BindView(R.id.andar_00_edittext) EditText andar_00_edittext;
     @BindView(R.id.andar_01_edittext) EditText andar_01_edittext;
@@ -173,11 +175,6 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     @BindView(R.id.single_78_edittext) EditText single_78_edittext;
     @BindView(R.id.single_79_edittext) EditText single_79_edittext;
 
-
-
-
-
-
     @BindView(R.id.satta_heading_01_total_value) TextView satta_heading_01_total_value;
     @BindView(R.id.satta_heading_02_total_value) TextView satta_heading_02_total_value;
     @BindView(R.id.satta_heading_03_total_value) TextView satta_heading_03_total_value;
@@ -191,12 +188,8 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     int totalBahar = 0;
     int totalComb = 0;
     int totalSingle = 0;
-
-
-
-
-
-
+    String location_id;
+    HashMap<String, String> hash_map;
    // private View status_group_post;
 
     @Override
@@ -222,7 +215,13 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         mPresenter.onAttach(PlayMatkaActivity.this);
 
 
+        Intent intent = getIntent();
+
+        location_id = intent.getStringExtra(Constants.LOCATION);
+
         joinComb = new ArrayList<>();
+
+        hash_map = new HashMap<String, String>();
 
         setFilter(andar_00_edittext);
         setFilter(andar_01_edittext);
@@ -544,9 +543,12 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
     public JSONObject writeJsonSimpleDemo() throws Exception {
 
+
+      //  String id = MySharedPreferences.getUserId(preferences);
+
         JSONObject object = new JSONObject();
-        object.put("user_id", 1);
-        object.put("centre_id", 1);
+        object.put("user_id", MySharedPreferences.getUserId(preferences));
+        object.put("centre_id", location_id);
 
         // object.put("user_id", 11);
        // object.put("centre_id", 11);
@@ -555,11 +557,11 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         JSONArray array = new JSONArray();
 
         JSONObject locationOne = getLocationObject("ANDAR"); // enter type of location key value
-        JSONObject locationOneData = getLocationBidding();
+        JSONObject locationOneData = getAndarBidding();
         locationOne.put("data", locationOneData);
 
         JSONObject locationTwo = getLocationObject("BAHAR"); // enter type of location key value
-        JSONObject locationTwoData = getLocationBidding();
+        JSONObject locationTwoData = getBaharBidding();
         locationTwo.put("data", locationTwoData);
 
         JSONObject locationThree = getLocationObject("SINGLE"); // enter type of location key value
@@ -594,6 +596,29 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
 
     private JSONObject getLocationBidding() throws JSONException {
+        JSONObject arrayElementOneArrayElementOne = new JSONObject();
+        arrayElementOneArrayElementOne.put("1", 100);
+        arrayElementOneArrayElementOne.put("2", 100);
+
+        return arrayElementOneArrayElementOne;
+    }
+
+    private JSONObject getAndarBidding() throws JSONException {
+        JSONObject arrayElementOneArrayElementOne = new JSONObject();
+
+        for(int i=0; i<= 10; i++){
+            if (hash_map.containsKey(String.valueOf(i))){
+                arrayElementOneArrayElementOne.put(String.valueOf(i), hash_map.get(String.valueOf(i)));
+            }
+        }
+
+       // arrayElementOneArrayElementOne.put("1", 100);
+       // arrayElementOneArrayElementOne.put("2", 100);
+
+        return arrayElementOneArrayElementOne;
+    }
+
+    private JSONObject getBaharBidding() throws JSONException {
         JSONObject arrayElementOneArrayElementOne = new JSONObject();
         arrayElementOneArrayElementOne.put("1", 100);
         arrayElementOneArrayElementOne.put("2", 100);
@@ -650,35 +675,115 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 result;
 
         // If the Editable values are not null, obtains their double values by parsing
-        if (!editableValue0.isEmpty())
+        if (!editableValue0.isEmpty()){
             value0 = Integer.parseInt(andar_00_edittext.getText().toString());
+            hash_map.put("0", String.valueOf(value0));
+        } else {
+            if (hash_map.containsKey("0")){
+                hash_map.remove("0");
+            }
+        }
 
-        if (!editableValue1.isEmpty())
+
+
+        if (!editableValue1.isEmpty()){
             value1 = Integer.parseInt(andar_01_edittext.getText().toString());
+            hash_map.put("1", String.valueOf(value1));
+        } else {
+            if (hash_map.containsKey("1")){
+                hash_map.remove("1");
+            }
+        }
 
-        if (!editableValue2.isEmpty())
+
+
+        if (!editableValue2.isEmpty()){
             value2 = Integer.parseInt(andar_02_edittext.getText().toString());
+            hash_map.put("2", String.valueOf(value2));
+        } else {
+            if (hash_map.containsKey("2")){
+                hash_map.remove("2");
+            }
+        }
 
-        if (!editableValue3.isEmpty())
+
+
+        if (!editableValue3.isEmpty()){
             value3 = Integer.parseInt(andar_03_edittext.getText().toString());
+            hash_map.put("3", String.valueOf(value3));
+        } else {
+            if (hash_map.containsKey("3")){
+                hash_map.remove("3");
+            }
+        }
 
-        if (!editableValue4.isEmpty())
+
+
+        if (!editableValue4.isEmpty()){
             value4 = Integer.parseInt(andar_04_edittext.getText().toString());
+            hash_map.put("4", String.valueOf(value4));
+        } else {
+            if (hash_map.containsKey("4")){
+                hash_map.remove("4");
+            }
+        }
 
-        if (!editableValue5.isEmpty())
+
+
+        if (!editableValue5.isEmpty()){
             value5 = Integer.parseInt(andar_05_edittext.getText().toString());
+            hash_map.put("5", String.valueOf(value5));
+        } else {
+            if (hash_map.containsKey("5")){
+                hash_map.remove("5");
+            }
+        }
 
-        if (!editableValue6.isEmpty())
+
+
+        if (!editableValue6.isEmpty()){
             value6 = Integer.parseInt(andar_06_edittext.getText().toString());
+            hash_map.put("6", String.valueOf(value6));
+        } else {
+            if (hash_map.containsKey("6")){
+                hash_map.remove("6");
+            }
+        }
 
-        if (!editableValue7.isEmpty())
+
+
+        if (!editableValue7.isEmpty()){
             value7 = Integer.parseInt(andar_07_edittext.getText().toString());
+            hash_map.put("7", String.valueOf(value7));
+        } else {
+            if (hash_map.containsKey("7")){
+                hash_map.remove("7");
+            }
+        }
 
-        if (!editableValue8.isEmpty())
+
+
+        if (!editableValue8.isEmpty()){
             value8 = Integer.parseInt(andar_08_edittext.getText().toString());
+            hash_map.put("8", String.valueOf(value8));
+        } else {
+            if (hash_map.containsKey("8")){
+                hash_map.remove("8");
+            }
+        }
 
-        if (!editableValue9.isEmpty())
+
+
+        if (!editableValue9.isEmpty()){
             value9 = Integer.parseInt(andar_09_edittext.getText().toString());
+            hash_map.put("9", String.valueOf(value9));
+        } else {
+            if (hash_map.containsKey("9")){
+                hash_map.remove("9");
+            }
+        }
+
+
 
         // Calculates the result
         result = value0 + value1 + value2 + value3 + value4 + value5 + value6 + value7 + value8 + value9;

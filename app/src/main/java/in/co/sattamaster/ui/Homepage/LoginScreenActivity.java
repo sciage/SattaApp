@@ -51,6 +51,7 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
                     startActivity(intent);
                 }
                 Intent intent = new Intent(LoginScreenActivity.this, LocationPageActivity.class);
+                MySharedPreferences.registerUserId(preferences, "1");
                 startActivity(intent);
             }
         });

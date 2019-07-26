@@ -15,6 +15,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import in.co.sattamaster.R;
 import in.co.sattamaster.ui.PlayMatka.PlayMatkaActivity;
+import in.co.sattamaster.ui.base.Constants;
 
 public class LocationGridAdapter extends BaseAdapter{
     public static class Item{
@@ -105,6 +106,7 @@ public class LocationGridAdapter extends BaseAdapter{
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    intent.putExtra(Constants.LOCATION, "1");
                     v.getContext().startActivity(intent);
                 }
             });
@@ -113,6 +115,8 @@ public class LocationGridAdapter extends BaseAdapter{
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    intent.putExtra(Constants.LOCATION, "1");
+
                     v.getContext().startActivity(intent);
                 }
             });
@@ -121,6 +125,8 @@ public class LocationGridAdapter extends BaseAdapter{
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    intent.putExtra(Constants.LOCATION, "1");
+
                     v.getContext().startActivity(intent);
                 }
             });
@@ -129,6 +135,8 @@ public class LocationGridAdapter extends BaseAdapter{
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    intent.putExtra(Constants.LOCATION, "1");
+
                     v.getContext().startActivity(intent);
                 }
             });
@@ -137,6 +145,8 @@ public class LocationGridAdapter extends BaseAdapter{
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    intent.putExtra(Constants.LOCATION, "1");
+
                     v.getContext().startActivity(intent);
                 }
             });
