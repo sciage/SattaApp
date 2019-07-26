@@ -16,7 +16,10 @@
 package in.co.sattamaster.data.network;
 
 
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.HashMap;
 
 import in.co.sattamaster.dto.Bid;
 import io.reactivex.Single;
@@ -29,8 +32,7 @@ public interface ApiHelper {
 
     ApiHeader getApiHeader();
 
-    Single<Bid> sendBidset(JSONObject bidset);
-
+    Single<Bid> sendBidset(String user_id, String centre_id, JSONObject bidset);
   //  Single<List<PostsModel>> getImagePosts(String user_id, String onlyImages, String page);
 
 

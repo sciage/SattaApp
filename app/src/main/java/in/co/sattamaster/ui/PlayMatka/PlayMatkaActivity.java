@@ -531,7 +531,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
             public void onClick(View v) {
                 try {
                    // writeJsonSimpleDemo();
-                    mPresenter.sendBidSet(writeJsonSimpleDemo());
+                    mPresenter.sendBidSet("1", "1", writeJsonSimpleDemo());
                 } catch (Exception ex){
                     ex.printStackTrace();
                 }
@@ -545,8 +545,11 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     public JSONObject writeJsonSimpleDemo() throws Exception {
 
         JSONObject object = new JSONObject();
-        object.put("user_id", 11);
-        object.put("centre_id", 11);
+        object.put("user_id", 1);
+        object.put("centre_id", 1);
+
+        // object.put("user_id", 11);
+       // object.put("centre_id", 11);
 
 
         JSONArray array = new JSONArray();
@@ -573,10 +576,8 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         array.put(locationFour);
 
         // first array top heading
+
         object.put("bids", array);
-
-  //      Timber.d(object.toString());
-
 
 
         return object;

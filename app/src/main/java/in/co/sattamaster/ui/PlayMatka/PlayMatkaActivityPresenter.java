@@ -2,7 +2,10 @@ package in.co.sattamaster.ui.PlayMatka;
 
 import com.androidnetworking.error.ANError;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.HashMap;
 
 import in.co.sattamaster.data.DataManager;
 import in.co.sattamaster.dto.Bid;
@@ -26,10 +29,10 @@ public class PlayMatkaActivityPresenter <V extends PlayMatkaActivityMvpView> ext
     }
 
     @Override
-    public void sendBidSet(JSONObject bidset) {
+    public void sendBidSet(String user_id, String centre_id, JSONObject bidset) {
 
         getCompositeDisposable().add(getDataManager()
-                .sendBidset(bidset)
+                .sendBidset(user_id, centre_id, bidset)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<Bid>() {

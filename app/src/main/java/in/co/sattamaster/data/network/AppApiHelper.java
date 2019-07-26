@@ -18,9 +18,11 @@ package in.co.sattamaster.data.network;
 
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.security.cert.CertificateException;
+import java.util.HashMap;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -60,11 +62,13 @@ public class AppApiHelper implements ApiHelper {
 
 
     @Override
-    public Single<Bid> sendBidset(JSONObject bidset) {
+    public Single<Bid> sendBidset(String user_id, String centre_id, JSONObject bids) {
         return Rx2AndroidNetworking.post(ApiEndPoint.BIDSET)
                 //  .addHeaders(mApiHeader.getProtectedApiHeader())
                 .setOkHttpClient(getUnsafeOkHttpClient())
-                .addBodyParameter(bidset)
+             //   .addBodyParameter("user_id", user_id)
+              //  .addBodyParameter("centre_id", centre_id)
+                .addJSONObjectBody(bids)
                 .build()
                 .getObjectSingle(Bid.class);
     }

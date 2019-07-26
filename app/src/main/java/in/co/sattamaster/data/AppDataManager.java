@@ -18,7 +18,10 @@ package in.co.sattamaster.data;
 
 import android.content.Context;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.HashMap;
 
 import in.co.sattamaster.data.network.ApiHeader;
 import in.co.sattamaster.data.network.ApiHelper;
@@ -59,8 +62,8 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<Bid> sendBidset(JSONObject bidset) {
-        return mApiHelper.sendBidset(bidset);
+    public Single<Bid> sendBidset(String user_id, String centre_id, JSONObject bid) {
+        return mApiHelper.sendBidset(user_id, centre_id, bid);
     }
 
  /*   @Override
