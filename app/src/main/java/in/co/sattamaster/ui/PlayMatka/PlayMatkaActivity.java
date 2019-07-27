@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import in.co.sattamaster.R;
 import in.co.sattamaster.dto.Bid;
@@ -21,6 +22,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -189,7 +191,15 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     int totalComb = 0;
     int totalSingle = 0;
     String location_id;
-    HashMap<String, String> hash_map;
+    String combinationValue;
+
+    LinkedHashMap<String, String> andar_hash_map;
+    LinkedHashMap<String, String> bahar_hash_map;
+    LinkedHashMap<String, String> single_hash_map;
+
+    ArrayList<String> single_keys;
+    ArrayList<String> single_values;
+
    // private View status_group_post;
 
     @Override
@@ -214,6 +224,9 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         mPresenter.onAttach(PlayMatkaActivity.this);
 
+        single_keys = new ArrayList<>();
+        single_values = new ArrayList<>();
+
 
         Intent intent = getIntent();
 
@@ -221,7 +234,9 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         joinComb = new ArrayList<>();
 
-        hash_map = new HashMap<String, String>();
+        andar_hash_map = new LinkedHashMap<String, String>();
+        bahar_hash_map = new LinkedHashMap<String, String>();
+        single_hash_map = new LinkedHashMap<String, String>();
 
         setFilter(andar_00_edittext);
         setFilter(andar_01_edittext);
@@ -543,16 +558,9 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
     public JSONObject writeJsonSimpleDemo() throws Exception {
 
-
-      //  String id = MySharedPreferences.getUserId(preferences);
-
         JSONObject object = new JSONObject();
         object.put("user_id", MySharedPreferences.getUserId(preferences));
         object.put("centre_id", location_id);
-
-        // object.put("user_id", 11);
-       // object.put("centre_id", 11);
-
 
         JSONArray array = new JSONArray();
 
@@ -565,7 +573,8 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         locationTwo.put("data", locationTwoData);
 
         JSONObject locationThree = getLocationObject("SINGLE"); // enter type of location key value
-        JSONObject locationThreeData = getLocationBidding();
+        findCalculation();
+        JSONObject locationThreeData = getSingleBidding();
         locationThree.put("data", locationThreeData);
 
         JSONObject locationFour = getLocationObject("JODI"); // enter type of location key value
@@ -593,22 +602,12 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         return arrayElementOne;
     }
 
-
-
-    private JSONObject getLocationBidding() throws JSONException {
-        JSONObject arrayElementOneArrayElementOne = new JSONObject();
-        arrayElementOneArrayElementOne.put("1", 100);
-        arrayElementOneArrayElementOne.put("2", 100);
-
-        return arrayElementOneArrayElementOne;
-    }
-
     private JSONObject getAndarBidding() throws JSONException {
         JSONObject arrayElementOneArrayElementOne = new JSONObject();
 
         for(int i=0; i<= 10; i++){
-            if (hash_map.containsKey(String.valueOf(i))){
-                arrayElementOneArrayElementOne.put(String.valueOf(i), hash_map.get(String.valueOf(i)));
+            if (andar_hash_map.containsKey(String.valueOf(i))){
+                arrayElementOneArrayElementOne.put(String.valueOf(i), andar_hash_map.get(String.valueOf(i)));
             }
         }
 
@@ -619,23 +618,37 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     }
 
     private JSONObject getBaharBidding() throws JSONException {
+
         JSONObject arrayElementOneArrayElementOne = new JSONObject();
-        arrayElementOneArrayElementOne.put("1", 100);
-        arrayElementOneArrayElementOne.put("2", 100);
+
+        for(int i=0; i<= 10; i++){
+            if (bahar_hash_map.containsKey(String.valueOf(i))){
+                arrayElementOneArrayElementOne.put(String.valueOf(i), bahar_hash_map.get(String.valueOf(i)));
+            }
+        }
 
         return arrayElementOneArrayElementOne;
     }
 
+    private JSONObject getSingleBidding() throws JSONException {
+
+        JSONObject arrayElementOneArrayElementOne = new JSONObject();
+
+        for(int i=0; i< single_keys.size(); i++){
+             arrayElementOneArrayElementOne.put(single_keys.get(i), single_values.get(i));
+
+            }
+
+        return arrayElementOneArrayElementOne;
+    }
+
+
+
     private JSONObject getJodiBidding() throws JSONException {
         JSONObject arrayElementOneArrayElementOne = new JSONObject();
 
-        ArrayList<String> jodiArrayList = new ArrayList<>();
-        jodiArrayList.add("1");
-        jodiArrayList.add("2");
-        jodiArrayList.add("3");
-
-        arrayElementOneArrayElementOne.put("Numbers", jodiArrayList);
-        arrayElementOneArrayElementOne.put("amount", 100);
+        arrayElementOneArrayElementOne.put("Numbers", joinComb);
+        arrayElementOneArrayElementOne.put("amount", combinationValue);
 
         return arrayElementOneArrayElementOne;
     }
@@ -677,10 +690,10 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         // If the Editable values are not null, obtains their double values by parsing
         if (!editableValue0.isEmpty()){
             value0 = Integer.parseInt(andar_00_edittext.getText().toString());
-            hash_map.put("0", String.valueOf(value0));
+            andar_hash_map.put("0", String.valueOf(value0));
         } else {
-            if (hash_map.containsKey("0")){
-                hash_map.remove("0");
+            if (andar_hash_map.containsKey("0")){
+                andar_hash_map.remove("0");
             }
         }
 
@@ -688,10 +701,10 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         if (!editableValue1.isEmpty()){
             value1 = Integer.parseInt(andar_01_edittext.getText().toString());
-            hash_map.put("1", String.valueOf(value1));
+            andar_hash_map.put("1", String.valueOf(value1));
         } else {
-            if (hash_map.containsKey("1")){
-                hash_map.remove("1");
+            if (andar_hash_map.containsKey("1")){
+                andar_hash_map.remove("1");
             }
         }
 
@@ -699,10 +712,10 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         if (!editableValue2.isEmpty()){
             value2 = Integer.parseInt(andar_02_edittext.getText().toString());
-            hash_map.put("2", String.valueOf(value2));
+            andar_hash_map.put("2", String.valueOf(value2));
         } else {
-            if (hash_map.containsKey("2")){
-                hash_map.remove("2");
+            if (andar_hash_map.containsKey("2")){
+                andar_hash_map.remove("2");
             }
         }
 
@@ -710,10 +723,10 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         if (!editableValue3.isEmpty()){
             value3 = Integer.parseInt(andar_03_edittext.getText().toString());
-            hash_map.put("3", String.valueOf(value3));
+            andar_hash_map.put("3", String.valueOf(value3));
         } else {
-            if (hash_map.containsKey("3")){
-                hash_map.remove("3");
+            if (andar_hash_map.containsKey("3")){
+                andar_hash_map.remove("3");
             }
         }
 
@@ -721,10 +734,10 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         if (!editableValue4.isEmpty()){
             value4 = Integer.parseInt(andar_04_edittext.getText().toString());
-            hash_map.put("4", String.valueOf(value4));
+            andar_hash_map.put("4", String.valueOf(value4));
         } else {
-            if (hash_map.containsKey("4")){
-                hash_map.remove("4");
+            if (andar_hash_map.containsKey("4")){
+                andar_hash_map.remove("4");
             }
         }
 
@@ -732,10 +745,10 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         if (!editableValue5.isEmpty()){
             value5 = Integer.parseInt(andar_05_edittext.getText().toString());
-            hash_map.put("5", String.valueOf(value5));
+            andar_hash_map.put("5", String.valueOf(value5));
         } else {
-            if (hash_map.containsKey("5")){
-                hash_map.remove("5");
+            if (andar_hash_map.containsKey("5")){
+                andar_hash_map.remove("5");
             }
         }
 
@@ -743,10 +756,10 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         if (!editableValue6.isEmpty()){
             value6 = Integer.parseInt(andar_06_edittext.getText().toString());
-            hash_map.put("6", String.valueOf(value6));
+            andar_hash_map.put("6", String.valueOf(value6));
         } else {
-            if (hash_map.containsKey("6")){
-                hash_map.remove("6");
+            if (andar_hash_map.containsKey("6")){
+                andar_hash_map.remove("6");
             }
         }
 
@@ -754,10 +767,10 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         if (!editableValue7.isEmpty()){
             value7 = Integer.parseInt(andar_07_edittext.getText().toString());
-            hash_map.put("7", String.valueOf(value7));
+            andar_hash_map.put("7", String.valueOf(value7));
         } else {
-            if (hash_map.containsKey("7")){
-                hash_map.remove("7");
+            if (andar_hash_map.containsKey("7")){
+                andar_hash_map.remove("7");
             }
         }
 
@@ -765,10 +778,10 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         if (!editableValue8.isEmpty()){
             value8 = Integer.parseInt(andar_08_edittext.getText().toString());
-            hash_map.put("8", String.valueOf(value8));
+            andar_hash_map.put("8", String.valueOf(value8));
         } else {
-            if (hash_map.containsKey("8")){
-                hash_map.remove("8");
+            if (andar_hash_map.containsKey("8")){
+                andar_hash_map.remove("8");
             }
         }
 
@@ -776,10 +789,10 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         if (!editableValue9.isEmpty()){
             value9 = Integer.parseInt(andar_09_edittext.getText().toString());
-            hash_map.put("9", String.valueOf(value9));
+            andar_hash_map.put("9", String.valueOf(value9));
         } else {
-            if (hash_map.containsKey("9")){
-                hash_map.remove("9");
+            if (andar_hash_map.containsKey("9")){
+                andar_hash_map.remove("9");
             }
         }
 
@@ -823,35 +836,113 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 result;
 
         // If the Editable values are not null, obtains their double values by parsing
-        if (!editableValue0.isEmpty())
+        if (!editableValue0.isEmpty()){
             value0 = Integer.parseInt(bahar_00_edittext.getText().toString());
+            bahar_hash_map.put("0", String.valueOf(value0));
+        } else {
+            if (bahar_hash_map.containsKey("0")){
+                bahar_hash_map.remove("0");
+            }
+        }
 
-        if (!editableValue1.isEmpty())
+
+
+        if (!editableValue1.isEmpty()){
             value1 = Integer.parseInt(bahar_01_edittext.getText().toString());
+            bahar_hash_map.put("1", String.valueOf(value1));
+        } else {
+            if (bahar_hash_map.containsKey("1")){
+                bahar_hash_map.remove("1");
+            }
+        }
 
-        if (!editableValue2.isEmpty())
+
+
+        if (!editableValue2.isEmpty()){
             value2 = Integer.parseInt(bahar_02_edittext.getText().toString());
+            bahar_hash_map.put("2", String.valueOf(value2));
+        } else {
+            if (bahar_hash_map.containsKey("2")){
+                bahar_hash_map.remove("2");
+            }
+        }
 
-        if (!editableValue3.isEmpty())
+
+
+        if (!editableValue3.isEmpty()){
             value3 = Integer.parseInt(bahar_03_edittext.getText().toString());
+            bahar_hash_map.put("3", String.valueOf(value3));
+        } else {
+            if (bahar_hash_map.containsKey("3")){
+                bahar_hash_map.remove("3");
+            }
+        }
 
-        if (!editableValue4.isEmpty())
+
+
+        if (!editableValue4.isEmpty()){
             value4 = Integer.parseInt(bahar_04_edittext.getText().toString());
+            bahar_hash_map.put("4", String.valueOf(value4));
+        } else {
+            if (bahar_hash_map.containsKey("4")){
+                bahar_hash_map.remove("4");
+            }
+        }
 
-        if (!editableValue5.isEmpty())
+
+
+        if (!editableValue5.isEmpty()){
             value5 = Integer.parseInt(bahar_05_edittext.getText().toString());
+            bahar_hash_map.put("5", String.valueOf(value5));
+        } else {
+            if (bahar_hash_map.containsKey("5")){
+                bahar_hash_map.remove("5");
+            }
+        }
 
-        if (!editableValue6.isEmpty())
+
+
+        if (!editableValue6.isEmpty()){
             value6 = Integer.parseInt(bahar_06_edittext.getText().toString());
+            bahar_hash_map.put("6", String.valueOf(value6));
+        } else {
+            if (bahar_hash_map.containsKey("6")){
+                bahar_hash_map.remove("6");
+            }
+        }
 
-        if (!editableValue7.isEmpty())
+
+
+        if (!editableValue7.isEmpty()){
             value7 = Integer.parseInt(bahar_07_edittext.getText().toString());
+            bahar_hash_map.put("7", String.valueOf(value7));
+        } else {
+            if (bahar_hash_map.containsKey("7")){
+                bahar_hash_map.remove("7");
+            }
+        }
 
-        if (!editableValue8.isEmpty())
+
+
+        if (!editableValue8.isEmpty()){
             value8 = Integer.parseInt(bahar_08_edittext.getText().toString());
+            bahar_hash_map.put("8", String.valueOf(value8));
+        } else {
+            if (bahar_hash_map.containsKey("8")){
+                bahar_hash_map.remove("8");
+            }
+        }
 
-        if (!editableValue9.isEmpty())
+
+
+        if (!editableValue9.isEmpty()){
             value9 = Integer.parseInt(bahar_09_edittext.getText().toString());
+            bahar_hash_map.put("9", String.valueOf(value9));
+        } else {
+            if (bahar_hash_map.containsKey("9")){
+                bahar_hash_map.remove("9");
+            }
+        }
 
 
         // Calculates the result
@@ -871,63 +962,16 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
     private void calculateResult03() throws NumberFormatException {
 
-        // Gets the two EditText controls' Editable values
-       /* String editableValue0 = comb_00_edittext.getText().toString(),
-                editableValue1 = comb_01_edittext.getText().toString(),
-                editableValue2 = comb_02_edittext.getText().toString(),
-                editableValue3 = comb_03_edittext.getText().toString(),
-                editableValue4 = comb_04_edittext.getText().toString(),
-                editableValue5 = comb_05_edittext.getText().toString(),
-                editableValue6 = comb_06_edittext.getText().toString(),
-                editableValue7 = comb_07_edittext.getText().toString(),
-                editableValue8 = comb_08_edittext.getText().toString(),
-                editableValue9 = comb_09_edittext.getText().toString(),
-                editableValueBid = satta_heading_03_bid_value.getText().toString();
-
-
-
-        // Initializes the double values and result
-        int value0 = 0, value1 = 0,
-                value2 = 0, value3 = 0, value4 = 0, value5 = 0,value6 = 0, value7 = 0,value8 = 0, value9 = 0,
-                value10 = 0,
-                result;
-
-        // If the Editable values are not null, obtains their double values by parsing
-        if (!editableValue0.isEmpty())
-            value0 = 1;
-
-        if (!editableValue1.isEmpty())
-            value1 = 1;
-
-        if (!editableValue2.isEmpty())
-            value2 = 1;
-
-        if (!editableValue3.isEmpty())
-            value3 = 1;
-
-        if (!editableValue4.isEmpty())
-            value4 = 1;
-
-        if (!editableValue5.isEmpty())
-            value5 = 1;
-
-        if (!editableValue6.isEmpty())
-            value6 = 1;
-
-        if (!editableValue7.isEmpty())
-            value7 = 1;
-
-        if (!editableValue8.isEmpty())
-            value8 = 1;
-
-        if (!editableValue9.isEmpty())
-            value9 = 1;
-
-*/
         int value10 = 0, result, arraySize;
 
-        if (!satta_heading_03_bid_value.getText().toString().isEmpty())
-        value10 = Integer.parseInt(satta_heading_03_bid_value.getText().toString());
+        if (!satta_heading_03_bid_value.getText().toString().isEmpty()){
+
+            value10 = Integer.parseInt(satta_heading_03_bid_value.getText().toString());
+
+            combinationValue = satta_heading_03_bid_value.getText().toString();
+
+
+        }
 
         arraySize = joinComb.size() * joinComb.size() * value10;
 
@@ -947,6 +991,255 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
 
 
+    }
+
+    private void findCalculation(){
+        // Gets the two EditText controls' Editable values
+        String
+                editableValue32 = single_32_edittext.getText().toString(),
+                editableValue33 = single_33_edittext.getText().toString(),
+                editableValue34 = single_34_edittext.getText().toString(),
+                editableValue35 = single_35_edittext.getText().toString(),
+                editableValue36 = single_36_edittext.getText().toString(),
+                editableValue37 = single_37_edittext.getText().toString(),
+                editableValue38 = single_38_edittext.getText().toString(),
+                editableValue39 = single_39_edittext.getText().toString(),
+                editableValue40 = single_40_edittext.getText().toString(),
+                editableValue41 = single_41_edittext.getText().toString(),
+                editableValue42 = single_42_edittext.getText().toString(),
+                editableValue43 = single_43_edittext.getText().toString(),
+                editableValue44 = single_44_edittext.getText().toString(),
+                editableValue45 = single_45_edittext.getText().toString(),
+                editableValue46 = single_46_edittext.getText().toString(),
+                editableValue47 = single_47_edittext.getText().toString(),
+                editableValue48 = single_48_edittext.getText().toString(),
+                editableValue49 = single_49_edittext.getText().toString(),
+                editableValue50 = single_50_edittext.getText().toString(),
+                editableValue51 = single_51_edittext.getText().toString(),
+                editableValue52 = single_52_edittext.getText().toString(),
+                editableValue53 = single_53_edittext.getText().toString(),
+                editableValue54 = single_54_edittext.getText().toString(),
+                editableValue55 = single_55_edittext.getText().toString(),
+                editableValue56 = single_56_edittext.getText().toString(),
+                editableValue57 = single_57_edittext.getText().toString(),
+                editableValue58 = single_58_edittext.getText().toString(),
+                editableValue59 = single_59_edittext.getText().toString(),
+                editableValue60 = single_60_edittext.getText().toString(),
+                editableValue61 = single_61_edittext.getText().toString(),
+                editableValue62 = single_62_edittext.getText().toString(),
+                editableValue63 = single_63_edittext.getText().toString(),
+                editableValue64 = single_64_edittext.getText().toString(),
+                editableValue65 = single_65_edittext.getText().toString(),
+                editableValue66 = single_66_edittext.getText().toString(),
+                editableValue67 = single_67_edittext.getText().toString(),
+                editableValue68 = single_68_edittext.getText().toString(),
+                editableValue69 = single_69_edittext.getText().toString(),
+                editableValue70 = single_70_edittext.getText().toString(),
+                editableValue71 = single_71_edittext.getText().toString(),
+                editableValue72 = single_72_edittext.getText().toString(),
+                editableValue73 = single_73_edittext.getText().toString(),
+                editableValue74 = single_74_edittext.getText().toString(),
+                editableValue75 = single_75_edittext.getText().toString(),
+                editableValue76 = single_76_edittext.getText().toString(),
+                editableValue77 = single_77_edittext.getText().toString(),
+                editableValue78 = single_78_edittext.getText().toString(),
+                editableValue79 = single_79_edittext.getText().toString();
+
+
+        if (!single_00_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_00_edittext.getText().toString(), single_01_edittext.getText().toString());
+        }
+
+
+        if (!single_02_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_02_edittext.getText().toString(), single_03_edittext.getText().toString());
+        }
+
+        if (!single_04_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_04_edittext.getText().toString(), single_05_edittext.getText().toString());
+        }
+
+
+        if (!single_06_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_06_edittext.getText().toString(), single_07_edittext.getText().toString());
+        }
+
+        if (!single_08_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_08_edittext.getText().toString(), single_09_edittext.getText().toString());
+        }
+
+        if (!single_10_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_10_edittext.getText().toString(), single_11_edittext.getText().toString());
+        }
+
+        if (!single_12_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_12_edittext.getText().toString(), single_13_edittext.getText().toString());
+        }
+
+        if (!single_14_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_14_edittext.getText().toString(), single_15_edittext.getText().toString());
+        }
+
+        if (!single_16_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_16_edittext.getText().toString(), single_17_edittext.getText().toString());
+        }
+
+        if (!single_18_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_18_edittext.getText().toString(), single_19_edittext.getText().toString());
+        }
+
+
+
+        if (!single_20_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_20_edittext.getText().toString(), single_21_edittext.getText().toString());
+        }
+
+        if (!single_22_edittext.getText().toString().isEmpty() && !single_23_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_22_edittext.getText().toString(), single_23_edittext.getText().toString());
+        }
+
+        if (!single_24_edittext.getText().toString().isEmpty() && !single_25_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_24_edittext.getText().toString(), single_25_edittext.getText().toString());
+        }
+
+        if (!single_26_edittext.getText().toString().isEmpty() && !single_27_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_26_edittext.getText().toString(), single_27_edittext.getText().toString());
+        }
+
+        if (!single_28_edittext.getText().toString().isEmpty() && !single_29_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_28_edittext.getText().toString(), single_29_edittext.getText().toString());
+        }
+
+
+        if (!single_30_edittext.getText().toString().isEmpty() && !single_31_edittext.getText().toString().isEmpty()){
+            AddToArrayList(single_30_edittext.getText().toString(), single_31_edittext.getText().toString());
+        }
+
+
+        if (!editableValue32.isEmpty() && !editableValue33.isEmpty()){
+            AddToArrayList(single_32_edittext.getText().toString(), single_33_edittext.getText().toString());
+        }
+
+        if (!editableValue34.isEmpty() && !editableValue35.isEmpty()){
+            AddToArrayList(single_34_edittext.getText().toString(), single_35_edittext.getText().toString());
+        }
+
+        if (!editableValue36.isEmpty() && !editableValue37.isEmpty()){
+            AddToArrayList(single_36_edittext.getText().toString(), single_37_edittext.getText().toString());
+        }
+
+        if (!editableValue38.isEmpty() && !editableValue39.isEmpty()){
+            AddToArrayList(single_38_edittext.getText().toString(), single_39_edittext.getText().toString());
+        }
+
+
+
+        if (!editableValue40.isEmpty() && !editableValue41.isEmpty()){
+            AddToArrayList(single_40_edittext.getText().toString(), single_41_edittext.getText().toString());
+        }
+
+
+        if (!editableValue42.isEmpty() && !editableValue43.isEmpty()){
+            AddToArrayList(single_42_edittext.getText().toString(), single_43_edittext.getText().toString());
+        }
+
+        if (!editableValue44.isEmpty() && !editableValue45.isEmpty()){
+            AddToArrayList(single_44_edittext.getText().toString(), single_45_edittext.getText().toString());
+        }
+
+        if (!editableValue46.isEmpty() && !editableValue47.isEmpty()){
+            AddToArrayList(single_46_edittext.getText().toString(), single_47_edittext.getText().toString());
+        }
+
+        if (!editableValue48.isEmpty() && !editableValue49.isEmpty()){
+            AddToArrayList(single_48_edittext.getText().toString(), single_49_edittext.getText().toString());
+        }
+
+
+
+        if (!editableValue50.isEmpty() && !editableValue51.isEmpty()){
+            AddToArrayList(single_50_edittext.getText().toString(), single_51_edittext.getText().toString());
+        }
+
+
+        if (!editableValue52.isEmpty() && !editableValue53.isEmpty()){
+            AddToArrayList(single_52_edittext.getText().toString(), single_53_edittext.getText().toString());
+        }
+
+
+        if (!editableValue54.isEmpty() && !editableValue55.isEmpty()){
+            AddToArrayList(single_54_edittext.getText().toString(), single_55_edittext.getText().toString());
+        }
+
+
+        if (!editableValue56.isEmpty() && !editableValue57.isEmpty()){
+            AddToArrayList(single_56_edittext.getText().toString(), single_57_edittext.getText().toString());
+        }
+
+        if (!editableValue58.isEmpty() && !editableValue59.isEmpty()){
+            AddToArrayList(single_58_edittext.getText().toString(), single_59_edittext.getText().toString());
+        }
+
+
+
+        if (!editableValue60.isEmpty() && !editableValue61.isEmpty()){
+            AddToArrayList(single_60_edittext.getText().toString(), single_61_edittext.getText().toString());
+        }
+
+
+        if (!editableValue62.isEmpty() && !editableValue63.isEmpty()){
+            AddToArrayList(single_62_edittext.getText().toString(), single_63_edittext.getText().toString());
+        }
+
+
+
+        if (!editableValue64.isEmpty() && !editableValue65.isEmpty()){
+            AddToArrayList(single_64_edittext.getText().toString(), single_65_edittext.getText().toString());
+        }
+
+
+
+        if (!editableValue66.isEmpty() && !editableValue67.isEmpty()){
+            AddToArrayList(single_66_edittext.getText().toString(), single_67_edittext.getText().toString());
+        }
+
+        if (!editableValue68.isEmpty() && !editableValue69.isEmpty()){
+            AddToArrayList(single_68_edittext.getText().toString(), single_69_edittext.getText().toString());
+        }
+
+
+
+
+
+        if (!editableValue70.isEmpty() && !editableValue71.isEmpty()){
+            AddToArrayList(single_70_edittext.getText().toString(), single_71_edittext.getText().toString());
+        }
+
+
+        if (!editableValue72.isEmpty() && !editableValue73.isEmpty()){
+            AddToArrayList(single_72_edittext.getText().toString(), single_73_edittext.getText().toString());
+        }
+
+
+
+        if (!editableValue74.isEmpty() && !editableValue75.isEmpty()){
+            AddToArrayList(single_74_edittext.getText().toString(), single_75_edittext.getText().toString());
+        }
+
+        if (!editableValue76.isEmpty() && !editableValue77.isEmpty()){
+            AddToArrayList(single_76_edittext.getText().toString(), single_77_edittext.getText().toString());
+        }
+
+        if (!editableValue78.isEmpty() && !editableValue79.isEmpty()){
+            AddToArrayList(single_78_edittext.getText().toString(), single_79_edittext.getText().toString());
+        }
+
+    }
+
+    private void AddToArrayList(String key, String value){
+
+        single_keys.add(key);
+        single_values.add(value);
     }
 
     private void calculateResult04() throws NumberFormatException {
@@ -1093,8 +1386,6 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 value79 = 0,
                 result;
 
-        // If the Editable values are not null, obtains their double values by parsing
-
         if (!editableValue0.isEmpty()) value0 = Integer.parseInt(single_00_edittext.getText().toString());
         if (!editableValue1.isEmpty()) value1 = Integer.parseInt(single_01_edittext.getText().toString());
         if (!editableValue2.isEmpty()) value2 = Integer.parseInt(single_02_edittext.getText().toString());
@@ -1176,6 +1467,9 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         if (!editableValue78.isEmpty()) value78 = Integer.parseInt(single_78_edittext.getText().toString());
         if (!editableValue79.isEmpty()) value79 = Integer.parseInt(single_79_edittext.getText().toString());
 
+        // If the Editable values are not null, obtains their double values by parsing
+
+        // If the Editable values are not null, obtains their double values by parsing
 
 
         // Calculates the result
@@ -1414,6 +1708,19 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     @Override
     public void receiveBidSetResult(Bid response) {
 
+        Toast.makeText(PlayMatkaActivity.this, response.getStatus().toString(), Toast.LENGTH_SHORT).show();
+
         Timber.d(response.toString());
     }
 }
+
+/*
+  private JSONObject getLocationBidding() throws JSONException {
+
+        JSONObject arrayElementOneArrayElementOne = new JSONObject();
+        arrayElementOneArrayElementOne.put("1", 100);
+        arrayElementOneArrayElementOne.put("2", 100);
+
+        return arrayElementOneArrayElementOne;
+    }
+ */
