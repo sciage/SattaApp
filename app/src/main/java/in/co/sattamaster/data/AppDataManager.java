@@ -22,12 +22,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.List;
 
 import in.co.sattamaster.data.network.ApiHeader;
 import in.co.sattamaster.data.network.ApiHelper;
 import in.co.sattamaster.data.prefs.PreferencesHelper;
 import in.co.sattamaster.di.ApplicationContext;
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.ui.login.AllModerators;
 import io.reactivex.Single;
 
 import javax.inject.Inject;
@@ -62,8 +64,18 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<Bid> sendBidset(String user_id, String centre_id, JSONObject bid) {
-        return mApiHelper.sendBidset(user_id, centre_id, bid);
+    public Single<Bid> sendBidset(JSONObject bid) {
+        return mApiHelper.sendBidset(bid);
+    }
+
+    @Override
+    public Single<Bid> registerUser(JSONObject bids) {
+        return mApiHelper.registerUser(bids);
+    }
+
+    @Override
+    public Single<List<AllModerators>> getAllModerator() {
+        return mApiHelper.getAllModerator();
     }
 
  /*   @Override

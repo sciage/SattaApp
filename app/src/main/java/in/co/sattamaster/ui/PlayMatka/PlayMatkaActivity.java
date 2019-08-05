@@ -545,7 +545,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
             public void onClick(View v) {
                 try {
                    // writeJsonSimpleDemo();
-                    mPresenter.sendBidSet("1", "1", writeJsonSimpleDemo());
+                    mPresenter.sendBidSet(writeJsonSimpleDemo());
                 } catch (Exception ex){
                     ex.printStackTrace();
                 }

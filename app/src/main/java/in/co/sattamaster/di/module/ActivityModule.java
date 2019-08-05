@@ -26,9 +26,9 @@ import in.co.sattamaster.ui.History.HistoryActivityPresenter;
 import in.co.sattamaster.ui.Homepage.LocationPageMvpPresenter;
 import in.co.sattamaster.ui.Homepage.LocationPageMvpView;
 import in.co.sattamaster.ui.Homepage.LocationPagePresenter;
-import in.co.sattamaster.ui.Homepage.LoginScreenMvpPresenter;
-import in.co.sattamaster.ui.Homepage.LoginScreenMvpView;
-import in.co.sattamaster.ui.Homepage.LoginScreenPresenter;
+import in.co.sattamaster.ui.login.LoginScreenMvpPresenter;
+import in.co.sattamaster.ui.login.LoginScreenMvpView;
+import in.co.sattamaster.ui.login.LoginScreenPresenter;
 import in.co.sattamaster.ui.Homepage.MainActivityMvpPresenter;
 import in.co.sattamaster.ui.Homepage.MainActivityMvpView;
 import in.co.sattamaster.ui.Homepage.MainActivityPresenter;
@@ -41,6 +41,9 @@ import in.co.sattamaster.ui.Result.ResultActivityPresenter;
 import in.co.sattamaster.ui.Withdraw.WithdrawMvpPresenter;
 import in.co.sattamaster.ui.Withdraw.WithdrawMvpView;
 import in.co.sattamaster.ui.Withdraw.WithdrawPresenter;
+import in.co.sattamaster.ui.login.RegisterMvpPresenter;
+import in.co.sattamaster.ui.login.RegisterMvpView;
+import in.co.sattamaster.ui.login.RegisterPresenter;
 import in.co.sattamaster.utils.rx.AppSchedulerProvider;
 import in.co.sattamaster.utils.rx.SchedulerProvider;
 
@@ -110,6 +113,12 @@ public class ActivityModule {
     @Provides
     PlayMatkaActivityMvpPresenter<PlayMatkaActivityMvpView> providePlayMatkaMvpPresenter(
             PlayMatkaActivityPresenter<PlayMatkaActivityMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    RegisterMvpPresenter<RegisterMvpView> provideRegisterMvpPresenter(
+            RegisterPresenter<RegisterMvpView> presenter) {
         return presenter;
     }
 

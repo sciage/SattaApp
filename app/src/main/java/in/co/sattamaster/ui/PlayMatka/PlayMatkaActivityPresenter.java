@@ -29,10 +29,10 @@ public class PlayMatkaActivityPresenter <V extends PlayMatkaActivityMvpView> ext
     }
 
     @Override
-    public void sendBidSet(String user_id, String centre_id, JSONObject bidset) {
+    public void sendBidSet(JSONObject bidset) {
 
         getCompositeDisposable().add(getDataManager()
-                .sendBidset(user_id, centre_id, bidset)
+                .sendBidset(bidset)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<Bid>() {

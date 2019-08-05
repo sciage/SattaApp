@@ -20,13 +20,14 @@ import in.co.sattamaster.di.PerActivity;
 import in.co.sattamaster.di.module.ActivityModule;
 import in.co.sattamaster.ui.History.HistoryActivity;
 import in.co.sattamaster.ui.Homepage.LocationPageActivity;
-import in.co.sattamaster.ui.Homepage.LoginScreenActivity;
+import in.co.sattamaster.ui.login.LoginScreenActivity;
 import in.co.sattamaster.ui.Homepage.MainActivity;
 import in.co.sattamaster.ui.PlayMatka.PlayMatkaActivity;
 import in.co.sattamaster.ui.Result.ResultActivity;
 import in.co.sattamaster.ui.Withdraw.WithdrawActivity;
 
 import dagger.Component;
+import in.co.sattamaster.ui.login.RegisterActivity;
 
 /**
  * Created by janisharali on 27/01/17.
@@ -37,6 +38,7 @@ import dagger.Component;
 public interface ActivityComponent {
 
     void inject(LoginScreenActivity activity);
+    void inject(RegisterActivity activity);
     void inject(MainActivity activity);
     void inject(PlayMatkaActivity activity);
     void inject(HistoryActivity activity);

@@ -11,10 +11,14 @@ import in.co.sattamaster.ui.base.BaseActivity;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import in.co.sattamaster.ui.login.LoginScreenActivity;
 
 public class MainActivity extends BaseActivity implements MainActivityMvpView{
     @Inject
     DataManager mDataManager;
+
+    protected boolean isLoggedIn;
+
 
     @Inject
     MainActivityMvpPresenter<MainActivityMvpView> mPresenter;
@@ -24,10 +28,13 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_launcher);
 
+        Intent intent = getIntent();
+
+        isLoggedIn = intent.getBooleanExtra("isLoggedIn", false);
 
         if (!isLoggedIn){
-            Intent intent = new Intent(MainActivity.this, LoginScreenActivity.class);
-            startActivity(intent);
+            Intent intent02 = new Intent(MainActivity.this, LoginScreenActivity.class);
+            startActivity(intent02);
         }
 
         getActivityComponent().inject(this);

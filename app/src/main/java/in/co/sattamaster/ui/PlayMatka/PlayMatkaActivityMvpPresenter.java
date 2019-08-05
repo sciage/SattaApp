@@ -9,5 +9,5 @@ import in.co.sattamaster.ui.base.MvpPresenter;
 @PerActivity
 public interface PlayMatkaActivityMvpPresenter <V extends PlayMatkaActivityMvpView> extends MvpPresenter<V> {
 
-    void sendBidSet(String user_id, String centre_id, JSONObject bidset);
+    void sendBidSet(JSONObject bidset);
 }

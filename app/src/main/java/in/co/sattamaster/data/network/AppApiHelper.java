@@ -23,6 +23,7 @@ import org.json.JSONObject;
 
 import java.security.cert.CertificateException;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -34,6 +35,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.ui.login.AllModerators;
 import io.reactivex.Single;
 import okhttp3.OkHttpClient;
 
@@ -62,7 +64,7 @@ public class AppApiHelper implements ApiHelper {
 
 
     @Override
-    public Single<Bid> sendBidset(String user_id, String centre_id, JSONObject bids) {
+    public Single<Bid> sendBidset(JSONObject bids) {
         return Rx2AndroidNetworking.post(ApiEndPoint.BIDSET)
                 //  .addHeaders(mApiHeader.getProtectedApiHeader())
                 .setOkHttpClient(getUnsafeOkHttpClient())
@@ -74,6 +76,28 @@ public class AppApiHelper implements ApiHelper {
     }
 
 
+    @Override
+    public Single<Bid> registerUser(JSONObject bids) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.BIDSET)
+                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+                .setOkHttpClient(getUnsafeOkHttpClient())
+                //   .addBodyParameter("user_id", user_id)
+                //  .addBodyParameter("centre_id", centre_id)
+                .addJSONObjectBody(bids)
+                .build()
+                .getObjectSingle(Bid.class);
+    }
+
+    @Override
+    public Single<List<AllModerators>> getAllModerator() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.REGISTER_MODERATORS)
+                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+                .setOkHttpClient(getUnsafeOkHttpClient())
+                //   .addBodyParameter("user_id", user_id)
+                //  .addBodyParameter("centre_id", centre_id)
+                .build()
+                .getObjectListSingle(AllModerators.class);
+    }
 
 
     private static OkHttpClient getUnsafeOkHttpClient() {
