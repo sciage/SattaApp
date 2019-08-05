@@ -16,14 +16,14 @@
 package in.co.sattamaster.data.network;
 
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.HashMap;
 import java.util.List;
 
 import in.co.sattamaster.dto.Bid;
 import in.co.sattamaster.ui.login.AllModerators;
+import in.co.sattamaster.ui.login.LoginResponse;
+import in.co.sattamaster.ui.login.RegisterResponse;
 import io.reactivex.Single;
 
 /**
@@ -35,8 +35,9 @@ public interface ApiHelper {
     ApiHeader getApiHeader();
 
     Single<Bid> sendBidset(JSONObject bidset);
-    Single<Bid> registerUser(JSONObject bids);
+    Single<RegisterResponse> registerUser(JSONObject bids);
     Single<List<AllModerators>> getAllModerator();
+    Single<LoginResponse> loginUser(JSONObject bids);
 
 
   //  Single<List<PostsModel>> getImagePosts(String user_id, String onlyImages, String page);

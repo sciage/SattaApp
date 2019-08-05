@@ -2,12 +2,17 @@ package in.co.sattamaster.ui.login;
 
 import androidx.core.content.res.ResourcesCompat;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -16,11 +21,13 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import in.co.sattamaster.R;
+import in.co.sattamaster.ui.Homepage.MainActivity;
 import in.co.sattamaster.ui.autocomplete.Autocomplete;
 import in.co.sattamaster.ui.autocomplete.AutocompleteCallback;
 import in.co.sattamaster.ui.autocomplete.AutocompletePresenter;
 import in.co.sattamaster.ui.autocomplete.UserPresenter;
 import in.co.sattamaster.ui.base.BaseActivity;
+import in.co.sattamaster.ui.base.MySharedPreferences;
 
 public class RegisterActivity extends BaseActivity implements RegisterMvpView {
 
@@ -64,6 +71,57 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
             e.printStackTrace();
         }
 
+        register_final.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (createUserObject() != null){
+                    try {
+                        mPresenter.registerNewUser(createUserObject());
+                        // getGroupsJoined();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        });
+
+    }
+
+    private JSONObject createUserObject(){
+        JSONObject createJsonObject = null;
+
+        if (register_username.getText().toString().isEmpty()){
+            Toast.makeText(RegisterActivity.this, "Please enter username", Toast.LENGTH_SHORT).show();
+        } else if (register_phone.getText().toString().isEmpty()){
+            Toast.makeText(RegisterActivity.this, "Please enter phone", Toast.LENGTH_SHORT).show();
+        } else  if (register_password.getText().toString().isEmpty()){
+            Toast.makeText(RegisterActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
+        } else   if (!selectedModerator){
+            Toast.makeText(RegisterActivity.this, "Please enter moderator", Toast.LENGTH_SHORT).show();
+
+        } else {
+            createJsonObject = createJsonObject();
+        }
+        return createJsonObject;
+
+    }
+
+    private JSONObject createJsonObject(){
+        JSONObject user = new JSONObject();
+        try {
+            user.put("name", register_username.getText().toString());
+            user.put("phone", register_phone.getText().toString());
+            user.put("password", register_password.getText().toString());
+            user.put("moderator_id", this.moderator_id);
+            user.put("coin_balance", "0");
+
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return user;
     }
 
     private void setupUserAutocomplete(List<AllModerators> response) {
@@ -109,6 +167,18 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
         progressFrame.setVisibility(View.INVISIBLE);
 
         setupUserAutocomplete(response);
+
+    }
+
+    @Override
+    public void getUserRegister(RegisterResponse response) {
+
+        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+        MySharedPreferences.registerUserId(preferences, response.getData().getId().toString());
+        intent.putExtra("isLoggedIn", true);
+        startActivity(intent);
+
+        progressFrame.setVisibility(View.INVISIBLE);
 
     }
 }

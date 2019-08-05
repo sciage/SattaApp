@@ -1,5 +1,9 @@
 package in.co.sattamaster.ui.login;
 
+import com.androidnetworking.error.ANError;
+
+import org.json.JSONObject;
+
 import in.co.sattamaster.data.DataManager;
 import in.co.sattamaster.ui.base.BasePresenter;
 import in.co.sattamaster.utils.rx.SchedulerProvider;
@@ -7,6 +11,7 @@ import in.co.sattamaster.utils.rx.SchedulerProvider;
 import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 
 public class LoginScreenPresenter <V extends LoginScreenMvpView> extends BasePresenter<V>
         implements LoginScreenMvpPresenter<V> {
@@ -19,15 +24,17 @@ public class LoginScreenPresenter <V extends LoginScreenMvpView> extends BasePre
     }
 
     @Override
-    public void doLogin(String phone, String password) {
+    public void sendBidSet(JSONObject login) {
 
-     /*   getCompositeDisposable().add(getDataManager()
-                .postSaveToken(id_user_name, pushnotificationToken)
+        getCompositeDisposable().add(getDataManager()
+                .loginUser(login)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<SuccessResponse>() {
+                .subscribe(new Consumer<LoginResponse>() {
                     @Override
-                    public void accept(SuccessResponse response) throws Exception {
+                    public void accept(LoginResponse response) throws Exception {
+
+                        getMvpView().getLoginResponse(response);
 
                         // todo add data and loop to get all friends list
                      /*   getDataManager().updateUserInfo(
@@ -40,7 +47,7 @@ public class LoginScreenPresenter <V extends LoginScreenMvpView> extends BasePre
 
                         //getMvpView().hideLoading();
                         // getMvpView().openMainActivity();
-/*
+
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -60,7 +67,7 @@ public class LoginScreenPresenter <V extends LoginScreenMvpView> extends BasePre
                     }
                 }));
 
- */
+
     }
 
 

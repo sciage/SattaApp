@@ -3,18 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.login.RegisterActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
 
 <LinearLayout
     android:layout_width="match_parent"
     android:background="@color/secondPage"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <TextView
@@ -80,7 +82,7 @@
         android:background="@drawable/bubble"
         android:gravity="center_vertical"
         android:hint="Password"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:id="@+id/register_password"
         android:paddingStart="32dp"
         android:paddingEnd="32dp"

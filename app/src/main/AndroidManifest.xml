@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.login.RegisterActivity"></activity>
+        <activity android:name=".ui.login.RegisterActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".ui.Result.PastResultActivity" />
         <activity android:name=".ui.PlayMatka.PlayMatkaActivity" />
         <activity android:name=".ui.Result.ResultActivity" />
@@ -28,7 +29,8 @@
         </activity>
         <activity android:name=".ui.SingleLocationPage" />
         <activity android:name=".ui.CreateGroupTagActivity" />
-        <activity android:name=".ui.login.LoginScreenActivity" />
+        <activity android:name=".ui.login.LoginScreenActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".ui.Homepage.LocationPageActivity" />
 
         <meta-data

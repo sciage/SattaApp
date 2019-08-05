@@ -2,6 +2,8 @@ package in.co.sattamaster.ui.login;
 
 import com.androidnetworking.error.ANError;
 
+import org.json.JSONObject;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -67,5 +69,50 @@ public class RegisterPresenter  <V extends RegisterMvpView> extends BasePresente
                         }
                     }
                 }));
+    }
+
+    @Override
+    public void registerNewUser(JSONObject login) {
+        getCompositeDisposable().add(getDataManager()
+                .registerUser(login)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(new Consumer<RegisterResponse>() {
+                    @Override
+                    public void accept(RegisterResponse response) throws Exception {
+
+                        getMvpView().getUserRegister(response);
+
+                     /*   getDataManager().updateUserInfo(
+
+                                response.info.getId(),
+                                response.info.getUser_token(),
+                                DataManager.LoggedInMode.LOGGED_IN_MODE_SERVER
+                        );
+                        */
+
+
+
+                        //   getMvpView().openMainActivity();
+
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+
+                        if (!isViewAttached()) {
+                            return;
+                        }
+
+                        getMvpView().hideLoading();
+
+                        // handle the login error here
+                        if (throwable instanceof ANError) {
+                            ANError anError = (ANError) throwable;
+                            handleApiError(anError);
+                        }
+                    }
+                }));
+
     }
 }

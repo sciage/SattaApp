@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 public class MySharedPreferences {
 
     private static final String AMAZON_USER_ID = "AMAZON_USER_ID";
+    private static final String USER_TOKEN = "USER_TOKEN";
 
     public static void wipe(SharedPreferences sharedPreferences) {
         MySharedPreferences.storeValueInSharedPreferences(sharedPreferences, AMAZON_USER_ID, null);
@@ -37,6 +38,15 @@ public class MySharedPreferences {
 
     public static String getUserId(SharedPreferences sharedPreferences) {
         return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, AMAZON_USER_ID);
+    }
+
+
+    public static void registerToken(SharedPreferences sharedPreferences, String userId) {
+        MySharedPreferences.storeValueInSharedPreferences2(sharedPreferences, USER_TOKEN, userId);
+    }
+
+    public static String getToken(SharedPreferences sharedPreferences) {
+        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, USER_TOKEN);
     }
 
 }

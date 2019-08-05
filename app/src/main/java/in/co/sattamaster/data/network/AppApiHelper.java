@@ -18,11 +18,9 @@ package in.co.sattamaster.data.network;
 
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.security.cert.CertificateException;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -36,6 +34,8 @@ import javax.net.ssl.X509TrustManager;
 
 import in.co.sattamaster.dto.Bid;
 import in.co.sattamaster.ui.login.AllModerators;
+import in.co.sattamaster.ui.login.LoginResponse;
+import in.co.sattamaster.ui.login.RegisterResponse;
 import io.reactivex.Single;
 import okhttp3.OkHttpClient;
 
@@ -77,20 +77,32 @@ public class AppApiHelper implements ApiHelper {
 
 
     @Override
-    public Single<Bid> registerUser(JSONObject bids) {
-        return Rx2AndroidNetworking.post(ApiEndPoint.BIDSET)
+    public Single<RegisterResponse> registerUser(JSONObject bids) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.REGISTER_USER)
                 //  .addHeaders(mApiHeader.getProtectedApiHeader())
                 .setOkHttpClient(getUnsafeOkHttpClient())
                 //   .addBodyParameter("user_id", user_id)
                 //  .addBodyParameter("centre_id", centre_id)
                 .addJSONObjectBody(bids)
                 .build()
-                .getObjectSingle(Bid.class);
+                .getObjectSingle(RegisterResponse.class);
+    }
+
+    @Override
+    public Single<LoginResponse> loginUser(JSONObject bids) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.LOGIN_USER)
+                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+                .setOkHttpClient(getUnsafeOkHttpClient())
+                //   .addBodyParameter("user_id", user_id)
+                //  .addBodyParameter("centre_id", centre_id)
+                .addJSONObjectBody(bids)
+                .build()
+                .getObjectSingle(LoginResponse.class);
     }
 
     @Override
     public Single<List<AllModerators>> getAllModerator() {
-        return Rx2AndroidNetworking.get(ApiEndPoint.REGISTER_MODERATORS)
+        return Rx2AndroidNetworking.get(ApiEndPoint.GET_ALL_MODERATORS)
                 //  .addHeaders(mApiHeader.getProtectedApiHeader())
                 .setOkHttpClient(getUnsafeOkHttpClient())
                 //   .addBodyParameter("user_id", user_id)
@@ -164,7 +176,7 @@ public class AppApiHelper implements ApiHelper {
     // post community group
 /*
     @Override
-    public Single<LoginResponse> sendAgeOnlineApi(String name, String email, String userId, String deviceId, String socialNetwork) {
+    public Single<RegisterResponse> sendAgeOnlineApi(String name, String email, String userId, String deviceId, String socialNetwork) {
         return Rx2AndroidNetworking.post(ApiEndPoint.JOIN_CATEGORIES)
                 // .addHeaders(mApiHeader.getPublicApiHeader())
                 .addBodyParameter("firstname", "Amit").addPathParameter("pageNumber", "0")
@@ -174,7 +186,7 @@ public class AppApiHelper implements ApiHelper {
                 .addQueryParameter("limit", "10")
                 .addQueryParameter("limit", "10").addBodyParameter(name,email,userId,deviceId,socialNetwork)
                 .build()
-                .getObjectSingle(LoginResponse.class);
+                .getObjectSingle(RegisterResponse.class);
     }
 
     // get all groups
@@ -193,7 +205,7 @@ public class AppApiHelper implements ApiHelper {
     // join all groups
 
     @Override
-    public Single<LoginResponse> sendAgeOnlineApi(String name, String email, String userId, String deviceId, String socialNetwork) {
+    public Single<RegisterResponse> sendAgeOnlineApi(String name, String email, String userId, String deviceId, String socialNetwork) {
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_LOGIN)
                 // .addHeaders(mApiHeader.getPublicApiHeader())
                 .addBodyParameter("firstname", "Amit").addPathParameter("pageNumber", "0")
@@ -203,7 +215,7 @@ public class AppApiHelper implements ApiHelper {
                 .addQueryParameter("limit", "10")
                 .addQueryParameter("limit", "10").addBodyParameter(name,email,userId,deviceId,socialNetwork)
                 .build()
-                .getObjectSingle(LoginResponse.class);
+                .getObjectSingle(RegisterResponse.class);
     }
 
 
@@ -214,33 +226,33 @@ public class AppApiHelper implements ApiHelper {
 
 
     @Override
-    public Single<LoginResponse> doGoogleLoginApiCall(LoginRequest.GoogleLoginRequest
+    public Single<RegisterResponse> doGoogleLoginApiCall(LoginRequest.GoogleLoginRequest
                                                               request) {
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_GOOGLE_LOGIN)
                 .addHeaders(mApiHeader.getPublicApiHeader())
                 .addBodyParameter(request)
                 .build()
-                .getObjectSingle(LoginResponse.class);
+                .getObjectSingle(RegisterResponse.class);
     }
 
     @Override
-    public Single<LoginResponse> doFacebookLoginApiCall(LoginRequest.FacebookLoginRequest
+    public Single<RegisterResponse> doFacebookLoginApiCall(LoginRequest.FacebookLoginRequest
                                                                 request) {
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_FACEBOOK_LOGIN)
                 .addHeaders(mApiHeader.getPublicApiHeader())
                 .addBodyParameter(request)
                 .build()
-                .getObjectSingle(LoginResponse.class);
+                .getObjectSingle(RegisterResponse.class);
     }
 
     @Override
-    public Single<LoginResponse> doServerLoginApiCall(LoginRequest.ServerLoginRequest
+    public Single<RegisterResponse> doServerLoginApiCall(LoginRequest.ServerLoginRequest
                                                               request) {
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_SERVER_LOGIN)
                 .addHeaders(mApiHeader.getPublicApiHeader())
                 .addBodyParameter(request)
                 .build()
-                .getObjectSingle(LoginResponse.class);
+                .getObjectSingle(RegisterResponse.class);
     }
 
     @Override

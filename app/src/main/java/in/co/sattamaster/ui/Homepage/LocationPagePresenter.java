@@ -28,7 +28,7 @@ public class LocationPagePresenter <V extends LocationPageMvpView> extends BaseP
     @Override
     public void sendBidSet(JSONObject bidset) {
 
-        getCompositeDisposable().add(getDataManager()
+    /*    getCompositeDisposable().add(getDataManager()
                 .registerUser(bidset)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
@@ -58,5 +58,7 @@ public class LocationPagePresenter <V extends LocationPageMvpView> extends BaseP
                         }
                     }
                 }));
+
+     */
     }
 }

@@ -18,10 +18,8 @@ package in.co.sattamaster.data;
 
 import android.content.Context;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.HashMap;
 import java.util.List;
 
 import in.co.sattamaster.data.network.ApiHeader;
@@ -30,6 +28,8 @@ import in.co.sattamaster.data.prefs.PreferencesHelper;
 import in.co.sattamaster.di.ApplicationContext;
 import in.co.sattamaster.dto.Bid;
 import in.co.sattamaster.ui.login.AllModerators;
+import in.co.sattamaster.ui.login.LoginResponse;
+import in.co.sattamaster.ui.login.RegisterResponse;
 import io.reactivex.Single;
 
 import javax.inject.Inject;
@@ -69,13 +69,18 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<Bid> registerUser(JSONObject bids) {
+    public Single<RegisterResponse> registerUser(JSONObject bids) {
         return mApiHelper.registerUser(bids);
     }
 
     @Override
     public Single<List<AllModerators>> getAllModerator() {
         return mApiHelper.getAllModerator();
+    }
+
+    @Override
+    public Single<LoginResponse> loginUser(JSONObject bids) {
+        return mApiHelper.loginUser(bids);
     }
 
  /*   @Override
@@ -146,19 +151,19 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<LoginResponse> doGoogleLoginApiCall(LoginRequest.GoogleLoginRequest
+    public Single<RegisterResponse> doGoogleLoginApiCall(LoginRequest.GoogleLoginRequest
                                                               request) {
         return mApiHelper.doGoogleLoginApiCall(request);
     }
 
     @Override
-    public Single<LoginResponse> doFacebookLoginApiCall(LoginRequest.FacebookLoginRequest
+    public Single<RegisterResponse> doFacebookLoginApiCall(LoginRequest.FacebookLoginRequest
                                                                 request) {
         return mApiHelper.doFacebookLoginApiCall(request);
     }
 
     @Override
-    public Single<LoginResponse> doServerLoginApiCall(LoginRequest.ServerLoginRequest
+    public Single<RegisterResponse> doServerLoginApiCall(LoginRequest.ServerLoginRequest
                                                               request) {
         return mApiHelper.doServerLoginApiCall(request);
     }

@@ -202,7 +202,7 @@ public interface WebService {
 
     @FormUrlEncoded
     @POST("login_new_current_latest.php")
-    Observable<LoginResponse> login(
+    Observable<RegisterResponse> login(
             @Field("name") String name,
             @Field("email") String email,
             @Field("user_id") String userId,
@@ -212,7 +212,7 @@ public interface WebService {
 
     @FormUrlEncoded
     @POST("login_new_current_skip.php")
-    Observable<LoginResponse> profileSkipLogin(
+    Observable<RegisterResponse> profileSkipLogin(
             @Field("name") String name,
             @Field("email") String email,
             @Field("user_id") String userId,
@@ -222,7 +222,7 @@ public interface WebService {
 
     @FormUrlEncoded
     @POST("login_new_current_latest.php")
-    Observable<LoginResponse> login(
+    Observable<RegisterResponse> login(
             @Field("deviceId") String deviceId,
             @Field("socialNetwork") String socialNetwork
     );
@@ -230,7 +230,7 @@ public interface WebService {
     /*
     @FormUrlEncoded
     @POST("login_new_current.php")
-    Observable<LoginResponse> loginWithoutProfile(
+    Observable<RegisterResponse> loginWithoutProfile(
             @Field("name") String name,
             @Field("email") String email,
             @Field("user_id") String userId

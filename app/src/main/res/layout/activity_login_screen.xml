@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.login.RegisterActivity">
+
+
+<ScrollView
 android:layout_width="match_parent"
 android:layout_height="match_parent"
+    android:fillViewport="true"
 tools:context="in.co.sattamaster.ui.login.LoginScreenActivity">
 
 <LinearLayout
@@ -31,9 +39,9 @@ tools:context="in.co.sattamaster.ui.login.LoginScreenActivity">
         android:layout_marginTop="92dp"
         android:background="@drawable/bubble"
         android:gravity="center_vertical"
-        android:hint="username"
+        android:hint="Phone Number"
         android:inputType="text"
-        android:id="@+id/username"
+        android:id="@+id/phone_number"
         android:paddingStart="32dp"
         android:paddingEnd="32dp"
         android:textColor="#ffffff"
@@ -99,3 +107,5 @@ tools:context="in.co.sattamaster.ui.login.LoginScreenActivity">
 
 </LinearLayout>
 </ScrollView>
+
+</RelativeLayout>

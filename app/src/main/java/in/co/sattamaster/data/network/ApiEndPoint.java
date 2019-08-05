@@ -28,7 +28,11 @@ public final class ApiEndPoint {
 
     public static final String BIDSET = BuildConfig.BASE_URL + "/bidsets";
 
-    public static final String REGISTER_MODERATORS = BuildConfig.BASE_URL + "/moderators";
+    public static final String REGISTER_USER = BuildConfig.BASE_URL + "/admin/1/players";
+
+    public static final String LOGIN_USER = BuildConfig.BASE_URL + "/user/login";
+
+    public static final String GET_ALL_MODERATORS = BuildConfig.BASE_URL + "/moderators";
 
     public static final String ENDPOINT_GOOGLE_LOGIN = BuildConfig.BASE_URL
             + "/588d14f4100000a9072d2943";

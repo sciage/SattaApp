@@ -7,6 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import butterknife.BindView;
 import in.co.sattamaster.R;
 import in.co.sattamaster.ui.Homepage.MainActivity;
 import in.co.sattamaster.ui.base.BaseActivity;
@@ -16,11 +20,10 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 
 public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpView {
-    private Button loginbutton;
-    private Button registerbutton;
-    private EditText username;
-    private EditText password;
-
+    @BindView(R.id.loginbutton) Button loginbutton;
+    @BindView(R.id.registerbutton) Button registerbutton;
+    @BindView(R.id.phone_number) EditText phoneNumber;
+    @BindView(R.id.password) EditText password;
 
     @Inject
     LoginScreenMvpPresenter<LoginScreenMvpView> mPresenter;
@@ -29,11 +32,6 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
-
-        loginbutton = (Button) findViewById(R.id.loginbutton);
-        password = (EditText) findViewById(R.id.password);
-        username = (EditText) findViewById(R.id.username);
-        registerbutton = (Button) findViewById(R.id.registerbutton);
 
         getActivityComponent().inject(this);
 
@@ -45,19 +43,15 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
             @Override
             public void onClick(View v) {
 
-                if (password.getText().toString().isEmpty() || username.getText().toString().isEmpty()){
+                if (password.getText().toString().isEmpty() || phoneNumber.getText().toString().isEmpty()){
                     Toast.makeText(LoginScreenActivity.this, "Please enter value", Toast.LENGTH_LONG);
                 } else {
                   //  isLoggedIn = true;
-                    MySharedPreferences.registerUserId(preferences, "1");
 
-                    Intent intent = new Intent(LoginScreenActivity.this, MainActivity.class);
-                    startActivity(intent);
+                    mPresenter.sendBidSet(createLogin());
+
+
                 }
-                Intent intent = new Intent(LoginScreenActivity.this, MainActivity.class);
-                MySharedPreferences.registerUserId(preferences, "1");
-                intent.putExtra("isLoggedIn", true);
-                startActivity(intent);
             }
         });
 
@@ -73,5 +67,29 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
     @Override
     protected void setUp() {
 
+    }
+
+    private JSONObject createLogin(){
+        JSONObject loginObject = new JSONObject();
+        try {
+            loginObject.put("phone", phoneNumber.getText().toString());
+            loginObject.put("password", password.getText().toString());
+
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return loginObject;
+    }
+
+    @Override
+    public void getLoginResponse(LoginResponse response) {
+
+        Intent intent = new Intent(LoginScreenActivity.this, MainActivity.class);
+        MySharedPreferences.registerUserId(preferences, response.getUser().getId().toString());
+        MySharedPreferences.registerToken(preferences, response.getToken());
+        intent.putExtra("isLoggedIn", true);
+        startActivity(intent);
     }
 }
