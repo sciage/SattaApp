@@ -99,7 +99,7 @@ public class ApplicationModule {
         return new ApiHeader.ProtectedApiHeader(
                 apiKey,
                 preferencesHelper.getUserId(),
-                preferencesHelper.getFirebaseToken());
+                preferencesHelper.getToken());
     }
 
 

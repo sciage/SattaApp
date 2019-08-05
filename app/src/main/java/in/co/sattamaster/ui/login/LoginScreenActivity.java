@@ -44,7 +44,7 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
             public void onClick(View v) {
 
                 if (password.getText().toString().isEmpty() || phoneNumber.getText().toString().isEmpty()){
-                    Toast.makeText(LoginScreenActivity.this, "Please enter value", Toast.LENGTH_LONG);
+                    Toast.makeText(LoginScreenActivity.this, "Please enter value", Toast.LENGTH_LONG).show();
                 } else {
                   //  isLoggedIn = true;
 
@@ -85,6 +85,8 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
 
     @Override
     public void getLoginResponse(LoginResponse response) {
+
+        String token = response.getToken();
 
         Intent intent = new Intent(LoginScreenActivity.this, MainActivity.class);
         MySharedPreferences.registerUserId(preferences, response.getUser().getId().toString());

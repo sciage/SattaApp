@@ -25,8 +25,8 @@ public interface PreferencesHelper {
 
     void registerUserId(String userId);
     String getUserId() ;
-    void registerFirebaseToken(String token);
-    String getFirebaseToken();
+    void registerToken(String token);
+    String getToken();
 
 
 

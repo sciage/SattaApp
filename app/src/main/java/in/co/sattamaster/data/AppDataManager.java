@@ -27,9 +27,11 @@ import in.co.sattamaster.data.network.ApiHelper;
 import in.co.sattamaster.data.prefs.PreferencesHelper;
 import in.co.sattamaster.di.ApplicationContext;
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.ui.Homepage.UserObject;
 import in.co.sattamaster.ui.login.AllModerators;
 import in.co.sattamaster.ui.login.LoginResponse;
 import in.co.sattamaster.ui.login.RegisterResponse;
+import in.co.sattamaster.ui.login.UserProfile;
 import io.reactivex.Single;
 
 import javax.inject.Inject;
@@ -83,6 +85,11 @@ public class AppDataManager implements DataManager {
         return mApiHelper.loginUser(bids);
     }
 
+    @Override
+    public Single<UserObject> getUserProfile(String token) {
+        return mApiHelper.getUserProfile(token);
+    }
+
  /*   @Override
     public Single<List<PostsModel>> getImagePosts(String user_id, String onlyImages, String page) {
         return mApiHelper.getImagePosts(user_id, onlyImages, page);
@@ -118,13 +125,13 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public void registerFirebaseToken(String token) {
+    public void registerToken(String token) {
 
     }
 
     @Override
-    public String getFirebaseToken() {
-        return mPreferencesHelper.getFirebaseToken();
+    public String getToken() {
+        return null;
     }
 
     /*

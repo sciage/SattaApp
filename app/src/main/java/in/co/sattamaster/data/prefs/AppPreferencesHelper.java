@@ -60,7 +60,7 @@ public class AppPreferencesHelper implements PreferencesHelper {
     }
 
     @Override
-    public void registerFirebaseToken(String token) {
+    public void registerToken(String token) {
         mPrefs.edit().putString(Constants.FIREBASETOKEN, token).apply();
     }
 
@@ -70,7 +70,7 @@ public class AppPreferencesHelper implements PreferencesHelper {
     }
 
     @Override
-    public String getFirebaseToken() {
+    public String getToken() {
         return mPrefs.getString(Constants.FIREBASETOKEN, null);
     }
 

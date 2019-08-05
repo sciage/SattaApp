@@ -33,9 +33,12 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.ui.Homepage.UserObject;
+import in.co.sattamaster.ui.base.MySharedPreferences;
 import in.co.sattamaster.ui.login.AllModerators;
 import in.co.sattamaster.ui.login.LoginResponse;
 import in.co.sattamaster.ui.login.RegisterResponse;
+import in.co.sattamaster.ui.login.UserProfile;
 import io.reactivex.Single;
 import okhttp3.OkHttpClient;
 
@@ -109,6 +112,18 @@ public class AppApiHelper implements ApiHelper {
                 //  .addBodyParameter("centre_id", centre_id)
                 .build()
                 .getObjectListSingle(AllModerators.class);
+    }
+
+    @Override
+    public Single<UserObject> getUserProfile(String token) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.GET_USER_PROFILE)
+            //    .addHeaders("Authorization", "Bearer" + " " + token)
+                .addHeaders("Authorization", "Bearer" + " " + token)
+                .setOkHttpClient(getUnsafeOkHttpClient())
+                //   .addBodyParameter("user_id", user_id)
+                //  .addBodyParameter("centre_id", centre_id)
+                .build()
+                .getObjectSingle(UserObject.class);
     }
 
 

@@ -2,6 +2,8 @@ package in.co.sattamaster.ui.login;
 
 import androidx.core.content.res.ResourcesCompat;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -45,8 +47,6 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
     String moderator_id;
 
     @BindView(R.id.register_progressbar) View progressFrame;
-
-
 
     @Inject
     RegisterMvpPresenter<RegisterMvpView> mPresenter;
@@ -172,13 +172,27 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
 
     @Override
     public void getUserRegister(RegisterResponse response) {
-
-        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-        MySharedPreferences.registerUserId(preferences, response.getData().getId().toString());
-        intent.putExtra("isLoggedIn", true);
-        startActivity(intent);
-
         progressFrame.setVisibility(View.INVISIBLE);
+
+        if (response.getStatus()){
+             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(RegisterActivity.this);
+                alertDialogBuilder.setTitle("Registered Successful");
+                alertDialogBuilder.setMessage("Please login to continue");
+                alertDialogBuilder.setCancelable(false);
+                alertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
+                alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent intent = new Intent(RegisterActivity.this, LoginScreenActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                alertDialogBuilder.show();
+
+        }
+
+
+
 
     }
 }
