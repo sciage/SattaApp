@@ -19,9 +19,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GridAdapter extends BaseAdapter{
+    private List<LocationPojo> dataSet = new ArrayList<>();
+
+
     public static class Item{
         public String text;
         public int resId;
+    }
+
+    public void addAll(List<LocationPojo> moveResults) {
+        for (LocationPojo result : moveResults) {
+            add(result);
+            notifyDataSetChanged();
+        }
+
+
+    }
+
+    public void add(LocationPojo r) {
+        dataSet.add(r);
+
     }
 
     private List<Item> mItems = new ArrayList<Item>();

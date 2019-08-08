@@ -30,6 +30,11 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView{
     @BindView(R.id.moderator) TextView moderator;
     View progressFrame;
 
+
+    String balance_amount_value_String;
+    String user_name_String;
+    String moderator_String;
+
     @Inject
     MainActivityMvpPresenter<MainActivityMvpView> mPresenter;
 
@@ -94,7 +99,11 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView{
         if (response.getUser().getId()!=null){
             balance_amount_value.setText(response.getUser().getProfile().getCoinBalance());
             user_name.setText(response.getUser().getName());
-            moderator.setText(response.getUser().getProfile().getModerator().getName());
+            moderator.setText(String.valueOf(response.getUser().getProfile().getModerator().getName() + "@" + response.getUser().getProfile().getModerator().getPhone()));
+
+            balance_amount_value_String = response.getUser().getProfile().getCoinBalance();
+            user_name_String = response.getUser().getName();
+            moderator_String = response.getUser().getProfile().getModerator().getName() + "@" + response.getUser().getProfile().getModerator().getPhone();
         }
 
         progressFrame.setVisibility(View.GONE);

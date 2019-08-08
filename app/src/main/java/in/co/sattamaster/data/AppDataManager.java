@@ -27,6 +27,7 @@ import in.co.sattamaster.data.network.ApiHelper;
 import in.co.sattamaster.data.prefs.PreferencesHelper;
 import in.co.sattamaster.di.ApplicationContext;
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
 import in.co.sattamaster.ui.login.AllModerators;
 import in.co.sattamaster.ui.login.LoginResponse;
@@ -88,6 +89,11 @@ public class AppDataManager implements DataManager {
     @Override
     public Single<UserObject> getUserProfile(String token) {
         return mApiHelper.getUserProfile(token);
+    }
+
+    @Override
+    public Single<List<LocationPojo>> getCentres(String token) {
+        return mApiHelper.getCentres(token);
     }
 
  /*   @Override

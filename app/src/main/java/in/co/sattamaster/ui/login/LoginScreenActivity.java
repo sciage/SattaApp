@@ -24,6 +24,7 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
     @BindView(R.id.registerbutton) Button registerbutton;
     @BindView(R.id.phone_number) EditText phoneNumber;
     @BindView(R.id.password) EditText password;
+    @BindView(R.id.login_progressbar) View login_progressbar;
 
     @Inject
     LoginScreenMvpPresenter<LoginScreenMvpView> mPresenter;
@@ -39,6 +40,8 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
 
         mPresenter.onAttach(LoginScreenActivity.this);
 
+        login_progressbar.setVisibility(View.GONE);
+
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +51,7 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
                 } else {
                   //  isLoggedIn = true;
 
+                    login_progressbar.setVisibility(View.VISIBLE);
                     mPresenter.sendBidSet(createLogin());
 
 
@@ -93,5 +97,8 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
         MySharedPreferences.registerToken(preferences, response.getToken());
         intent.putExtra("isLoggedIn", true);
         startActivity(intent);
+
+        login_progressbar.setVisibility(View.GONE);
+
     }
 }

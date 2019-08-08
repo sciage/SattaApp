@@ -199,6 +199,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
     ArrayList<String> single_keys;
     ArrayList<String> single_values;
+    String location_name;
 
    // private View status_group_post;
 
@@ -227,10 +228,9 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         single_keys = new ArrayList<>();
         single_values = new ArrayList<>();
 
-
         Intent intent = getIntent();
-
-        location_id = intent.getStringExtra(Constants.LOCATION);
+        location_id = intent.getStringExtra(Constants.LOCATION); // seconnd person username random
+        location_name = intent.getStringExtra(Constants.LOCATION_NAME);
 
         joinComb = new ArrayList<>();
 

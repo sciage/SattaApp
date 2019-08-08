@@ -4,6 +4,8 @@ import com.androidnetworking.error.ANError;
 
 import org.json.JSONObject;
 
+import java.util.List;
+
 import in.co.sattamaster.data.DataManager;
 import in.co.sattamaster.dto.Bid;
 import in.co.sattamaster.ui.base.BasePresenter;
@@ -26,18 +28,18 @@ public class LocationPagePresenter <V extends LocationPageMvpView> extends BaseP
     }
 
     @Override
-    public void sendBidSet(JSONObject bidset) {
+    public void getLocation(String token) {
 
-    /*    getCompositeDisposable().add(getDataManager()
-                .registerUser(bidset)
+        getCompositeDisposable().add(getDataManager()
+                .getCentres(token)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<Bid>() {
+                .subscribe(new Consumer<List<LocationPojo>>() {
                     @Override
-                    public void accept(@NonNull Bid response)
+                    public void accept(@NonNull List<LocationPojo> response)
                             throws Exception {
 
-                    //    getMvpView().receiveBidSetResult(response);
+                        getMvpView().getLocationData(response);
 
                         //     getMvpView().hideLoading();
                     }
@@ -59,6 +61,6 @@ public class LocationPagePresenter <V extends LocationPageMvpView> extends BaseP
                     }
                 }));
 
-     */
+
     }
 }

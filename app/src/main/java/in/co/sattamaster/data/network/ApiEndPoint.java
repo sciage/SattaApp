@@ -36,6 +36,8 @@ public final class ApiEndPoint {
 
     public static final String GET_USER_PROFILE = BuildConfig.BASE_URL + "/user";
 
+    public static final String GET_CENTRES = BuildConfig.BASE_URL + "/centres";
+
     public static final String ENDPOINT_GOOGLE_LOGIN = BuildConfig.BASE_URL
             + "/588d14f4100000a9072d2943";
 

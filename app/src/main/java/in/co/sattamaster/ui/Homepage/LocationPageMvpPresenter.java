@@ -8,6 +8,6 @@ import in.co.sattamaster.ui.base.MvpPresenter;
 @PerActivity
 public interface LocationPageMvpPresenter <V extends LocationPageMvpView> extends MvpPresenter<V> {
 
-    void sendBidSet(JSONObject bidset);
+    void getLocation(String token);
 
 }

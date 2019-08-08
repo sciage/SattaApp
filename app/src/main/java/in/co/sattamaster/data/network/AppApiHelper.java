@@ -33,6 +33,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
 import in.co.sattamaster.ui.base.MySharedPreferences;
 import in.co.sattamaster.ui.login.AllModerators;
@@ -124,6 +125,17 @@ public class AppApiHelper implements ApiHelper {
                 //  .addBodyParameter("centre_id", centre_id)
                 .build()
                 .getObjectSingle(UserObject.class);
+    }
+
+    @Override
+    public Single<List<LocationPojo>> getCentres(String token) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.GET_CENTRES)
+            //    .addHeaders("Authorization", "Bearer" + " " + token)
+                .setOkHttpClient(getUnsafeOkHttpClient())
+                //   .addBodyParameter("user_id", user_id)
+                //  .addBodyParameter("centre_id", centre_id)
+                .build()
+                .getObjectListSingle(LocationPojo.class);
     }
 
 
