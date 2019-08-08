@@ -76,8 +76,20 @@ public class LocationGridAdapter extends BaseAdapter {
 
         location_name.setText(dataSet.get(position).getName());
         location_time.setText(dataSet.get(position).getNumberRevealTime());
-        last_time.setText(dataSet.get(position).getLastBidTime());
-        new_time.setText(dataSet.get(position).getNumberRevealTime());
+        if (dataSet.get(position).getNumberLast() != null){
+            last_time.setText(dataSet.get(position).getNumberLast());
+        } else {
+            last_time.setText("XX");
+
+        }
+
+        if (dataSet.get(position).getNumberCurrent() != null){
+            new_time.setText(dataSet.get(position).getNumberCurrent());
+        } else {
+            new_time.setText("XX");
+
+        }
+
 
         location_name.setOnClickListener(new View.OnClickListener() {
             @Override

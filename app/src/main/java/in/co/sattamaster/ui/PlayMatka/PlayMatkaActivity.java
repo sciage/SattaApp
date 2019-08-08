@@ -52,7 +52,8 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     boolean boolean_comb_08_edittext;
     boolean boolean_comb_09_edittext;
 
-    private List<String> joinComb;
+    private List<Integer> joinComb;
+    private JSONArray jodiBidding;
 
     @BindView(R.id.andar_00_edittext) EditText andar_00_edittext;
     @BindView(R.id.andar_01_edittext) EditText andar_01_edittext;
@@ -232,7 +233,8 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         location_id = intent.getStringExtra(Constants.LOCATION); // seconnd person username random
         location_name = intent.getStringExtra(Constants.LOCATION_NAME);
 
-        joinComb = new ArrayList<>();
+        joinComb = new ArrayList<Integer>();
+        jodiBidding = new JSONArray();
 
         andar_hash_map = new LinkedHashMap<String, String>();
         bahar_hash_map = new LinkedHashMap<String, String>();
@@ -647,7 +649,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     private JSONObject getJodiBidding() throws JSONException {
         JSONObject arrayElementOneArrayElementOne = new JSONObject();
 
-        arrayElementOneArrayElementOne.put("Numbers", joinComb);
+        arrayElementOneArrayElementOne.put("numbers", jodiBidding);
         arrayElementOneArrayElementOne.put("amount", combinationValue);
 
         return arrayElementOneArrayElementOne;
@@ -1510,12 +1512,14 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
     }
 
-    private void addGroupTag(String selectedGroup){
+    private void addGroupTag(int selectedGroup){
         joinComb.add(selectedGroup);
+        jodiBidding.put(selectedGroup);
     }
 
-    private void removeGroupTag(String selectedGroup){
+    private void removeGroupTag(int selectedGroup){
         joinComb.remove(selectedGroup);
+        jodiBidding.remove(selectedGroup);
     }
 
     @Override
@@ -1524,7 +1528,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
             case R.id.comb_00_edittext:
 
                 if (boolean_comb_00_edittext) {
-                    removeGroupTag("0");
+                    removeGroupTag(0);
                     boolean_comb_00_edittext = false;
                     comb_00_edittext.setTextColor(getResources().getColor(R.color.black));
                     comb_00_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
@@ -1532,7 +1536,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 } else {
                     boolean_comb_00_edittext = true;
                     //setGroupId
-                    addGroupTag("0");
+                    addGroupTag(0);
                     comb_00_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
                     comb_00_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
 
@@ -1543,7 +1547,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
             case R.id.comb_01_edittext:
 
                 if (boolean_comb_01_edittext) {
-                    removeGroupTag("1");
+                    removeGroupTag(1);
                     boolean_comb_01_edittext = false;
                     comb_01_edittext.setTextColor(getResources().getColor(R.color.black));
                     comb_01_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
@@ -1551,7 +1555,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 } else {
                     boolean_comb_01_edittext = true;
                     //setGroupId
-                    addGroupTag("1");
+                    addGroupTag(1);
                     comb_01_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
                     comb_01_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
                     calculateResult03();
@@ -1561,7 +1565,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
             case R.id.comb_02_edittext:
 
                 if (boolean_comb_02_edittext) {
-                    removeGroupTag("2");
+                    removeGroupTag(2);
                     boolean_comb_02_edittext = false;
                     comb_02_edittext.setTextColor(getResources().getColor(R.color.black));
                     comb_02_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
@@ -1569,7 +1573,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 } else {
                     boolean_comb_02_edittext = true;
                     //setGroupId
-                    addGroupTag("2");
+                    addGroupTag(2);
                     comb_02_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
                     comb_02_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
                     calculateResult03();
@@ -1579,7 +1583,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
             case R.id.comb_03_edittext:
 
                 if (boolean_comb_03_edittext) {
-                    removeGroupTag("3");
+                    removeGroupTag(3);
                     boolean_comb_03_edittext = false;
                     comb_03_edittext.setTextColor(getResources().getColor(R.color.black));
                     comb_03_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
@@ -1587,7 +1591,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 } else {
                     boolean_comb_03_edittext = true;
                     //setGroupId
-                    addGroupTag("3");
+                    addGroupTag(3);
                     comb_03_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
                     comb_03_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
                     calculateResult03();
@@ -1597,7 +1601,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
             case R.id.comb_04_edittext:
 
                 if (boolean_comb_04_edittext) {
-                    removeGroupTag("4");
+                    removeGroupTag(4);
                     boolean_comb_04_edittext = false;
                     comb_04_edittext.setTextColor(getResources().getColor(R.color.black));
                     comb_04_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
@@ -1605,7 +1609,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 } else {
                     boolean_comb_04_edittext = true;
                     //setGroupId
-                    addGroupTag("4");
+                    addGroupTag(4);
                     comb_04_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
                     comb_04_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
                     calculateResult03();
@@ -1615,7 +1619,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
             case R.id.comb_05_edittext:
 
                 if (boolean_comb_05_edittext) {
-                    removeGroupTag("5");
+                    removeGroupTag(5);
                     boolean_comb_05_edittext = false;
                     comb_05_edittext.setTextColor(getResources().getColor(R.color.black));
                     comb_05_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
@@ -1623,7 +1627,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 } else {
                     boolean_comb_05_edittext = true;
                     //setGroupId
-                    addGroupTag("5");
+                    addGroupTag(5);
                     comb_05_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
                     comb_05_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
                     calculateResult03();
@@ -1633,7 +1637,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
             case R.id.comb_06_edittext:
 
                 if (boolean_comb_06_edittext) {
-                    removeGroupTag("6");
+                    removeGroupTag(6);
                     boolean_comb_06_edittext = false;
                     comb_06_edittext.setTextColor(getResources().getColor(R.color.black));
                     comb_06_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
@@ -1641,7 +1645,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 } else {
                     boolean_comb_06_edittext = true;
                     //setGroupId
-                    addGroupTag("6");
+                    addGroupTag(6);
                     comb_06_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
                     comb_06_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
 
@@ -1651,7 +1655,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
             case R.id.comb_07_edittext:
 
                 if (boolean_comb_07_edittext) {
-                    removeGroupTag("7");
+                    removeGroupTag(7);
                     boolean_comb_07_edittext = false;
                     comb_07_edittext.setTextColor(getResources().getColor(R.color.black));
                     comb_07_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
@@ -1659,7 +1663,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 } else {
                     boolean_comb_07_edittext = true;
                     //setGroupId
-                    addGroupTag("7");
+                    addGroupTag(7);
                     comb_07_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
                     comb_07_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
                     calculateResult03();
@@ -1669,7 +1673,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
             case R.id.comb_08_edittext:
 
                 if (boolean_comb_08_edittext) {
-                    removeGroupTag("8");
+                    removeGroupTag(8);
                     boolean_comb_08_edittext = false;
                     comb_08_edittext.setTextColor(getResources().getColor(R.color.black));
                     comb_08_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
@@ -1677,7 +1681,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 } else {
                     boolean_comb_08_edittext = true;
                     //setGroupId
-                    addGroupTag("8");
+                    addGroupTag(8);
                     comb_08_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
                     comb_08_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
                     calculateResult03();
@@ -1687,7 +1691,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
             case R.id.comb_09_edittext:
 
                 if (boolean_comb_09_edittext) {
-                    removeGroupTag("9");
+                    removeGroupTag(9);
                     boolean_comb_09_edittext = false;
                     comb_09_edittext.setTextColor(getResources().getColor(R.color.black));
                     comb_09_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
@@ -1695,7 +1699,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 } else {
                     boolean_comb_09_edittext = true;
                     //setGroupId
-                    addGroupTag("9");
+                    addGroupTag(9);
                     comb_09_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));
                     comb_09_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle_color));
                     calculateResult03();
