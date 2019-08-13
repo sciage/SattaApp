@@ -45,7 +45,7 @@ public interface ApiHelper {
     Single<LoginResponse> loginUser(JSONObject bids);
     Single<UserObject> getUserProfile(String token);
     Single<List<LocationPojo>> getCentres(String token);
-    Single<WithdrawResponseTop> makeWithdrawRequest(JSONObject withdraw);
+    Single<WithdrawResponseTop> makeWithdrawRequest(JSONObject withdraw, String token);
 
 
   //  Single<List<PostsModel>> getImagePosts(String user_id, String onlyImages, String page);

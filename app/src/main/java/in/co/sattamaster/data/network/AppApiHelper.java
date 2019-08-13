@@ -107,8 +107,9 @@ public class AppApiHelper implements ApiHelper {
     }
 
     @Override
-    public Single<WithdrawResponseTop> makeWithdrawRequest(JSONObject withdraw) {
+    public Single<WithdrawResponseTop> makeWithdrawRequest(JSONObject withdraw, String token) {
         return Rx2AndroidNetworking.post(ApiEndPoint.WITHDRAW_REQUEST)
+                .addHeaders("Authorization", "Bearer" + " " + token)
                 //  .addHeaders(mApiHeader.getProtectedApiHeader())
                 .setOkHttpClient(getUnsafeOkHttpClient())
                 //   .addBodyParameter("user_id", user_id)

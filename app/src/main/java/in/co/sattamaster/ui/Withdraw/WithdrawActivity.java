@@ -82,7 +82,7 @@ public class WithdrawActivity extends BaseActivity implements WithdrawMvpView {
                 progressFrame.setVisibility(View.VISIBLE);
 
                 try{
-                    mPresenter.sendBidSet(withdrawAmount());
+                    mPresenter.sendBidSet(withdrawAmount(), MySharedPreferences.getToken(preferences));
                 } catch (Exception ex){
                     ex.printStackTrace();
                 }

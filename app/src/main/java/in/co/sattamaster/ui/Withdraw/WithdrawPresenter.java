@@ -26,10 +26,10 @@ public class WithdrawPresenter <V extends WithdrawMvpView> extends BasePresenter
     }
 
     @Override
-    public void sendBidSet(JSONObject withdraw) {
+    public void sendBidSet(JSONObject withdraw, String token) {
 
         getCompositeDisposable().add(getDataManager()
-                .makeWithdrawRequest(withdraw)
+                .makeWithdrawRequest(withdraw, token)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<WithdrawResponseTop>() {

@@ -99,8 +99,8 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<WithdrawResponseTop> makeWithdrawRequest(JSONObject withdraw) {
-        return mApiHelper.makeWithdrawRequest(withdraw);
+    public Single<WithdrawResponseTop> makeWithdrawRequest(JSONObject withdraw, String token) {
+        return mApiHelper.makeWithdrawRequest(withdraw, token);
     }
 
  /*   @Override
