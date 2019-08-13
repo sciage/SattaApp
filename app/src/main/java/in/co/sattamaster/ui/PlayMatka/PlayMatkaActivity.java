@@ -202,7 +202,16 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     ArrayList<String> single_values;
     String location_name;
 
-   // private View status_group_post;
+    private String USER_NAME;
+    private String MODERATOR_NAME;
+    private String MODERATOR_MOBILE;
+    private String WALLET_BALANCE;
+
+    @BindView(R.id.balance_amount_value) TextView balance_amount_value;
+    @BindView(R.id.user_name) TextView user_name;
+    @BindView(R.id.moderator) TextView moderator;
+
+    // private View status_group_post;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -226,12 +235,18 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         mPresenter.onAttach(PlayMatkaActivity.this);
 
+        Intent intent = getIntent();
+        USER_NAME = intent.getStringExtra(Constants.USER_NAME);
+        MODERATOR_NAME = intent.getStringExtra(Constants.MODERATOR_NAME);
+        MODERATOR_MOBILE = intent.getStringExtra(Constants.MODERATOR_MOBILE);
+        WALLET_BALANCE = intent.getStringExtra(Constants.WALLET_BALANCE);
+
+        balance_amount_value.setText(WALLET_BALANCE);
+        user_name.setText(USER_NAME);
+        moderator.setText(MODERATOR_NAME + " ( " + MODERATOR_MOBILE + " ) ");
+
         single_keys = new ArrayList<>();
         single_values = new ArrayList<>();
-
-        Intent intent = getIntent();
-        location_id = intent.getStringExtra(Constants.LOCATION); // seconnd person username random
-        location_name = intent.getStringExtra(Constants.LOCATION_NAME);
 
         joinComb = new ArrayList<Integer>();
         jodiBidding = new JSONArray();

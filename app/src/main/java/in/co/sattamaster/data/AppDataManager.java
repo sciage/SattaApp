@@ -29,6 +29,8 @@ import in.co.sattamaster.di.ApplicationContext;
 import in.co.sattamaster.dto.Bid;
 import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
+import in.co.sattamaster.ui.Withdraw.WithdrawResponse;
+import in.co.sattamaster.ui.Withdraw.WithdrawResponseTop;
 import in.co.sattamaster.ui.login.AllModerators;
 import in.co.sattamaster.ui.login.LoginResponse;
 import in.co.sattamaster.ui.login.RegisterResponse;
@@ -94,6 +96,11 @@ public class AppDataManager implements DataManager {
     @Override
     public Single<List<LocationPojo>> getCentres(String token) {
         return mApiHelper.getCentres(token);
+    }
+
+    @Override
+    public Single<WithdrawResponseTop> makeWithdrawRequest(JSONObject withdraw) {
+        return mApiHelper.makeWithdrawRequest(withdraw);
     }
 
  /*   @Override

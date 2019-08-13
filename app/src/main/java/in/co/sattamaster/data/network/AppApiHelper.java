@@ -35,6 +35,8 @@ import javax.net.ssl.X509TrustManager;
 import in.co.sattamaster.dto.Bid;
 import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
+import in.co.sattamaster.ui.Withdraw.WithdrawResponse;
+import in.co.sattamaster.ui.Withdraw.WithdrawResponseTop;
 import in.co.sattamaster.ui.base.MySharedPreferences;
 import in.co.sattamaster.ui.login.AllModerators;
 import in.co.sattamaster.ui.login.LoginResponse;
@@ -102,6 +104,18 @@ public class AppApiHelper implements ApiHelper {
                 .addJSONObjectBody(bids)
                 .build()
                 .getObjectSingle(LoginResponse.class);
+    }
+
+    @Override
+    public Single<WithdrawResponseTop> makeWithdrawRequest(JSONObject withdraw) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.WITHDRAW_REQUEST)
+                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+                .setOkHttpClient(getUnsafeOkHttpClient())
+                //   .addBodyParameter("user_id", user_id)
+                //  .addBodyParameter("centre_id", centre_id)
+                .addJSONObjectBody(withdraw)
+                .build()
+                .getObjectSingle(WithdrawResponseTop.class);
     }
 
     @Override

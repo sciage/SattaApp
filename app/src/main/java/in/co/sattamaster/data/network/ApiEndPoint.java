@@ -32,6 +32,8 @@ public final class ApiEndPoint {
 
     public static final String LOGIN_USER = BuildConfig.BASE_URL + "/user/login";
 
+    public static final String WITHDRAW_REQUEST = BuildConfig.BASE_URL + "/withdrawl-requests";
+
     public static final String GET_ALL_MODERATORS = BuildConfig.BASE_URL + "/moderators";
 
     public static final String GET_USER_PROFILE = BuildConfig.BASE_URL + "/user";

@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
 import in.co.sattamaster.R;
 import in.co.sattamaster.ui.base.BaseActivity;
 import com.jaredrummler.materialspinner.MaterialSpinner;
@@ -13,6 +16,7 @@ import com.jaredrummler.materialspinner.MaterialSpinner;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import in.co.sattamaster.ui.base.Constants;
 
 public class ResultActivity extends BaseActivity implements ResultActivityMvpView {
 
@@ -21,6 +25,16 @@ public class ResultActivity extends BaseActivity implements ResultActivityMvpVie
 
     private Button search_bid_button;
 
+    private String USER_NAME;
+    private String MODERATOR_NAME;
+    private String MODERATOR_MOBILE;
+    private String WALLET_BALANCE;
+
+    @BindView(R.id.balance_amount_value)
+    TextView balance_amount_value;
+    @BindView(R.id.user_name) TextView user_name;
+    @BindView(R.id.moderator) TextView moderator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +42,10 @@ public class ResultActivity extends BaseActivity implements ResultActivityMvpVie
 
 
         getActivityComponent().inject(this);
+        setUnBinder(ButterKnife.bind(this));
+
+        mPresenter.onAttach(ResultActivity.this);
+
 
         search_bid_button = (Button) findViewById(R.id.search_bid_button);
 
@@ -40,9 +58,7 @@ public class ResultActivity extends BaseActivity implements ResultActivityMvpVie
             }
         });
 
-        setUnBinder(ButterKnife.bind(this));
 
-        mPresenter.onAttach(ResultActivity.this);
 
         toolbar.setNavigationIcon(R.drawable.ic_clear_black_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -52,6 +68,16 @@ public class ResultActivity extends BaseActivity implements ResultActivityMvpVie
             }
         });
         getSupportActionBar().setTitle("Results");
+
+        Intent intent = getIntent();
+        USER_NAME = intent.getStringExtra(Constants.USER_NAME);
+        MODERATOR_NAME = intent.getStringExtra(Constants.MODERATOR_NAME);
+        MODERATOR_MOBILE = intent.getStringExtra(Constants.MODERATOR_MOBILE);
+        WALLET_BALANCE = intent.getStringExtra(Constants.WALLET_BALANCE);
+
+        balance_amount_value.setText(WALLET_BALANCE);
+        user_name.setText(USER_NAME);
+        moderator.setText(MODERATOR_NAME + " ( " + MODERATOR_MOBILE + " ) ");
 
         MaterialSpinner spinner = (MaterialSpinner) findViewById(R.id.year_spinner);
         spinner.setItems("2017", "2018", "2019", "2020", "2021", "2022", "2023");

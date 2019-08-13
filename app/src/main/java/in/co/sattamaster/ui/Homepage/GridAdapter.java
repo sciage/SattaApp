@@ -14,12 +14,13 @@ import in.co.sattamaster.ui.Contact.ContactUsActivity;
 import in.co.sattamaster.ui.History.HistoryActivity;
 import in.co.sattamaster.ui.Result.ResultActivity;
 import in.co.sattamaster.ui.Withdraw.WithdrawActivity;
+import in.co.sattamaster.ui.base.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GridAdapter extends BaseAdapter{
-    private List<LocationPojo> dataSet = new ArrayList<>();
+    private UserObject dataSet;
 
 
     public static class Item{
@@ -27,18 +28,8 @@ public class GridAdapter extends BaseAdapter{
         public int resId;
     }
 
-    public void addAll(List<LocationPojo> moveResults) {
-        for (LocationPojo result : moveResults) {
-            add(result);
-            notifyDataSetChanged();
-        }
-
-
-    }
-
-    public void add(LocationPojo r) {
-        dataSet.add(r);
-
+    public void addAll(UserObject moveResults) {
+            dataSet = moveResults;
     }
 
     private List<Item> mItems = new ArrayList<Item>();
@@ -109,6 +100,11 @@ public class GridAdapter extends BaseAdapter{
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), LocationPageActivity.class);
+                    intent.putExtra(Constants.USER_NAME, dataSet.getUser().getName());
+                    intent.putExtra(Constants.USER_MOBILE, dataSet.getUser().getPhone());
+                    intent.putExtra(Constants.MODERATOR_NAME, dataSet.getUser().getProfile().getModerator().getName());
+                    intent.putExtra(Constants.MODERATOR_MOBILE, dataSet.getUser().getProfile().getModerator().getPhone());
+                    intent.putExtra(Constants.WALLET_BALANCE, dataSet.getUser().getProfile().getCoinBalance());
                     v.getContext().startActivity(intent);
                 }
             });
@@ -117,6 +113,11 @@ public class GridAdapter extends BaseAdapter{
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), ContactUsActivity.class);
+                    intent.putExtra(Constants.USER_NAME, dataSet.getUser().getName());
+                    intent.putExtra(Constants.USER_MOBILE, dataSet.getUser().getPhone());
+                    intent.putExtra(Constants.MODERATOR_NAME, dataSet.getUser().getProfile().getModerator().getName());
+                    intent.putExtra(Constants.MODERATOR_MOBILE, dataSet.getUser().getProfile().getModerator().getPhone());
+                    intent.putExtra(Constants.WALLET_BALANCE, dataSet.getUser().getProfile().getCoinBalance());
                     v.getContext().startActivity(intent);
                 }
             });
@@ -125,6 +126,11 @@ public class GridAdapter extends BaseAdapter{
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), WithdrawActivity.class);
+                    intent.putExtra(Constants.USER_NAME, dataSet.getUser().getName());
+                    intent.putExtra(Constants.USER_MOBILE, dataSet.getUser().getPhone());
+                    intent.putExtra(Constants.MODERATOR_NAME, dataSet.getUser().getProfile().getModerator().getName());
+                    intent.putExtra(Constants.MODERATOR_MOBILE, dataSet.getUser().getProfile().getModerator().getPhone());
+                    intent.putExtra(Constants.WALLET_BALANCE, dataSet.getUser().getProfile().getCoinBalance());
                     v.getContext().startActivity(intent);
                 }
             });
@@ -133,6 +139,11 @@ public class GridAdapter extends BaseAdapter{
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), HistoryActivity.class);
+                    intent.putExtra(Constants.USER_NAME, dataSet.getUser().getName());
+                    intent.putExtra(Constants.USER_MOBILE, dataSet.getUser().getPhone());
+                    intent.putExtra(Constants.MODERATOR_NAME, dataSet.getUser().getProfile().getModerator().getName());
+                    intent.putExtra(Constants.MODERATOR_MOBILE, dataSet.getUser().getProfile().getModerator().getPhone());
+                    intent.putExtra(Constants.WALLET_BALANCE, dataSet.getUser().getProfile().getCoinBalance());
                     v.getContext().startActivity(intent);
                 }
             });
@@ -140,7 +151,13 @@ public class GridAdapter extends BaseAdapter{
             box_back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     Intent intent = new Intent(v.getContext(), ResultActivity.class);
+                    intent.putExtra(Constants.USER_NAME, dataSet.getUser().getName());
+                    intent.putExtra(Constants.USER_MOBILE, dataSet.getUser().getPhone());
+                    intent.putExtra(Constants.MODERATOR_NAME, dataSet.getUser().getProfile().getModerator().getName());
+                    intent.putExtra(Constants.MODERATOR_MOBILE, dataSet.getUser().getProfile().getModerator().getPhone());
+                    intent.putExtra(Constants.WALLET_BALANCE, dataSet.getUser().getProfile().getCoinBalance());
                     v.getContext().startActivity(intent);
                 }
             });

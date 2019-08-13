@@ -34,6 +34,7 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView{
     String balance_amount_value_String;
     String user_name_String;
     String moderator_String;
+    GridAdapter gridAdapter;
 
     @Inject
     MainActivityMvpPresenter<MainActivityMvpView> mPresenter;
@@ -77,7 +78,9 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView{
 
         getSupportActionBar().setTitle("Satta Home Page");
 
-        view.setAdapter(new GridAdapter(getBaseContext()));
+        gridAdapter = new GridAdapter(getBaseContext());
+
+        view.setAdapter(gridAdapter);
         view.setFocusable(false);
 
     }
@@ -94,16 +97,22 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView{
         super.onDestroy();
     }
 
+
     @Override
     public void getUserProfile(UserObject response) {
         if (response.getUser().getId()!=null){
             balance_amount_value.setText(response.getUser().getProfile().getCoinBalance());
             user_name.setText(response.getUser().getName());
-            moderator.setText(String.valueOf(response.getUser().getProfile().getModerator().getName() + "@" + response.getUser().getProfile().getModerator().getPhone()));
+            moderator.setText(String.valueOf(response.getUser().getProfile().getModerator().getName() + " ( " + response.getUser().getProfile().getModerator().getPhone() + " ) "));
 
+            // setting local variable to be passed inside intent
             balance_amount_value_String = response.getUser().getProfile().getCoinBalance();
             user_name_String = response.getUser().getName();
             moderator_String = response.getUser().getProfile().getModerator().getName() + "@" + response.getUser().getProfile().getModerator().getPhone();
+
+
+            gridAdapter.addAll(response);
+
         }
 
         progressFrame.setVisibility(View.GONE);

@@ -23,5 +23,12 @@ public interface Constants {
     String LOCATION = "LOCATION";
     String LOCATION_NAME = "LOCATION_NAME";
 
+    String USER_NAME = "USER_NAME";
+    String USER_MOBILE = "USER_MOBILE";
+    String MODERATOR_NAME = "MODERATOR_NAME";
+    String MODERATOR_MOBILE = "MODERATOR_MOBILE";
+    String WALLET_BALANCE = "WALLET_BALANCE";
+
+
 
 }
