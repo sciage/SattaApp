@@ -21,6 +21,7 @@ import org.json.JSONObject;
 import java.util.List;
 
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.ui.History.HistoryDetailsResponse;
 import in.co.sattamaster.ui.History.HistoryResponse;
 import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
@@ -52,6 +53,7 @@ public interface ApiHelper {
     Single<ResultResponse> getAllResult(String from, String to);
     Single<List<PastResultPOJO>> getAllPastResult(String location_id, String from, String to);
     Single<List<HistoryResponse>> getBids(String token);
+    Single<HistoryDetailsResponse> getBidDetails(String id);
 
   //  Single<List<PostsModel>> getImagePosts(String user_id, String onlyImages, String page);
 

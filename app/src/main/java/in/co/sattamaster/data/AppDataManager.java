@@ -27,6 +27,7 @@ import in.co.sattamaster.data.network.ApiHelper;
 import in.co.sattamaster.data.prefs.PreferencesHelper;
 import in.co.sattamaster.di.ApplicationContext;
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.ui.History.HistoryDetailsResponse;
 import in.co.sattamaster.ui.History.HistoryResponse;
 import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
@@ -119,6 +120,11 @@ public class AppDataManager implements DataManager {
     @Override
     public Single<List<HistoryResponse>> getBids(String token) {
         return mApiHelper.getBids(token);
+    }
+
+    @Override
+    public Single<HistoryDetailsResponse> getBidDetails(String id) {
+        return mApiHelper.getBidDetails(id);
     }
 
  /*   @Override

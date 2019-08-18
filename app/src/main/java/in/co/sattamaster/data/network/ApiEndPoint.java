@@ -28,6 +28,8 @@ public final class ApiEndPoint {
 
     public static final String BIDSET = BuildConfig.BASE_URL + "/bidsets";
 
+    public static final String BIDSET_ID = BuildConfig.BASE_URL + "/bidsets/{id}";
+
     public static final String REGISTER_USER = BuildConfig.BASE_URL + "/admin/1/players";
 
     public static final String LOGIN_USER = BuildConfig.BASE_URL + "/user/login";

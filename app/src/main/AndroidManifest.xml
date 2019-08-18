@@ -12,12 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.login.RegisterActivity"
+        <activity android:name=".ui.History.HistoryDetailsActivity"></activity>
+        <activity
+            android:name=".ui.login.RegisterActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".ui.Result.PastResultActivity" />
         <activity android:name=".ui.PlayMatka.PlayMatkaActivity" />
-        <activity android:name=".ui.Result.ResultActivity"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name=".ui.Result.ResultActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".ui.History.HistoryActivity" />
         <activity android:name=".ui.Withdraw.WithdrawActivity" />
         <activity android:name=".ui.Contact.ContactUsActivity" />
@@ -30,7 +33,8 @@
         </activity>
         <activity android:name=".ui.SingleLocationPage" />
         <activity android:name=".ui.CreateGroupTagActivity" />
-        <activity android:name=".ui.login.LoginScreenActivity"
+        <activity
+            android:name=".ui.login.LoginScreenActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".ui.Homepage.LocationPageActivity" />
 

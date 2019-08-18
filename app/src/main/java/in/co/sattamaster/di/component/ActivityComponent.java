@@ -19,6 +19,7 @@ package in.co.sattamaster.di.component;
 import in.co.sattamaster.di.PerActivity;
 import in.co.sattamaster.di.module.ActivityModule;
 import in.co.sattamaster.ui.History.HistoryActivity;
+import in.co.sattamaster.ui.History.HistoryDetailsActivity;
 import in.co.sattamaster.ui.Homepage.LocationPageActivity;
 import in.co.sattamaster.ui.Result.PastResultActivity;
 import in.co.sattamaster.ui.Result.ResultActivity;
@@ -47,6 +48,7 @@ public interface ActivityComponent {
     void inject(ResultActivity activity);
     void inject(WithdrawActivity activity);
     void inject(PastResultActivity activity);
+    void inject(HistoryDetailsActivity activity);
 
 
 

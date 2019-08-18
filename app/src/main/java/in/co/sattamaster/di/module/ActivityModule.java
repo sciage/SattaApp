@@ -23,6 +23,9 @@ import in.co.sattamaster.di.ActivityContext;
 import in.co.sattamaster.ui.History.HistoryActivityMvpPresenter;
 import in.co.sattamaster.ui.History.HistoryActivityMvpView;
 import in.co.sattamaster.ui.History.HistoryActivityPresenter;
+import in.co.sattamaster.ui.History.HistoryDetailsMvpPresenter;
+import in.co.sattamaster.ui.History.HistoryDetailsMvpView;
+import in.co.sattamaster.ui.History.HistoryDetailsPresenter;
 import in.co.sattamaster.ui.Homepage.LocationPageMvpPresenter;
 import in.co.sattamaster.ui.Homepage.LocationPageMvpView;
 import in.co.sattamaster.ui.Homepage.LocationPagePresenter;
@@ -113,6 +116,12 @@ public class ActivityModule {
     @Provides
     PlayMatkaActivityMvpPresenter<PlayMatkaActivityMvpView> providePlayMatkaMvpPresenter(
             PlayMatkaActivityPresenter<PlayMatkaActivityMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    HistoryDetailsMvpPresenter<HistoryDetailsMvpView> provideHistoryDetailsMvpPresenter(
+            HistoryDetailsPresenter<HistoryDetailsMvpView> presenter) {
         return presenter;
     }
 

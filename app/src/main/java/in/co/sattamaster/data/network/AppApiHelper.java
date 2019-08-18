@@ -33,6 +33,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.ui.History.HistoryDetailsResponse;
 import in.co.sattamaster.ui.History.HistoryResponse;
 import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
@@ -144,6 +145,18 @@ public class AppApiHelper implements ApiHelper {
                 //  .addBodyParameter("centre_id", centre_id)
                 .build()
                 .getObjectListSingle(HistoryResponse.class);
+    }
+
+    @Override
+    public Single<HistoryDetailsResponse> getBidDetails(String id) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.BIDSET_ID)
+                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+                .setOkHttpClient(getUnsafeOkHttpClient())
+                .addPathParameter("id", id)
+                //   .addBodyParameter("user_id", user_id)
+                //  .addBodyParameter("centre_id", centre_id)
+                .build()
+                .getObjectSingle(HistoryDetailsResponse.class);
     }
 
     @Override

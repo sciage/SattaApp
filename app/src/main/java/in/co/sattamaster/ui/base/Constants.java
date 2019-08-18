@@ -32,6 +32,7 @@ public interface Constants {
     String FROM_TEXT = "FROM_TEXT";
     String TO_TEXT = "TO_TEXT";
     String LOCATION_ID = "LOCATION_ID";
+    String BIDSET_ID = "BIDSET_ID";
 
 
 

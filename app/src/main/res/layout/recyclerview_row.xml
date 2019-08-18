@@ -13,6 +13,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:id="@+id/history_back"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
@@ -22,8 +24,6 @@
         android:layout_height="wrap_content"
         android:text="Faridabad"
         android:textSize="18sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:text="Andar"
         android:textSize="16sp"
+        android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="@+id/bid_location"
         app:layout_constraintTop_toBottomOf="@+id/bid_location"/>
 
