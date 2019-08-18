@@ -26,6 +26,8 @@ import in.co.sattamaster.ui.History.HistoryActivityPresenter;
 import in.co.sattamaster.ui.Homepage.LocationPageMvpPresenter;
 import in.co.sattamaster.ui.Homepage.LocationPageMvpView;
 import in.co.sattamaster.ui.Homepage.LocationPagePresenter;
+import in.co.sattamaster.ui.Result.PastResultMvpPresenter;
+import in.co.sattamaster.ui.Result.PastResultPresenter;
 import in.co.sattamaster.ui.login.LoginScreenMvpPresenter;
 import in.co.sattamaster.ui.login.LoginScreenMvpView;
 import in.co.sattamaster.ui.login.LoginScreenPresenter;
@@ -35,9 +37,7 @@ import in.co.sattamaster.ui.Homepage.MainActivityPresenter;
 import in.co.sattamaster.ui.PlayMatka.PlayMatkaActivityMvpPresenter;
 import in.co.sattamaster.ui.PlayMatka.PlayMatkaActivityMvpView;
 import in.co.sattamaster.ui.PlayMatka.PlayMatkaActivityPresenter;
-import in.co.sattamaster.ui.Result.ResultActivityMvpPresenter;
-import in.co.sattamaster.ui.Result.ResultActivityMvpView;
-import in.co.sattamaster.ui.Result.ResultActivityPresenter;
+import in.co.sattamaster.ui.Result.PastResultMvpView;
 import in.co.sattamaster.ui.Withdraw.WithdrawMvpPresenter;
 import in.co.sattamaster.ui.Withdraw.WithdrawMvpView;
 import in.co.sattamaster.ui.Withdraw.WithdrawPresenter;
@@ -123,8 +123,8 @@ public class ActivityModule {
     }
 
     @Provides
-    ResultActivityMvpPresenter<ResultActivityMvpView> provideResultMvpPresenter(
-            ResultActivityPresenter<ResultActivityMvpView> presenter) {
+    PastResultMvpPresenter<PastResultMvpView> provideResultMvpPresenter(
+            PastResultPresenter<PastResultMvpView> presenter) {
         return presenter;
     }
 

@@ -35,6 +35,8 @@ import javax.net.ssl.X509TrustManager;
 import in.co.sattamaster.dto.Bid;
 import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
+import in.co.sattamaster.ui.Result.PastResultPOJO;
+import in.co.sattamaster.ui.Result.ResultResponse;
 import in.co.sattamaster.ui.Withdraw.WithdrawResponse;
 import in.co.sattamaster.ui.Withdraw.WithdrawResponseTop;
 import in.co.sattamaster.ui.base.MySharedPreferences;
@@ -128,6 +130,33 @@ public class AppApiHelper implements ApiHelper {
                 //  .addBodyParameter("centre_id", centre_id)
                 .build()
                 .getObjectListSingle(AllModerators.class);
+    }
+
+    @Override
+    public Single<List<PastResultPOJO>> getAllPastResult(String location_id, String from, String to) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.GET_ALL_PAST_RESULTS)
+                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+                .setOkHttpClient(getUnsafeOkHttpClient())
+                .addPathParameter("location_id", location_id)
+                .addQueryParameter("from", from)
+                .addQueryParameter("to", to)
+                //   .addBodyParameter("user_id", user_id)
+                //  .addBodyParameter("centre_id", centre_id)
+                .build()
+                .getObjectListSingle(PastResultPOJO.class);
+    }
+
+    @Override
+    public Single<ResultResponse> getAllResult(String from, String to) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.GET_ALL_MODERATORS)
+                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+                .setOkHttpClient(getUnsafeOkHttpClient())
+                .addQueryParameter("from", from)
+                .addQueryParameter("to", to)
+                //   .addBodyParameter("user_id", user_id)
+                //  .addBodyParameter("centre_id", centre_id)
+                .build()
+                .getObjectSingle(ResultResponse.class);
     }
 
     @Override

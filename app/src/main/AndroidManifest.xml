@@ -16,7 +16,8 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".ui.Result.PastResultActivity" />
         <activity android:name=".ui.PlayMatka.PlayMatkaActivity" />
-        <activity android:name=".ui.Result.ResultActivity" />
+        <activity android:name=".ui.Result.ResultActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:name=".ui.History.HistoryActivity" />
         <activity android:name=".ui.Withdraw.WithdrawActivity" />
         <activity android:name=".ui.Contact.ContactUsActivity" />

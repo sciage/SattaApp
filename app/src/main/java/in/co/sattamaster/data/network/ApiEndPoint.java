@@ -34,11 +34,15 @@ public final class ApiEndPoint {
 
     public static final String WITHDRAW_REQUEST = BuildConfig.BASE_URL + "/withdrawl-requests";
 
+    public static final String NUMBER_RESULT = BuildConfig.BASE_URL + "/revealed-numbers";
+
     public static final String GET_ALL_MODERATORS = BuildConfig.BASE_URL + "/moderators";
 
     public static final String GET_USER_PROFILE = BuildConfig.BASE_URL + "/user";
 
     public static final String GET_CENTRES = BuildConfig.BASE_URL + "/centres";
+
+    public static final String GET_ALL_PAST_RESULTS = BuildConfig.BASE_URL + "/revealed-numbers/by-centre/{location_id}";
 
     public static final String ENDPOINT_GOOGLE_LOGIN = BuildConfig.BASE_URL
             + "/588d14f4100000a9072d2943";

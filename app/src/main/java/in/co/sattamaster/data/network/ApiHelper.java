@@ -23,6 +23,8 @@ import java.util.List;
 import in.co.sattamaster.dto.Bid;
 import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
+import in.co.sattamaster.ui.Result.PastResultPOJO;
+import in.co.sattamaster.ui.Result.ResultResponse;
 import in.co.sattamaster.ui.Withdraw.WithdrawResponse;
 import in.co.sattamaster.ui.Withdraw.WithdrawResponseTop;
 import in.co.sattamaster.ui.login.AllModerators;
@@ -46,7 +48,8 @@ public interface ApiHelper {
     Single<UserObject> getUserProfile(String token);
     Single<List<LocationPojo>> getCentres(String token);
     Single<WithdrawResponseTop> makeWithdrawRequest(JSONObject withdraw, String token);
-
+    Single<ResultResponse> getAllResult(String from, String to);
+    Single<List<PastResultPOJO>> getAllPastResult(String location_id, String from, String to);
 
   //  Single<List<PostsModel>> getImagePosts(String user_id, String onlyImages, String page);
 

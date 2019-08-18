@@ -29,6 +29,8 @@ import in.co.sattamaster.di.ApplicationContext;
 import in.co.sattamaster.dto.Bid;
 import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
+import in.co.sattamaster.ui.Result.PastResultPOJO;
+import in.co.sattamaster.ui.Result.ResultResponse;
 import in.co.sattamaster.ui.Withdraw.WithdrawResponse;
 import in.co.sattamaster.ui.Withdraw.WithdrawResponseTop;
 import in.co.sattamaster.ui.login.AllModerators;
@@ -101,6 +103,16 @@ public class AppDataManager implements DataManager {
     @Override
     public Single<WithdrawResponseTop> makeWithdrawRequest(JSONObject withdraw, String token) {
         return mApiHelper.makeWithdrawRequest(withdraw, token);
+    }
+
+    @Override
+    public Single<ResultResponse> getAllResult(String from, String to) {
+        return mApiHelper.getAllResult(from, to);
+    }
+
+    @Override
+    public Single<List<PastResultPOJO>> getAllPastResult(String location_id, String from, String to) {
+        return mApiHelper.getAllPastResult(location_id, from, to);
     }
 
  /*   @Override

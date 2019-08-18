@@ -29,6 +29,10 @@ public interface Constants {
     String MODERATOR_MOBILE = "MODERATOR_MOBILE";
     String WALLET_BALANCE = "WALLET_BALANCE";
 
+    String FROM_TEXT = "FROM_TEXT";
+    String TO_TEXT = "TO_TEXT";
+    String LOCATION_ID = "LOCATION_ID";
+
 
 
 }
