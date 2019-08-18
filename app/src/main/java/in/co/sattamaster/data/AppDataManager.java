@@ -27,6 +27,7 @@ import in.co.sattamaster.data.network.ApiHelper;
 import in.co.sattamaster.data.prefs.PreferencesHelper;
 import in.co.sattamaster.di.ApplicationContext;
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.ui.History.HistoryResponse;
 import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
 import in.co.sattamaster.ui.Result.PastResultPOJO;
@@ -113,6 +114,11 @@ public class AppDataManager implements DataManager {
     @Override
     public Single<List<PastResultPOJO>> getAllPastResult(String location_id, String from, String to) {
         return mApiHelper.getAllPastResult(location_id, from, to);
+    }
+
+    @Override
+    public Single<List<HistoryResponse>> getBids(String token) {
+        return mApiHelper.getBids(token);
     }
 
  /*   @Override

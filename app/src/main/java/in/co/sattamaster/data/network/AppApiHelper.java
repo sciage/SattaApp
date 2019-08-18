@@ -33,6 +33,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.ui.History.HistoryResponse;
 import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
 import in.co.sattamaster.ui.Result.PastResultPOJO;
@@ -130,6 +131,19 @@ public class AppApiHelper implements ApiHelper {
                 //  .addBodyParameter("centre_id", centre_id)
                 .build()
                 .getObjectListSingle(AllModerators.class);
+    }
+
+
+    @Override
+    public Single<List<HistoryResponse>> getBids(String token) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.BIDSET)
+                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+                .setOkHttpClient(getUnsafeOkHttpClient())
+                .addHeaders("Authorization", "Bearer" + " " + token)
+                //   .addBodyParameter("user_id", user_id)
+                //  .addBodyParameter("centre_id", centre_id)
+                .build()
+                .getObjectListSingle(HistoryResponse.class);
     }
 
     @Override

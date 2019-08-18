@@ -240,6 +240,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         MODERATOR_NAME = intent.getStringExtra(Constants.MODERATOR_NAME);
         MODERATOR_MOBILE = intent.getStringExtra(Constants.MODERATOR_MOBILE);
         WALLET_BALANCE = intent.getStringExtra(Constants.WALLET_BALANCE);
+        location_id = intent.getStringExtra(Constants.LOCATION_ID);
 
         balance_amount_value.setText(WALLET_BALANCE);
         user_name.setText(USER_NAME);

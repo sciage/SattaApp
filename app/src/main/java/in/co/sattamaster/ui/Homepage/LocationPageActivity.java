@@ -111,6 +111,7 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
     public void getLocationData(List<LocationPojo> response) {
 
         locationGridAdapter.addAll(response);
+        locationGridAdapter.AddActivityData(USER_NAME, MODERATOR_NAME, MODERATOR_MOBILE, WALLET_BALANCE);
         view.setAdapter(locationGridAdapter);
         arraylistCurrent(response);
 

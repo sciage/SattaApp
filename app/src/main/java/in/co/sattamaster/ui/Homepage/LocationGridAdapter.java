@@ -21,6 +21,10 @@ import in.co.sattamaster.ui.base.Constants;
 public class LocationGridAdapter extends BaseAdapter {
     private List<LocationPojo> dataSet = new ArrayList<>();
     private Context mContext;
+    String USER_NAME;
+    String MODERATOR_NAME;
+    String MODERATOR_MOBILE;
+    String WALLET_BALANCE;
 
     public LocationGridAdapter(Context context) {
         mContext = context;
@@ -33,6 +37,13 @@ public class LocationGridAdapter extends BaseAdapter {
         }
 
 
+    }
+
+    public void AddActivityData(String USER_NAME, String MODERATOR_NAME, String MODERATOR_MOBILE, String WALLET_BALANCE){
+        this.USER_NAME = USER_NAME;
+        this.MODERATOR_NAME = MODERATOR_NAME;
+        this.MODERATOR_MOBILE = MODERATOR_MOBILE;
+        this.WALLET_BALANCE = WALLET_BALANCE;
     }
 
     public void clear() {
@@ -95,8 +106,11 @@ public class LocationGridAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
-                intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
-                intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+                intent.putExtra(Constants.USER_NAME, USER_NAME);
+                intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+                intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+                intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+                intent.putExtra(Constants.LOCATION_ID, dataSet.get(position).getId());
                 v.getContext().startActivity(intent);
             }
         });
@@ -104,9 +118,13 @@ public class LocationGridAdapter extends BaseAdapter {
         location_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
-                intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
-                intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+                intent.putExtra(Constants.USER_NAME, USER_NAME);
+                intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+                intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+                intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+                intent.putExtra(Constants.LOCATION_ID, dataSet.get(position).getId());
                 v.getContext().startActivity(intent);
             }
         });
@@ -115,8 +133,11 @@ public class LocationGridAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
-                intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
-                intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+                intent.putExtra(Constants.USER_NAME, USER_NAME);
+                intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+                intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+                intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+                intent.putExtra(Constants.LOCATION_ID, dataSet.get(position).getId());
                 v.getContext().startActivity(intent);
             }
         });
@@ -125,8 +146,11 @@ public class LocationGridAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
-                intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
-                intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+                intent.putExtra(Constants.USER_NAME, USER_NAME);
+                intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+                intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+                intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+                intent.putExtra(Constants.LOCATION_ID, dataSet.get(position).getId());
                 v.getContext().startActivity(intent);
             }
         });
@@ -135,8 +159,11 @@ public class LocationGridAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
-                intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
-                intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+                intent.putExtra(Constants.USER_NAME, USER_NAME);
+                intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+                intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+                intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+                intent.putExtra(Constants.LOCATION_ID, dataSet.get(position).getId());
                 v.getContext().startActivity(intent);
             }
         });

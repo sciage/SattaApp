@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import butterknife.BindView;
 import in.co.sattamaster.R;
 import in.co.sattamaster.ui.base.BaseActivity;
 
@@ -17,8 +18,9 @@ import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import in.co.sattamaster.ui.base.Constants;
+import in.co.sattamaster.ui.base.MySharedPreferences;
 
-public class HistoryActivity extends BaseActivity implements HistoryActivityMvpView ,MyRecyclerViewAdapter.ItemClickListener
+public class HistoryActivity extends BaseActivity implements HistoryActivityMvpView
 {
     @Inject
     HistoryActivityMvpPresenter<HistoryActivityMvpView> mPresenter;
@@ -29,6 +31,11 @@ public class HistoryActivity extends BaseActivity implements HistoryActivityMvpV
     private String MODERATOR_NAME;
     private String MODERATOR_MOBILE;
     private String WALLET_BALANCE;
+
+    @BindView(R.id.history_progressbar) View progressFrame;
+    RecyclerView recyclerView;
+
+
 
 
     @Override
@@ -61,29 +68,37 @@ public class HistoryActivity extends BaseActivity implements HistoryActivityMvpV
 
 
 
+
         // data to populate the RecyclerView with
-        List<HistoryPojo> animalNames = new ArrayList<>();
+      /*  List<HistoryPojo> animalNames = new ArrayList<>();
         animalNames.add(new HistoryPojo("Faridabad", "Andar", "17-07-2019", "1,2,3,4,5", "1000"));
         animalNames.add(new HistoryPojo("Faridabad", "Andar", "17-07-2019", "1,2,3,4,5", "1000"));
         animalNames.add(new HistoryPojo("Faridabad", "Andar", "17-07-2019", "1,2,3,4,5", "1000"));
-        animalNames.add(new HistoryPojo("Faridabad", "Andar", "17-07-2019", "1,2,3,4,5", "1000"));
+        animalNames.add(new HistoryPojo("Faridabad", "Andar", "17-07-2019", "1,2,3,4,5", "1000")); */
 
         // set up the RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.history_recyclerview);
+        recyclerView = findViewById(R.id.history_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, animalNames);
-        adapter.setClickListener(this);
+        adapter = new MyRecyclerViewAdapter(this);
+
         recyclerView.setAdapter(adapter);
 
+        progressFrame.setVisibility(View.VISIBLE);
+        mPresenter.getBids(MySharedPreferences.getToken(preferences));
     }
 
-    @Override
-    public void onItemClick(View view, int position) {
-       // Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     protected void setUp() {
+
+    }
+
+    @Override
+    public void getAllBids(List<HistoryResponse> response) {
+
+        adapter.addAll(response);
+
+        progressFrame.setVisibility(View.INVISIBLE);
 
     }
 }
