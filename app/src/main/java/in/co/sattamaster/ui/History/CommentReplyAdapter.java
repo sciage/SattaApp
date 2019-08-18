@@ -1,18 +1,13 @@
 package in.co.sattamaster.ui.History;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
-import android.text.format.DateUtils;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.PopupMenu;
@@ -20,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import in.co.sattamaster.R;
 
@@ -114,8 +108,8 @@ public class CommentReplyAdapter extends RecyclerView.Adapter<CommentReplyAdapte
         private boolean isAnimating = false;
         private boolean isVisible = true;
 
-        private TextView username;
-        private TextView comment_time;
+        private TextView bid_number;
+        private TextView bid_amount;
         private PopupMenu popupMenu;
         
         protected int likeReplyCounter;
@@ -150,8 +144,8 @@ public class CommentReplyAdapter extends RecyclerView.Adapter<CommentReplyAdapte
 
             messageReplyProgress = itemView.findViewById(R.id.messageReplyProgress_reply);
             
-            comment_time = (TextView) itemView.findViewById(R.id.comment_time_reply);
-            username = (TextView) itemView.findViewById(R.id.tv_user_name_reply);
+            bid_amount = (TextView) itemView.findViewById(R.id.bid_amount);
+            bid_number = (TextView) itemView.findViewById(R.id.bid_number);
 
             mFadeOutAnimation = AnimationUtils.loadAnimation(mContext, R.anim.fade_out_anim);
             mFadeOutAnimation.setAnimationListener(mFadeOutAnimationListener);
@@ -167,15 +161,16 @@ public class CommentReplyAdapter extends RecyclerView.Adapter<CommentReplyAdapte
             isVisible = true;
             
 
-            comment_time.setText(messageItem.getNumber());
+            bid_amount.setText(String.valueOf("Bid Amount " + " : " + messageItem.getAmount()));
+            bid_number.setText(String.valueOf("Bid Number " + " : " + messageItem.getNumber()));
 
-          //  comment_time.setText(CurrentTime.getCurrentTime(messageItem.getCommentTime(), itemView.getContext()));
+          //  winOrLoss.setText(CurrentTime.getCurrentTime(messageItem.getCommentTime(), itemView.getContext()));
             
 
 
         }
 
-        // TOdo add code to open private chat  or code to enter username while using reply
+        // TOdo add code to open private chat  or code to enter bid_number while using reply
    /*     private void userProfile(View view, HistoryBidData messageItem) {
             if (messageItem.getId_user_name().equals(MySharedPreferences.getUserId(recyclerviewpreferences))){
                 view.getContext().startActivity(new Intent(view.getContext(), ProfileActivity.class));

@@ -1,27 +1,19 @@
 package in.co.sattamaster.ui.History;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Handler;
-import android.text.format.DateUtils;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import in.co.sattamaster.R;
 
@@ -120,9 +112,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         private boolean isVisible = true;
 
 
-        private TextView username;
-        private TextView comment_time;
-        private TextView messageCard;
+        private TextView bid_type;
+        private TextView winOrLoss;
+        private TextView bid_balance;
 
         protected View messageReplyProgress;
 
@@ -155,11 +147,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             super(itemView);
             mHolderView = itemView;
 
-            username = (TextView) itemView.findViewById(R.id.tv_user_name);
+            bid_type = (TextView) itemView.findViewById(R.id.bid_type);
             messageReplyProgress = itemView.findViewById(R.id.messageReplyProgress);
-            comment_time = (TextView) itemView.findViewById(R.id.comment_time);
+            winOrLoss = (TextView) itemView.findViewById(R.id.winOrLoss);
 
-            messageCard = (TextView) itemView.findViewById(R.id.tv_message_card);
+            bid_balance = (TextView) itemView.findViewById(R.id.bid_balance);
 
             replyRecyclerview = (RecyclerView) itemView.findViewById(R.id.reply_comment_recyclerview);
 
@@ -186,9 +178,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             isVisible = true;
 
 
-            comment_time.setText(messageItem.getType());
+            if (messageItem.getDidWin() == null){
+                winOrLoss.setText("Win or Loss : No Result");
 
-            // comment_time.setText(CurrentTime.getCurrentTime(messageItem.getCommentTime(), itemView.getContext()));
+            } else {
+                winOrLoss.setText(String.valueOf("Win or Loss " + " : " + messageItem.getDidWin().toString()));
+
+            }
+
+            // winOrLoss.setText(CurrentTime.getCurrentTime(messageItem.getCommentTime(), itemView.getContext()));
             commentReplyAdapter = new CommentReplyAdapter(itemView.getContext(), mMessageList.get(position).getData());
 
             mReplyLinearLayoutManager = new LinearLayoutManager(itemView.getContext()) {
@@ -204,8 +202,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             replyRecyclerview.addItemDecoration(new SimpleDividerItemDecoration(itemView.getContext()));
             replyRecyclerview.setAdapter(commentReplyAdapter);
 
-            messageCard.setText(messageItem.getType());
-            username.setText(messageItem.getType());
+            bid_balance.setText(String.valueOf("Total Bid Placed " +" : " + messageItem.getCoinBalanceCost()));
+            bid_type.setText(String.valueOf("Bid Type " + " : " + messageItem.getType()));
 
         }
 
@@ -214,7 +212,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             return commentReplyAdapter;
         }
 
-        // Todo open chat with random username
+        // Todo open chat with random bid_type
      /*   private void userProfile(View view, HistoryBidHeader messageItem) {
             if (messageItem.getCommentUserId().equals(MySharedPreferences.getUserId(recyclerviewpreferences))){
                 view.getContext().startActivity(new Intent(view.getContext(), ProfileActivity.class));

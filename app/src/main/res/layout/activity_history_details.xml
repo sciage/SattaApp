@@ -21,15 +21,9 @@ tools:context=".ui.History.HistoryDetailsActivity">
         <include
             layout="@layout/include_toolbar" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Faridabad" />
-
-
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/detail_comment"
             android:paddingBottom="50dp"
@@ -38,20 +32,11 @@ tools:context=".ui.History.HistoryDetailsActivity">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/detail_rv_messages"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:stackFromEnd="true"
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
-                android:background="@android:color/transparent" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/detail_rv_messages_reply"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:stackFromEnd="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:background="@android:color/transparent" />
 
 

@@ -15,8 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import in.co.sattamaster.R;
-import in.co.sattamaster.ui.PlayMatka.PlayMatkaActivity;
-import in.co.sattamaster.ui.Result.PastResultPOJO;
 import in.co.sattamaster.ui.base.Constants;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
@@ -86,7 +84,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             super(itemView);
             bid_location = itemView.findViewById(R.id.bid_location);
             bid_type = itemView.findViewById(R.id.bid_type);
-            bid_time = itemView.findViewById(R.id.bid_time);
+            bid_time = itemView.findViewById(R.id.bid_balance);
             history_back = (ConstraintLayout)itemView.findViewById(R.id.history_back);
             itemView.setOnClickListener(this);
         }

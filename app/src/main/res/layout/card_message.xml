@@ -17,54 +17,58 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
         android:paddingTop="10dp">
 
         <TextView
-            android:id="@+id/tv_user_name"
+            android:id="@+id/bid_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="10dp"
+            android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:singleLine="true"
-            android:text="Username"
+            android:text="Andar"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/comment_time"
+            android:id="@+id/winOrLoss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_user_name"
+            android:layout_below="@id/bid_type"
             android:layout_marginStart="4dp"
             android:layout_marginTop="3dp"
             android:layout_marginEnd="25dp"
             android:layout_marginRight="25dp"
+            android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:text="Time"
-            app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
+            android:text="Win Or Loss"
+            app:layout_constraintTop_toBottomOf="@+id/bid_type" />
 
 
         <TextView
-            android:id="@+id/tv_message_card"
-            android:layout_width="300dp"
+            android:id="@+id/bid_balance"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textSize="16sp"
-            android:text="Comment"
+            android:textSize="18sp"
+            android:text="1800"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/comment_time" />
+            app:layout_constraintTop_toBottomOf="@+id/winOrLoss" />
 
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_message_card"
-            android:layout_marginLeft="8dp"
+            android:layout_below="@+id/bid_balance"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_message_card">
+            app:layout_constraintTop_toBottomOf="@+id/bid_balance">
 
             <FrameLayout
                 android:layout_width="match_parent"
