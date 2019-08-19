@@ -16,6 +16,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -37,6 +38,8 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
     @BindView(R.id.register_phone) EditText register_phone;
     @BindView(R.id.register_password) EditText register_password;
     @BindView(R.id.register_final) Button register_final;
+
+    private List<AllModerators> response;
 
     protected boolean selectedModerator = false;
 
@@ -75,6 +78,7 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
             @Override
             public void onClick(View v) {
                 if (createUserObject() != null){
+                    progressFrame.setVisibility(View.VISIBLE);
                     try {
                         mPresenter.registerNewUser(createUserObject());
                         // getGroupsJoined();
@@ -91,6 +95,21 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
     private JSONObject createUserObject(){
         JSONObject createJsonObject = null;
 
+        if (!selectedModerator){
+            if(!register_spinner.getText().toString().isEmpty()){
+
+                boolean value = stringContainsItemFromList(register_spinner.getText().toString(), response);
+                if (value){
+                    selectedModerator = true;
+                } else {
+                    Toast.makeText(RegisterActivity.this, "Please enter moderator", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+        }
+
+
         if (register_username.getText().toString().isEmpty()){
             Toast.makeText(RegisterActivity.this, "Please enter username", Toast.LENGTH_SHORT).show();
         } else if (register_phone.getText().toString().isEmpty()){
@@ -105,6 +124,19 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
         }
         return createJsonObject;
 
+    }
+
+    public boolean stringContainsItemFromList(String inputStr, List<AllModerators> items)
+    {
+        for(int i =0; i < items.size(); i++)
+        {
+            if(inputStr.equalsIgnoreCase(items.get(i).getName()))
+            {
+                setModerator_id(items.get(i).getId());
+                return true;
+            }
+        }
+        return false;
     }
 
     private JSONObject createJsonObject(){
@@ -165,6 +197,8 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
     public void getListAllGroups(List<AllModerators> response) {
 
         progressFrame.setVisibility(View.INVISIBLE);
+
+        this.response = response;
 
         setupUserAutocomplete(response);
 

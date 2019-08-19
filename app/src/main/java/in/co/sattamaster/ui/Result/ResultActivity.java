@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.core.content.res.ResourcesCompat;
 
@@ -31,16 +32,21 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.xml.transform.Result;
 
 import butterknife.ButterKnife;
 import in.co.sattamaster.ui.base.Constants;
 import in.co.sattamaster.ui.base.MySharedPreferences;
+import in.co.sattamaster.ui.login.AllModerators;
+import in.co.sattamaster.ui.login.RegisterActivity;
 
 public class ResultActivity extends BaseActivity implements LocationPageMvpView {
     private String USER_NAME;
     private String MODERATOR_NAME;
     private String MODERATOR_MOBILE;
     private String WALLET_BALANCE;
+
+    List<LocationPojo> response;
 
     String fromValue;
     String toValue;
@@ -81,6 +87,20 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
         search_bid_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (!selectedModerator){
+                    if(!search_location.getText().toString().isEmpty()){
+
+                        boolean value = stringContainsItemFromList(search_location.getText().toString(), response);
+                        if (value){
+                            selectedModerator = true;
+                        } else {
+                            Toast.makeText(ResultActivity.this, "Please enter Location", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+
+                }
 
                 if (fromValue != null && toValue != null){
                     Intent intent = new Intent(ResultActivity.this, PastResultActivity.class);
@@ -134,6 +154,19 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
         mPresenter.getLocation(MySharedPreferences.getToken(preferences));
 
 
+    }
+
+    public boolean stringContainsItemFromList(String inputStr, List<LocationPojo> items)
+    {
+        for(int i =0; i < items.size(); i++)
+        {
+            if(inputStr.contains(items.get(i).getName()))
+            {
+                setModerator_id(items.get(i).getId());
+                return true;
+            }
+        }
+        return false;
     }
 
     private void setupUserAutocomplete(List<LocationPojo> response) {
@@ -209,6 +242,8 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
 
     @Override
     public void getLocationData(List<LocationPojo> response) {
+
+        this.response = response;
 
         progressFrame.setVisibility(View.INVISIBLE);
 

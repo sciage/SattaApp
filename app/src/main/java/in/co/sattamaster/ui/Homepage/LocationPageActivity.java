@@ -2,6 +2,7 @@ package in.co.sattamaster.ui.Homepage;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.Button;
@@ -11,9 +12,11 @@ import android.widget.TextView;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
 import butterknife.BindView;
 import in.co.sattamaster.R;
@@ -36,6 +39,7 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
     @BindView(R.id.moderator) TextView moderator;
 
     @BindView(R.id.location_progressbar) View location_progressbar;
+    @BindView(R.id.live_time) TextView live_time;
 
     private GridView view;
     private List<LocationPojo> response;
@@ -44,6 +48,9 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
     private String MODERATOR_NAME;
     private String MODERATOR_MOBILE;
     private String WALLET_BALANCE;
+
+    private Handler handler;
+
 
     @Inject
     LocationPageMvpPresenter<LocationPageMvpView> mPresenter;
@@ -96,7 +103,42 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
         user_name.setText(USER_NAME);
         moderator.setText(MODERATOR_NAME + " ( " + MODERATOR_MOBILE + " ) ");
 
+        handler = new Handler();
+        handler.post(runnable);
+
+        live_time.setText(getTimeZoneInfo());
+
     }
+
+    private String getTimeZoneInfo() {
+        Calendar calendar = Calendar.getInstance();
+        TimeZone timeZone = calendar.getTimeZone();
+        return timeZone.getID().concat("\n").concat(timeZone.getDisplayName());
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (handler != null) {
+            handler.removeCallbacks(runnable);
+        }
+        super.onBackPressed();
+    }
+
+
+
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+
+            long now_time = System.currentTimeMillis();
+
+            // tvSeconds.setText(String.format(Locale.getDefault(), "%,d s", now_time / 1000L));
+          //  tvMilliseconds.setText(String.format(Locale.getDefault(), "%,d ms", now_time));
+//            tvFormattedDateTime.setText(DateFormat.getDateInstance(DateFormat.FULL).format(now_time).concat(", ").concat(DateFormat.getTimeInstance().format(now_time)));
+
+            handler.postDelayed(this, 0);
+        }
+    };
 
     @Override
     protected void setUp() {
@@ -120,24 +162,6 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
         location_progressbar.setVisibility(View.GONE);
     }
 
-    public static String getFormatedDateTime(String dateStr, String strReadFormat, String strWriteFormat) {
 
-        String formattedDate = dateStr;
 
-        DateFormat readFormat = new SimpleDateFormat(strReadFormat, Locale.getDefault());
-        DateFormat writeFormat = new SimpleDateFormat(strWriteFormat, Locale.getDefault());
-
-        Date date = null;
-
-        try {
-            date = readFormat.parse(dateStr);
-        } catch (ParseException e) {
-        }
-
-        if (date != null) {
-            formattedDate = writeFormat.format(date);
-        }
-
-        return formattedDate;
-    }
 }

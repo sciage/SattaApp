@@ -51,7 +51,7 @@ public class UserPresenter extends RecyclerViewPresenter<AllModerators> {
             for (AllModerators u : groups_joined) {
                 try {
                     if (u.getName().toLowerCase().contains(query) ||
-                            u.getName().toLowerCase().contains(query)) {
+                            u.getPhone().toLowerCase().contains(query)) {
                         list.add(u);
                     }
                 }

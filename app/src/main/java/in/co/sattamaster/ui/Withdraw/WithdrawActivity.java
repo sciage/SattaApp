@@ -124,6 +124,7 @@ public class WithdrawActivity extends BaseActivity implements WithdrawMvpView {
                 public void onClick(DialogInterface dialog, int which) {
 
                     Intent intent = new Intent(WithdrawActivity.this, MainActivity.class);
+                    intent.putExtra("isLoggedIn", true);
                     startActivity(intent);
                 }
             });

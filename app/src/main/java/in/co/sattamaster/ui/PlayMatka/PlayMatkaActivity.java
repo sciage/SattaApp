@@ -1,5 +1,7 @@
 package in.co.sattamaster.ui.PlayMatka;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 
 import in.co.sattamaster.R;
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.ui.Homepage.MainActivity;
 import in.co.sattamaster.ui.base.BaseActivity;
 
 import org.json.JSONArray;
@@ -31,6 +34,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import in.co.sattamaster.ui.base.Constants;
 import in.co.sattamaster.ui.base.MySharedPreferences;
+import in.co.sattamaster.ui.login.LoginScreenActivity;
+import in.co.sattamaster.ui.login.RegisterActivity;
 import timber.log.Timber;
 
 public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivityMvpView, View.OnClickListener {
@@ -561,12 +566,31 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         place_bid_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                   // writeJsonSimpleDemo();
-                    mPresenter.sendBidSet(writeJsonSimpleDemo());
-                } catch (Exception ex){
-                    ex.printStackTrace();
-                }
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PlayMatkaActivity.this);
+                alertDialogBuilder.setTitle("Confirm your Bidding");
+                alertDialogBuilder.setMessage("Click Yes to Continue");
+                alertDialogBuilder.setCancelable(false);
+                alertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
+                alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            // writeJsonSimpleDemo();
+                            mPresenter.sendBidSet(writeJsonSimpleDemo());
+                        } catch (Exception ex){
+                            ex.printStackTrace();
+                        }
+                    }
+                });
+                alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                alertDialogBuilder.show();
+
+
+
             }
         });
 
@@ -1728,9 +1752,13 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     @Override
     public void receiveBidSetResult(Bid response) {
 
+        Intent intent = new Intent(PlayMatkaActivity.this, MainActivity.class);
+        intent.putExtra("isLoggedIn", true);
+
+        startActivity(intent);
+
         Toast.makeText(PlayMatkaActivity.this, response.getStatus().toString(), Toast.LENGTH_SHORT).show();
 
-        Timber.d(response.toString());
     }
 }
 
