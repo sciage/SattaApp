@@ -106,9 +106,19 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
         handler = new Handler();
         handler.post(runnable);
 
-        live_time.setText(getTimeZoneInfo());
-
     }
+
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+
+            long now_time = System.currentTimeMillis();
+
+            live_time.setText(DateFormat.getDateInstance(DateFormat.FULL).format(now_time).concat(", ").concat(DateFormat.getTimeInstance().format(now_time)));
+
+            handler.postDelayed(this, 0);
+        }
+    };
 
     private String getTimeZoneInfo() {
         Calendar calendar = Calendar.getInstance();
@@ -123,22 +133,6 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
         }
         super.onBackPressed();
     }
-
-
-
-    private Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-
-            long now_time = System.currentTimeMillis();
-
-            // tvSeconds.setText(String.format(Locale.getDefault(), "%,d s", now_time / 1000L));
-          //  tvMilliseconds.setText(String.format(Locale.getDefault(), "%,d ms", now_time));
-//            tvFormattedDateTime.setText(DateFormat.getDateInstance(DateFormat.FULL).format(now_time).concat(", ").concat(DateFormat.getTimeInstance().format(now_time)));
-
-            handler.postDelayed(this, 0);
-        }
-    };
 
     @Override
     protected void setUp() {

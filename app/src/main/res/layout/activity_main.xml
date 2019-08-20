@@ -38,11 +38,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="June 07 2019 4:54:30"
-        android:textSize="18sp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
         android:layout_centerHorizontal="true"
         android:id="@+id/live_time"
         android:layout_below="@+id/location_satta_heading"
-        android:textColor="@color/black"
+        android:textColor="@color/md_blue_500"
         android:layout_marginTop="10dp"
         />
 
@@ -50,7 +52,7 @@
             android:id="@+id/my_group_swipeRefreshLayout"
             android:layout_width="match_parent"
             android:layout_below="@+id/live_time"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_height="match_parent">
 
             <GridView

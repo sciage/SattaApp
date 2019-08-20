@@ -215,6 +215,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     @BindView(R.id.balance_amount_value) TextView balance_amount_value;
     @BindView(R.id.user_name) TextView user_name;
     @BindView(R.id.moderator) TextView moderator;
+    private String LOCATION_NAME;
 
     // private View status_group_post;
 
@@ -224,6 +225,14 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         setContentView(R.layout.activity_play_matka_testing);
 
+        Intent intent = getIntent();
+        USER_NAME = intent.getStringExtra(Constants.USER_NAME);
+        MODERATOR_NAME = intent.getStringExtra(Constants.MODERATOR_NAME);
+        MODERATOR_MOBILE = intent.getStringExtra(Constants.MODERATOR_MOBILE);
+        WALLET_BALANCE = intent.getStringExtra(Constants.WALLET_BALANCE);
+        location_id = intent.getStringExtra(Constants.LOCATION_ID);
+        LOCATION_NAME = intent.getStringExtra(Constants.LOCATION_NAME);
+
         toolbar.setNavigationIcon(R.drawable.ic_clear_black_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -231,7 +240,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 finish();
             }
         });
-        getSupportActionBar().setTitle("Play Satta Matka");
+        getSupportActionBar().setTitle( LOCATION_NAME + " Satta Matka ");
 
 
         getActivityComponent().inject(this);
@@ -240,12 +249,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         mPresenter.onAttach(PlayMatkaActivity.this);
 
-        Intent intent = getIntent();
-        USER_NAME = intent.getStringExtra(Constants.USER_NAME);
-        MODERATOR_NAME = intent.getStringExtra(Constants.MODERATOR_NAME);
-        MODERATOR_MOBILE = intent.getStringExtra(Constants.MODERATOR_MOBILE);
-        WALLET_BALANCE = intent.getStringExtra(Constants.WALLET_BALANCE);
-        location_id = intent.getStringExtra(Constants.LOCATION_ID);
+
 
         balance_amount_value.setText(WALLET_BALANCE);
         user_name.setText(USER_NAME);
