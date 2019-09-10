@@ -120,6 +120,10 @@ public class Pico extends Dialog implements View.OnClickListener {
         return Converter.formatDate(cal.getTime());
     }
 
+    public static String humanDate(Calendar cal){
+        return Converter.humanDate(cal.getTime());
+    }
+
     public static String formatTime(Calendar cal){
         return Converter.formatTime(cal);
     }

@@ -30,9 +30,9 @@ public class HistoryActivityPresenter <V extends HistoryActivityMvpView> extends
                 .getBids(token)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<List<HistoryResponse>>() {
+                .subscribe(new Consumer<HistoryPojo>() {
                     @Override
-                    public void accept(List<HistoryResponse> response) throws Exception {
+                    public void accept(HistoryPojo response) throws Exception {
 
                         getMvpView().getAllBids(response);
 

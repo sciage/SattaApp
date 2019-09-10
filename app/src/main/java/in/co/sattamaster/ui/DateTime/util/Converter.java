@@ -12,6 +12,12 @@ public class Converter {
         return sdf.format(chosenDate);
     }
 
+    public static String humanDate(Date chosenDate) {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE dd MMM, yyy"); // Set your date format
+        return sdf.format(chosenDate);
+    }
+
     public static String formatTime(Calendar time){
 
         int hour = time.get(Calendar.HOUR_OF_DAY);

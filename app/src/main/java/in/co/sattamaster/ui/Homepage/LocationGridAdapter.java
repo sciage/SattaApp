@@ -126,6 +126,7 @@ public class LocationGridAdapter extends BaseAdapter {
                 intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
                 intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
                 intent.putExtra(Constants.LOCATION_ID, dataSet.get(position).getId());
+                intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
                 v.getContext().startActivity(intent);
             }
         });
@@ -139,6 +140,7 @@ public class LocationGridAdapter extends BaseAdapter {
                 intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
                 intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
                 intent.putExtra(Constants.LOCATION_ID, dataSet.get(position).getId());
+                intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
                 v.getContext().startActivity(intent);
             }
         });
@@ -152,6 +154,8 @@ public class LocationGridAdapter extends BaseAdapter {
                 intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
                 intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
                 intent.putExtra(Constants.LOCATION_ID, dataSet.get(position).getId());
+                intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+
                 v.getContext().startActivity(intent);
             }
         });
@@ -165,6 +169,7 @@ public class LocationGridAdapter extends BaseAdapter {
                 intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
                 intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
                 intent.putExtra(Constants.LOCATION_ID, dataSet.get(position).getId());
+                intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
                 v.getContext().startActivity(intent);
             }
         });

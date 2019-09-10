@@ -20,6 +20,7 @@ import java.util.TimeZone;
 
 import butterknife.BindView;
 import in.co.sattamaster.R;
+import in.co.sattamaster.ui.PlayMatka.PlayMatkaActivity;
 import in.co.sattamaster.ui.base.BaseActivity;
 
 import javax.inject.Inject;
@@ -78,7 +79,10 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent intent = new Intent(LocationPageActivity.this, MainActivity.class);
+                intent.putExtra("isLoggedIn", true);
+
+                startActivity(intent);
             }
         });
         getSupportActionBar().setTitle("Satta");

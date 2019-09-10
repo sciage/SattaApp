@@ -1,5 +1,7 @@
 package in.co.sattamaster.ui.Result;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -38,6 +40,7 @@ import butterknife.ButterKnife;
 import in.co.sattamaster.ui.base.Constants;
 import in.co.sattamaster.ui.base.MySharedPreferences;
 import in.co.sattamaster.ui.login.AllModerators;
+import in.co.sattamaster.ui.login.LoginScreenActivity;
 import in.co.sattamaster.ui.login.RegisterActivity;
 
 public class ResultActivity extends BaseActivity implements LocationPageMvpView {
@@ -47,9 +50,11 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
     private String WALLET_BALANCE;
 
     List<LocationPojo> response;
+    AlertDialog.Builder alertDialogBuilder;
 
     String fromValue;
     String toValue;
+    Calendar currentDate;
 
     @BindView(R.id.search_location) EditText search_location;
     private Autocomplete userAutocomplete;
@@ -69,6 +74,7 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
     @BindView(R.id.date_picker_resultTo) Button date_picker_resultTo;
     private String location_id;
     private boolean selectedModerator;
+    private String fullDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,6 +156,15 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
         user_name.setText(USER_NAME);
         moderator.setText(MODERATOR_NAME + " ( " + MODERATOR_MOBILE + " ) ");
 
+        currentDate = Calendar.getInstance();
+        currentDate.setTimeInMillis(System.currentTimeMillis());
+
+        String currentDay = String.valueOf(currentDate.get(Calendar.DAY_OF_MONTH));
+        String currentMonth = String.valueOf(currentDate.get(Calendar.MONTH));
+        String currentYear = String.valueOf(currentDate.get(Calendar.YEAR));
+
+        fullDate = String.valueOf(currentYear+"-"+currentMonth+"-"+currentDay);
+
 
         mPresenter.getLocation(MySharedPreferences.getToken(preferences));
 
@@ -160,7 +175,7 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
     {
         for(int i =0; i < items.size(); i++)
         {
-            if(inputStr.contains(items.get(i).getName()))
+            if(inputStr.equalsIgnoreCase(items.get(i).getName()))
             {
                 setModerator_id(items.get(i).getId());
                 return true;
@@ -206,9 +221,18 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
         pico.setPicoListener(new PicoListener() {
             @Override
             public void result(Calendar calendar) {
-                fromValue = Pico.formatDate(calendar);
 
-                from_text.setText(fromValue);
+                Calendar newCalender = Calendar.getInstance();
+
+                if (Pico.formatDate(calendar).equals(Pico.formatDate(newCalender))){
+                    SameDateDialog();
+                } else {
+                    fromValue = Pico.formatDate(calendar);
+
+                    from_text.setText(Pico.humanDate(calendar));
+                }
+
+
           //      Pop.info(MainActivity.this, Pico.formatDate(calendar));
             //    Log.i("DatePicker", Pico.formatTime(calendar));
             }
@@ -222,15 +246,39 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
         pico.setPicoListener(new PicoListener() {
             @Override
             public void result(Calendar calendar) {
-                toValue = Pico.formatDate(calendar);
+                Calendar newCalender = Calendar.getInstance();
 
-                to_Text.setText(toValue);
+                if (Pico.formatDate(calendar).equals(Pico.formatDate(newCalender))){
+                    SameDateDialog();
+
+                } else {
+
+                    toValue = Pico.formatDate(calendar);
+
+                    to_Text.setText(Pico.humanDate(calendar));
+                }
+
 
 
             }
         });
         pico.show();
 
+    }
+
+    private void SameDateDialog(){
+        alertDialogBuilder = new AlertDialog.Builder(ResultActivity.this);
+        alertDialogBuilder.setTitle("Today's Date Selected");
+        alertDialogBuilder.setMessage("Choose Old Date");
+        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
+        alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alertDialogBuilder.show();
     }
 
 

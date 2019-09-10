@@ -1,37 +1,93 @@
 package in.co.sattamaster.ui.History;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 public class HistoryPojo {
-    private String location;
-    private String bid_type;
-    private String bid_time;
-    private String bid_number;
-    private String bid_amount;
+    @SerializedName("current_page")
+    @Expose
+    private String currentPage;
+    @SerializedName("data")
+    @Expose
+    private List<HistoryResponse> data = null;
+    @SerializedName("first_page_url")
+    @Expose
+    private String firstPageUrl;
+    @SerializedName("from")
+    @Expose
+    private String from;
+    @SerializedName("last_page")
+    @Expose
+    private String lastPage;
+    @SerializedName("last_page_url")
+    @Expose
+    private String lastPageUrl;
+    @SerializedName("next_page_url")
+    @Expose
+    private String nextPageUrl;
+    @SerializedName("path")
+    @Expose
+    private String path;
+    @SerializedName("per_page")
+    @Expose
+    private String perPage;
+    @SerializedName("prev_page_url")
+    @Expose
+    private String prevPageUrl;
+    @SerializedName("to")
+    @Expose
+    private String to;
+    @SerializedName("total")
+    @Expose
+    private String total;
 
-    public HistoryPojo(String location, String bid_type, String bid_time, String bid_number, String bid_amount) {
-        this.location = location;
-        this.bid_type = bid_type;
-        this.bid_time = bid_time;
-        this.bid_number = bid_number;
-        this.bid_amount = bid_amount;
+    public String getCurrentPage() {
+        return currentPage;
     }
 
-    public String getLocation() {
-        return location;
+    public List<HistoryResponse> getData() {
+        return data;
     }
 
-    public String getBid_type() {
-        return bid_type;
+    public String getFirstPageUrl() {
+        return firstPageUrl;
     }
 
-    public String getBid_time() {
-        return bid_time;
+    public String getFrom() {
+        return from;
     }
 
-    public String getBid_number() {
-        return bid_number;
+    public String getLastPage() {
+        return lastPage;
     }
 
-    public String getBid_amount() {
-        return bid_amount;
+    public String getLastPageUrl() {
+        return lastPageUrl;
+    }
+
+    public String getNextPageUrl() {
+        return nextPageUrl;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public String getPerPage() {
+        return perPage;
+    }
+
+    public String getPrevPageUrl() {
+        return prevPageUrl;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public String getTotal() {
+        return total;
     }
 }

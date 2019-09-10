@@ -5,5 +5,5 @@ import java.util.List;
 import in.co.sattamaster.ui.base.MvpView;
 
 public interface HistoryActivityMvpView extends MvpView {
-    void getAllBids(List<HistoryResponse> response);
+    void getAllBids(HistoryPojo response);
 }

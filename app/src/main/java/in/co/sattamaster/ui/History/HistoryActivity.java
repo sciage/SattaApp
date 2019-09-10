@@ -94,9 +94,9 @@ public class HistoryActivity extends BaseActivity implements HistoryActivityMvpV
     }
 
     @Override
-    public void getAllBids(List<HistoryResponse> response) {
+    public void getAllBids(HistoryPojo response) {
 
-        adapter.addAll(response);
+        adapter.addAll(response.getData());
 
         progressFrame.setVisibility(View.INVISIBLE);
 
