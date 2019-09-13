@@ -117,7 +117,8 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
             Toast.makeText(RegisterActivity.this, "Please enter username", Toast.LENGTH_SHORT).show();
         } else if (register_phone.getText().toString().isEmpty()){
             Toast.makeText(RegisterActivity.this, "Please enter phone", Toast.LENGTH_SHORT).show();
-        } else  if (register_password.getText().toString().isEmpty()){
+        } else  if (register_password.getText().toString().isEmpty() || register_password.getText().length()<6){
+            register_password.setError("Please enter password of 6 words");
             Toast.makeText(RegisterActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
         } else   if (!selectedModerator){
             Toast.makeText(RegisterActivity.this, "Please enter moderator", Toast.LENGTH_SHORT).show();
@@ -216,7 +217,6 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
                 alertDialogBuilder.setTitle("Registered Successful");
                 alertDialogBuilder.setMessage("Please login to continue");
                 alertDialogBuilder.setCancelable(false);
-                alertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
                 alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -231,5 +231,25 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
 
 
 
+    }
+
+    @Override
+    public void getRegisterError() {
+        progressFrame.setVisibility(View.INVISIBLE);
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(RegisterActivity.this);
+            alertDialogBuilder.setTitle("Mobile Number Already exists");
+            alertDialogBuilder.setMessage("Please contact owner to change password : 9468097664");
+            alertDialogBuilder.setCancelable(false);
+            alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    
+                }
+            });
+            alertDialogBuilder.show();
+
+
+
+        Toast.makeText(this, "Mobile number already exists", Toast.LENGTH_SHORT).show();
     }
 }

@@ -8,4 +8,5 @@ public interface RegisterMvpView extends MvpView {
 
     void getListAllGroups(List<AllModerators> response);
     void getUserRegister(RegisterResponse response);
+    void getRegisterError();
 }

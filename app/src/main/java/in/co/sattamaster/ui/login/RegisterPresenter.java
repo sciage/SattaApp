@@ -107,7 +107,8 @@ public class RegisterPresenter  <V extends RegisterMvpView> extends BasePresente
                             return;
                         }
 
-                        getMvpView().hideLoading();
+                        getMvpView().getRegisterError();
+                      //  getMvpView().hideLoading();
 
                         // handle the login error here
                         if (throwable instanceof ANError) {

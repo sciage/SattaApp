@@ -1,10 +1,13 @@
 package in.co.sattamaster.ui.login;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.JsonIOException;
@@ -26,6 +29,7 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
     @BindView(R.id.loginbutton) Button loginbutton;
     @BindView(R.id.registerbutton) Button registerbutton;
     @BindView(R.id.phone_number) EditText phoneNumber;
+    @BindView(R.id.forgot_password) TextView forgot_password;
     @BindView(R.id.password) EditText password;
     @BindView(R.id.login_progressbar) View login_progressbar;
 
@@ -44,6 +48,13 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
         mPresenter.onAttach(LoginScreenActivity.this);
 
         login_progressbar.setVisibility(View.GONE);
+
+        forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getContactDialog();
+            }
+        });
 
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +80,18 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
                 startActivity(intent);
             }
         });
+    }
+
+    private void getContactDialog() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(LoginScreenActivity.this);
+        alertDialogBuilder.setTitle("Please Contact Owner to reset Password");
+        alertDialogBuilder.setMessage("Owner Contact Number : 9468097664");
+        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        alertDialogBuilder.show();
     }
 
     @Override
