@@ -16,7 +16,9 @@
 package in.co.sattamaster.data.network;
 
 
-import org.json.JSONObject;
+import android.content.SharedPreferences;
+
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -44,17 +46,17 @@ public interface ApiHelper {
 
     ApiHeader getApiHeader();
 
-    Single<Bid> sendBidset(JSONObject bidset);
-    Single<RegisterResponse> registerUser(JSONObject bids);
-    Single<List<AllModerators>> getAllModerator();
-    Single<LoginResponse> loginUser(JSONObject bids);
-    Single<UserObject> getUserProfile(String token);
-    Single<List<LocationPojo>> getCentres(String token);
-    Single<WithdrawResponseTop> makeWithdrawRequest(JSONObject withdraw, String token);
-    Single<ResultResponse> getAllResult(String from, String to);
-    Single<List<PastResultPOJO>> getAllPastResult(String location_id, String from, String to);
-    Single<HistoryPojo> getBids(String token);
-    Single<HistoryDetailsResponse> getBidDetails(String id);
+    Single<Bid> sendBidset(JsonObject bidset, SharedPreferences sharedPreferences);
+    Single<RegisterResponse> registerUser(JsonObject bids, SharedPreferences sharedPreferences);
+    Single<List<AllModerators>> getAllModerator(SharedPreferences sharedPreferences);
+    Single<LoginResponse> loginUser(JsonObject bids, SharedPreferences sharedPreferences);
+    Single<UserObject> getUserProfile(SharedPreferences sharedPreferences);
+    Single<List<LocationPojo>> getCentres(SharedPreferences sharedPreferences);
+    Single<WithdrawResponseTop> makeWithdrawRequest(JsonObject withdraw, SharedPreferences sharedPreferences);
+    Single<ResultResponse> getAllResult(String from, String to, SharedPreferences sharedPreferences);
+    Single<List<PastResultPOJO>> getAllPastResult(String location_id, String from, String to, SharedPreferences sharedPreferences);
+    Single<HistoryPojo> getBids(SharedPreferences sharedPreferences);
+    Single<HistoryDetailsResponse> getBidDetails(String id, SharedPreferences sharedPreferences);
 
   //  Single<List<PostsModel>> getImagePosts(String user_id, String onlyImages, String page);
 

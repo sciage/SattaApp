@@ -1,6 +1,9 @@
 package in.co.sattamaster.ui.Withdraw;
 
+import android.content.SharedPreferences;
+
 import com.androidnetworking.error.ANError;
+import com.google.gson.JsonObject;
 
 import org.json.JSONObject;
 
@@ -26,10 +29,10 @@ public class WithdrawPresenter <V extends WithdrawMvpView> extends BasePresenter
     }
 
     @Override
-    public void sendBidSet(JSONObject withdraw, String token) {
+    public void sendBidSet(JsonObject withdraw, SharedPreferences sharedPreferences) {
 
         getCompositeDisposable().add(getDataManager()
-                .makeWithdrawRequest(withdraw, token)
+                .makeWithdrawRequest(withdraw, sharedPreferences)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<WithdrawResponseTop>() {

@@ -24,11 +24,14 @@ public class Converter {
         int min = time.get(Calendar.MINUTE);
         boolean pm = false;
 
+        String curTime = String.format("%02d:%02d", hour, min);
+
+
       /*  if(hour>12){
             pm = true;
             hour = hour + 12;
         } */
 
-        return pm ? hour +":"+min : hour +":"+min;
+        return curTime;
     }
 }

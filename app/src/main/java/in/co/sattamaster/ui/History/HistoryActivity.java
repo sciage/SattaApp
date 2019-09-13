@@ -84,7 +84,7 @@ public class HistoryActivity extends BaseActivity implements HistoryActivityMvpV
         recyclerView.setAdapter(adapter);
 
         progressFrame.setVisibility(View.VISIBLE);
-        mPresenter.getBids(MySharedPreferences.getToken(preferences));
+        mPresenter.getBids(preferences);
     }
 
 

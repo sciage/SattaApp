@@ -1,7 +1,5 @@
 package in.co.sattamaster.ui.PlayMatka;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,17 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import in.co.sattamaster.R;
-import in.co.sattamaster.dto.Bid;
-import in.co.sattamaster.ui.Homepage.MainActivity;
-import in.co.sattamaster.ui.base.BaseActivity;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -32,10 +24,11 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.co.sattamaster.R;
+import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.ui.base.BaseActivity;
 import in.co.sattamaster.ui.base.Constants;
 import in.co.sattamaster.ui.base.MySharedPreferences;
-import in.co.sattamaster.ui.login.LoginScreenActivity;
-import in.co.sattamaster.ui.login.RegisterActivity;
 import timber.log.Timber;
 
 public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivityMvpView, View.OnClickListener {
@@ -44,7 +37,8 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     @Inject
     PlayMatkaActivityMvpPresenter<PlayMatkaActivityMvpView> mPresenter;
 
-    @BindView(R.id.andar_00_view) TextView andar_00_view;
+    @BindView(R.id.andar_00_view)
+    TextView andar_00_view;
 
     boolean boolean_comb_00_edittext;
     boolean boolean_comb_01_edittext;
@@ -58,139 +52,256 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     boolean boolean_comb_09_edittext;
 
     private List<Integer> joinComb;
-    private JSONArray jodiBidding;
+    private JsonArray jodiBidding;
 
-    @BindView(R.id.andar_00_edittext) EditText andar_00_edittext;
-    @BindView(R.id.andar_01_edittext) EditText andar_01_edittext;
-    @BindView(R.id.andar_02_edittext) EditText andar_02_edittext;
-    @BindView(R.id.andar_03_edittext) EditText andar_03_edittext;
-    @BindView(R.id.andar_04_edittext) EditText andar_04_edittext;
-    @BindView(R.id.andar_05_edittext) EditText andar_05_edittext;
-    @BindView(R.id.andar_06_edittext) EditText andar_06_edittext;
-    @BindView(R.id.andar_07_edittext) EditText andar_07_edittext;
-    @BindView(R.id.andar_08_edittext) EditText andar_08_edittext;
-    @BindView(R.id.andar_09_edittext) EditText andar_09_edittext;
+    @BindView(R.id.andar_00_edittext)
+    EditText andar_00_edittext;
+    @BindView(R.id.andar_01_edittext)
+    EditText andar_01_edittext;
+    @BindView(R.id.andar_02_edittext)
+    EditText andar_02_edittext;
+    @BindView(R.id.andar_03_edittext)
+    EditText andar_03_edittext;
+    @BindView(R.id.andar_04_edittext)
+    EditText andar_04_edittext;
+    @BindView(R.id.andar_05_edittext)
+    EditText andar_05_edittext;
+    @BindView(R.id.andar_06_edittext)
+    EditText andar_06_edittext;
+    @BindView(R.id.andar_07_edittext)
+    EditText andar_07_edittext;
+    @BindView(R.id.andar_08_edittext)
+    EditText andar_08_edittext;
+    @BindView(R.id.andar_09_edittext)
+    EditText andar_09_edittext;
 
-    @BindView(R.id.bahar_00_edittext) EditText bahar_00_edittext;
-    @BindView(R.id.bahar_01_edittext) EditText bahar_01_edittext;
-    @BindView(R.id.bahar_02_edittext) EditText bahar_02_edittext;
-    @BindView(R.id.bahar_03_edittext) EditText bahar_03_edittext;
-    @BindView(R.id.bahar_04_edittext) EditText bahar_04_edittext;
-    @BindView(R.id.bahar_05_edittext) EditText bahar_05_edittext;
-    @BindView(R.id.bahar_06_edittext) EditText bahar_06_edittext;
-    @BindView(R.id.bahar_07_edittext) EditText bahar_07_edittext;
-    @BindView(R.id.bahar_08_edittext) EditText bahar_08_edittext;
-    @BindView(R.id.bahar_09_edittext) EditText bahar_09_edittext;
+    @BindView(R.id.bahar_00_edittext)
+    EditText bahar_00_edittext;
+    @BindView(R.id.bahar_01_edittext)
+    EditText bahar_01_edittext;
+    @BindView(R.id.bahar_02_edittext)
+    EditText bahar_02_edittext;
+    @BindView(R.id.bahar_03_edittext)
+    EditText bahar_03_edittext;
+    @BindView(R.id.bahar_04_edittext)
+    EditText bahar_04_edittext;
+    @BindView(R.id.bahar_05_edittext)
+    EditText bahar_05_edittext;
+    @BindView(R.id.bahar_06_edittext)
+    EditText bahar_06_edittext;
+    @BindView(R.id.bahar_07_edittext)
+    EditText bahar_07_edittext;
+    @BindView(R.id.bahar_08_edittext)
+    EditText bahar_08_edittext;
+    @BindView(R.id.bahar_09_edittext)
+    EditText bahar_09_edittext;
 
-    @BindView(R.id.comb_00_edittext) TextView comb_00_edittext;
-    @BindView(R.id.comb_01_edittext) TextView comb_01_edittext;
-    @BindView(R.id.comb_02_edittext) TextView comb_02_edittext;
-    @BindView(R.id.comb_03_edittext) TextView comb_03_edittext;
-    @BindView(R.id.comb_04_edittext) TextView comb_04_edittext;
-    @BindView(R.id.comb_05_edittext) TextView comb_05_edittext;
-    @BindView(R.id.comb_06_edittext) TextView comb_06_edittext;
-    @BindView(R.id.comb_07_edittext) TextView comb_07_edittext;
-    @BindView(R.id.comb_08_edittext) TextView comb_08_edittext;
-    @BindView(R.id.comb_09_edittext) TextView comb_09_edittext;
+    @BindView(R.id.comb_00_edittext)
+    TextView comb_00_edittext;
+    @BindView(R.id.comb_01_edittext)
+    TextView comb_01_edittext;
+    @BindView(R.id.comb_02_edittext)
+    TextView comb_02_edittext;
+    @BindView(R.id.comb_03_edittext)
+    TextView comb_03_edittext;
+    @BindView(R.id.comb_04_edittext)
+    TextView comb_04_edittext;
+    @BindView(R.id.comb_05_edittext)
+    TextView comb_05_edittext;
+    @BindView(R.id.comb_06_edittext)
+    TextView comb_06_edittext;
+    @BindView(R.id.comb_07_edittext)
+    TextView comb_07_edittext;
+    @BindView(R.id.comb_08_edittext)
+    TextView comb_08_edittext;
+    @BindView(R.id.comb_09_edittext)
+    TextView comb_09_edittext;
 
-    @BindView(R.id.single_00_edittext) EditText single_00_edittext;
-    @BindView(R.id.single_01_edittext) EditText single_01_edittext;
-    @BindView(R.id.single_02_edittext) EditText single_02_edittext;
-    @BindView(R.id.single_03_edittext) EditText single_03_edittext;
-    @BindView(R.id.single_04_edittext) EditText single_04_edittext;
-    @BindView(R.id.single_05_edittext) EditText single_05_edittext;
-    @BindView(R.id.single_06_edittext) EditText single_06_edittext;
-    @BindView(R.id.single_07_edittext) EditText single_07_edittext;
-    @BindView(R.id.single_08_edittext) EditText single_08_edittext;
-    @BindView(R.id.single_09_edittext) EditText single_09_edittext;
+    @BindView(R.id.single_00_edittext)
+    EditText single_00_edittext;
+    @BindView(R.id.single_01_edittext)
+    EditText single_01_edittext;
+    @BindView(R.id.single_02_edittext)
+    EditText single_02_edittext;
+    @BindView(R.id.single_03_edittext)
+    EditText single_03_edittext;
+    @BindView(R.id.single_04_edittext)
+    EditText single_04_edittext;
+    @BindView(R.id.single_05_edittext)
+    EditText single_05_edittext;
+    @BindView(R.id.single_06_edittext)
+    EditText single_06_edittext;
+    @BindView(R.id.single_07_edittext)
+    EditText single_07_edittext;
+    @BindView(R.id.single_08_edittext)
+    EditText single_08_edittext;
+    @BindView(R.id.single_09_edittext)
+    EditText single_09_edittext;
 
-    @BindView(R.id.single_10_edittext) EditText single_10_edittext;
-    @BindView(R.id.single_11_edittext) EditText single_11_edittext;
-    @BindView(R.id.single_12_edittext) EditText single_12_edittext;
-    @BindView(R.id.single_13_edittext) EditText single_13_edittext;
-    @BindView(R.id.single_14_edittext) EditText single_14_edittext;
-    @BindView(R.id.single_15_edittext) EditText single_15_edittext;
-    @BindView(R.id.single_16_edittext) EditText single_16_edittext;
-    @BindView(R.id.single_17_edittext) EditText single_17_edittext;
-    @BindView(R.id.single_18_edittext) EditText single_18_edittext;
-    @BindView(R.id.single_19_edittext) EditText single_19_edittext;
+    @BindView(R.id.single_10_edittext)
+    EditText single_10_edittext;
+    @BindView(R.id.single_11_edittext)
+    EditText single_11_edittext;
+    @BindView(R.id.single_12_edittext)
+    EditText single_12_edittext;
+    @BindView(R.id.single_13_edittext)
+    EditText single_13_edittext;
+    @BindView(R.id.single_14_edittext)
+    EditText single_14_edittext;
+    @BindView(R.id.single_15_edittext)
+    EditText single_15_edittext;
+    @BindView(R.id.single_16_edittext)
+    EditText single_16_edittext;
+    @BindView(R.id.single_17_edittext)
+    EditText single_17_edittext;
+    @BindView(R.id.single_18_edittext)
+    EditText single_18_edittext;
+    @BindView(R.id.single_19_edittext)
+    EditText single_19_edittext;
 
-    @BindView(R.id.single_20_edittext) EditText single_20_edittext;
-    @BindView(R.id.single_21_edittext) EditText single_21_edittext;
-    @BindView(R.id.single_22_edittext) EditText single_22_edittext;
-    @BindView(R.id.single_23_edittext) EditText single_23_edittext;
-    @BindView(R.id.single_24_edittext) EditText single_24_edittext;
-    @BindView(R.id.single_25_edittext) EditText single_25_edittext;
-    @BindView(R.id.single_26_edittext) EditText single_26_edittext;
-    @BindView(R.id.single_27_edittext) EditText single_27_edittext;
-    @BindView(R.id.single_28_edittext) EditText single_28_edittext;
-    @BindView(R.id.single_29_edittext) EditText single_29_edittext;
+    @BindView(R.id.single_20_edittext)
+    EditText single_20_edittext;
+    @BindView(R.id.single_21_edittext)
+    EditText single_21_edittext;
+    @BindView(R.id.single_22_edittext)
+    EditText single_22_edittext;
+    @BindView(R.id.single_23_edittext)
+    EditText single_23_edittext;
+    @BindView(R.id.single_24_edittext)
+    EditText single_24_edittext;
+    @BindView(R.id.single_25_edittext)
+    EditText single_25_edittext;
+    @BindView(R.id.single_26_edittext)
+    EditText single_26_edittext;
+    @BindView(R.id.single_27_edittext)
+    EditText single_27_edittext;
+    @BindView(R.id.single_28_edittext)
+    EditText single_28_edittext;
+    @BindView(R.id.single_29_edittext)
+    EditText single_29_edittext;
 
-    @BindView(R.id.single_30_edittext) EditText single_30_edittext;
-    @BindView(R.id.single_31_edittext) EditText single_31_edittext;
-    @BindView(R.id.single_32_edittext) EditText single_32_edittext;
-    @BindView(R.id.single_33_edittext) EditText single_33_edittext;
-    @BindView(R.id.single_34_edittext) EditText single_34_edittext;
-    @BindView(R.id.single_35_edittext) EditText single_35_edittext;
-    @BindView(R.id.single_36_edittext) EditText single_36_edittext;
-    @BindView(R.id.single_37_edittext) EditText single_37_edittext;
-    @BindView(R.id.single_38_edittext) EditText single_38_edittext;
-    @BindView(R.id.single_39_edittext) EditText single_39_edittext;
-
-
-    @BindView(R.id.single_40_edittext) EditText single_40_edittext;
-    @BindView(R.id.single_41_edittext) EditText single_41_edittext;
-    @BindView(R.id.single_42_edittext) EditText single_42_edittext;
-    @BindView(R.id.single_43_edittext) EditText single_43_edittext;
-    @BindView(R.id.single_44_edittext) EditText single_44_edittext;
-    @BindView(R.id.single_45_edittext) EditText single_45_edittext;
-    @BindView(R.id.single_46_edittext) EditText single_46_edittext;
-    @BindView(R.id.single_47_edittext) EditText single_47_edittext;
-    @BindView(R.id.single_48_edittext) EditText single_48_edittext;
-    @BindView(R.id.single_49_edittext) EditText single_49_edittext;
-
-    @BindView(R.id.single_50_edittext) EditText single_50_edittext;
-    @BindView(R.id.single_51_edittext) EditText single_51_edittext;
-    @BindView(R.id.single_52_edittext) EditText single_52_edittext;
-    @BindView(R.id.single_53_edittext) EditText single_53_edittext;
-    @BindView(R.id.single_54_edittext) EditText single_54_edittext;
-    @BindView(R.id.single_55_edittext) EditText single_55_edittext;
-    @BindView(R.id.single_56_edittext) EditText single_56_edittext;
-    @BindView(R.id.single_57_edittext) EditText single_57_edittext;
-    @BindView(R.id.single_58_edittext) EditText single_58_edittext;
-    @BindView(R.id.single_59_edittext) EditText single_59_edittext;
+    @BindView(R.id.single_30_edittext)
+    EditText single_30_edittext;
+    @BindView(R.id.single_31_edittext)
+    EditText single_31_edittext;
+    @BindView(R.id.single_32_edittext)
+    EditText single_32_edittext;
+    @BindView(R.id.single_33_edittext)
+    EditText single_33_edittext;
+    @BindView(R.id.single_34_edittext)
+    EditText single_34_edittext;
+    @BindView(R.id.single_35_edittext)
+    EditText single_35_edittext;
+    @BindView(R.id.single_36_edittext)
+    EditText single_36_edittext;
+    @BindView(R.id.single_37_edittext)
+    EditText single_37_edittext;
+    @BindView(R.id.single_38_edittext)
+    EditText single_38_edittext;
+    @BindView(R.id.single_39_edittext)
+    EditText single_39_edittext;
 
 
-    @BindView(R.id.single_60_edittext) EditText single_60_edittext;
-    @BindView(R.id.single_61_edittext) EditText single_61_edittext;
-    @BindView(R.id.single_62_edittext) EditText single_62_edittext;
-    @BindView(R.id.single_63_edittext) EditText single_63_edittext;
-    @BindView(R.id.single_64_edittext) EditText single_64_edittext;
-    @BindView(R.id.single_65_edittext) EditText single_65_edittext;
-    @BindView(R.id.single_66_edittext) EditText single_66_edittext;
-    @BindView(R.id.single_67_edittext) EditText single_67_edittext;
-    @BindView(R.id.single_68_edittext) EditText single_68_edittext;
-    @BindView(R.id.single_69_edittext) EditText single_69_edittext;
+    @BindView(R.id.single_40_edittext)
+    EditText single_40_edittext;
+    @BindView(R.id.single_41_edittext)
+    EditText single_41_edittext;
+    @BindView(R.id.single_42_edittext)
+    EditText single_42_edittext;
+    @BindView(R.id.single_43_edittext)
+    EditText single_43_edittext;
+    @BindView(R.id.single_44_edittext)
+    EditText single_44_edittext;
+    @BindView(R.id.single_45_edittext)
+    EditText single_45_edittext;
+    @BindView(R.id.single_46_edittext)
+    EditText single_46_edittext;
+    @BindView(R.id.single_47_edittext)
+    EditText single_47_edittext;
+    @BindView(R.id.single_48_edittext)
+    EditText single_48_edittext;
+    @BindView(R.id.single_49_edittext)
+    EditText single_49_edittext;
 
-    @BindView(R.id.single_70_edittext) EditText single_70_edittext;
-    @BindView(R.id.single_71_edittext) EditText single_71_edittext;
-    @BindView(R.id.single_72_edittext) EditText single_72_edittext;
-    @BindView(R.id.single_73_edittext) EditText single_73_edittext;
-    @BindView(R.id.single_74_edittext) EditText single_74_edittext;
-    @BindView(R.id.single_75_edittext) EditText single_75_edittext;
-    @BindView(R.id.single_76_edittext) EditText single_76_edittext;
-    @BindView(R.id.single_77_edittext) EditText single_77_edittext;
-    @BindView(R.id.single_78_edittext) EditText single_78_edittext;
-    @BindView(R.id.single_79_edittext) EditText single_79_edittext;
+    @BindView(R.id.single_50_edittext)
+    EditText single_50_edittext;
+    @BindView(R.id.single_51_edittext)
+    EditText single_51_edittext;
+    @BindView(R.id.single_52_edittext)
+    EditText single_52_edittext;
+    @BindView(R.id.single_53_edittext)
+    EditText single_53_edittext;
+    @BindView(R.id.single_54_edittext)
+    EditText single_54_edittext;
+    @BindView(R.id.single_55_edittext)
+    EditText single_55_edittext;
+    @BindView(R.id.single_56_edittext)
+    EditText single_56_edittext;
+    @BindView(R.id.single_57_edittext)
+    EditText single_57_edittext;
+    @BindView(R.id.single_58_edittext)
+    EditText single_58_edittext;
+    @BindView(R.id.single_59_edittext)
+    EditText single_59_edittext;
 
-    @BindView(R.id.satta_heading_01_total_value) TextView satta_heading_01_total_value;
-    @BindView(R.id.satta_heading_02_total_value) TextView satta_heading_02_total_value;
-    @BindView(R.id.satta_heading_03_total_value) TextView satta_heading_03_total_value;
-    @BindView(R.id.satta_heading_03_bid_value) TextView satta_heading_03_bid_value;
-    @BindView(R.id.satta_heading_04_total_value) TextView satta_heading_04_total_value;
-    @BindView(R.id.place_bid_button) Button place_bid_button;
 
-    @BindView(R.id.satta_net_total_value) TextView satta_net_total_value;
+    @BindView(R.id.single_60_edittext)
+    EditText single_60_edittext;
+    @BindView(R.id.single_61_edittext)
+    EditText single_61_edittext;
+    @BindView(R.id.single_62_edittext)
+    EditText single_62_edittext;
+    @BindView(R.id.single_63_edittext)
+    EditText single_63_edittext;
+    @BindView(R.id.single_64_edittext)
+    EditText single_64_edittext;
+    @BindView(R.id.single_65_edittext)
+    EditText single_65_edittext;
+    @BindView(R.id.single_66_edittext)
+    EditText single_66_edittext;
+    @BindView(R.id.single_67_edittext)
+    EditText single_67_edittext;
+    @BindView(R.id.single_68_edittext)
+    EditText single_68_edittext;
+    @BindView(R.id.single_69_edittext)
+    EditText single_69_edittext;
+
+    @BindView(R.id.single_70_edittext)
+    EditText single_70_edittext;
+    @BindView(R.id.single_71_edittext)
+    EditText single_71_edittext;
+    @BindView(R.id.single_72_edittext)
+    EditText single_72_edittext;
+    @BindView(R.id.single_73_edittext)
+    EditText single_73_edittext;
+    @BindView(R.id.single_74_edittext)
+    EditText single_74_edittext;
+    @BindView(R.id.single_75_edittext)
+    EditText single_75_edittext;
+    @BindView(R.id.single_76_edittext)
+    EditText single_76_edittext;
+    @BindView(R.id.single_77_edittext)
+    EditText single_77_edittext;
+    @BindView(R.id.single_78_edittext)
+    EditText single_78_edittext;
+    @BindView(R.id.single_79_edittext)
+    EditText single_79_edittext;
+
+    @BindView(R.id.satta_heading_01_total_value)
+    TextView satta_heading_01_total_value;
+    @BindView(R.id.satta_heading_02_total_value)
+    TextView satta_heading_02_total_value;
+    @BindView(R.id.satta_heading_03_total_value)
+    TextView satta_heading_03_total_value;
+    @BindView(R.id.satta_heading_03_bid_value)
+    TextView satta_heading_03_bid_value;
+    @BindView(R.id.satta_heading_04_total_value)
+    TextView satta_heading_04_total_value;
+    @BindView(R.id.place_bid_button)
+    Button place_bid_button;
+
+    @BindView(R.id.satta_net_total_value)
+    TextView satta_net_total_value;
 
     int totalAndar = 0;
     int totalBahar = 0;
@@ -207,31 +318,13 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     ArrayList<String> single_values;
     String location_name;
 
-    private String USER_NAME;
-    private String MODERATOR_NAME;
-    private String MODERATOR_MOBILE;
-    private String WALLET_BALANCE;
-
-    @BindView(R.id.balance_amount_value) TextView balance_amount_value;
-    @BindView(R.id.user_name) TextView user_name;
-    @BindView(R.id.moderator) TextView moderator;
-    private String LOCATION_NAME;
-
-    // private View status_group_post;
+   // private View status_group_post;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_play_matka_testing);
-
-        Intent intent = getIntent();
-        USER_NAME = intent.getStringExtra(Constants.USER_NAME);
-        MODERATOR_NAME = intent.getStringExtra(Constants.MODERATOR_NAME);
-        MODERATOR_MOBILE = intent.getStringExtra(Constants.MODERATOR_MOBILE);
-        WALLET_BALANCE = intent.getStringExtra(Constants.WALLET_BALANCE);
-        location_id = intent.getStringExtra(Constants.LOCATION_ID);
-        LOCATION_NAME = intent.getStringExtra(Constants.LOCATION_NAME);
 
         toolbar.setNavigationIcon(R.drawable.ic_clear_black_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -240,7 +333,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 finish();
             }
         });
-        getSupportActionBar().setTitle( LOCATION_NAME + " Satta Matka ");
+        getSupportActionBar().setTitle("Play Satta Matka");
 
 
         getActivityComponent().inject(this);
@@ -249,17 +342,15 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         mPresenter.onAttach(PlayMatkaActivity.this);
 
-
-
-        balance_amount_value.setText(WALLET_BALANCE);
-        user_name.setText(USER_NAME);
-        moderator.setText(MODERATOR_NAME + " ( " + MODERATOR_MOBILE + " ) ");
-
         single_keys = new ArrayList<>();
         single_values = new ArrayList<>();
 
+        Intent intent = getIntent();
+        location_id = intent.getStringExtra(Constants.LOCATION); // seconnd person username random
+        location_name = intent.getStringExtra(Constants.LOCATION_NAME);
+
         joinComb = new ArrayList<Integer>();
-        jodiBidding = new JSONArray();
+        jodiBidding = new JsonArray();
 
         andar_hash_map = new LinkedHashMap<String, String>();
         bahar_hash_map = new LinkedHashMap<String, String>();
@@ -570,31 +661,12 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         place_bid_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PlayMatkaActivity.this);
-                alertDialogBuilder.setTitle("Confirm your Bidding");
-                alertDialogBuilder.setMessage("Click Yes to Continue");
-                alertDialogBuilder.setCancelable(false);
-                alertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
-                alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        try {
-                            // writeJsonSimpleDemo();
-                            mPresenter.sendBidSet(writeJsonSimpleDemo());
-                        } catch (Exception ex){
-                            ex.printStackTrace();
-                        }
-                    }
-                });
-                alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                alertDialogBuilder.show();
-
-
-
+                try {
+                   // writeJsonSimpleDemo();
+                    mPresenter.sendBidSet(writeJsonSimpleDemo(), preferences);
+                } catch (Exception ex){
+                    ex.printStackTrace();
+                }
             }
         });
 
@@ -602,58 +674,58 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     }
 
 
-    public JSONObject writeJsonSimpleDemo() throws Exception {
+    public JsonObject writeJsonSimpleDemo() throws Exception {
 
-        JSONObject object = new JSONObject();
-        object.put("user_id", MySharedPreferences.getUserId(preferences));
-        object.put("centre_id", location_id);
+        JsonObject object = new JsonObject();
+        object.addProperty("user_id", MySharedPreferences.getUserId(preferences));
+        object.addProperty("centre_id", location_id);
 
-        JSONArray array = new JSONArray();
+        JsonArray array = new JsonArray();
 
-        JSONObject locationOne = getLocationObject("ANDAR"); // enter type of location key value
-        JSONObject locationOneData = getAndarBidding();
-        locationOne.put("data", locationOneData);
+        JsonObject locationOne = getLocationObject("ANDAR"); // enter type of location key value
+        JsonObject locationOneData = getAndarBidding();
+        locationOne.add("data", locationOneData);
 
-        JSONObject locationTwo = getLocationObject("BAHAR"); // enter type of location key value
-        JSONObject locationTwoData = getBaharBidding();
-        locationTwo.put("data", locationTwoData);
+        JsonObject locationTwo = getLocationObject("BAHAR"); // enter type of location key value
+        JsonObject locationTwoData = getBaharBidding();
+        locationTwo.add("data", locationTwoData);
 
-        JSONObject locationThree = getLocationObject("SINGLE"); // enter type of location key value
+        JsonObject locationThree = getLocationObject("SINGLE"); // enter type of location key value
         findCalculation();
-        JSONObject locationThreeData = getSingleBidding();
-        locationThree.put("data", locationThreeData);
+        JsonObject locationThreeData = getSingleBidding();
+        locationThree.add("data", locationThreeData);
 
-        JSONObject locationFour = getLocationObject("JODI"); // enter type of location key value
-        JSONObject locationFourData = getJodiBidding();
-        locationFour.put("data", locationFourData);
+        JsonObject locationFour = getLocationObject("JODI"); // enter type of location key value
+        JsonObject locationFourData = getJodiBidding();
+        locationFour.add("data", locationFourData);
 
-        array.put(locationOne);
-        array.put(locationTwo);
-        array.put(locationThree);
-        array.put(locationFour);
+        array.add(locationOne);
+        array.add(locationTwo);
+        array.add(locationThree);
+        array.add(locationFour);
 
         // first array top heading
 
-        object.put("bids", array);
+        object.add("bids", array);
 
 
         return object;
     }
 
-    private JSONObject getLocationObject(String Name) throws JSONException {
+    private JsonObject getLocationObject(String Name) throws JsonIOException {
 
-        JSONObject arrayElementOne = new JSONObject();
-        arrayElementOne.put("type", Name);
+        JsonObject arrayElementOne = new JsonObject();
+        arrayElementOne.addProperty("type", Name);
 
         return arrayElementOne;
     }
 
-    private JSONObject getAndarBidding() throws JSONException {
-        JSONObject arrayElementOneArrayElementOne = new JSONObject();
+    private JsonObject getAndarBidding() throws JsonIOException {
+        JsonObject arrayElementOneArrayElementOne = new JsonObject();
 
         for(int i=0; i<= 10; i++){
             if (andar_hash_map.containsKey(String.valueOf(i))){
-                arrayElementOneArrayElementOne.put(String.valueOf(i), andar_hash_map.get(String.valueOf(i)));
+                arrayElementOneArrayElementOne.addProperty(String.valueOf(i), andar_hash_map.get(String.valueOf(i)));
             }
         }
 
@@ -663,25 +735,25 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         return arrayElementOneArrayElementOne;
     }
 
-    private JSONObject getBaharBidding() throws JSONException {
+    private JsonObject getBaharBidding() throws JsonIOException {
 
-        JSONObject arrayElementOneArrayElementOne = new JSONObject();
+        JsonObject arrayElementOneArrayElementOne = new JsonObject();
 
         for(int i=0; i<= 10; i++){
             if (bahar_hash_map.containsKey(String.valueOf(i))){
-                arrayElementOneArrayElementOne.put(String.valueOf(i), bahar_hash_map.get(String.valueOf(i)));
+                arrayElementOneArrayElementOne.addProperty(String.valueOf(i), bahar_hash_map.get(String.valueOf(i)));
             }
         }
 
         return arrayElementOneArrayElementOne;
     }
 
-    private JSONObject getSingleBidding() throws JSONException {
+    private JsonObject getSingleBidding() throws JsonIOException {
 
-        JSONObject arrayElementOneArrayElementOne = new JSONObject();
+        JsonObject arrayElementOneArrayElementOne = new JsonObject();
 
         for(int i=0; i< single_keys.size(); i++){
-             arrayElementOneArrayElementOne.put(single_keys.get(i), single_values.get(i));
+             arrayElementOneArrayElementOne.addProperty(single_keys.get(i), single_values.get(i));
 
             }
 
@@ -690,11 +762,11 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
 
 
-    private JSONObject getJodiBidding() throws JSONException {
-        JSONObject arrayElementOneArrayElementOne = new JSONObject();
+    private JsonObject getJodiBidding() throws JsonIOException {
+        JsonObject arrayElementOneArrayElementOne = new JsonObject();
 
-        arrayElementOneArrayElementOne.put("numbers", jodiBidding);
-        arrayElementOneArrayElementOne.put("amount", combinationValue);
+        arrayElementOneArrayElementOne.add("numbers", jodiBidding);
+        arrayElementOneArrayElementOne.addProperty("amount", combinationValue);
 
         return arrayElementOneArrayElementOne;
     }
@@ -1558,7 +1630,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
     private void addGroupTag(int selectedGroup){
         joinComb.add(selectedGroup);
-        jodiBidding.put(selectedGroup);
+        jodiBidding.add(selectedGroup);
     }
 
     private void removeGroupTag(int selectedGroup){
@@ -1756,20 +1828,16 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     @Override
     public void receiveBidSetResult(Bid response) {
 
-        Intent intent = new Intent(PlayMatkaActivity.this, MainActivity.class);
-        intent.putExtra("isLoggedIn", true);
-
-        startActivity(intent);
-
         Toast.makeText(PlayMatkaActivity.this, response.getStatus().toString(), Toast.LENGTH_SHORT).show();
 
+        Timber.d(response.toString());
     }
 }
 
 /*
-  private JSONObject getLocationBidding() throws JSONException {
+  private JsonObject getLocationBidding() throws JSONException {
 
-        JSONObject arrayElementOneArrayElementOne = new JSONObject();
+        JsonObject arrayElementOneArrayElementOne = new JsonObject();
         arrayElementOneArrayElementOne.put("1", 100);
         arrayElementOneArrayElementOne.put("2", 100);
 

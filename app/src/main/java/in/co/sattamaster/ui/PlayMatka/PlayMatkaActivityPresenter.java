@@ -1,9 +1,11 @@
 package in.co.sattamaster.ui.PlayMatka;
 
+import android.content.SharedPreferences;
+
 import com.androidnetworking.error.ANError;
+import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 
@@ -29,10 +31,10 @@ public class PlayMatkaActivityPresenter <V extends PlayMatkaActivityMvpView> ext
     }
 
     @Override
-    public void sendBidSet(JSONObject bidset) {
+    public void sendBidSet(JsonObject bidset, SharedPreferences sharedPreferences) {
 
         getCompositeDisposable().add(getDataManager()
-                .sendBidset(bidset)
+                .sendBidset(bidset, sharedPreferences)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<Bid>() {

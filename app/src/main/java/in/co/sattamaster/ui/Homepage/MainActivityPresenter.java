@@ -1,5 +1,7 @@
 package in.co.sattamaster.ui.Homepage;
 
+import android.content.SharedPreferences;
+
 import com.androidnetworking.error.ANError;
 
 import in.co.sattamaster.data.DataManager;
@@ -24,10 +26,10 @@ public class MainActivityPresenter <V extends MainActivityMvpView> extends BaseP
     }
 
     @Override
-    public void getUserProfile(String token) {
+    public void getUserProfile(SharedPreferences sharedPreferences) {
 
         getCompositeDisposable().add(getDataManager()
-                .getUserProfile(token)
+                .getUserProfile(sharedPreferences)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<UserObject>() {

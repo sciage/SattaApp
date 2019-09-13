@@ -182,7 +182,13 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                 winOrLoss.setText("Win or Loss : No Result");
 
             } else {
-                winOrLoss.setText(String.valueOf("Win or Loss " + " : " + messageItem.getDidWin().toString()));
+                if (messageItem.getDidWin().toString().equals("1")){
+                    winOrLoss.setText(String.valueOf("Win or Loss " + " : " + "Win"));
+
+                } else {
+                    winOrLoss.setText(String.valueOf("Win or Loss " + " : " + "Loss"));
+
+                }
 
             }
 
@@ -203,10 +209,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             replyRecyclerview.setAdapter(commentReplyAdapter);
 
             bid_balance.setText(String.valueOf("Total Bid Placed " +" : " + messageItem.getCoinBalanceCost()));
-            bid_type.setText(String.valueOf("Bid Type " + " : " + messageItem.getType()));
+            bid_type.setText(String.valueOf("Bid Type " + " : " + getLocationName(messageItem.getType())));
 
         }
 
+        private String getLocationName(String locationName){
+            if (locationName.equalsIgnoreCase("JODI")){
+                return "COMBINATION";
+            } else return locationName;
+        }
 
         public CommentReplyAdapter getCommentReplyAdapter() {
             return commentReplyAdapter;

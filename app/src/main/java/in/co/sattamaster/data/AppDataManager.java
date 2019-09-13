@@ -17,8 +17,10 @@ package in.co.sattamaster.data;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
-import org.json.JSONObject;
+
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -74,58 +76,58 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<Bid> sendBidset(JSONObject bid) {
-        return mApiHelper.sendBidset(bid);
+    public Single<Bid> sendBidset(JsonObject bid, SharedPreferences sharedPreferences) {
+        return mApiHelper.sendBidset(bid, sharedPreferences);
     }
 
     @Override
-    public Single<RegisterResponse> registerUser(JSONObject bids) {
-        return mApiHelper.registerUser(bids);
+    public Single<RegisterResponse> registerUser(JsonObject bids, SharedPreferences sharedPreferences) {
+        return mApiHelper.registerUser(bids,sharedPreferences);
     }
 
     @Override
-    public Single<List<AllModerators>> getAllModerator() {
-        return mApiHelper.getAllModerator();
+    public Single<List<AllModerators>> getAllModerator(SharedPreferences sharedPreferences) {
+        return mApiHelper.getAllModerator(sharedPreferences);
     }
 
     @Override
-    public Single<LoginResponse> loginUser(JSONObject bids) {
-        return mApiHelper.loginUser(bids);
+    public Single<LoginResponse> loginUser(JsonObject bids, SharedPreferences sharedPreferences) {
+        return mApiHelper.loginUser(bids, sharedPreferences);
     }
 
     @Override
-    public Single<UserObject> getUserProfile(String token) {
-        return mApiHelper.getUserProfile(token);
+    public Single<UserObject> getUserProfile(SharedPreferences sharedPreferences) {
+        return mApiHelper.getUserProfile(sharedPreferences);
     }
 
     @Override
-    public Single<List<LocationPojo>> getCentres(String token) {
-        return mApiHelper.getCentres(token);
+    public Single<List<LocationPojo>> getCentres(SharedPreferences sharedPreferences) {
+        return mApiHelper.getCentres(sharedPreferences);
     }
 
     @Override
-    public Single<WithdrawResponseTop> makeWithdrawRequest(JSONObject withdraw, String token) {
-        return mApiHelper.makeWithdrawRequest(withdraw, token);
+    public Single<WithdrawResponseTop> makeWithdrawRequest(JsonObject withdraw, SharedPreferences sharedPreferences) {
+        return mApiHelper.makeWithdrawRequest(withdraw, sharedPreferences);
     }
 
     @Override
-    public Single<ResultResponse> getAllResult(String from, String to) {
-        return mApiHelper.getAllResult(from, to);
+    public Single<ResultResponse> getAllResult(String from, String to, SharedPreferences sharedPreferences) {
+        return mApiHelper.getAllResult(from, to, sharedPreferences);
     }
 
     @Override
-    public Single<List<PastResultPOJO>> getAllPastResult(String location_id, String from, String to) {
-        return mApiHelper.getAllPastResult(location_id, from, to);
+    public Single<List<PastResultPOJO>> getAllPastResult(String location_id, String from, String to, SharedPreferences sharedPreferences) {
+        return mApiHelper.getAllPastResult(location_id, from, to, sharedPreferences);
     }
 
     @Override
-    public Single<HistoryPojo> getBids(String token) {
-        return mApiHelper.getBids(token);
+    public Single<HistoryPojo> getBids(SharedPreferences sharedPreferences) {
+        return mApiHelper.getBids(sharedPreferences);
     }
 
     @Override
-    public Single<HistoryDetailsResponse> getBidDetails(String id) {
-        return mApiHelper.getBidDetails(id);
+    public Single<HistoryDetailsResponse> getBidDetails(String id, SharedPreferences sharedPreferences) {
+        return mApiHelper.getBidDetails(id, sharedPreferences);
     }
 
  /*   @Override

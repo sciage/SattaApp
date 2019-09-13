@@ -64,10 +64,7 @@ public class HistoryDetailsActivity extends BaseActivity implements HistoryDetai
 
         progressFrame.setVisibility(View.VISIBLE);
 
-        mPresenter.getBidDetails(BIDSET_ID);
-
-
-
+        mPresenter.getBidDetails(BIDSET_ID, preferences);
     }
 
     private void initRecyclerView() {

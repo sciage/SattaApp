@@ -1,5 +1,7 @@
 package in.co.sattamaster.ui.Result;
 
+import android.content.SharedPreferences;
+
 import com.androidnetworking.error.ANError;
 
 import java.util.List;
@@ -24,10 +26,10 @@ public class PastResultPresenter<V extends PastResultMvpView> extends BasePresen
     }
 
     @Override
-    public void getAllResult(String location_id, String from, String to) {
+    public void getAllResult(String location_id, String from, String to, SharedPreferences sharedPreferences) {
 
         getCompositeDisposable().add(getDataManager()
-                .getAllPastResult(location_id, from, to)
+                .getAllPastResult(location_id, from, to, sharedPreferences)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<List<PastResultPOJO>>() {

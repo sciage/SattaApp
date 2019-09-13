@@ -12,31 +12,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.History.HistoryDetailsActivity"></activity>
+        <activity android:name=".ui.History.HistoryDetailsActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ui.login.RegisterActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".ui.Result.PastResultActivity" />
-        <activity android:name=".ui.PlayMatka.PlayMatkaActivity" />
+        <activity android:name=".ui.Result.PastResultActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.PlayMatka.PlayMatkaActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.Result.ResultActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".ui.History.HistoryActivity" />
-        <activity android:name=".ui.Withdraw.WithdrawActivity" />
-        <activity android:name=".ui.Contact.ContactUsActivity" />
-        <activity android:name=".ui.Homepage.MainActivity">
+        <activity android:name=".ui.History.HistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.Withdraw.WithdrawActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.Contact.ContactUsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.Homepage.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.SingleLocationPage" />
-        <activity android:name=".ui.CreateGroupTagActivity" />
+        <activity android:name=".ui.SingleLocationPage"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.CreateGroupTagActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.login.LoginScreenActivity"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".ui.Homepage.LocationPageActivity" />
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.Homepage.LocationPageActivity"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="io.fabric.ApiKey"

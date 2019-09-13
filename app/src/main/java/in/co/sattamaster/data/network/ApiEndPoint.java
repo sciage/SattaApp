@@ -24,27 +24,27 @@ import in.co.sattamaster.BuildConfig;
 
 public final class ApiEndPoint {
 
-    public static final String TEST = BuildConfig.BASE_URL + "/test02.php";
+    public static final String TEST = BuildConfig.BASE_URL + "test02.php";
 
-    public static final String BIDSET = BuildConfig.BASE_URL + "/bidsets";
+    public static final String BIDSET =  "bidsets";
 
-    public static final String BIDSET_ID = BuildConfig.BASE_URL + "/bidsets/{id}";
+    public static final String BIDSET_ID =  "bidsets/{id}";
 
-    public static final String REGISTER_USER = BuildConfig.BASE_URL + "/admin/1/players";
+    public static final String REGISTER_USER =   "admin/1/players";
 
-    public static final String LOGIN_USER = BuildConfig.BASE_URL + "/user/login";
+    public static final String LOGIN_USER =   "user/login";
 
-    public static final String WITHDRAW_REQUEST = BuildConfig.BASE_URL + "/withdrawl-requests";
+    public static final String WITHDRAW_REQUEST =   "withdrawl-requests";
 
-    public static final String NUMBER_RESULT = BuildConfig.BASE_URL + "/revealed-numbers";
+    public static final String NUMBER_RESULT =  "revealed-numbers";
 
-    public static final String GET_ALL_MODERATORS = BuildConfig.BASE_URL + "/moderators";
+    public static final String GET_ALL_MODERATORS =   "moderators";
 
-    public static final String GET_USER_PROFILE = BuildConfig.BASE_URL + "/user";
+    public static final String GET_USER_PROFILE =   "user";
 
-    public static final String GET_CENTRES = BuildConfig.BASE_URL + "/centres";
+    public static final String GET_CENTRES =   "centres";
 
-    public static final String GET_ALL_PAST_RESULTS = BuildConfig.BASE_URL + "/revealed-numbers/by-centre/{location_id}";
+    public static final String GET_ALL_PAST_RESULTS =   "revealed-numbers/by-centre/{location_id}";
 
     public static final String ENDPOINT_GOOGLE_LOGIN = BuildConfig.BASE_URL
             + "/588d14f4100000a9072d2943";

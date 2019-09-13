@@ -1,5 +1,7 @@
 package in.co.sattamaster.ui.Homepage;
 
+import android.content.SharedPreferences;
+
 import com.androidnetworking.error.ANError;
 
 import org.json.JSONObject;
@@ -28,10 +30,10 @@ public class LocationPagePresenter <V extends LocationPageMvpView> extends BaseP
     }
 
     @Override
-    public void getLocation(String token) {
+    public void getLocation(SharedPreferences sharedPreferences) {
 
         getCompositeDisposable().add(getDataManager()
-                .getCentres(token)
+                .getCentres(sharedPreferences)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<List<LocationPojo>>() {

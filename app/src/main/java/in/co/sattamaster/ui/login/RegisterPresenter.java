@@ -1,6 +1,9 @@
 package in.co.sattamaster.ui.login;
 
+import android.content.SharedPreferences;
+
 import com.androidnetworking.error.ANError;
+import com.google.gson.JsonObject;
 
 import org.json.JSONObject;
 
@@ -26,11 +29,11 @@ public class RegisterPresenter  <V extends RegisterMvpView> extends BasePresente
     }
 
     @Override
-    public void getAllModerator() {
+    public void getAllModerator(SharedPreferences sharedPreferences) {
         //   getMvpView().showLoading();
 
         getCompositeDisposable().add(getDataManager()
-                .getAllModerator()
+                .getAllModerator(sharedPreferences)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<List<AllModerators>>() {
@@ -72,9 +75,9 @@ public class RegisterPresenter  <V extends RegisterMvpView> extends BasePresente
     }
 
     @Override
-    public void registerNewUser(JSONObject login) {
+    public void registerNewUser(JsonObject bids, SharedPreferences sharedPreferences) {
         getCompositeDisposable().add(getDataManager()
-                .registerUser(login)
+                .registerUser(bids, sharedPreferences)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<RegisterResponse>() {

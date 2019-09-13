@@ -16,9 +16,10 @@
 package in.co.sattamaster.data.network;
 
 
-import com.rx2androidnetworking.Rx2AndroidNetworking;
+import android.content.SharedPreferences;
 
-import org.json.JSONObject;
+import com.google.gson.JsonObject;
+import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import java.security.cert.CertificateException;
 import java.util.List;
@@ -33,6 +34,8 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.retrofit.NetworkClient;
+import in.co.sattamaster.retrofit.NetworkInterface;
 import in.co.sattamaster.ui.History.HistoryDetailsResponse;
 import in.co.sattamaster.ui.History.HistoryPojo;
 import in.co.sattamaster.ui.History.HistoryResponse;
@@ -48,6 +51,8 @@ import in.co.sattamaster.ui.login.LoginResponse;
 import in.co.sattamaster.ui.login.RegisterResponse;
 import in.co.sattamaster.ui.login.UserProfile;
 import io.reactivex.Single;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 
 /**
@@ -75,139 +80,171 @@ public class AppApiHelper implements ApiHelper {
 
 
     @Override
-    public Single<Bid> sendBidset(JSONObject bids) {
-        return Rx2AndroidNetworking.post(ApiEndPoint.BIDSET)
-                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+    public Single<Bid> sendBidset(JsonObject bids, SharedPreferences sharedPreferences) {
+       /* return Rx2AndroidNetworking.post(ApiEndPoint.BIDSET)
                 .setOkHttpClient(getUnsafeOkHttpClient())
-             //   .addBodyParameter("user_id", user_id)
-              //  .addBodyParameter("centre_id", centre_id)
-                .addJSONObjectBody(bids)
+                .addJsonObjectBody(bids)
                 .build()
-                .getObjectSingle(Bid.class);
+                .getObjectSingle(Bid.class); */
+
+        return  NetworkClient.getRetrofit(sharedPreferences).create(NetworkInterface.class)
+                .sendBidset(bids)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
 
     @Override
-    public Single<RegisterResponse> registerUser(JSONObject bids) {
-        return Rx2AndroidNetworking.post(ApiEndPoint.REGISTER_USER)
-                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+    public Single<RegisterResponse> registerUser(JsonObject bids, SharedPreferences sharedPreferences) {
+     /*   return Rx2AndroidNetworking.post(ApiEndPoint.REGISTER_USER)
                 .setOkHttpClient(getUnsafeOkHttpClient())
-                //   .addBodyParameter("user_id", user_id)
-                //  .addBodyParameter("centre_id", centre_id)
-                .addJSONObjectBody(bids)
+                .addJsonObjectBody(bids)
                 .build()
                 .getObjectSingle(RegisterResponse.class);
+
+      */
+        return  NetworkClient.getRetrofit(sharedPreferences).create(NetworkInterface.class)
+                .registerUser(bids)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
     @Override
-    public Single<LoginResponse> loginUser(JSONObject bids) {
-        return Rx2AndroidNetworking.post(ApiEndPoint.LOGIN_USER)
-                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+    public Single<LoginResponse> loginUser(JsonObject bids, SharedPreferences sharedPreferences) {
+       /* return Rx2AndroidNetworking.post(ApiEndPoint.LOGIN_USER)
                 .setOkHttpClient(getUnsafeOkHttpClient())
-                //   .addBodyParameter("user_id", user_id)
-                //  .addBodyParameter("centre_id", centre_id)
-                .addJSONObjectBody(bids)
+                .addJsonObjectBody(bids)
                 .build()
-                .getObjectSingle(LoginResponse.class);
+                .getObjectSingle(LoginResponse.class); */
+
+        return  NetworkClient.getRetrofit(sharedPreferences).create(NetworkInterface.class)
+                .loginUser(bids)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
     @Override
-    public Single<WithdrawResponseTop> makeWithdrawRequest(JSONObject withdraw, String token) {
-        return Rx2AndroidNetworking.post(ApiEndPoint.WITHDRAW_REQUEST)
+    public Single<WithdrawResponseTop> makeWithdrawRequest(JsonObject withdraw, SharedPreferences sharedPreferences) {
+      /*  return Rx2AndroidNetworking.post(ApiEndPoint.WITHDRAW_REQUEST)
                 .addHeaders("Authorization", "Bearer" + " " + token)
-                //  .addHeaders(mApiHeader.getProtectedApiHeader())
                 .setOkHttpClient(getUnsafeOkHttpClient())
-                //   .addBodyParameter("user_id", user_id)
-                //  .addBodyParameter("centre_id", centre_id)
-                .addJSONObjectBody(withdraw)
+                .addJsonObjectBody(withdraw)
                 .build()
-                .getObjectSingle(WithdrawResponseTop.class);
+                .getObjectSingle(WithdrawResponseTop.class); */
+
+        return  NetworkClient.getRetrofit(sharedPreferences).create(NetworkInterface.class)
+                .makeWithdrawRequest(withdraw)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+
     }
 
     @Override
-    public Single<List<AllModerators>> getAllModerator() {
-        return Rx2AndroidNetworking.get(ApiEndPoint.GET_ALL_MODERATORS)
-                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+    public Single<List<AllModerators>> getAllModerator(SharedPreferences sharedPreferences) {
+     /*   return Rx2AndroidNetworking.get(ApiEndPoint.GET_ALL_MODERATORS)
                 .setOkHttpClient(getUnsafeOkHttpClient())
-                //   .addBodyParameter("user_id", user_id)
-                //  .addBodyParameter("centre_id", centre_id)
                 .build()
                 .getObjectListSingle(AllModerators.class);
+
+
+      */
+        return  NetworkClient.getRetrofit(sharedPreferences).create(NetworkInterface.class)
+                .getAllModerator()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
 
     @Override
-    public Single<HistoryPojo> getBids(String token) {
-        return Rx2AndroidNetworking.get(ApiEndPoint.BIDSET)
-                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+    public Single<HistoryPojo> getBids(SharedPreferences sharedPreferences) {
+      /*  return Rx2AndroidNetworking.get(ApiEndPoint.BIDSET)
                 .setOkHttpClient(getUnsafeOkHttpClient())
                 .addHeaders("Authorization", "Bearer" + " " + token)
-                //   .addBodyParameter("user_id", user_id)
-                //  .addBodyParameter("centre_id", centre_id)
                 .build()
                 .getObjectSingle(HistoryPojo.class);
+
+       */
+        return  NetworkClient.getRetrofit(sharedPreferences).create(NetworkInterface.class)
+                .getBids()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
     @Override
-    public Single<HistoryDetailsResponse> getBidDetails(String id) {
-        return Rx2AndroidNetworking.get(ApiEndPoint.BIDSET_ID)
-                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+    public Single<HistoryDetailsResponse> getBidDetails(String id, SharedPreferences sharedPreferences) {
+       /* return Rx2AndroidNetworking.get(ApiEndPoint.BIDSET_ID)
                 .setOkHttpClient(getUnsafeOkHttpClient())
                 .addPathParameter("id", id)
-                //   .addBodyParameter("user_id", user_id)
-                //  .addBodyParameter("centre_id", centre_id)
                 .build()
                 .getObjectSingle(HistoryDetailsResponse.class);
+
+        */
+        return  NetworkClient.getRetrofit(sharedPreferences).create(NetworkInterface.class)
+                .getBidDetails(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+
     }
 
     @Override
-    public Single<List<PastResultPOJO>> getAllPastResult(String location_id, String from, String to) {
-        return Rx2AndroidNetworking.get(ApiEndPoint.GET_ALL_PAST_RESULTS)
-                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+    public Single<List<PastResultPOJO>> getAllPastResult(String location_id, String from, String to, SharedPreferences sharedPreferences) {
+     /*   return Rx2AndroidNetworking.get(ApiEndPoint.GET_ALL_PAST_RESULTS)
                 .setOkHttpClient(getUnsafeOkHttpClient())
                 .addPathParameter("location_id", location_id)
                 .addQueryParameter("from", from)
                 .addQueryParameter("to", to)
-                //   .addBodyParameter("user_id", user_id)
-                //  .addBodyParameter("centre_id", centre_id)
                 .build()
-                .getObjectListSingle(PastResultPOJO.class);
+                .getObjectListSingle(PastResultPOJO.class); */
+        return  NetworkClient.getRetrofit(sharedPreferences).create(NetworkInterface.class)
+                .getAllPastResult(location_id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+
     }
 
     @Override
-    public Single<ResultResponse> getAllResult(String from, String to) {
-        return Rx2AndroidNetworking.get(ApiEndPoint.GET_ALL_MODERATORS)
-                //  .addHeaders(mApiHeader.getProtectedApiHeader())
+    public Single<ResultResponse> getAllResult(String from, String to, SharedPreferences sharedPreferences) {
+      /*  return Rx2AndroidNetworking.get(ApiEndPoint.GET_ALL_MODERATORS)
                 .setOkHttpClient(getUnsafeOkHttpClient())
                 .addQueryParameter("from", from)
                 .addQueryParameter("to", to)
-                //   .addBodyParameter("user_id", user_id)
-                //  .addBodyParameter("centre_id", centre_id)
                 .build()
-                .getObjectSingle(ResultResponse.class);
+                .getObjectSingle(ResultResponse.class); */
+
+        return  NetworkClient.getRetrofit(sharedPreferences).create(NetworkInterface.class)
+                .getAllResult()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+
     }
 
     @Override
-    public Single<UserObject> getUserProfile(String token) {
-        return Rx2AndroidNetworking.get(ApiEndPoint.GET_USER_PROFILE)
-            //    .addHeaders("Authorization", "Bearer" + " " + token)
+    public Single<UserObject> getUserProfile(SharedPreferences sharedPreferences) {
+   /*     return Rx2AndroidNetworking.get(ApiEndPoint.GET_USER_PROFILE)
                 .addHeaders("Authorization", "Bearer" + " " + token)
                 .setOkHttpClient(getUnsafeOkHttpClient())
-                //   .addBodyParameter("user_id", user_id)
-                //  .addBodyParameter("centre_id", centre_id)
                 .build()
-                .getObjectSingle(UserObject.class);
+                .getObjectSingle(UserObject.class); */
+
+        return  NetworkClient.getRetrofit(sharedPreferences).create(NetworkInterface.class)
+                .getUserProfile()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+
     }
 
     @Override
-    public Single<List<LocationPojo>> getCentres(String token) {
-        return Rx2AndroidNetworking.get(ApiEndPoint.GET_CENTRES)
-            //    .addHeaders("Authorization", "Bearer" + " " + token)
+    public Single<List<LocationPojo>> getCentres(SharedPreferences sharedPreferences) {
+      /*  return Rx2AndroidNetworking.get(ApiEndPoint.GET_CENTRES)
                 .setOkHttpClient(getUnsafeOkHttpClient())
-                //   .addBodyParameter("user_id", user_id)
-                //  .addBodyParameter("centre_id", centre_id)
                 .build()
-                .getObjectListSingle(LocationPojo.class);
+                .getObjectListSingle(LocationPojo.class); */
+
+        return  NetworkClient.getRetrofit(sharedPreferences).create(NetworkInterface.class)
+                .getCentres()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+
     }
 
 

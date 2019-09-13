@@ -166,7 +166,7 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
         fullDate = String.valueOf(currentYear+"-"+currentMonth+"-"+currentDay);
 
 
-        mPresenter.getLocation(MySharedPreferences.getToken(preferences));
+        mPresenter.getLocation(preferences);
 
 
     }

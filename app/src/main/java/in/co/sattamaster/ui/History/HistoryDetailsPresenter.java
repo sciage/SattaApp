@@ -1,5 +1,7 @@
 package in.co.sattamaster.ui.History;
 
+import android.content.SharedPreferences;
+
 import com.androidnetworking.error.ANError;
 
 import java.util.List;
@@ -23,9 +25,9 @@ public class HistoryDetailsPresenter<V extends HistoryDetailsMvpView> extends Ba
     }
 
     @Override
-    public void getBidDetails(String id) {
+    public void getBidDetails(String id, SharedPreferences sharedPreferences) {
         getCompositeDisposable().add(getDataManager()
-                .getBidDetails(id)
+                .getBidDetails(id, sharedPreferences)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<HistoryDetailsResponse>() {

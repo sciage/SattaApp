@@ -63,7 +63,7 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView{
             try {
                 progressFrame.setVisibility(View.VISIBLE);
 
-                mPresenter.getUserProfile(MySharedPreferences.getToken(preferences));
+                mPresenter.getUserProfile(preferences);
                 // getGroupsJoined();
             } catch (Exception e) {
                 e.printStackTrace();

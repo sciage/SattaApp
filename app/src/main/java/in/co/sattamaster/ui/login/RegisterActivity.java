@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonObject;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -68,7 +71,7 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
         progressFrame.setVisibility(View.VISIBLE);
 
         try {
-            mPresenter.getAllModerator();
+            mPresenter.getAllModerator(preferences);
             // getGroupsJoined();
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,7 +83,7 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
                 if (createUserObject() != null){
                     progressFrame.setVisibility(View.VISIBLE);
                     try {
-                        mPresenter.registerNewUser(createUserObject());
+                        mPresenter.registerNewUser(createUserObject(), preferences);
                         // getGroupsJoined();
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -92,8 +95,8 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
 
     }
 
-    private JSONObject createUserObject(){
-        JSONObject createJsonObject = null;
+    private JsonObject createUserObject(){
+        JsonObject createJsonObject = null;
 
         if (!selectedModerator){
             if(!register_spinner.getText().toString().isEmpty()){
@@ -139,16 +142,16 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
         return false;
     }
 
-    private JSONObject createJsonObject(){
-        JSONObject user = new JSONObject();
+    private JsonObject createJsonObject(){
+        JsonObject user = new JsonObject();
         try {
-            user.put("name", register_username.getText().toString());
-            user.put("phone", register_phone.getText().toString());
-            user.put("password", register_password.getText().toString());
-            user.put("moderator_id", this.moderator_id);
-            user.put("coin_balance", "0");
+            user.addProperty("name", register_username.getText().toString());
+            user.addProperty("phone", register_phone.getText().toString());
+            user.addProperty("password", register_password.getText().toString());
+            user.addProperty("moderator_id", this.moderator_id);
+            user.addProperty("coin_balance", "0");
 
-        } catch (JSONException e) {
+        } catch (JsonIOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

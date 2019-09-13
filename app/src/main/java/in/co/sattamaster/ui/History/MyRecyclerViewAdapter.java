@@ -67,6 +67,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         });
     }
 
+
+
     // total number of rows
     @Override
     public int getItemCount() {

@@ -71,7 +71,7 @@ public class PastResultActivity extends BaseActivity implements PastResultMvpVie
 
         try {
             progressFrame.setVisibility(View.VISIBLE);
-            mPresenter.getAllResult(LOCATION_ID, FROM_TEXT, TO_TEXT);
+            mPresenter.getAllResult(LOCATION_ID, FROM_TEXT, TO_TEXT, preferences);
         } catch (Exception ex){
             ex.printStackTrace();
         }

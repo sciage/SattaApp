@@ -101,7 +101,7 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
         view.setFocusable(false);
 
 
-        mPresenter.getLocation(MySharedPreferences.getToken(preferences));
+        mPresenter.getLocation(preferences);
 
         balance_amount_value.setText(WALLET_BALANCE);
         user_name.setText(USER_NAME);

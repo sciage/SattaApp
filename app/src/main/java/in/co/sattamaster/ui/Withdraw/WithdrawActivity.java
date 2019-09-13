@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonObject;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -82,7 +85,7 @@ public class WithdrawActivity extends BaseActivity implements WithdrawMvpView {
                 progressFrame.setVisibility(View.VISIBLE);
 
                 try{
-                    mPresenter.sendBidSet(withdrawAmount(), MySharedPreferences.getToken(preferences));
+                    mPresenter.sendBidSet(withdrawAmount(), preferences);
                 } catch (Exception ex){
                     ex.printStackTrace();
                 }
@@ -90,13 +93,13 @@ public class WithdrawActivity extends BaseActivity implements WithdrawMvpView {
         });
     }
 
-    private JSONObject withdrawAmount(){
-        JSONObject balance = new JSONObject();
+    private JsonObject withdrawAmount(){
+        JsonObject balance = new JsonObject();
         try {
-            balance.put("player_id", MySharedPreferences.getUserId(preferences));
-            balance.put("amount", withdraw_amount.getText().toString());
+            balance.addProperty("player_id", MySharedPreferences.getUserId(preferences));
+            balance.addProperty("amount", withdraw_amount.getText().toString());
 
-        } catch (JSONException e) {
+        } catch (JsonIOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
