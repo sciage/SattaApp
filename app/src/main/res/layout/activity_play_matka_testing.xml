@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:fillViewport="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="in.co.sattamaster.ui.PlayMatka.PlayMatkaActivity">
+
+
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -104,7 +114,7 @@
 
         <EditText
             android:id="@+id/andar_00_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/andar_00_view"
@@ -126,7 +136,7 @@
 
         <EditText
             android:id="@+id/andar_01_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/andar_01_view"
@@ -148,7 +158,7 @@
 
         <EditText
             android:id="@+id/andar_02_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/andar_02_view"
@@ -170,7 +180,7 @@
 
         <EditText
             android:id="@+id/andar_03_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
 
@@ -193,7 +203,7 @@
 
         <EditText
             android:id="@+id/andar_04_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/andar_04_view"
@@ -216,7 +226,7 @@
 
         <EditText
             android:id="@+id/andar_05_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/andar_05_view"
@@ -238,7 +248,7 @@
 
         <EditText
             android:id="@+id/andar_06_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/andar_06_view"
@@ -260,7 +270,7 @@
 
         <EditText
             android:id="@+id/andar_07_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
 
@@ -283,7 +293,7 @@
 
         <EditText
             android:id="@+id/andar_08_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
 
@@ -306,7 +316,7 @@
 
         <EditText
             android:id="@+id/andar_09_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/andar_09_view"
@@ -379,7 +389,7 @@
 
         <EditText
             android:id="@+id/bahar_00_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/bahar_00_view"
@@ -401,7 +411,7 @@
 
         <EditText
             android:id="@+id/bahar_01_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/bahar_01_view"
@@ -423,7 +433,7 @@
 
         <EditText
             android:id="@+id/bahar_02_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/bahar_02_view"
@@ -445,7 +455,7 @@
 
         <EditText
             android:id="@+id/bahar_03_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/bahar_03_view"
@@ -467,7 +477,7 @@
 
         <EditText
             android:id="@+id/bahar_04_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/bahar_04_view"
@@ -491,7 +501,7 @@
 
         <EditText
             android:id="@+id/bahar_05_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/bahar_05_view"
@@ -513,7 +523,7 @@
 
         <EditText
             android:id="@+id/bahar_06_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/bahar_06_view"
@@ -535,7 +545,7 @@
 
         <EditText
             android:id="@+id/bahar_07_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/bahar_07_view"
@@ -557,7 +567,7 @@
 
         <EditText
             android:id="@+id/bahar_08_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/bahar_08_view"
@@ -579,7 +589,7 @@
 
         <EditText
             android:id="@+id/bahar_09_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             app:layout_constraintLeft_toLeftOf="@+id/bahar_09_view"
@@ -640,7 +650,7 @@
 
         <TextView
             android:id="@+id/comb_00_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             android:text="0"
             style="@style/MyButton"
@@ -651,7 +661,7 @@
 
         <TextView
             android:id="@+id/comb_01_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             android:text="1"
             style="@style/MyButton"
@@ -662,7 +672,7 @@
 
         <TextView
             android:id="@+id/comb_02_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             android:text="2"
@@ -673,7 +683,7 @@
 
         <TextView
             android:id="@+id/comb_03_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             android:text="3"
@@ -683,7 +693,7 @@
 
         <TextView
             android:id="@+id/comb_04_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             android:text="4"
@@ -694,7 +704,7 @@
 
         <TextView
             android:id="@+id/comb_05_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             android:text="5"
@@ -705,7 +715,7 @@
 
         <TextView
             android:id="@+id/comb_06_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             android:text="6"
@@ -716,7 +726,7 @@
 
         <TextView
             android:id="@+id/comb_07_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             android:text="7"
@@ -726,7 +736,7 @@
 
         <TextView
             android:id="@+id/comb_08_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             android:text="8"
@@ -736,7 +746,7 @@
 
         <TextView
             android:id="@+id/comb_09_edittext"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
             style="@style/MyButton"
             android:text="9"
@@ -1925,7 +1935,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="60dp"
             android:text="Net Total"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -1937,7 +1947,7 @@
             android:id="@+id/satta_net_total_value"
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="60dp"
             android:layout_marginTop="15dp"
             android:inputType="number"
             android:gravity="center"
@@ -1955,7 +1965,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
             android:padding="10dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="60dp"
             android:gravity="center"
             android:text="Place Bid"
             android:textColor="@color/white"
@@ -1972,3 +1982,35 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
+    <FrameLayout
+        android:id="@+id/play_matkaloading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="70dp"
+            android:text="Loading"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp"
+            android:text="Please Wait..."
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+    </FrameLayout>
+</RelativeLayout>

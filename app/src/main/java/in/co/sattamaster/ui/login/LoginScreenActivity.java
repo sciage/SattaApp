@@ -84,11 +84,13 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
 
     private void getContactDialog() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(LoginScreenActivity.this);
-        alertDialogBuilder.setTitle("Please Contact Owner to reset Password");
-        alertDialogBuilder.setMessage("Owner Contact Number : 9468097664");
-        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.setTitle("Please contact owner to change password");
+        alertDialogBuilder.setMessage("owner contact no. 9468097664");
+        alertDialogBuilder.setCancelable(false);
+        alertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
         alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
+
             }
         });
         alertDialogBuilder.show();

@@ -54,7 +54,7 @@ public class PlayMatkaActivityPresenter <V extends PlayMatkaActivityMvpView> ext
                             return;
                         }
 
-                        getMvpView().hideLoading();
+                        getMvpView().biderror(throwable.getMessage());
 
                         // handle the error here
                         if (throwable instanceof ANError) {

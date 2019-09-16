@@ -1,5 +1,7 @@
 package in.co.sattamaster.ui.PlayMatka;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -26,9 +28,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import in.co.sattamaster.R;
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.ui.Homepage.MainActivity;
 import in.co.sattamaster.ui.base.BaseActivity;
 import in.co.sattamaster.ui.base.Constants;
 import in.co.sattamaster.ui.base.MySharedPreferences;
+import in.co.sattamaster.ui.login.LoginScreenActivity;
 import timber.log.Timber;
 
 public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivityMvpView, View.OnClickListener {
@@ -53,6 +57,9 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
     private List<Integer> joinComb;
     private JsonArray jodiBidding;
+
+    @BindView(R.id.play_matkaloading) View play_matkaloading;
+
 
     @BindView(R.id.andar_00_edittext)
     EditText andar_00_edittext;
@@ -297,8 +304,10 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     TextView satta_heading_03_bid_value;
     @BindView(R.id.satta_heading_04_total_value)
     TextView satta_heading_04_total_value;
-    @BindView(R.id.place_bid_button)
-    Button place_bid_button;
+    @BindView(R.id.place_bid_button) Button place_bid_button;
+    @BindView(R.id.balance_amount_value) TextView balance_amount_value;
+    @BindView(R.id.user_name) TextView user_name;
+    @BindView(R.id.moderator) TextView moderator;
 
     @BindView(R.id.satta_net_total_value)
     TextView satta_net_total_value;
@@ -317,8 +326,12 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     ArrayList<String> single_keys;
     ArrayList<String> single_values;
     String location_name;
+    private String username;
+    private String moderator_name;
+    private String mobile;
+    private String wallet;
 
-   // private View status_group_post;
+    // private View status_group_post;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -345,9 +358,19 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         single_keys = new ArrayList<>();
         single_values = new ArrayList<>();
 
+        play_matkaloading.setVisibility(View.INVISIBLE);
+
         Intent intent = getIntent();
         location_id = intent.getStringExtra(Constants.LOCATION); // seconnd person username random
         location_name = intent.getStringExtra(Constants.LOCATION_NAME);
+        username = intent.getStringExtra(Constants.USER_NAME);
+        moderator_name = intent.getStringExtra(Constants.MODERATOR_NAME);
+        mobile = intent.getStringExtra(Constants.MODERATOR_MOBILE);
+        wallet = intent.getStringExtra(Constants.WALLET_BALANCE);
+
+        balance_amount_value.setText(wallet);
+        user_name.setText(username);
+        moderator.setText(String.valueOf(moderator_name + "( " + mobile + " )"));
 
         joinComb = new ArrayList<Integer>();
         jodiBidding = new JsonArray();
@@ -661,16 +684,35 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         place_bid_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                   // writeJsonSimpleDemo();
-                    mPresenter.sendBidSet(writeJsonSimpleDemo(), preferences);
-                } catch (Exception ex){
-                    ex.printStackTrace();
+                if (Integer.parseInt(wallet)< Integer.parseInt(satta_net_total_value.getText().toString())){
+                    balanceInsufficient();
+                } else {
+                    play_matkaloading.setVisibility(View.VISIBLE);
+                    try {
+                        // writeJsonSimpleDemo();
+                        mPresenter.sendBidSet(writeJsonSimpleDemo(), preferences);
+                    } catch (Exception ex){
+                        ex.printStackTrace();
+                    }
                 }
+
             }
         });
 
 
+    }
+
+    private void balanceInsufficient() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PlayMatkaActivity.this);
+        alertDialogBuilder.setTitle("Balance Insufficient");
+        alertDialogBuilder.setMessage("Your Balance = " + wallet + " Bid Amount = " + satta_net_total_value.getText().toString());
+        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        alertDialogBuilder.show();
     }
 
 
@@ -773,7 +815,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
 
     private void setFilter(EditText editText){
-        editText.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "9999")});
+        editText.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "99999")});
     }
 
   /*  private void setFilter02(TextView editText){
@@ -1828,9 +1870,44 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     @Override
     public void receiveBidSetResult(Bid response) {
 
-        Toast.makeText(PlayMatkaActivity.this, response.getStatus().toString(), Toast.LENGTH_SHORT).show();
+        play_matkaloading.setVisibility(View.GONE);
+
+        if (response.getStatus()){
+            Toast.makeText(PlayMatkaActivity.this, response.getStatus().toString(), Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(PlayMatkaActivity.this, MainActivity.class);
+            intent.putExtra("isLoggedIn", true);
+            startActivity(intent);
+
+        } else {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PlayMatkaActivity.this);
+            alertDialogBuilder.setTitle("There is an error in placing bid");
+            alertDialogBuilder.setMessage("Please contact your moderator: " + mobile);
+            alertDialogBuilder.setCancelable(true);
+            alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            alertDialogBuilder.show();
+        }
+
 
         Timber.d(response.toString());
+    }
+
+    @Override
+    public void biderror(String response) {
+        play_matkaloading.setVisibility(View.GONE);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PlayMatkaActivity.this);
+        alertDialogBuilder.setTitle("Error Occured");
+        alertDialogBuilder.setMessage("Error name = " + response);
+        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        alertDialogBuilder.show();
     }
 }
 
