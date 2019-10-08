@@ -21,7 +21,7 @@ import in.co.sattamaster.R;
  * Created by User on 07.12.2016.
  */
 
-public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
+public class HistoryDetailsAdapter extends RecyclerView.Adapter<HistoryDetailsAdapter.MessageViewHolder> {
     private final int VIEW_ITEM = 1;
     private final int VIEW_PROG = 0;
 
@@ -32,7 +32,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     private List<MessageViewHolder> mMessageHolderList = new ArrayList<>();
     protected String commentReplyMessage;
 
-    public MessageAdapter(Context context, List<HistoryBidHeader> mMessageList) {
+    public HistoryDetailsAdapter(Context context, List<HistoryBidHeader> mMessageList) {
         mContext = context;
         this.mMessageList = mMessageList;
     }

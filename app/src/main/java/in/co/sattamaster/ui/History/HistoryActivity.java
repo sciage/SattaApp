@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import butterknife.BindView;
 import in.co.sattamaster.R;
+import in.co.sattamaster.ui.InfiniteScrollProvider;
+import in.co.sattamaster.ui.OnLoadMoreListener;
 import in.co.sattamaster.ui.base.BaseActivity;
 
 import java.util.ArrayList;
@@ -20,8 +22,7 @@ import butterknife.ButterKnife;
 import in.co.sattamaster.ui.base.Constants;
 import in.co.sattamaster.ui.base.MySharedPreferences;
 
-public class HistoryActivity extends BaseActivity implements HistoryActivityMvpView
-{
+public class HistoryActivity extends BaseActivity implements HistoryActivityMvpView, OnLoadMoreListener {
     @Inject
     HistoryActivityMvpPresenter<HistoryActivityMvpView> mPresenter;
 
@@ -31,11 +32,14 @@ public class HistoryActivity extends BaseActivity implements HistoryActivityMvpV
     private String MODERATOR_NAME;
     private String MODERATOR_MOBILE;
     private String WALLET_BALANCE;
+    private HistoryPojo data;
+
+    private static final int PAGE_START = 1;
+
+    private int currentPage = PAGE_START;
 
     @BindView(R.id.history_progressbar) View progressFrame;
     RecyclerView recyclerView;
-
-
 
 
     @Override
@@ -67,8 +71,6 @@ public class HistoryActivity extends BaseActivity implements HistoryActivityMvpV
         WALLET_BALANCE = intent.getStringExtra(Constants.WALLET_BALANCE);
 
 
-
-
         // data to populate the RecyclerView with
       /*  List<HistoryPojo> animalNames = new ArrayList<>();
         animalNames.add(new HistoryPojo("Faridabad", "Andar", "17-07-2019", "1,2,3,4,5", "1000"));
@@ -79,12 +81,20 @@ public class HistoryActivity extends BaseActivity implements HistoryActivityMvpV
         // set up the RecyclerView
         recyclerView = findViewById(R.id.history_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+      //  recyclerView.addItemDecoration(new SimpleDividerItemDecoration(this));
+     //   recyclerView.setHasFixedSize(true);
+        InfiniteScrollProvider infiniteScrollProvider = new InfiniteScrollProvider();
+        infiniteScrollProvider.attach(recyclerView,this);
+
         adapter = new MyRecyclerViewAdapter(this);
 
         recyclerView.setAdapter(adapter);
 
+
+
+
         progressFrame.setVisibility(View.VISIBLE);
-        mPresenter.getBids(preferences);
+        mPresenter.getBids(preferences, currentPage);
     }
 
 
@@ -96,9 +106,29 @@ public class HistoryActivity extends BaseActivity implements HistoryActivityMvpV
     @Override
     public void getAllBids(HistoryPojo response) {
 
+        data = response;
         adapter.addAll(response.getData());
 
         progressFrame.setVisibility(View.INVISIBLE);
 
+    }
+
+    @Override
+    public void onLoadMore() {
+        if (data.getTo().equalsIgnoreCase("20")){
+
+            try {
+                currentPage += 1;
+                progressFrame.setVisibility(View.VISIBLE);
+
+                mPresenter.getBids(preferences, currentPage);
+
+                //  loadNextPage();
+              //  isLoading = true;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -2,7 +2,6 @@ package in.co.sattamaster.ui.login;
 
 import android.content.SharedPreferences;
 
-import com.androidnetworking.error.ANError;
 import com.google.gson.JsonObject;
 
 import org.json.JSONObject;
@@ -12,6 +11,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import in.co.sattamaster.data.DataManager;
+import in.co.sattamaster.retrofit.ANError;
 import in.co.sattamaster.ui.base.BasePresenter;
 import in.co.sattamaster.utils.rx.SchedulerProvider;
 import io.reactivex.disposables.CompositeDisposable;

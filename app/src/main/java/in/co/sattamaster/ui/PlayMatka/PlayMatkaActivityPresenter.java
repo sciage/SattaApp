@@ -1,8 +1,6 @@
 package in.co.sattamaster.ui.PlayMatka;
 
 import android.content.SharedPreferences;
-
-import com.androidnetworking.error.ANError;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -11,6 +9,7 @@ import java.util.HashMap;
 
 import in.co.sattamaster.data.DataManager;
 import in.co.sattamaster.dto.Bid;
+import in.co.sattamaster.retrofit.ANError;
 import in.co.sattamaster.ui.base.BasePresenter;
 import in.co.sattamaster.utils.rx.SchedulerProvider;
 

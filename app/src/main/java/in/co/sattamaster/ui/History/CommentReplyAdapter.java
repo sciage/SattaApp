@@ -165,8 +165,6 @@ public class CommentReplyAdapter extends RecyclerView.Adapter<CommentReplyAdapte
             bid_number.setText(String.valueOf("Bid Number " + " : " + messageItem.getNumber()));
 
           //  winOrLoss.setText(CurrentTime.getCurrentTime(messageItem.getCommentTime(), itemView.getContext()));
-            
-
 
         }
 

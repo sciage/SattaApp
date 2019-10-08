@@ -21,14 +21,6 @@ package in.co.sattamaster.ui.base;
 
 import android.util.Log;
 
-import com.androidnetworking.common.ANConstants;
-import com.androidnetworking.error.ANError;
-
-import in.co.sattamaster.R;
-import in.co.sattamaster.data.DataManager;
-import in.co.sattamaster.data.network.model.ApiError;
-import in.co.sattamaster.utils.AppConstants;
-import in.co.sattamaster.utils.rx.SchedulerProvider;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
@@ -36,6 +28,12 @@ import com.google.gson.JsonSyntaxException;
 import javax.inject.Inject;
 import javax.net.ssl.HttpsURLConnection;
 
+import in.co.sattamaster.R;
+import in.co.sattamaster.data.DataManager;
+import in.co.sattamaster.data.network.model.ApiError;
+import in.co.sattamaster.retrofit.ANError;
+import in.co.sattamaster.utils.AppConstants;
+import in.co.sattamaster.utils.rx.SchedulerProvider;
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
@@ -107,13 +105,13 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
         }
 
         if (error.getErrorCode() == AppConstants.API_STATUS_CODE_LOCAL_ERROR
-                && error.getErrorDetail().equals(ANConstants.CONNECTION_ERROR)) {
+                && error.getErrorDetail().equals("CONNECTION_ERROR")) {
             getMvpView().onError(R.string.connection_error);
             return;
         }
 
         if (error.getErrorCode() == AppConstants.API_STATUS_CODE_LOCAL_ERROR
-                && error.getErrorDetail().equals(ANConstants.REQUEST_CANCELLED_ERROR)) {
+                && error.getErrorDetail().equals("REQUEST_CANCELLED_ERROR")) {
             getMvpView().onError(R.string.api_retry_error);
             return;
         }

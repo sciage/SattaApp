@@ -19,7 +19,7 @@ package in.co.sattamaster.ui.base;
  * Created by janisharali on 27/01/17.
  */
 
-import com.androidnetworking.error.ANError;
+import in.co.sattamaster.retrofit.ANError;
 
 /**
  * Every presenter in the app must either implement this interface or extend BasePresenter

@@ -19,7 +19,6 @@ package in.co.sattamaster.data.network;
 import android.content.SharedPreferences;
 
 import com.google.gson.JsonObject;
-import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import java.security.cert.CertificateException;
 import java.util.List;
@@ -156,7 +155,7 @@ public class AppApiHelper implements ApiHelper {
 
 
     @Override
-    public Single<HistoryPojo> getBids(SharedPreferences sharedPreferences) {
+    public Single<HistoryPojo> getBids(SharedPreferences sharedPreferences, String page) {
       /*  return Rx2AndroidNetworking.get(ApiEndPoint.BIDSET)
                 .setOkHttpClient(getUnsafeOkHttpClient())
                 .addHeaders("Authorization", "Bearer" + " " + token)
@@ -165,7 +164,7 @@ public class AppApiHelper implements ApiHelper {
 
        */
         return  NetworkClient.getRetrofit(sharedPreferences).create(NetworkInterface.class)
-                .getBids()
+                .getBids(page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

@@ -1,6 +1,5 @@
 package in.co.sattamaster.ui.History;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,7 +23,7 @@ public class HistoryDetailsActivity extends BaseActivity implements HistoryDetai
     HistoryDetailsMvpPresenter<HistoryDetailsMvpView> mPresenter;
 
     String BIDSET_ID;
-    private MessageAdapter mMessageAdapter;
+    private HistoryDetailsAdapter mHistoryDetailsAdapter;
     private LinearLayoutManager mLinearLayoutManager;
 
 
@@ -77,7 +76,7 @@ public class HistoryDetailsActivity extends BaseActivity implements HistoryDetai
 
         //    mLinearLayoutManager = new LinearLayoutManager(PostsDetailsActivity.this,LinearLayoutManager.VERTICAL,true);
 
-        mMessageAdapter = new MessageAdapter(HistoryDetailsActivity.this, myCommentList);
+        mHistoryDetailsAdapter = new HistoryDetailsAdapter(HistoryDetailsActivity.this, myCommentList);
 
         mLinearLayoutManager = new LinearLayoutManager(HistoryDetailsActivity.this) {
             @Override
@@ -90,7 +89,7 @@ public class HistoryDetailsActivity extends BaseActivity implements HistoryDetai
 
         mMessageRecyclerView.setLayoutManager(mLinearLayoutManager);
         mMessageRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(this));
-        mMessageRecyclerView.setAdapter(mMessageAdapter);
+        mMessageRecyclerView.setAdapter(mHistoryDetailsAdapter);
 
     }
 
@@ -111,8 +110,8 @@ public class HistoryDetailsActivity extends BaseActivity implements HistoryDetai
     private void showComments(final HistoryDetailsResponse myList) {
 
         this.myCommentList = myList.getBids();
-        mMessageAdapter = new MessageAdapter(HistoryDetailsActivity.this, myList.getBids());
-        mMessageRecyclerView.setAdapter(mMessageAdapter);
+        mHistoryDetailsAdapter = new HistoryDetailsAdapter(HistoryDetailsActivity.this, myList.getBids());
+        mMessageRecyclerView.setAdapter(mHistoryDetailsAdapter);
 
 
     }

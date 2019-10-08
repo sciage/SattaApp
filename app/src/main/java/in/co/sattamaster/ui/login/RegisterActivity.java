@@ -239,7 +239,7 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(RegisterActivity.this);
             alertDialogBuilder.setTitle("Mobile Number Already exists");
-            alertDialogBuilder.setMessage("Please contact owner to change password : 9468097664");
+            alertDialogBuilder.setMessage("Please email owner to change password : ravigamerao@gmail.com");
             alertDialogBuilder.setCancelable(false);
             alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {

@@ -1,12 +1,10 @@
 package in.co.sattamaster.ui.Result;
 
 import android.content.SharedPreferences;
-
-import com.androidnetworking.error.ANError;
-
 import java.util.List;
 
 import in.co.sattamaster.data.DataManager;
+import in.co.sattamaster.retrofit.ANError;
 import in.co.sattamaster.ui.base.BasePresenter;
 import in.co.sattamaster.utils.rx.SchedulerProvider;
 

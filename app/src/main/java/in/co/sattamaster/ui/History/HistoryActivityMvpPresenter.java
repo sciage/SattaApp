@@ -8,5 +8,5 @@ import in.co.sattamaster.ui.base.MvpPresenter;
 @PerActivity
 public interface HistoryActivityMvpPresenter <V extends HistoryActivityMvpView> extends MvpPresenter<V> {
 
-    void getBids(SharedPreferences sharedPreferences);
+    void getBids(SharedPreferences sharedPreferences, int page);
 }

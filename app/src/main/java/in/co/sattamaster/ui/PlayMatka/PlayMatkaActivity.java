@@ -19,6 +19,7 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -1676,8 +1677,19 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
     }
 
     private void removeGroupTag(int selectedGroup){
-        joinComb.remove(selectedGroup);
-        jodiBidding.remove(selectedGroup);
+        Iterator itr = joinComb.iterator();
+        while (itr.hasNext())
+        {
+            int x = (Integer)itr.next();
+            if (x == selectedGroup)
+                itr.remove();
+        }
+
+      //  joinComb.remove(new Integer(selectedGroup));
+
+        jodiBidding = new JsonArray();
+
+       // new JsonArray()
     }
 
     @Override
@@ -1692,7 +1704,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                     comb_00_edittext.setBackground(getResources().getDrawable(R.drawable.rectangle));
                     calculateResult03();
                 } else {
-                    boolean_comb_00_edittext = true;
+                boolean_comb_00_edittext = true;
                     //setGroupId
                     addGroupTag(0);
                     comb_00_edittext.setTextColor(getResources().getColor(R.color.md_blue_grey_700));

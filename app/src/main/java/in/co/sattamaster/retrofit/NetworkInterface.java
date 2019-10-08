@@ -21,6 +21,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface NetworkInterface {
 
@@ -43,7 +44,7 @@ public interface NetworkInterface {
     Single<List<AllModerators>> getAllModerator();
 
     @GET(ApiEndPoint.BIDSET)
-    Single<HistoryPojo> getBids();
+    Single<HistoryPojo> getBids(@Query("page") String page);
 
     @GET(ApiEndPoint.BIDSET_ID)
     Single<HistoryDetailsResponse> getBidDetails(@Path("id") String id);

@@ -121,8 +121,8 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<HistoryPojo> getBids(SharedPreferences sharedPreferences) {
-        return mApiHelper.getBids(sharedPreferences);
+    public Single<HistoryPojo> getBids(SharedPreferences sharedPreferences, String page) {
+        return mApiHelper.getBids(sharedPreferences, page);
     }
 
     @Override

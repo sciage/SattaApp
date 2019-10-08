@@ -3,7 +3,6 @@ package in.co.sattamaster.ui.base;
 import android.app.Application;
 import android.content.Context;
 
-import com.androidnetworking.AndroidNetworking;
 import com.crashlytics.android.Crashlytics;
 import in.co.sattamaster.data.DataManager;
 import in.co.sattamaster.di.component.ApplicationComponent;
@@ -113,7 +112,6 @@ public class VoicemeApplication extends Application {
                                 .build()))
                 .build()); */
 
-        AndroidNetworking.initialize(getApplicationContext());
      /*   if (BuildConfig.DEBUG) {
             AndroidNetworking.enableLogging(HttpLoggingInterceptor.Level.BODY);
         }

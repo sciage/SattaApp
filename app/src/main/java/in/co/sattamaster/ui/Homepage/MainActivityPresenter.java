@@ -2,9 +2,8 @@ package in.co.sattamaster.ui.Homepage;
 
 import android.content.SharedPreferences;
 
-import com.androidnetworking.error.ANError;
-
 import in.co.sattamaster.data.DataManager;
+import in.co.sattamaster.retrofit.ANError;
 import in.co.sattamaster.ui.base.BasePresenter;
 import in.co.sattamaster.ui.login.LoginResponse;
 import in.co.sattamaster.ui.login.UserProfile;

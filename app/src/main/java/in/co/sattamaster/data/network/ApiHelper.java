@@ -55,7 +55,7 @@ public interface ApiHelper {
     Single<WithdrawResponseTop> makeWithdrawRequest(JsonObject withdraw, SharedPreferences sharedPreferences);
     Single<ResultResponse> getAllResult(String from, String to, SharedPreferences sharedPreferences);
     Single<List<PastResultPOJO>> getAllPastResult(String location_id, String from, String to, SharedPreferences sharedPreferences);
-    Single<HistoryPojo> getBids(SharedPreferences sharedPreferences);
+    Single<HistoryPojo> getBids(SharedPreferences sharedPreferences, String page);
     Single<HistoryDetailsResponse> getBidDetails(String id, SharedPreferences sharedPreferences);
 
   //  Single<List<PostsModel>> getImagePosts(String user_id, String onlyImages, String page);
