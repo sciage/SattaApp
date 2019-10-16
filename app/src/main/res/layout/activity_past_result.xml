@@ -65,6 +65,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +90,6 @@
         android:id="@+id/pastresult_progressbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         android:background="@color/white">
 
         <TextView

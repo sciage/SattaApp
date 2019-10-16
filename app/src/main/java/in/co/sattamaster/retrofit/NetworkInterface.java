@@ -50,7 +50,7 @@ public interface NetworkInterface {
     Single<HistoryDetailsResponse> getBidDetails(@Path("id") String id);
 
     @GET(ApiEndPoint.GET_ALL_PAST_RESULTS)
-    Single<List<PastResultPOJO> >getAllPastResult(@Path("user_id") String user_id);
+    Single<List<PastResultPOJO> >getAllPastResult(@Path("location_id") String location_id);
 
     @GET(ApiEndPoint.GET_USER_PROFILE)
     Single<UserObject> getUserProfile();

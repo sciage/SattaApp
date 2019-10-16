@@ -1885,7 +1885,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         play_matkaloading.setVisibility(View.GONE);
 
         if (response.getStatus()){
-            Toast.makeText(PlayMatkaActivity.this, response.getStatus().toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(PlayMatkaActivity.this, "Successfully Placed Bid", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(PlayMatkaActivity.this, MainActivity.class);
             intent.putExtra("isLoggedIn", true);

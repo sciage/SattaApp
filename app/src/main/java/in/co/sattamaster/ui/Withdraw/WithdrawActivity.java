@@ -122,7 +122,6 @@ public class WithdrawActivity extends BaseActivity implements WithdrawMvpView {
             alertDialogBuilder.setTitle("WithDraw Successful");
             alertDialogBuilder.setMessage("Admin will call you back in 24 hours");
             alertDialogBuilder.setCancelable(false);
-            alertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
             alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
 

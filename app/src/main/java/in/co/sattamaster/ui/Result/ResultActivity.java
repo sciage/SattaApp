@@ -226,6 +226,8 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
 
                 if (Pico.formatDate(calendar).equals(Pico.formatDate(newCalender))){
                     SameDateDialog();
+                }else if(calendar.after(newCalender) ){
+                    SameDateDialog02();
                 } else {
                     fromValue = Pico.formatDate(calendar);
 
@@ -251,7 +253,10 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
                 if (Pico.formatDate(calendar).equals(Pico.formatDate(newCalender))){
                     SameDateDialog();
 
-                } else {
+                } else if(calendar.after(newCalender) ){
+                    SameDateDialog02();
+                }
+                else {
 
                     toValue = Pico.formatDate(calendar);
 
@@ -266,12 +271,25 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
 
     }
 
+    private void SameDateDialog02(){
+        alertDialogBuilder = new AlertDialog.Builder(ResultActivity.this);
+        alertDialogBuilder.setTitle("Future's Date Selected");
+        alertDialogBuilder.setMessage("Choose Old Date");
+        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alertDialogBuilder.show();
+    }
+
     private void SameDateDialog(){
         alertDialogBuilder = new AlertDialog.Builder(ResultActivity.this);
         alertDialogBuilder.setTitle("Today's Date Selected");
         alertDialogBuilder.setMessage("Choose Old Date");
         alertDialogBuilder.setCancelable(true);
-        alertDialogBuilder.setIcon(android.R.drawable.ic_dialog_alert);
         alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
 
