@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import in.co.sattamaster.R;
@@ -90,12 +91,16 @@ public class GridAdapter extends BaseAdapter{
         }
 
         TextView location_id = (TextView) convertView.findViewById(R.id.location_id);
+        ImageView home_page_image = (ImageView) convertView.findViewById(R.id.home_page_image);
 
         SquareLayout box_back = (SquareLayout) convertView.findViewById(R.id.mainPageBack);
+
 
         location_id.setText(mItems.get(position).text);
 
         if (position == 0){
+            home_page_image.setImageDrawable(convertView.getResources().getDrawable(R.drawable.numbers));
+
             box_back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -109,6 +114,8 @@ public class GridAdapter extends BaseAdapter{
                 }
             });
         } else if (position == 1){
+            home_page_image.setImageDrawable(convertView.getResources().getDrawable(R.drawable.mail));
+
             box_back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -122,6 +129,8 @@ public class GridAdapter extends BaseAdapter{
                 }
             });
         } else if (position == 2){
+            home_page_image.setImageDrawable(convertView.getResources().getDrawable(R.drawable.withdraw));
+
             box_back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -135,6 +144,8 @@ public class GridAdapter extends BaseAdapter{
                 }
             });
         } else if (position == 3){
+            home_page_image.setImageDrawable(convertView.getResources().getDrawable(R.drawable.history));
+
             box_back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -148,6 +159,8 @@ public class GridAdapter extends BaseAdapter{
                 }
             });
         } else if (position == 4){
+            home_page_image.setImageDrawable(convertView.getResources().getDrawable(R.drawable.result));
+
             box_back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

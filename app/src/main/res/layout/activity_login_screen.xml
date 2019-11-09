@@ -15,14 +15,14 @@ tools:context="in.co.sattamaster.ui.login.LoginScreenActivity">
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:background="@color/secondPage"
+    android:background="@color/normalBack"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Satta"
+        android:text="Satta Master"
         android:paddingStart="32dp"
         android:paddingEnd="32dp"
         android:textColor="#ffffff"

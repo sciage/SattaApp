@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/toolbar_color"
+    android:background="@color/normalBack"
     tools:context="in.co.sattamaster.ui.History.HistoryActivity">
 
     <ScrollView
@@ -16,6 +16,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/normalBack"
         android:orientation="vertical">
 
     <include

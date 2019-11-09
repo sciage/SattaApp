@@ -4,6 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:titleTextColor="@color/black_semi_transparent"
+    app:titleTextColor="@color/white"
+    android:layout_centerHorizontal="true"
+    android:titleTextColor="@color/white"
+    android:layout_gravity="clip_horizontal"
+    android:gravity="center_horizontal"
     android:id="@+id/include_toolbar"
-    android:background="@color/below_toolbar"/>
+    android:background="@color/normalBack"/>

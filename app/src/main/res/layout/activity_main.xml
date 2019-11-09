@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="true"
+    android:background="@color/normalBack"
     android:fillViewport="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="in.co.sattamaster.ui.Homepage.LocationPageActivity">
@@ -26,7 +27,7 @@
         android:textSize="30sp"
         android:id="@+id/location_satta_heading"
             android:layout_below="@+id/balance_layout"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -44,7 +45,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/live_time"
         android:layout_below="@+id/location_satta_heading"
-        android:textColor="@color/md_blue_500"
+        android:textColor="@color/white"
         android:layout_marginTop="10dp"
         />
 
@@ -53,13 +54,15 @@
             android:layout_width="match_parent"
             android:layout_below="@+id/live_time"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:layout_height="match_parent">
 
             <GridView
                 android:id="@+id/grid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:columnWidth="140dp"
                 android:gravity="center"
                 android:horizontalSpacing="4dp"
@@ -76,7 +79,6 @@
         android:id="@+id/location_progressbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         android:background="@color/white">
 
         <TextView

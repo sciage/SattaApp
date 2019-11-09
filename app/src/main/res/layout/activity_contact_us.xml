@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/normalBack"
     tools:context="in.co.sattamaster.ui.Contact.ContactUsActivity">
 
     <include
@@ -14,6 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Our Location"
         android:textSize="20sp"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:id="@+id/contact_location"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -25,6 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bhiwadi, Rajasthan"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:id="@+id/contact_address"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -36,6 +40,8 @@
         android:layout_height="wrap_content"
         android:text="Email : ravigamerao@gmail.com"
         android:id="@+id/contact_mobile"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contact_address"

@@ -120,6 +120,16 @@ public class Pico extends Dialog implements View.OnClickListener {
         return Converter.formatDate(cal.getTime());
     }
 
+    public static String getHourBefore(Calendar cal){
+        return Converter.getHourBefore(cal);
+
+    } public static String getHourCurrent(Calendar cal){
+        return Converter.getHourCurrent(cal);
+
+    } public static String getHourNext(Calendar cal){
+        return Converter.getHourNext(cal);
+    }
+
     public static String humanDate(Calendar cal){
         return Converter.humanDate(cal.getTime());
     }

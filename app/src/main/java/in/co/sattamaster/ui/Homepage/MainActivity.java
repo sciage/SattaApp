@@ -76,7 +76,7 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView{
         GridView view = (GridView) findViewById(R.id.gridmain);
 
 
-        getSupportActionBar().setTitle("Satta Home Page");
+        getSupportActionBar().setTitle("Satta Master");
 
         gridAdapter = new GridAdapter(getBaseContext());
 

@@ -34,4 +34,79 @@ public class Converter {
 
         return curTime;
     }
+
+    public static String getHourCurrent(Calendar time){
+
+        int hour = time.get(Calendar.HOUR);
+        String am_pm;
+        boolean pm = false;
+
+        if (time.get(Calendar.AM_PM)==Calendar.PM){
+            am_pm = " pm";
+        } else {
+            am_pm =  " am";
+
+        }
+
+
+      //  return pm ? hour +":"+"00"+":"+" PM" : hour +":"+"00"+":"+" AM";
+        return hour +":"+"00"+ am_pm;
+
+    }
+
+    public static String getHourBefore(Calendar time){
+
+        int hour = time.get(Calendar.HOUR);
+        String am_pm;
+
+       // int hour = 0;
+
+
+        if (hour==0){
+            hour = 11;
+        } else if (hour==1){
+            hour = 12;
+        } else {
+            hour--;
+        }
+        boolean pm = false;
+
+        if (time.get(Calendar.AM_PM)==Calendar.PM){
+            am_pm = " pm";
+        } else {
+            am_pm =  " am";
+
+        }
+
+
+       // return pm ? hour +":"+"00"+":"+" PM" : hour +":"+"00"+":"+" AM";
+
+        return hour +":"+"00"+ am_pm;
+
+    }
+
+    public static String getHourNext(Calendar time){
+
+        int hour = time.get(Calendar.HOUR);
+       // int hour=0;
+        String am_pm;
+
+        if (hour==0){
+            hour = 1;
+        } else {
+            hour++;
+        }
+        boolean pm = false;
+
+
+        if (time.get(Calendar.AM_PM)==Calendar.PM){
+            am_pm = " pm";
+        } else {
+            am_pm =  " am";
+
+        }
+
+        return hour +":"+"00"+ am_pm;
+
+    }
 }

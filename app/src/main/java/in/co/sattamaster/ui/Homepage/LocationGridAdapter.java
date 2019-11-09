@@ -11,9 +11,12 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import in.co.sattamaster.R;
+import in.co.sattamaster.ui.DateTime.Pico;
+import in.co.sattamaster.ui.DateTime.codec.Type;
 import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.PlayMatka.PlayMatkaActivity;
 import in.co.sattamaster.ui.base.Constants;
@@ -74,105 +77,216 @@ public class LocationGridAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
+
+        if (dataSet.get(position).getHourly()){
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.squareitem_hourly,
+                    null);
+
+
+
+            Calendar calendar = Calendar.getInstance();
+            Pico pico = new Pico(convertView.getContext(), null, Type.CALENDAR);
+
+            TextView location_name = (TextView) convertView.findViewById(R.id.location_id);
+            TextView last_time = (TextView) convertView.findViewById(R.id.last_time);
+            TextView new_time = (TextView) convertView.findViewById(R.id.new_time);
+
+            TextView current_time = (TextView) convertView.findViewById(R.id.current_time);
+            TextView new_time_current = (TextView) convertView.findViewById(R.id.new_time_current);
+
+            TextView last_time_upcoming = (TextView) convertView.findViewById(R.id.last_time_upcoming);
+            TextView new_time_upcoming = (TextView) convertView.findViewById(R.id.new_time_upcoming);
+
+            last_time.setText(pico.getHourBefore(calendar));
+            current_time.setText(pico.getHourCurrent(calendar));
+            last_time_upcoming.setText(pico.getHourNext(calendar));
+
+
+            ConstraintLayout location_back = (ConstraintLayout) convertView.findViewById(R.id.location_back);
+
+            location_name.setText(dataSet.get(position).getName());
+
+            if (dataSet.get(position).getNumberLast() != null){
+                new_time.setText(dataSet.get(position).getNumberLast());
+            } else {
+                new_time.setText("XX");
+            }
+
+            if (dataSet.get(position).getNumberCurrent() != null){
+                new_time_current.setText(dataSet.get(position).getNumberCurrent());
+            } else {
+                new_time.setText("XX");
+
+            }
+
+            new_time_upcoming.setText("XX");
+
+
+
+            location_name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    intent.putExtra(Constants.USER_NAME, USER_NAME);
+                    intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+                    intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+                    intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+                    intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
+                    intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+            last_time.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    intent.putExtra(Constants.USER_NAME, USER_NAME);
+                    intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+                    intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+                    intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+                    intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
+                    intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+            new_time.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    intent.putExtra(Constants.USER_NAME, USER_NAME);
+                    intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+                    intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+                    intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+                    intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
+                    intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+            location_back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    intent.putExtra(Constants.USER_NAME, USER_NAME);
+                    intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+                    intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+                    intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+                    intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
+                    intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+
+
+
+        } else {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.squareitem,
                     null);
+
+            TextView location_name = (TextView) convertView.findViewById(R.id.location_id);
+            TextView location_time = (TextView) convertView.findViewById(R.id.location_time);
+            TextView last_time = (TextView) convertView.findViewById(R.id.last_time);
+            TextView new_time = (TextView) convertView.findViewById(R.id.new_time);
+            ConstraintLayout location_back = (ConstraintLayout) convertView.findViewById(R.id.location_back);
+
+            location_name.setText(dataSet.get(position).getName());
+            location_time.setText(dataSet.get(position).getNumberRevealTime());
+            if (dataSet.get(position).getNumberLast() != null){
+                last_time.setText(dataSet.get(position).getNumberLast());
+            } else {
+                last_time.setText("XX");
+
+            }
+
+            if (dataSet.get(position).getNumberCurrent() != null){
+                new_time.setText(dataSet.get(position).getNumberCurrent());
+            } else {
+                new_time.setText("XX");
+
+            }
+
+
+            location_name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    intent.putExtra(Constants.USER_NAME, USER_NAME);
+                    intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+                    intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+                    intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+                    intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
+                    intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+            location_time.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    intent.putExtra(Constants.USER_NAME, USER_NAME);
+                    intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+                    intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+                    intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+                    intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
+                    intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+            last_time.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    intent.putExtra(Constants.USER_NAME, USER_NAME);
+                    intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+                    intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+                    intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+                    intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
+                    intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+            new_time.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    intent.putExtra(Constants.USER_NAME, USER_NAME);
+                    intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+                    intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+                    intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+                    intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
+                    intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+            location_back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+                    intent.putExtra(Constants.USER_NAME, USER_NAME);
+                    intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+                    intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+                    intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+                    intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
+                    intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+
+
         }
 
-        TextView location_name = (TextView) convertView.findViewById(R.id.location_id);
-        TextView location_time = (TextView) convertView.findViewById(R.id.location_time);
-        TextView last_time = (TextView) convertView.findViewById(R.id.last_time);
-        TextView new_time = (TextView) convertView.findViewById(R.id.new_time);
-        ConstraintLayout location_back = (ConstraintLayout) convertView.findViewById(R.id.location_back);
 
-        location_name.setText(dataSet.get(position).getName());
-        location_time.setText(dataSet.get(position).getNumberRevealTime());
-        if (dataSet.get(position).getNumberLast() != null){
-            last_time.setText(dataSet.get(position).getNumberLast());
-        } else {
-            last_time.setText("XX");
-
-        }
-
-        if (dataSet.get(position).getNumberCurrent() != null){
-            new_time.setText(dataSet.get(position).getNumberCurrent());
-        } else {
-            new_time.setText("XX");
-
-        }
-
-
-        location_name.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
-                intent.putExtra(Constants.USER_NAME, USER_NAME);
-                intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
-                intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
-                intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
-                intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
-                intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
-                v.getContext().startActivity(intent);
-            }
-        });
-
-        location_time.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
-                intent.putExtra(Constants.USER_NAME, USER_NAME);
-                intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
-                intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
-                intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
-                intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
-                intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
-                v.getContext().startActivity(intent);
-            }
-        });
-
-        last_time.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
-                intent.putExtra(Constants.USER_NAME, USER_NAME);
-                intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
-                intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
-                intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
-                intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
-                intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
-                v.getContext().startActivity(intent);
-            }
-        });
-
-        new_time.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
-                intent.putExtra(Constants.USER_NAME, USER_NAME);
-                intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
-                intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
-                intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
-                intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
-                intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
-
-                v.getContext().startActivity(intent);
-            }
-        });
-
-        location_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
-                intent.putExtra(Constants.USER_NAME, USER_NAME);
-                intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
-                intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
-                intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
-                intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
-                intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
-                v.getContext().startActivity(intent);
-            }
-        });
 
         return convertView;
     }
