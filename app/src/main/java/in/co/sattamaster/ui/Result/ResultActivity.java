@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import androidx.core.content.res.ResourcesCompat;
 
+import com.instacart.library.truetime.TrueTime;
+import com.instacart.library.truetime.TrueTimeRx;
+
 import butterknife.BindView;
 import in.co.sattamaster.R;
 import in.co.sattamaster.ui.DateTime.Pico;
@@ -30,8 +33,11 @@ import in.co.sattamaster.ui.autocomplete.LocationPresenter;
 import in.co.sattamaster.ui.autocomplete.UserPresenter;
 import in.co.sattamaster.ui.base.BaseActivity;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import javax.inject.Inject;
 import javax.xml.transform.Result;
@@ -42,6 +48,7 @@ import in.co.sattamaster.ui.base.MySharedPreferences;
 import in.co.sattamaster.ui.login.AllModerators;
 import in.co.sattamaster.ui.login.LoginScreenActivity;
 import in.co.sattamaster.ui.login.RegisterActivity;
+import io.reactivex.schedulers.Schedulers;
 
 public class ResultActivity extends BaseActivity implements LocationPageMvpView {
     private String USER_NAME;
@@ -51,13 +58,17 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
 
     List<LocationPojo> response;
     AlertDialog.Builder alertDialogBuilder;
+    public static final String DATE_FORMAT_1 = "yyyy-MM-dd";
 
     String fromValue;
     String toValue;
     Calendar currentDate;
+    String trueDate;
 
     @BindView(R.id.search_location) EditText search_location;
     private Autocomplete userAutocomplete;
+
+    Date trueTime;
 
     @Inject
     LocationPageMvpPresenter<LocationPageMvpView> mPresenter;
@@ -90,6 +101,9 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
 
         progressFrame.setVisibility(View.VISIBLE);
 
+        trueTime = TrueTime.now();
+
+
         search_bid_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,12 +123,18 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
                 }
 
                 if (fromValue != null && toValue != null){
-                    Intent intent = new Intent(ResultActivity.this, PastResultActivity.class);
-                    intent.putExtra(Constants.FROM_TEXT, fromValue);
-                    intent.putExtra(Constants.TO_TEXT, toValue);
-                    intent.putExtra(Constants.LOCATION_ID, location_id);
 
-                    startActivity(intent);
+                    if (fromValue.equals(trueDate) || toValue.equals(trueDate)){
+                        SameDateDialog();
+                    } else {
+                        Intent intent = new Intent(ResultActivity.this, PastResultActivity.class);
+                        intent.putExtra(Constants.FROM_TEXT, fromValue);
+                        intent.putExtra(Constants.TO_TEXT, toValue);
+                        intent.putExtra(Constants.LOCATION_ID, location_id);
+
+                        startActivity(intent);
+                    }
+
                 }
 
             }
@@ -156,6 +176,11 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
         user_name.setText(USER_NAME);
         moderator.setText(MODERATOR_NAME + " ( " + MODERATOR_MOBILE + " ) ");
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_1);
+        // dateFormat.setTimeZone(TimeZone.getTimeZone("IST"));
+
+        trueDate = dateFormat.format(trueTime);
+
         currentDate = Calendar.getInstance();
         currentDate.setTimeInMillis(System.currentTimeMillis());
 
@@ -165,10 +190,7 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
 
         fullDate = String.valueOf(currentYear+"-"+currentMonth+"-"+currentDay);
 
-
         mPresenter.getLocation(preferences);
-
-
     }
 
     public boolean stringContainsItemFromList(String inputStr, List<LocationPojo> items)
@@ -229,8 +251,10 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
                 }else if(calendar.after(newCalender) ){
                     SameDateDialog02();
                 } else {
-                    fromValue = Pico.formatDate(calendar);
 
+
+
+                    fromValue = Pico.formatDate(calendar);
                     from_text.setText(Pico.humanDate(calendar));
                 }
 
@@ -255,15 +279,14 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
 
                 } else if(calendar.after(newCalender) ){
                     SameDateDialog02();
-                }
-                else {
+                } else {
+
+
 
                     toValue = Pico.formatDate(calendar);
 
                     to_Text.setText(Pico.humanDate(calendar));
                 }
-
-
 
             }
         });

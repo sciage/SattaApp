@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.instacart.library.truetime.TrueTime;
 import com.instacart.library.truetime.TrueTimeRx;
 
 import java.text.DateFormat;
@@ -118,6 +119,8 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
         view.setAdapter(locationGridAdapter);
         view.setFocusable(false);
 
+        date = TrueTime.now();
+
 
         mPresenter.getLocation(preferences);
 
@@ -125,18 +128,11 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
         user_name.setText(USER_NAME);
         moderator.setText(MODERATOR_NAME + " ( " + MODERATOR_MOBILE + " ) ");
 
-        TrueTimeRx.build()
-                .initializeRx("time.google.com")
-                .subscribeOn(Schedulers.io())
-                .subscribe(date -> {
-                    this.date = date;
 
-                    SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_1);
-                    dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_1);
+        // dateFormat.setTimeZone(TimeZone.getTimeZone("IST"));
 
-                    currentDate = dateFormat.format(date);
-                  //  Log.v(TAG, "TrueTime was initialized and we have a time: " + date);
-                }, Throwable::printStackTrace);
+        currentDate = dateFormat.format(date);
 
         handler = new Handler();
         handler.post(runnable);

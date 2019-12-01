@@ -85,6 +85,19 @@ public class PastResultActivity extends BaseActivity implements PastResultMvpVie
     @Override
     public void getAllResult(List<PastResultPOJO> response) {
 
+        if (response.size()>2){
+
+            if (LOCATION_ID.equals("11")){
+                response.remove(response.size()-1);
+                response.remove(response.size()-1);
+
+            }
+
+            adapter.addAll(response);
+
+            location_heading.setText(response.get(0).getCentre().getName());
+        }
+
         adapter.addAll(response);
 
         location_heading.setText(response.get(0).getCentre().getName());

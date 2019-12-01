@@ -83,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="false"
+            android:nestedScrollingEnabled="true"
             tools:listitem="@layout/table_list_item" />
 
     </HorizontalScrollView>

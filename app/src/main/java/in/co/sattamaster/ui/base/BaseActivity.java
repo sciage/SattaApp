@@ -24,8 +24,12 @@ import in.co.sattamaster.di.module.ActivityModule;
 import in.co.sattamaster.di.rxbus.RxBus;
 import in.co.sattamaster.utils.NetworkUtils;
 import com.google.android.material.snackbar.Snackbar;
+import com.instacart.library.truetime.TrueTimeRx;
+
+import java.text.SimpleDateFormat;
 
 import butterknife.Unbinder;
+import io.reactivex.schedulers.Schedulers;
 
 public abstract class BaseActivity extends AppCompatActivity implements MvpView, BaseFragment.Callback {
   //  private static String TAG = MainActivity.class.getSimpleName();
@@ -58,6 +62,15 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
                 .activityModule(new ActivityModule(this))
                 .applicationComponent(((VoicemeApplication) getApplication()).getComponent())
                 .build();
+
+        TrueTimeRx.build()
+                .initializeRx("time.google.com")
+                .subscribeOn(Schedulers.io())
+                .subscribe(date -> {
+
+
+                    //  Log.v(TAG, "TrueTime was initialized and we have a time: " + date);
+                }, Throwable::printStackTrace);
 
 
         bus = application.getBus();

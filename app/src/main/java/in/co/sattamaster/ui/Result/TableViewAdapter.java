@@ -56,10 +56,11 @@ public class TableViewAdapter extends RecyclerView.Adapter {
 
             rowViewHolder.date.setBackgroundResource(R.drawable.table_content_cell_bg);
             rowViewHolder.id_location_value.setBackgroundResource(R.drawable.table_content_cell_bg);
+            rowViewHolder.id_location_value_time.setBackgroundResource(R.drawable.table_content_cell_bg);
 
             rowViewHolder.date.setText(mData.get(position).getCreatedAt());
             rowViewHolder.id_location_value.setText(mData.get(position).getNumber());
-
+            rowViewHolder.id_location_value_time.setText(mData.get(position).getCreatedAtTime());
     }
 
 
@@ -71,6 +72,7 @@ public class TableViewAdapter extends RecyclerView.Adapter {
 
     public class RowViewHolder extends RecyclerView.ViewHolder {
         protected TextView date;
+        protected TextView id_location_value_time;
         protected TextView id_location_value;
 
         public RowViewHolder(View itemView) {
@@ -78,6 +80,7 @@ public class TableViewAdapter extends RecyclerView.Adapter {
 
             date = itemView.findViewById(R.id.date_id);
             id_location_value = itemView.findViewById(R.id.id_location_value);
+            id_location_value_time = itemView.findViewById(R.id.id_location_value_time);
         }
     }
 }
