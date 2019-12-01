@@ -30,6 +30,7 @@ import butterknife.ButterKnife;
 import in.co.sattamaster.R;
 import in.co.sattamaster.dto.Bid;
 import in.co.sattamaster.ui.Homepage.MainActivity;
+import in.co.sattamaster.ui.Result.ResultActivity;
 import in.co.sattamaster.ui.base.BaseActivity;
 import in.co.sattamaster.ui.base.Constants;
 import in.co.sattamaster.ui.base.MySharedPreferences;
@@ -41,6 +42,8 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
     @Inject
     PlayMatkaActivityMvpPresenter<PlayMatkaActivityMvpView> mPresenter;
+
+    AlertDialog.Builder alertDialogBuilder;
 
     @BindView(R.id.andar_00_view)
     TextView andar_00_view;
@@ -685,16 +688,35 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         place_bid_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Integer.parseInt(wallet)< Integer.parseInt(satta_net_total_value.getText().toString())){
-                    balanceInsufficient();
+
+
+                if (joinComb.size() > Integer.parseInt(MySharedPreferences.getCombinationLimit(preferences))){
+
+                    alertDialogBuilder = new AlertDialog.Builder(PlayMatkaActivity.this);
+                    alertDialogBuilder.setTitle("Combination Limit Exceeded");
+                    alertDialogBuilder.setMessage("App Combination numbers = " + MySharedPreferences.getCombinationLimit(preferences) + " take bid kar saktey h");
+                    alertDialogBuilder.setCancelable(true);
+                    alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            dialog.dismiss();
+                        }
+                    });
+                    alertDialogBuilder.show();
+
                 } else {
-                    play_matkaloading.setVisibility(View.VISIBLE);
-                    try {
-                        // writeJsonSimpleDemo();
-                        mPresenter.sendBidSet(writeJsonSimpleDemo(), preferences);
-                    } catch (Exception ex){
-                        ex.printStackTrace();
+                    if (Integer.parseInt(wallet)< Integer.parseInt(satta_net_total_value.getText().toString())){
+                        balanceInsufficient();
+                    } else {
+                        play_matkaloading.setVisibility(View.VISIBLE);
+                        try {
+                            // writeJsonSimpleDemo();
+                            mPresenter.sendBidSet(writeJsonSimpleDemo(), preferences);
+                        } catch (Exception ex){
+                            ex.printStackTrace();
+                        }
                     }
+
                 }
 
             }
@@ -1885,12 +1907,19 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         play_matkaloading.setVisibility(View.GONE);
 
         if (response.getStatus()){
-            Toast.makeText(PlayMatkaActivity.this, "Successfully Placed Bid", Toast.LENGTH_SHORT).show();
-
-            Intent intent = new Intent(PlayMatkaActivity.this, MainActivity.class);
-            intent.putExtra("isLoggedIn", true);
-            startActivity(intent);
-
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PlayMatkaActivity.this);
+            alertDialogBuilder.setTitle("Success");
+            alertDialogBuilder.setMessage("Successfully Placed Bid ");
+            alertDialogBuilder.setCancelable(true);
+            alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(PlayMatkaActivity.this, MainActivity.class);
+                    intent.putExtra("isLoggedIn", true);
+                    startActivity(intent);
+                }
+            });
+            alertDialogBuilder.show();
+           // Toast.makeText(PlayMatkaActivity.this, "Successfully Placed Bid", Toast.LENGTH_SHORT).show();
         } else {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PlayMatkaActivity.this);
             alertDialogBuilder.setTitle("There is an error in placing bid");

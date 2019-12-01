@@ -7,6 +7,10 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.instacart.library.truetime.TrueTimeRx;
+
+import java.util.Date;
+
 import butterknife.BindView;
 import in.co.sattamaster.R;
 import in.co.sattamaster.data.DataManager;
@@ -51,6 +55,7 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView{
         mPresenter.onAttach(MainActivity.this);
 
         progressFrame = (View) findViewById(R.id.main_progressbar);
+
 
         Intent intent = getIntent();
 
@@ -101,17 +106,26 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView{
     @Override
     public void getUserProfile(UserObject response) {
         if (response.getUser().getId()!=null){
-            balance_amount_value.setText(response.getUser().getProfile().getCoinBalance());
-            user_name.setText(response.getUser().getName());
-            moderator.setText(String.valueOf(response.getUser().getProfile().getModerator().getName() + " ( " + response.getUser().getProfile().getModerator().getPhone() + " ) "));
+            // Todo add code to handle active user and jodi balance
 
-            // setting local variable to be passed inside intent
-            balance_amount_value_String = response.getUser().getProfile().getCoinBalance();
-            user_name_String = response.getUser().getName();
-            moderator_String = response.getUser().getProfile().getModerator().getName() + "@" + response.getUser().getProfile().getModerator().getPhone();
+            if (response.getUser().getProfile().getModerator().getProfile().isActive()){
+
+                balance_amount_value.setText(response.getUser().getProfile().getCoinBalance());
+                user_name.setText(response.getUser().getName());
+                moderator.setText(String.valueOf(response.getUser().getProfile().getModerator().getName() + " ( " + response.getUser().getProfile().getModerator().getPhone() + " ) "));
+
+                MySharedPreferences.registerCombinationLimit(preferences, String.valueOf(response.getUser().getProfile().getModerator().getProfile().getJodi_bid_max_length()));
+                // setting local variable to be passed inside intent
+                balance_amount_value_String = response.getUser().getProfile().getCoinBalance();
+                user_name_String = response.getUser().getName();
+                moderator_String = response.getUser().getProfile().getModerator().getName() + "@" + response.getUser().getProfile().getModerator().getPhone();
 
 
-            gridAdapter.addAll(response);
+                gridAdapter.addAll(response);
+
+            }
+
+
 
         }
 

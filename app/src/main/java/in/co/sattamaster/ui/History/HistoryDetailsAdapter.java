@@ -179,15 +179,14 @@ public class HistoryDetailsAdapter extends RecyclerView.Adapter<HistoryDetailsAd
 
 
             if (messageItem.getDidWin() == null){
-                winOrLoss.setText("Win or Loss : No Result");
+                winOrLoss.setText("Win or Loss : Pending");
 
             } else {
-                if (messageItem.getDidWin().toString().equals("1")){
+                if (messageItem.getDidWin().toString().equals("true")){
                     winOrLoss.setText(String.valueOf("Win or Loss " + " : " + "Win"));
 
                 } else {
                     winOrLoss.setText(String.valueOf("Win or Loss " + " : " + "Loss"));
-
                 }
 
             }

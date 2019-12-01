@@ -52,8 +52,14 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
+        if (mData.get(position).getCentreId().equals("11")){
+            holder.number_reveal.setText(getBidHourTimeSet(mData.get(position).getBid_hour()));
+        } else {
+            holder.number_reveal.setText("Reveal Time " +  mData.get(position).getCentre().getNumberRevealTime());
+
+        }
         holder.bid_location.setText(mData.get(position).getCentreName());
-        holder.bid_type.setText(mData.get(position).getBidDate());
+        holder.bid_type.setText(mData.get(position).getCreatedAt());
         holder.bid_time.setText(mData.get(position).getCoinBalanceCost());
 
         holder.history_back.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +73,18 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         });
     }
 
+    private String getBidHourTimeSet(String bidHour) {
+        int hour = Integer.parseInt(bidHour);
+        if (hour<12){
+            return String.valueOf("Reveal Time " + hour + " : " + "am");
+        } else {
+            if (hour==24 || hour == 0){
+                return String.valueOf("Reveal Time " + hour + " : " + "am");
+            } else {
+                return String.valueOf("Reveal Time " + hour + " : " + "pm");
+            }
+        }
+    }
 
 
     // total number of rows
@@ -80,10 +98,12 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         private TextView bid_location;
         private TextView bid_type;
         private TextView bid_time;
+        private TextView number_reveal;
         private ConstraintLayout history_back;
 
         ViewHolder(View itemView) {
             super(itemView);
+            number_reveal = itemView.findViewById(R.id.number_reveal);
             bid_location = itemView.findViewById(R.id.bid_location);
             bid_type = itemView.findViewById(R.id.bid_type);
             bid_time = itemView.findViewById(R.id.bid_balance);

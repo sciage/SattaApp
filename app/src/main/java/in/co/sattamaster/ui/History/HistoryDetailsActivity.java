@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -32,6 +33,7 @@ public class HistoryDetailsActivity extends BaseActivity implements HistoryDetai
 
 
     @BindView(R.id.historydetails_progressbar) View progressFrame;
+    @BindView(R.id.history_details_location) TextView history_details_location;
     @BindView(R.id.detail_rv_messages) protected RecyclerView mMessageRecyclerView;
 
 
@@ -103,6 +105,7 @@ public class HistoryDetailsActivity extends BaseActivity implements HistoryDetai
 
 
         showComments(response);
+        history_details_location.setText(String.valueOf("Location : " + response.getCentreName()));
         progressFrame.setVisibility(View.GONE);
 
     }

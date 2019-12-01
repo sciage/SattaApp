@@ -9,6 +9,9 @@ public class HistoryResponse {
     @SerializedName("id")
     @Expose
     private String id;
+    @SerializedName("bid_hour")
+    @Expose
+    private String bid_hour;
     @SerializedName("centre_id")
     @Expose
     private String centreId;
@@ -60,6 +63,10 @@ public class HistoryResponse {
 
     public String getCoinBalanceCost() {
         return coinBalanceCost;
+    }
+
+    public String getBid_hour() {
+        return bid_hour;
     }
 
     public String getCentreName() {

@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.instacart.library.truetime.TrueTimeRx;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,6 +25,9 @@ import java.util.TimeZone;
 import butterknife.BindView;
 import in.co.sattamaster.R;
 import in.co.sattamaster.ui.PlayMatka.PlayMatkaActivity;
+import in.co.sattamaster.ui.Result.PastResultActivity;
+import in.co.sattamaster.ui.Result.PastResultPOJO;
+import in.co.sattamaster.ui.Result.ResultActivity;
 import in.co.sattamaster.ui.base.BaseActivity;
 
 import javax.inject.Inject;
@@ -28,6 +35,7 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 import in.co.sattamaster.ui.base.Constants;
 import in.co.sattamaster.ui.base.MySharedPreferences;
+import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
 public class LocationPageActivity extends BaseActivity implements LocationPageMvpView {
@@ -38,6 +46,7 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
     @BindView(R.id.balance_amount_value) TextView balance_amount_value;
     @BindView(R.id.user_name) TextView user_name;
     @BindView(R.id.moderator) TextView moderator;
+    @BindView(R.id.hourly_bids) TextView hourly_bids;
 
     @BindView(R.id.location_progressbar) View location_progressbar;
     @BindView(R.id.live_time) TextView live_time;
@@ -45,12 +54,19 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
     private GridView view;
     private List<LocationPojo> response;
 
+    private String currentDate;
+
+
     private String USER_NAME;
     private String MODERATOR_NAME;
     private String MODERATOR_MOBILE;
     private String WALLET_BALANCE;
 
     private Handler handler;
+    private Date date;
+
+    public static final String DATE_FORMAT_1 = "yyyy-MM-dd";
+
 
 
     @Inject
@@ -89,6 +105,8 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
 
         view = (GridView) findViewById(R.id.grid);
 
+        hourly_bids = (TextView) findViewById(R.id.hourly_bids);
+
         Intent intent = getIntent();
         USER_NAME = intent.getStringExtra(Constants.USER_NAME);
         MODERATOR_NAME = intent.getStringExtra(Constants.MODERATOR_NAME);
@@ -107,8 +125,34 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
         user_name.setText(USER_NAME);
         moderator.setText(MODERATOR_NAME + " ( " + MODERATOR_MOBILE + " ) ");
 
+        TrueTimeRx.build()
+                .initializeRx("time.google.com")
+                .subscribeOn(Schedulers.io())
+                .subscribe(date -> {
+                    this.date = date;
+
+                    SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_1);
+                    dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+                    currentDate = dateFormat.format(date);
+                  //  Log.v(TAG, "TrueTime was initialized and we have a time: " + date);
+                }, Throwable::printStackTrace);
+
         handler = new Handler();
         handler.post(runnable);
+
+        hourly_bids.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(LocationPageActivity.this, PastResultActivity.class);
+                intent.putExtra(Constants.FROM_TEXT, currentDate);
+                intent.putExtra(Constants.TO_TEXT, currentDate);
+                intent.putExtra(Constants.LOCATION_ID, "11");
+
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -159,7 +203,6 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
 
         location_progressbar.setVisibility(View.GONE);
     }
-
 
 
 }

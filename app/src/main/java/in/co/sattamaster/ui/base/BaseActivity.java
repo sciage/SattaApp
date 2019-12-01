@@ -50,8 +50,7 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
     protected void onCreate(Bundle savedState) {
         super.onCreate(savedState);
         application = (VoicemeApplication) getApplication();
-      //  getBus = application.getBus();
-      //  scheduler = new ActionScheduler(application);
+
         preferences = getSharedPreferences(Constants.CONSTANT_PREF_FILE, Context.MODE_PRIVATE);
 
 

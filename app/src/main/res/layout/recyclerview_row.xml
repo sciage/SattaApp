@@ -38,6 +38,16 @@
         app:layout_constraintTop_toBottomOf="@+id/bid_location"/>
 
     <TextView
+        android:id="@+id/number_reveal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Andar"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="@+id/bid_location"
+        app:layout_constraintTop_toBottomOf="@+id/bid_type"/>
+
+    <TextView
         android:id="@+id/bid_balance"
         android:layout_width="wrap_content"
         android:layout_marginRight="20dp"

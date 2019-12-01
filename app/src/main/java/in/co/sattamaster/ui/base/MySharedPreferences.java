@@ -11,6 +11,7 @@ public class MySharedPreferences {
 
     private static final String AMAZON_USER_ID = "AMAZON_USER_ID";
     private static final String USER_TOKEN = "USER_TOKEN";
+    private static final String COMBINATION_LIMIT = "COMBINATION_LIMIT";
 
     public static void wipe(SharedPreferences sharedPreferences) {
         MySharedPreferences.storeValueInSharedPreferences(sharedPreferences, AMAZON_USER_ID, null);
@@ -45,8 +46,16 @@ public class MySharedPreferences {
         MySharedPreferences.storeValueInSharedPreferences2(sharedPreferences, USER_TOKEN, userId);
     }
 
+    public static void registerCombinationLimit(SharedPreferences sharedPreferences, String userId) {
+        MySharedPreferences.storeValueInSharedPreferences2(sharedPreferences, COMBINATION_LIMIT, userId);
+    }
+
     public static String getToken(SharedPreferences sharedPreferences) {
         return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, USER_TOKEN);
+    }
+
+    public static String getCombinationLimit(SharedPreferences sharedPreferences) {
+        return MySharedPreferences.getValueFromSharedPreferences(sharedPreferences, COMBINATION_LIMIT);
     }
 
 }

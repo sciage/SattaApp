@@ -96,14 +96,20 @@ public class Converter {
         } else {
             hour++;
         }
-        boolean pm = false;
-
 
         if (time.get(Calendar.AM_PM)==Calendar.PM){
-            am_pm = " pm";
+            if (time.get(Calendar.AM_PM)==Calendar.PM && hour == 12){
+                am_pm = " am";
+            } else {
+                am_pm =  " pm";
+            }
         } else {
-            am_pm =  " am";
+            if (time.get(Calendar.AM_PM)==Calendar.AM && hour == 12){
+                am_pm = " pm";
+            } else {
+                am_pm =  " am";
 
+            }
         }
 
         return hour +":"+"00"+ am_pm;

@@ -195,7 +195,7 @@ public class AppApiHelper implements ApiHelper {
                 .build()
                 .getObjectListSingle(PastResultPOJO.class); */
         return  NetworkClient.getRetrofit(sharedPreferences).create(NetworkInterface.class)
-                .getAllPastResult(location_id)
+                .getAllPastResult(location_id, from, to)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
 

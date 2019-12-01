@@ -49,10 +49,26 @@
         android:layout_marginTop="10dp"
         />
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hourly Bids History"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/hourly_bids"
+        android:layout_below="@+id/live_time"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        />
+
+
+
+        <LinearLayout
             android:id="@+id/my_group_swipeRefreshLayout"
             android:layout_width="match_parent"
-            android:layout_below="@+id/live_time"
+            android:orientation="vertical"
+            android:layout_below="@+id/hourly_bids"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:layout_height="match_parent">
@@ -73,11 +89,12 @@
                 android:verticalSpacing="4dp" >
             </GridView>
 
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
 
     <FrameLayout
         android:id="@+id/location_progressbar"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="match_parent"
         android:background="@color/white">
 

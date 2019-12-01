@@ -2,8 +2,14 @@ package in.co.sattamaster.ui.base;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import com.crashlytics.android.Crashlytics;
+import com.instacart.library.truetime.TrueTime;
+import com.instacart.library.truetime.TrueTimeRx;
+
+import java.io.IOException;
+
 import in.co.sattamaster.data.DataManager;
 import in.co.sattamaster.di.component.ApplicationComponent;
 import in.co.sattamaster.di.component.DaggerApplicationComponent;
@@ -13,6 +19,7 @@ import in.co.sattamaster.di.rxbus.RxBus;
 import javax.inject.Inject;
 
 import io.fabric.sdk.android.Fabric;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by Harish on 7/20/2016.
@@ -89,6 +96,25 @@ public class VoicemeApplication extends Application {
         //Fabric.with(this, new Crashlytics());
       //  auth = new Auth(this);
        // FacebookSdk.sdkInitialize(this);
+        new Thread( new Runnable() { @Override public void run() {
+            try {
+                TrueTime.build().initialize();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            // Run whatever background code you want here.
+        } } ).start();
+
+        TrueTimeRx.build()
+                .initializeRx("time.google.com")
+                .subscribeOn(Schedulers.io())
+                .subscribe(date -> {
+                   // Log.v(TAG, "TrueTime was initialized and we have a time: " + date);
+                }, throwable -> {
+                    throwable.printStackTrace();
+                });
+
 
         bus = new RxBus();
 

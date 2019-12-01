@@ -38,8 +38,6 @@ public class LocationGridAdapter extends BaseAdapter {
             add(result);
             notifyDataSetChanged();
         }
-
-
     }
 
     public void AddActivityData(String USER_NAME, String MODERATOR_NAME, String MODERATOR_MOBILE, String WALLET_BALANCE){

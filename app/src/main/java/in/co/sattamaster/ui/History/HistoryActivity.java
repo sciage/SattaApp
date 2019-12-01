@@ -70,14 +70,6 @@ public class HistoryActivity extends BaseActivity implements HistoryActivityMvpV
         MODERATOR_MOBILE = intent.getStringExtra(Constants.MODERATOR_MOBILE);
         WALLET_BALANCE = intent.getStringExtra(Constants.WALLET_BALANCE);
 
-
-        // data to populate the RecyclerView with
-      /*  List<HistoryPojo> animalNames = new ArrayList<>();
-        animalNames.add(new HistoryPojo("Faridabad", "Andar", "17-07-2019", "1,2,3,4,5", "1000"));
-        animalNames.add(new HistoryPojo("Faridabad", "Andar", "17-07-2019", "1,2,3,4,5", "1000"));
-        animalNames.add(new HistoryPojo("Faridabad", "Andar", "17-07-2019", "1,2,3,4,5", "1000"));
-        animalNames.add(new HistoryPojo("Faridabad", "Andar", "17-07-2019", "1,2,3,4,5", "1000")); */
-
         // set up the RecyclerView
         recyclerView = findViewById(R.id.history_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -89,9 +81,6 @@ public class HistoryActivity extends BaseActivity implements HistoryActivityMvpV
         adapter = new MyRecyclerViewAdapter(this);
 
         recyclerView.setAdapter(adapter);
-
-
-
 
         progressFrame.setVisibility(View.VISIBLE);
         mPresenter.getBids(preferences, currentPage);
