@@ -30,12 +30,9 @@ public class HistoryDetailsActivity extends BaseActivity implements HistoryDetai
 
     List<HistoryBidHeader> myCommentList = null;
 
-
-
     @BindView(R.id.historydetails_progressbar) View progressFrame;
     @BindView(R.id.history_details_location) TextView history_details_location;
     @BindView(R.id.detail_rv_messages) protected RecyclerView mMessageRecyclerView;
-
 
 
     @Override

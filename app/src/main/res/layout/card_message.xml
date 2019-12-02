@@ -52,6 +52,22 @@
             android:text="Win Or Loss"
             app:layout_constraintTop_toBottomOf="@+id/bid_type" />
 
+        <TextView
+            android:id="@+id/winningAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bid_type"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="25dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginRight="25dp"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="Win Or Loss"
+            app:layout_constraintTop_toBottomOf="@+id/bid_type" />
+
 
         <TextView
             android:id="@+id/bid_balance"

@@ -96,24 +96,9 @@ public class VoicemeApplication extends Application {
         //Fabric.with(this, new Crashlytics());
       //  auth = new Auth(this);
        // FacebookSdk.sdkInitialize(this);
-        new Thread( new Runnable() { @Override public void run() {
-            try {
-                TrueTime.build().initialize();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
-            // Run whatever background code you want here.
-        } } ).start();
 
-        TrueTimeRx.build()
-                .initializeRx("time.google.com")
-                .subscribeOn(Schedulers.io())
-                .subscribe(date -> {
-                   // Log.v(TAG, "TrueTime was initialized and we have a time: " + date);
-                }, throwable -> {
-                    throwable.printStackTrace();
-                });
+      //  TrueTime.build().initialize();
 
 
         bus = new RxBus();

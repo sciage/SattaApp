@@ -4,40 +4,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import com.instacart.library.truetime.TrueTime;
-import com.instacart.library.truetime.TrueTimeRx;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.TimeZone;
 
 import butterknife.BindView;
 import in.co.sattamaster.R;
-import in.co.sattamaster.ui.PlayMatka.PlayMatkaActivity;
 import in.co.sattamaster.ui.Result.PastResultActivity;
-import in.co.sattamaster.ui.Result.PastResultPOJO;
-import in.co.sattamaster.ui.Result.ResultActivity;
 import in.co.sattamaster.ui.base.BaseActivity;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import in.co.sattamaster.ui.base.Constants;
-import in.co.sattamaster.ui.base.MySharedPreferences;
-import io.reactivex.schedulers.Schedulers;
-import timber.log.Timber;
 
 public class LocationPageActivity extends BaseActivity implements LocationPageMvpView {
     Button place_bid;
@@ -56,6 +44,7 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
     private List<LocationPojo> response;
 
     private String currentDate;
+    private String currentTime;
 
 
     private String USER_NAME;
@@ -64,9 +53,10 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
     private String WALLET_BALANCE;
 
     private Handler handler;
-    private Date date;
+    private Date trueDate;
 
     public static final String DATE_FORMAT_1 = "yyyy-MM-dd";
+    public static final String TIME_FORMAT = "h:mm";
 
 
 
@@ -119,7 +109,7 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
         view.setAdapter(locationGridAdapter);
         view.setFocusable(false);
 
-        date = TrueTime.now();
+        trueDate = TrueTime.now();
 
 
         mPresenter.getLocation(preferences);
@@ -130,9 +120,12 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
 
 
         SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_1);
+        SimpleDateFormat timeFormat = new SimpleDateFormat(TIME_FORMAT);
         // dateFormat.setTimeZone(TimeZone.getTimeZone("IST"));
 
-        currentDate = dateFormat.format(date);
+        currentDate = dateFormat.format(trueDate);
+        currentTime = timeFormat.format(trueDate);
+
 
         handler = new Handler();
         handler.post(runnable);
@@ -191,7 +184,7 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
     public void getLocationData(List<LocationPojo> response) {
 
         locationGridAdapter.addAll(response);
-        locationGridAdapter.AddActivityData(USER_NAME, MODERATOR_NAME, MODERATOR_MOBILE, WALLET_BALANCE);
+        locationGridAdapter.AddActivityData(USER_NAME, MODERATOR_NAME, MODERATOR_MOBILE, WALLET_BALANCE, trueDate, LocationPageActivity.this);
         view.setAdapter(locationGridAdapter);
         arraylistCurrent(response);
 

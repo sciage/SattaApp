@@ -114,6 +114,7 @@ public class HistoryDetailsAdapter extends RecyclerView.Adapter<HistoryDetailsAd
 
         private TextView bid_type;
         private TextView winOrLoss;
+        private TextView winningAmount;
         private TextView bid_balance;
 
         protected View messageReplyProgress;
@@ -147,6 +148,7 @@ public class HistoryDetailsAdapter extends RecyclerView.Adapter<HistoryDetailsAd
             super(itemView);
             mHolderView = itemView;
 
+            winningAmount = (TextView) itemView.findViewById(R.id.winningAmount);
             bid_type = (TextView) itemView.findViewById(R.id.bid_type);
             messageReplyProgress = itemView.findViewById(R.id.messageReplyProgress);
             winOrLoss = (TextView) itemView.findViewById(R.id.winOrLoss);
@@ -184,6 +186,7 @@ public class HistoryDetailsAdapter extends RecyclerView.Adapter<HistoryDetailsAd
             } else {
                 if (messageItem.getDidWin().toString().equals("true")){
                     winOrLoss.setText(String.valueOf("Win or Loss " + " : " + "Win"));
+                   // winningAmount.setText();
 
                 } else {
                     winOrLoss.setText(String.valueOf("Win or Loss " + " : " + "Loss"));

@@ -124,16 +124,13 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
 
                 if (fromValue != null && toValue != null){
 
-                    if (fromValue.equals(trueDate) || toValue.equals(trueDate)){
-                        SameDateDialog();
-                    } else {
+
                         Intent intent = new Intent(ResultActivity.this, PastResultActivity.class);
                         intent.putExtra(Constants.FROM_TEXT, fromValue);
                         intent.putExtra(Constants.TO_TEXT, toValue);
                         intent.putExtra(Constants.LOCATION_ID, location_id);
 
                         startActivity(intent);
-                    }
 
                 }
 
@@ -246,9 +243,7 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
 
                 Calendar newCalender = Calendar.getInstance();
 
-                if (Pico.formatDate(calendar).equals(Pico.formatDate(newCalender))){
-                    SameDateDialog();
-                }else if(calendar.after(newCalender) ){
+                 if(calendar.after(newCalender) ){
                     SameDateDialog02();
                 } else {
 
@@ -274,10 +269,7 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
             public void result(Calendar calendar) {
                 Calendar newCalender = Calendar.getInstance();
 
-                if (Pico.formatDate(calendar).equals(Pico.formatDate(newCalender))){
-                    SameDateDialog();
-
-                } else if(calendar.after(newCalender) ){
+                 if(calendar.after(newCalender) ){
                     SameDateDialog02();
                 } else {
 
@@ -297,20 +289,6 @@ public class ResultActivity extends BaseActivity implements LocationPageMvpView 
     private void SameDateDialog02(){
         alertDialogBuilder = new AlertDialog.Builder(ResultActivity.this);
         alertDialogBuilder.setTitle("Future's Date Selected");
-        alertDialogBuilder.setMessage("Choose Old Date");
-        alertDialogBuilder.setCancelable(true);
-        alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-
-                dialog.dismiss();
-            }
-        });
-        alertDialogBuilder.show();
-    }
-
-    private void SameDateDialog(){
-        alertDialogBuilder = new AlertDialog.Builder(ResultActivity.this);
-        alertDialogBuilder.setTitle("Today's Date Selected");
         alertDialogBuilder.setMessage("Choose Old Date");
         alertDialogBuilder.setCancelable(true);
         alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
