@@ -21,6 +21,9 @@ public class HistoryDetailsResponse {
     @SerializedName("bid_date")
     @Expose
     private String bidDate;
+    @SerializedName("bid_hour")
+    @Expose
+    private String bidHour;
     @SerializedName("created_at")
     @Expose
     private String createdAt;
@@ -79,5 +82,9 @@ public class HistoryDetailsResponse {
 
     public LocationPojo getCentre() {
         return centre;
+    }
+
+    public String getBidHour() {
+        return bidHour;
     }
 }

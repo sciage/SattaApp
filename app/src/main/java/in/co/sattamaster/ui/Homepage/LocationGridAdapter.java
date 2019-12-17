@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +12,6 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -23,10 +20,8 @@ import java.util.List;
 import in.co.sattamaster.R;
 import in.co.sattamaster.ui.DateTime.Pico;
 import in.co.sattamaster.ui.DateTime.codec.Type;
-import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.PlayMatka.PlayMatkaActivity;
 import in.co.sattamaster.ui.base.Constants;
-import in.co.sattamaster.ui.base.MySharedPreferences;
 
 public class LocationGridAdapter extends BaseAdapter {
     private List<LocationPojo> dataSet = new ArrayList<>();
@@ -54,7 +49,7 @@ public class LocationGridAdapter extends BaseAdapter {
     TextView currentTest;
     AlertDialog.Builder alertDialogBuilder;
 
-    Calendar currentTime;
+    Calendar currentCalender;
 
     public static final String TIME_FORMAT = "h:mm";
 
@@ -209,45 +204,46 @@ public class LocationGridAdapter extends BaseAdapter {
                 new_time.setText("XX");
 
             }
-            currentTime = toCalendar(trueDate);
+            currentCalender = toCalendar(trueDate);
 
-            Calendar disawarBefore = Calendar.getInstance();
+            Calendar disawarBefore = toCalendar(trueDate);
             createNewCalender(disawarBefore, 4, 30);
              disawarBeforeDate = disawarBefore.getTime();
 
-            Calendar disawarAfter = Calendar.getInstance();
-            createNewCalender(disawarAfter, 5, 0);
+            Calendar disawarAfter = toCalendar(trueDate);
+            createNewCalender(disawarAfter, 5, 40);
              disawarAfterDate = disawarAfter.getTime();
 
-            Calendar faridabadBefore = Calendar.getInstance();
+
+            Calendar faridabadBefore = toCalendar(trueDate);
             createNewCalender(faridabadBefore, 17, 30);
              faridabadBeforeTime = faridabadBefore.getTime();
 
-            Calendar faridabadAfter = Calendar.getInstance();
-            createNewCalender(faridabadAfter, 18, 0);
+            Calendar faridabadAfter = toCalendar(trueDate);
+            createNewCalender(faridabadAfter, 18, 40);
              faridabadAfterTime = faridabadAfter.getTime();
 
-            Calendar ghaziabadBefore = Calendar.getInstance();
+            Calendar ghaziabadBefore = toCalendar(trueDate);
             createNewCalender(ghaziabadBefore, 19, 30);
              ghaziabadBeforeTime = ghaziabadBefore.getTime();
 
-            Calendar ghaziabadAfter = Calendar.getInstance();
-            createNewCalender(ghaziabadAfter, 20, 0);
+            Calendar ghaziabadAfter = toCalendar(trueDate);
+            createNewCalender(ghaziabadAfter, 20, 40);
              ghaziabadAfterTime = ghaziabadAfter.getTime();
 
-            Calendar galiBefore = Calendar.getInstance();
-            createNewCalender(galiBefore, 22, 30);
+            Calendar galiBefore = toCalendar(trueDate);
+            createNewCalender(galiBefore, 22, 0);
              galiBeforeTime = galiBefore.getTime();
 
-            Calendar galiAfter = Calendar.getInstance();
-            createNewCalender(galiAfter, 23, 0);
+            Calendar galiAfter = toCalendar(trueDate);
+            createNewCalender(galiAfter, 23, 30);
              galiAfterTime = galiAfter.getTime();
 
-            Calendar rewariBefore = Calendar.getInstance();
+            Calendar rewariBefore = toCalendar(trueDate);
             createNewCalender(rewariBefore, 20, 30);
              rewariBeforeTime = rewariBefore.getTime();
 
-            Calendar rewariAfter = Calendar.getInstance();
+            Calendar rewariAfter = toCalendar(trueDate);
             createNewCalender(rewariAfter, 21, 0);
              rewariAfterTime = rewariAfter.getTime();
 
@@ -255,14 +251,14 @@ public class LocationGridAdapter extends BaseAdapter {
             switch (dataSet.get(position).getId()){
                 case "5":
 
-                    if (currentTime.after(disawarBeforeDate) && currentTime.before(disawarAfterDate)){
+                    if (trueDate.after(disawarBeforeDate) && trueDate.before(disawarAfterDate)){
                         currentTest.setVisibility(View.VISIBLE);
                         currentTest.setText("Bidding Stopped");
                     }
                     break;
                 case "6":
 
-                    if (currentTime.after(faridabadBeforeTime) && currentTime.before(faridabadAfterTime)){
+                    if (trueDate.after(faridabadBeforeTime) && trueDate.before(faridabadAfterTime)){
                         currentTest.setVisibility(View.VISIBLE);
                         currentTest.setText("Bidding Stopped");
                     }
@@ -270,7 +266,7 @@ public class LocationGridAdapter extends BaseAdapter {
                     break;
                 case "7":
 
-                    if (currentTime.after(ghaziabadBeforeTime) && currentTime.before(ghaziabadAfterTime)){
+                    if (trueDate.after(ghaziabadBeforeTime) && trueDate.before(ghaziabadAfterTime)){
                         currentTest.setVisibility(View.VISIBLE);
                         currentTest.setText("Bidding Stopped");
                     }
@@ -278,7 +274,7 @@ public class LocationGridAdapter extends BaseAdapter {
                     break;
                 case "8":
 
-                    if (currentTime.after(galiBeforeTime) && currentTime.before(galiAfterTime)){
+                    if (trueDate.after(galiBeforeTime) && trueDate.before(galiAfterTime)){
                         currentTest.setVisibility(View.VISIBLE);
                         currentTest.setText("Bidding Stopped");
                     }
@@ -287,7 +283,7 @@ public class LocationGridAdapter extends BaseAdapter {
 
                 case "12":
 
-                    if (currentTime.after(rewariBeforeTime) && currentTime.before(rewariAfterTime)){
+                    if (trueDate.after(rewariBeforeTime) && trueDate.before(rewariAfterTime)){
                         currentTest.setVisibility(View.VISIBLE);
                         currentTest.setText("Bidding Stopped");
                     }
@@ -372,23 +368,23 @@ public class LocationGridAdapter extends BaseAdapter {
 
     private void playMatkaIntent(View v, int position) {
 
-        if (currentTime.after(disawarBeforeDate) && currentTime.before(disawarAfterDate)){
+        if (trueDate.after(disawarBeforeDate) && trueDate.before(disawarAfterDate)){
             currentTest.setVisibility(View.VISIBLE);
             currentTest.setText("Bidding Stopped");
             biddingClosed();
-        } else if (currentTime.after(faridabadBeforeTime) && currentTime.before(faridabadAfterTime)){
+        } else if (trueDate.after(faridabadBeforeTime) && trueDate.before(faridabadAfterTime)){
             currentTest.setVisibility(View.VISIBLE);
             currentTest.setText("Bidding Stopped");
             biddingClosed();
-        }else if (currentTime.after(ghaziabadBeforeTime) && currentTime.before(ghaziabadAfterTime)){
+        }else if (trueDate.after(ghaziabadBeforeTime) && trueDate.before(ghaziabadAfterTime)){
             currentTest.setVisibility(View.VISIBLE);
             currentTest.setText("Bidding Stopped");
             biddingClosed();
-        } else if (currentTime.after(galiBeforeTime) && currentTime.before(galiAfterTime)){
+        } else if (trueDate.after(galiBeforeTime) && trueDate.before(galiAfterTime)){
             currentTest.setVisibility(View.VISIBLE);
             currentTest.setText("Bidding Stopped");
             biddingClosed();
-        } else if (currentTime.after(rewariBeforeTime) && currentTime.before(rewariAfterTime)){
+        } else if (trueDate.after(rewariBeforeTime) && trueDate.before(rewariAfterTime)){
             currentTest.setVisibility(View.VISIBLE);
             currentTest.setText("Bidding Stopped");
             biddingClosed();

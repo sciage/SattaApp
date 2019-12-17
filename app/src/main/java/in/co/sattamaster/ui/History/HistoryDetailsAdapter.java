@@ -152,6 +152,7 @@ public class HistoryDetailsAdapter extends RecyclerView.Adapter<HistoryDetailsAd
             bid_type = (TextView) itemView.findViewById(R.id.bid_type);
             messageReplyProgress = itemView.findViewById(R.id.messageReplyProgress);
             winOrLoss = (TextView) itemView.findViewById(R.id.winOrLoss);
+            winningAmount = (TextView) itemView.findViewById(R.id.winningAmount);
 
             bid_balance = (TextView) itemView.findViewById(R.id.bid_balance);
 
@@ -193,6 +194,8 @@ public class HistoryDetailsAdapter extends RecyclerView.Adapter<HistoryDetailsAd
                 }
 
             }
+
+            winningAmount.setText(String.valueOf("Winning Amount " + " : " + messageItem.getWinningAmount()) );
 
             // winOrLoss.setText(CurrentTime.getCurrentTime(messageItem.getCommentTime(), itemView.getContext()));
             commentReplyAdapter = new CommentReplyAdapter(itemView.getContext(), mMessageList.get(position).getData());

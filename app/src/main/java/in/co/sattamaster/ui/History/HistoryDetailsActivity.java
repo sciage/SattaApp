@@ -32,6 +32,7 @@ public class HistoryDetailsActivity extends BaseActivity implements HistoryDetai
 
     @BindView(R.id.historydetails_progressbar) View progressFrame;
     @BindView(R.id.history_details_location) TextView history_details_location;
+    @BindView(R.id.history_details_number_reveal_time) TextView history_details_number_reveal_time;
     @BindView(R.id.detail_rv_messages) protected RecyclerView mMessageRecyclerView;
 
 
@@ -102,7 +103,8 @@ public class HistoryDetailsActivity extends BaseActivity implements HistoryDetai
 
 
         showComments(response);
-        history_details_location.setText(String.valueOf("Location : " + response.getCentreName()));
+        history_details_location.setText(String.valueOf("Location : " + response.getCentre().getName()));
+        history_details_number_reveal_time.setText(String.valueOf("Reveal Time : " + response.getCentre().getNumberRevealTime()));
         progressFrame.setVisibility(View.GONE);
 
     }

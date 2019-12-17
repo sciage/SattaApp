@@ -53,7 +53,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="   Date       Number"
+        android:text="Date       Number     Time"
         android:id="@+id/headingofdata"
         android:layout_gravity="center_horizontal"
         android:textSize="20sp"

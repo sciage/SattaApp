@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.instacart.library.truetime.TrueTime;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -53,6 +54,7 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
     private String WALLET_BALANCE;
 
     private Handler handler;
+    private Handler handler02;
     private Date trueDate;
 
     public static final String DATE_FORMAT_1 = "yyyy-MM-dd";
@@ -108,6 +110,20 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
 
         view.setAdapter(locationGridAdapter);
         view.setFocusable(false);
+
+        handler02 = new Handler();
+
+        final Runnable run = new Runnable() {
+            public void run() {
+                try {
+                    TrueTime.build().initialize();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        handler02.post(run);
+
 
         trueDate = TrueTime.now();
 

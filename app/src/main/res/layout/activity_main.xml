@@ -17,6 +17,7 @@
             layout="@layout/top_balance_layout02"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_below="@+id/include_toolbar"/>
 
 
@@ -25,6 +26,7 @@
         android:layout_height="wrap_content"
         android:text="Satta"
         android:textSize="30sp"
+            android:visibility="gone"
         android:id="@+id/location_satta_heading"
             android:layout_below="@+id/balance_layout"
         android:textColor="@color/white"
@@ -41,10 +43,9 @@
         android:text="June 07 2019 4:54:30"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:fontFamily="monospace"
         android:layout_centerHorizontal="true"
         android:id="@+id/live_time"
-        android:layout_below="@+id/location_satta_heading"
+        android:layout_below="@+id/include_toolbar"
         android:textColor="@color/white"
         android:layout_marginTop="10dp"
         />

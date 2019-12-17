@@ -1711,6 +1711,11 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
 
         jodiBidding = new JsonArray();
 
+        for (int i=0;i<joinComb.size();i++){
+            int one = joinComb.get(i);
+            jodiBidding.add(one);
+        }
+
        // new JsonArray()
     }
 
