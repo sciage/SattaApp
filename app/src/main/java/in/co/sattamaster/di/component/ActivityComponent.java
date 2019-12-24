@@ -23,6 +23,7 @@ import in.co.sattamaster.ui.History.HistoryDetailsActivity;
 import in.co.sattamaster.ui.Homepage.LocationPageActivity;
 import in.co.sattamaster.ui.Result.PastResultActivity;
 import in.co.sattamaster.ui.Result.ResultActivity;
+import in.co.sattamaster.ui.Withdraw.WithdrawDetailsActivity;
 import in.co.sattamaster.ui.login.LoginScreenActivity;
 import in.co.sattamaster.ui.Homepage.MainActivity;
 import in.co.sattamaster.ui.PlayMatka.PlayMatkaActivity;
@@ -49,6 +50,7 @@ public interface ActivityComponent {
     void inject(WithdrawActivity activity);
     void inject(PastResultActivity activity);
     void inject(HistoryDetailsActivity activity);
+    void inject(WithdrawDetailsActivity activity);
 
 
 

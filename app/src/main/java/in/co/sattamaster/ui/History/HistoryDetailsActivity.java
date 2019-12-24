@@ -56,9 +56,6 @@ public class HistoryDetailsActivity extends BaseActivity implements HistoryDetai
         });
         getSupportActionBar().setTitle("History Bidding");
 
-        Intent intent = getIntent();
-        BIDSET_ID = intent.getStringExtra(Constants.BIDSET_ID);
-
         initRecyclerView();
 
         progressFrame.setVisibility(View.VISIBLE);
@@ -67,14 +64,6 @@ public class HistoryDetailsActivity extends BaseActivity implements HistoryDetai
     }
 
     private void initRecyclerView() {
-        /**code edited by nirmal
-         * Replacing the linearlayout manager
-         */
-
-        //    geocoder = new Geocoder(PostsDetailsActivity.this, Locale.getDefault());
-
-
-        //    mLinearLayoutManager = new LinearLayoutManager(PostsDetailsActivity.this,LinearLayoutManager.VERTICAL,true);
 
         mHistoryDetailsAdapter = new HistoryDetailsAdapter(HistoryDetailsActivity.this, myCommentList);
 
@@ -100,8 +89,6 @@ public class HistoryDetailsActivity extends BaseActivity implements HistoryDetai
 
     @Override
     public void getBidDetails(HistoryDetailsResponse response) {
-
-
         showComments(response);
         history_details_location.setText(String.valueOf("Location : " + response.getCentre().getName()));
         history_details_number_reveal_time.setText(String.valueOf("Reveal Time : " + response.getCentre().getNumberRevealTime()));

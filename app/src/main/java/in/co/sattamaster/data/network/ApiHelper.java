@@ -30,6 +30,7 @@ import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
 import in.co.sattamaster.ui.Result.PastResultPOJO;
 import in.co.sattamaster.ui.Result.ResultResponse;
+import in.co.sattamaster.ui.Withdraw.WithdrawDetailsPojo;
 import in.co.sattamaster.ui.Withdraw.WithdrawResponse;
 import in.co.sattamaster.ui.Withdraw.WithdrawResponseTop;
 import in.co.sattamaster.ui.login.AllModerators;
@@ -56,7 +57,11 @@ public interface ApiHelper {
     Single<ResultResponse> getAllResult(String from, String to, SharedPreferences sharedPreferences);
     Single<List<PastResultPOJO>> getAllPastResult(String location_id, String from, String to, SharedPreferences sharedPreferences);
     Single<HistoryPojo> getBids(SharedPreferences sharedPreferences, String page);
+
     Single<HistoryDetailsResponse> getBidDetails(String id, SharedPreferences sharedPreferences);
+    Single<WithdrawDetailsPojo> getWithdrawDetails(SharedPreferences sharedPreferences, String page);
+
+
 
   //  Single<List<PostsModel>> getImagePosts(String user_id, String onlyImages, String page);
 

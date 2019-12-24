@@ -207,7 +207,8 @@ public class LocationGridAdapter extends BaseAdapter {
             currentCalender = toCalendar(trueDate);
 
             Calendar disawarBefore = toCalendar(trueDate);
-            createNewCalender(disawarBefore, 4, 30);
+          //  createNewCalender(disawarBefore, 4, 30);
+            createNewCalender(disawarBefore, 1, 30);
              disawarBeforeDate = disawarBefore.getTime();
 
             Calendar disawarAfter = toCalendar(trueDate);
@@ -216,7 +217,8 @@ public class LocationGridAdapter extends BaseAdapter {
 
 
             Calendar faridabadBefore = toCalendar(trueDate);
-            createNewCalender(faridabadBefore, 17, 30);
+           // createNewCalender(faridabadBefore, 17, 30);
+            createNewCalender(faridabadBefore, 2, 30);
              faridabadBeforeTime = faridabadBefore.getTime();
 
             Calendar faridabadAfter = toCalendar(trueDate);
@@ -243,7 +245,7 @@ public class LocationGridAdapter extends BaseAdapter {
             createNewCalender(rewariBefore, 20, 30);
              rewariBeforeTime = rewariBefore.getTime();
 
-            Calendar rewariAfter = toCalendar(trueDate);
+            Calendar rewariAfter = toCalendar(trueDate); // current time
             createNewCalender(rewariAfter, 21, 0);
              rewariAfterTime = rewariAfter.getTime();
 
@@ -367,38 +369,75 @@ public class LocationGridAdapter extends BaseAdapter {
 
 
     private void playMatkaIntent(View v, int position) {
+        switch (position) {
+            case 0:
+                if (trueDate.after(disawarBeforeDate) && trueDate.before(disawarAfterDate)) {
+                    currentTest.setVisibility(View.VISIBLE);
+                    currentTest.setText("Bidding Stopped");
+                    biddingClosed();
+                } else {
+                    gotoNextPage(v, position);
+                }
 
-        if (trueDate.after(disawarBeforeDate) && trueDate.before(disawarAfterDate)){
-            currentTest.setVisibility(View.VISIBLE);
-            currentTest.setText("Bidding Stopped");
-            biddingClosed();
-        } else if (trueDate.after(faridabadBeforeTime) && trueDate.before(faridabadAfterTime)){
-            currentTest.setVisibility(View.VISIBLE);
-            currentTest.setText("Bidding Stopped");
-            biddingClosed();
-        }else if (trueDate.after(ghaziabadBeforeTime) && trueDate.before(ghaziabadAfterTime)){
-            currentTest.setVisibility(View.VISIBLE);
-            currentTest.setText("Bidding Stopped");
-            biddingClosed();
-        } else if (trueDate.after(galiBeforeTime) && trueDate.before(galiAfterTime)){
-            currentTest.setVisibility(View.VISIBLE);
-            currentTest.setText("Bidding Stopped");
-            biddingClosed();
-        } else if (trueDate.after(rewariBeforeTime) && trueDate.before(rewariAfterTime)){
-            currentTest.setVisibility(View.VISIBLE);
-            currentTest.setText("Bidding Stopped");
-            biddingClosed();
-        } else {
-            Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
-            intent.putExtra(Constants.USER_NAME, USER_NAME);
-            intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
-            intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
-            intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
-            intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
-            intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
-            v.getContext().startActivity(intent);
+                break;
+            case 1:
+                if (trueDate.after(faridabadBeforeTime) && trueDate.before(faridabadAfterTime)) {
+                    currentTest.setVisibility(View.VISIBLE);
+                    currentTest.setText("Bidding Stopped");
+                    biddingClosed();
+                } else {
+                    gotoNextPage(v, position);
+                }
+                break;
+            case 2:
+                if (trueDate.after(ghaziabadBeforeTime) && trueDate.before(ghaziabadAfterTime)) {
+                    currentTest.setVisibility(View.VISIBLE);
+                    currentTest.setText("Bidding Stopped");
+                    biddingClosed();
+                } else {
+                    gotoNextPage(v, position);
+                }
+
+                break;
+            case 3:
+
+                if (trueDate.after(galiBeforeTime) && trueDate.before(galiAfterTime)) {
+                    currentTest.setVisibility(View.VISIBLE);
+                    currentTest.setText("Bidding Stopped");
+                    biddingClosed();
+                } else {
+                    gotoNextPage(v, position);
+                }
+
+                break;
+            case 4:
+
+                if (trueDate.after(rewariBeforeTime) && trueDate.before(rewariAfterTime)) {
+                    currentTest.setVisibility(View.VISIBLE);
+                    currentTest.setText("Bidding Stopped");
+                    biddingClosed();
+                } else {
+                    gotoNextPage(v, position);
+                }
+
+                break;
+            default:
+
+
+
+                break;
         }
+    }
 
+    private void gotoNextPage(View v, int position){
+        Intent intent = new Intent(v.getContext(), PlayMatkaActivity.class);
+        intent.putExtra(Constants.USER_NAME, USER_NAME);
+        intent.putExtra(Constants.MODERATOR_NAME, MODERATOR_NAME);
+        intent.putExtra(Constants.MODERATOR_MOBILE, MODERATOR_MOBILE);
+        intent.putExtra(Constants.WALLET_BALANCE, WALLET_BALANCE);
+        intent.putExtra(Constants.LOCATION, dataSet.get(position).getId());
+        intent.putExtra(Constants.LOCATION_NAME, dataSet.get(position).getName());
+        v.getContext().startActivity(intent);
     }
 
     private void biddingClosed() {

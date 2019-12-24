@@ -36,6 +36,7 @@ import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
 import in.co.sattamaster.ui.Result.PastResultPOJO;
 import in.co.sattamaster.ui.Result.ResultResponse;
+import in.co.sattamaster.ui.Withdraw.WithdrawDetailsPojo;
 import in.co.sattamaster.ui.Withdraw.WithdrawResponse;
 import in.co.sattamaster.ui.Withdraw.WithdrawResponseTop;
 import in.co.sattamaster.ui.login.AllModerators;
@@ -128,6 +129,11 @@ public class AppDataManager implements DataManager {
     @Override
     public Single<HistoryDetailsResponse> getBidDetails(String id, SharedPreferences sharedPreferences) {
         return mApiHelper.getBidDetails(id, sharedPreferences);
+    }
+
+    @Override
+    public Single<WithdrawDetailsPojo> getWithdrawDetails(SharedPreferences sharedPreferences, String page) {
+        return mApiHelper.getWithdrawDetails(sharedPreferences, page);
     }
 
  /*   @Override

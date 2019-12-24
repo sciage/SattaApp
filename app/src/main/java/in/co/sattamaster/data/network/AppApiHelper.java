@@ -42,6 +42,7 @@ import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
 import in.co.sattamaster.ui.Result.PastResultPOJO;
 import in.co.sattamaster.ui.Result.ResultResponse;
+import in.co.sattamaster.ui.Withdraw.WithdrawDetailsPojo;
 import in.co.sattamaster.ui.Withdraw.WithdrawResponse;
 import in.co.sattamaster.ui.Withdraw.WithdrawResponseTop;
 import in.co.sattamaster.ui.base.MySharedPreferences;
@@ -183,6 +184,14 @@ public class AppApiHelper implements ApiHelper {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
 
+    }
+
+    @Override
+    public Single<WithdrawDetailsPojo> getWithdrawDetails(SharedPreferences sharedPreferences, String page) {
+        return  NetworkClient.getRetrofit(sharedPreferences).create(NetworkInterface.class)
+                .getWithdrawHistory(page)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
     @Override

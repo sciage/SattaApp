@@ -63,4 +63,41 @@ public class WithdrawPresenter <V extends WithdrawMvpView> extends BasePresenter
                     }
                 }));
     }
+
+    @Override
+    public void getWithdraw(SharedPreferences sharedPreferences, int page) {
+
+        getCompositeDisposable().add(getDataManager()
+                .getWithdrawDetails(sharedPreferences, String.valueOf(page))
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(new Consumer<WithdrawDetailsPojo>() {
+
+                    @Override
+                    public void accept(@NonNull WithdrawDetailsPojo response)
+                            throws Exception {
+
+                        getMvpView().getWithdrawResponse(response);
+
+                        //     getMvpView().hideLoading();
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(@NonNull Throwable throwable)
+                            throws Exception {
+                        if (!isViewAttached()) {
+                            return;
+                        }
+
+                        getMvpView().hideLoading();
+
+                        // handle the error here
+                        if (throwable instanceof ANError) {
+                            ANError anError = (ANError) throwable;
+                            handleApiError(anError);
+                        }
+                    }
+                }));
+
+    }
 }

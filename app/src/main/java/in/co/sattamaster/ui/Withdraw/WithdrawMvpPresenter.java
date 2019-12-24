@@ -14,5 +14,7 @@ public interface WithdrawMvpPresenter <V extends WithdrawMvpView> extends MvpPre
 
     void sendBidSet(JsonObject withdraw, SharedPreferences sharedPreferences);
 
+    void getWithdraw(SharedPreferences sharedPreferences, int page);
+
 
 }

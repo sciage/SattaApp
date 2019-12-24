@@ -12,6 +12,7 @@ import in.co.sattamaster.ui.Homepage.LocationPojo;
 import in.co.sattamaster.ui.Homepage.UserObject;
 import in.co.sattamaster.ui.Result.PastResultPOJO;
 import in.co.sattamaster.ui.Result.ResultResponse;
+import in.co.sattamaster.ui.Withdraw.WithdrawDetailsPojo;
 import in.co.sattamaster.ui.Withdraw.WithdrawResponseTop;
 import in.co.sattamaster.ui.login.AllModerators;
 import in.co.sattamaster.ui.login.LoginResponse;
@@ -45,6 +46,9 @@ public interface NetworkInterface {
 
     @GET(ApiEndPoint.BIDSET)
     Single<HistoryPojo> getBids(@Query("page") String page);
+
+    @GET(ApiEndPoint.WITHDRAW_REQUEST)
+    Single<WithdrawDetailsPojo> getWithdrawHistory(@Query("page") String page);
 
     @GET(ApiEndPoint.BIDSET_ID)
     Single<HistoryDetailsResponse> getBidDetails(@Path("id") String id);

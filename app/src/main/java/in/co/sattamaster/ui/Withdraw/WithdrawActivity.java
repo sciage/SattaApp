@@ -134,4 +134,9 @@ public class WithdrawActivity extends BaseActivity implements WithdrawMvpView {
 
         }
     }
+
+    @Override
+    public void getWithdrawResponse(WithdrawDetailsPojo response) {
+
+    }
 }

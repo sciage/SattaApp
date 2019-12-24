@@ -13,6 +13,7 @@ import in.co.sattamaster.R;
 import in.co.sattamaster.SquareLayout;
 import in.co.sattamaster.ui.Contact.ContactUsActivity;
 import in.co.sattamaster.ui.History.HistoryActivity;
+import in.co.sattamaster.ui.History.HistoryDetailsActivity;
 import in.co.sattamaster.ui.Result.ResultActivity;
 import in.co.sattamaster.ui.Withdraw.WithdrawActivity;
 import in.co.sattamaster.ui.base.Constants;
@@ -64,6 +65,11 @@ public class GridAdapter extends BaseAdapter{
         Item object05 = new Item();
         object05.text = "Result chart";
         mItems.add(object05);
+        notifyDataSetChanged();
+
+        Item object06 = new Item();
+        object06.text = "Withdraw History";
+        mItems.add(object06);
         notifyDataSetChanged();
 
         mContext = context;
@@ -171,6 +177,17 @@ public class GridAdapter extends BaseAdapter{
                     intent.putExtra(Constants.MODERATOR_NAME, dataSet.getUser().getProfile().getModerator().getName());
                     intent.putExtra(Constants.MODERATOR_MOBILE, dataSet.getUser().getProfile().getModerator().getPhone());
                     intent.putExtra(Constants.WALLET_BALANCE, dataSet.getUser().getProfile().getCoinBalance());
+                    v.getContext().startActivity(intent);
+                }
+            });
+        }else if (position == 5){
+            home_page_image.setImageDrawable(convertView.getResources().getDrawable(R.drawable.result));
+
+            box_back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent intent = new Intent(v.getContext(), HistoryDetailsActivity.class);
                     v.getContext().startActivity(intent);
                 }
             });
