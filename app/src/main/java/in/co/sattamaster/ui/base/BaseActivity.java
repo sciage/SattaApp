@@ -66,7 +66,16 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
 
         preferences = getSharedPreferences(Constants.CONSTANT_PREF_FILE, Context.MODE_PRIVATE);
 
-        trueDate = TrueTimeRx.now();
+        TrueTimeRx.build()
+                .initializeRx("time.google.com")
+                .subscribeOn(Schedulers.io())
+                .subscribe(date -> {
+                    trueDate = TrueTimeRx.now();
+                    // Log.v(TAG, "TrueTime was initialized and we have a time: " + date);
+                }, throwable -> {
+                    throwable.printStackTrace();
+                });
+
 
         mActivityComponent = DaggerActivityComponent.builder()
                 .activityModule(new ActivityModule(this))

@@ -111,11 +111,6 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
         view.setAdapter(locationGridAdapter);
         view.setFocusable(false);
 
-
-
-
-
-
         mPresenter.getLocation(preferences);
 
         balance_amount_value.setText(WALLET_BALANCE);
