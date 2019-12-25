@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
@@ -44,11 +45,15 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
     protected SharedPreferences preferences;
 
 
+    protected Handler handler02;
+    protected Date trueDate;
+
     // public String id;
    // public String android_id;
     private Unbinder mUnBinder;
   //  private ProgressDialog mProgressDialog;
     protected RxBus bus;
+    Runnable run;
 
     public ActivityComponent mActivityComponent;
     public boolean isRunning = false;
@@ -61,21 +66,12 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
 
         preferences = getSharedPreferences(Constants.CONSTANT_PREF_FILE, Context.MODE_PRIVATE);
 
+        trueDate = TrueTimeRx.now();
 
         mActivityComponent = DaggerActivityComponent.builder()
                 .activityModule(new ActivityModule(this))
                 .applicationComponent(((VoicemeApplication) getApplication()).getComponent())
                 .build();
-
-        new Thread( new Runnable() { @Override public void run() {
-            try {
-                TrueTime.build().initialize();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            // Run whatever background code you want here.
-        } } ).start();
 
         bus = application.getBus();
 

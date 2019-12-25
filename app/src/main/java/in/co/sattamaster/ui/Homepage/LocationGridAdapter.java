@@ -54,7 +54,8 @@ public class LocationGridAdapter extends BaseAdapter {
     public static final String TIME_FORMAT = "h:mm";
 
 
-    public LocationGridAdapter(Context context) {
+    public LocationGridAdapter(Context context, Date trueDate) {
+        this.trueDate = trueDate;
         mContext = context;
     }
 
@@ -65,12 +66,11 @@ public class LocationGridAdapter extends BaseAdapter {
         }
     }
 
-    public void AddActivityData(String USER_NAME, String MODERATOR_NAME, String MODERATOR_MOBILE, String WALLET_BALANCE, Date trueDate, Context context){
+    public void AddActivityData(String USER_NAME, String MODERATOR_NAME, String MODERATOR_MOBILE, String WALLET_BALANCE, Context context){
         this.USER_NAME = USER_NAME;
         this.MODERATOR_NAME = MODERATOR_NAME;
         this.MODERATOR_MOBILE = MODERATOR_MOBILE;
         this.WALLET_BALANCE = WALLET_BALANCE;
-        this.trueDate = trueDate;
         this.context = context;
     }
 
@@ -144,36 +144,33 @@ public class LocationGridAdapter extends BaseAdapter {
 
             }
 
-
-
-
             new_time_upcoming.setText("XX");
 
             location_name.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    playMatkaIntent(v, position);
+                    gotoNextPage(v, position);
                 }
             });
 
             last_time.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    playMatkaIntent(v, position);
+                    gotoNextPage(v, position);
                 }
             });
 
             new_time.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    playMatkaIntent(v, position);
+                    gotoNextPage(v, position);
                 }
             });
 
             location_back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    playMatkaIntent(v, position);
+                    gotoNextPage(v, position);
                 }
             });
 
@@ -204,50 +201,50 @@ public class LocationGridAdapter extends BaseAdapter {
                 new_time.setText("XX");
 
             }
-            currentCalender = toCalendar(trueDate);
+            currentCalender = toCalendar(trueDate); // current time
 
             Calendar disawarBefore = toCalendar(trueDate);
           //  createNewCalender(disawarBefore, 4, 30);
-            createNewCalender(disawarBefore, 1, 30);
-             disawarBeforeDate = disawarBefore.getTime();
+            Calendar disawarBefore02 = createNewCalender(disawarBefore, 4, 30);
+             disawarBeforeDate = disawarBefore02.getTime();
 
             Calendar disawarAfter = toCalendar(trueDate);
-            createNewCalender(disawarAfter, 5, 40);
-             disawarAfterDate = disawarAfter.getTime();
+            Calendar disawarAfter02 = createNewCalender(disawarAfter, 5, 40);
+             disawarAfterDate = disawarAfter02.getTime();
 
 
             Calendar faridabadBefore = toCalendar(trueDate);
            // createNewCalender(faridabadBefore, 17, 30);
-            createNewCalender(faridabadBefore, 2, 30);
-             faridabadBeforeTime = faridabadBefore.getTime();
+            Calendar faridabadBefore02 = createNewCalender(faridabadBefore, 17, 30);
+             faridabadBeforeTime = faridabadBefore02.getTime();
 
             Calendar faridabadAfter = toCalendar(trueDate);
-            createNewCalender(faridabadAfter, 18, 40);
-             faridabadAfterTime = faridabadAfter.getTime();
+            Calendar faridabadAfter02 = createNewCalender(faridabadAfter, 18, 40);
+             faridabadAfterTime = faridabadAfter02.getTime();
 
             Calendar ghaziabadBefore = toCalendar(trueDate);
-            createNewCalender(ghaziabadBefore, 19, 30);
-             ghaziabadBeforeTime = ghaziabadBefore.getTime();
+            Calendar ghaziabadBefore02 = createNewCalender(ghaziabadBefore, 19, 30);
+             ghaziabadBeforeTime = ghaziabadBefore02.getTime();
 
             Calendar ghaziabadAfter = toCalendar(trueDate);
-            createNewCalender(ghaziabadAfter, 20, 40);
-             ghaziabadAfterTime = ghaziabadAfter.getTime();
+            Calendar ghaziabadAfter02 = createNewCalender(ghaziabadAfter, 20, 40);
+             ghaziabadAfterTime = ghaziabadAfter02.getTime();
 
             Calendar galiBefore = toCalendar(trueDate);
-            createNewCalender(galiBefore, 22, 0);
-             galiBeforeTime = galiBefore.getTime();
+            Calendar galiBefore02 = createNewCalender(galiBefore, 22, 0);
+             galiBeforeTime = galiBefore02.getTime();
 
             Calendar galiAfter = toCalendar(trueDate);
-            createNewCalender(galiAfter, 23, 30);
-             galiAfterTime = galiAfter.getTime();
+            Calendar galiAfter02 = createNewCalender(galiAfter, 23, 30);
+             galiAfterTime = galiAfter02.getTime();
 
             Calendar rewariBefore = toCalendar(trueDate);
-            createNewCalender(rewariBefore, 20, 30);
-             rewariBeforeTime = rewariBefore.getTime();
+            Calendar rewariBefore02 = createNewCalender(rewariBefore, 20, 30);
+             rewariBeforeTime = rewariBefore02.getTime();
 
             Calendar rewariAfter = toCalendar(trueDate); // current time
-            createNewCalender(rewariAfter, 21, 0);
-             rewariAfterTime = rewariAfter.getTime();
+            Calendar rewariAfter02 = createNewCalender(rewariAfter, 21, 0);
+             rewariAfterTime = rewariAfter02.getTime();
 
 
             switch (dataSet.get(position).getId()){
@@ -298,7 +295,7 @@ public class LocationGridAdapter extends BaseAdapter {
             location_name.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    playMatkaIntent(v, position);
+                    playMatkaIntent(v, dataSet.get(position).getId(), position);
                 }
             });
 
@@ -306,28 +303,28 @@ public class LocationGridAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
 
-                    playMatkaIntent(v, position);
+                    playMatkaIntent(v, dataSet.get(position).getId(), position);
                 }
             });
 
             last_time.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    playMatkaIntent(v, position);
+                    playMatkaIntent(v, dataSet.get(position).getId(), position);
                 }
             });
 
             new_time.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    playMatkaIntent(v, position);
+                    playMatkaIntent(v, dataSet.get(position).getId(), position);
                 }
             });
 
             location_back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    playMatkaIntent(v, position);
+                    playMatkaIntent(v, dataSet.get(position).getId(), position);
                 }
             });
 
@@ -342,7 +339,7 @@ public class LocationGridAdapter extends BaseAdapter {
 
     private Calendar createNewCalender(Calendar calenderName, int calenderHour, int calenderMin){
 
-      //  Calendar faridabadBefore = Calendar.getInstance();
+     //   Calendar calenderName = Calendar.getInstance();
         calenderName.set(Calendar.HOUR_OF_DAY, calenderHour);
         calenderName.set(Calendar.MINUTE,calenderMin);
         calenderName.set(Calendar.SECOND,0);
@@ -366,11 +363,9 @@ public class LocationGridAdapter extends BaseAdapter {
     }
 
 
-
-
-    private void playMatkaIntent(View v, int position) {
-        switch (position) {
-            case 0:
+    private void playMatkaIntent(View v, String position02, int position) {
+        switch (position02) {
+            case "5":
                 if (trueDate.after(disawarBeforeDate) && trueDate.before(disawarAfterDate)) {
                     currentTest.setVisibility(View.VISIBLE);
                     currentTest.setText("Bidding Stopped");
@@ -380,7 +375,7 @@ public class LocationGridAdapter extends BaseAdapter {
                 }
 
                 break;
-            case 1:
+            case "6":
                 if (trueDate.after(faridabadBeforeTime) && trueDate.before(faridabadAfterTime)) {
                     currentTest.setVisibility(View.VISIBLE);
                     currentTest.setText("Bidding Stopped");
@@ -389,7 +384,7 @@ public class LocationGridAdapter extends BaseAdapter {
                     gotoNextPage(v, position);
                 }
                 break;
-            case 2:
+            case "7":
                 if (trueDate.after(ghaziabadBeforeTime) && trueDate.before(ghaziabadAfterTime)) {
                     currentTest.setVisibility(View.VISIBLE);
                     currentTest.setText("Bidding Stopped");
@@ -399,7 +394,7 @@ public class LocationGridAdapter extends BaseAdapter {
                 }
 
                 break;
-            case 3:
+            case "8":
 
                 if (trueDate.after(galiBeforeTime) && trueDate.before(galiAfterTime)) {
                     currentTest.setVisibility(View.VISIBLE);
@@ -410,7 +405,7 @@ public class LocationGridAdapter extends BaseAdapter {
                 }
 
                 break;
-            case 4:
+            case "12":
 
                 if (trueDate.after(rewariBeforeTime) && trueDate.before(rewariAfterTime)) {
                     currentTest.setVisibility(View.VISIBLE);

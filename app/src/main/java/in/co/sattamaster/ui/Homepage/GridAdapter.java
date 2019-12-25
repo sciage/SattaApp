@@ -16,6 +16,7 @@ import in.co.sattamaster.ui.History.HistoryActivity;
 import in.co.sattamaster.ui.History.HistoryDetailsActivity;
 import in.co.sattamaster.ui.Result.ResultActivity;
 import in.co.sattamaster.ui.Withdraw.WithdrawActivity;
+import in.co.sattamaster.ui.Withdraw.WithdrawDetailsActivity;
 import in.co.sattamaster.ui.base.Constants;
 
 import java.util.ArrayList;
@@ -187,7 +188,7 @@ public class GridAdapter extends BaseAdapter{
                 @Override
                 public void onClick(View v) {
 
-                    Intent intent = new Intent(v.getContext(), HistoryDetailsActivity.class);
+                    Intent intent = new Intent(v.getContext(), WithdrawDetailsActivity.class);
                     v.getContext().startActivity(intent);
                 }
             });

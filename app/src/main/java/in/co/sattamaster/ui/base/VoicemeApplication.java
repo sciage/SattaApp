@@ -111,6 +111,15 @@ public class VoicemeApplication extends Application {
 
         Fabric.with(this, new Crashlytics());
 
+        TrueTimeRx.build()
+                .initializeRx("time.google.com")
+                .subscribeOn(Schedulers.io())
+                .subscribe(date -> {
+                   // Log.v(TAG, "TrueTime was initialized and we have a time: " + date);
+                }, throwable -> {
+                    throwable.printStackTrace();
+                });
+
 
         //   AppLogger.init();
 

@@ -33,6 +33,8 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
     LocationGridAdapter locationGridAdapter;
     private int totalItems;
 
+
+
     @BindView(R.id.balance_amount_value) TextView balance_amount_value;
     @BindView(R.id.user_name) TextView user_name;
     @BindView(R.id.moderator) TextView moderator;
@@ -54,8 +56,6 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
     private String WALLET_BALANCE;
 
     private Handler handler;
-    private Handler handler02;
-    private Date trueDate;
 
     public static final String DATE_FORMAT_1 = "yyyy-MM-dd";
     public static final String TIME_FORMAT = "h:mm";
@@ -106,26 +106,14 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
         MODERATOR_MOBILE = intent.getStringExtra(Constants.MODERATOR_MOBILE);
         WALLET_BALANCE = intent.getStringExtra(Constants.WALLET_BALANCE);
 
-        locationGridAdapter = new LocationGridAdapter(getBaseContext());
+        locationGridAdapter = new LocationGridAdapter(getBaseContext(), trueDate);
 
         view.setAdapter(locationGridAdapter);
         view.setFocusable(false);
 
-        handler02 = new Handler();
-
-        final Runnable run = new Runnable() {
-            public void run() {
-                try {
-                    TrueTime.build().initialize();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        handler02.post(run);
 
 
-        trueDate = TrueTime.now();
+
 
 
         mPresenter.getLocation(preferences);
@@ -139,8 +127,14 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
         SimpleDateFormat timeFormat = new SimpleDateFormat(TIME_FORMAT);
         // dateFormat.setTimeZone(TimeZone.getTimeZone("IST"));
 
-        currentDate = dateFormat.format(trueDate);
-        currentTime = timeFormat.format(trueDate);
+        if (trueDate!=null){
+            currentDate = dateFormat.format(trueDate);
+            currentTime = timeFormat.format(trueDate);
+        } else {
+            currentDate = dateFormat.format(new Date());
+            currentTime = timeFormat.format(new Date());
+        }
+
 
 
         handler = new Handler();
@@ -200,7 +194,7 @@ public class LocationPageActivity extends BaseActivity implements LocationPageMv
     public void getLocationData(List<LocationPojo> response) {
 
         locationGridAdapter.addAll(response);
-        locationGridAdapter.AddActivityData(USER_NAME, MODERATOR_NAME, MODERATOR_MOBILE, WALLET_BALANCE, trueDate, LocationPageActivity.this);
+        locationGridAdapter.AddActivityData(USER_NAME, MODERATOR_NAME, MODERATOR_MOBILE, WALLET_BALANCE, LocationPageActivity.this);
         view.setAdapter(locationGridAdapter);
         arraylistCurrent(response);
 

@@ -54,9 +54,9 @@ public class WithdrawDetailsAdapter extends RecyclerView.Adapter<WithdrawDetails
         holder.number_reveal.setText("Withdrawl Amount : " +  mData.get(position).getAmount());
         if ( mData.get(position).getCompleted()){
 
-            holder.bid_location.setText("Transanction Status : Done");
+            holder.bid_location.setText("Transaction Status : Done");
         } else {
-            holder.bid_location.setText("Transanction Status : Pending");
+            holder.bid_location.setText("Transaction Status : Pending");
 
         }
 
@@ -86,6 +86,8 @@ public class WithdrawDetailsAdapter extends RecyclerView.Adapter<WithdrawDetails
             bid_time = itemView.findViewById(R.id.bid_balance);
             history_back = (ConstraintLayout)itemView.findViewById(R.id.history_back);
             itemView.setOnClickListener(this);
+
+            bid_time.setVisibility(View.GONE);
         }
 
         @Override
