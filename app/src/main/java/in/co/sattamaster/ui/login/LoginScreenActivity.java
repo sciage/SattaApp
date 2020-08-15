@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 import butterknife.BindView;
 import in.co.sattamaster.R;
+import in.co.sattamaster.retrofit.NetworkClient;
 import in.co.sattamaster.ui.Homepage.MainActivity;
 import in.co.sattamaster.ui.base.BaseActivity;
 import in.co.sattamaster.ui.base.MySharedPreferences;
@@ -48,6 +49,8 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
         mPresenter.onAttach(LoginScreenActivity.this);
 
         login_progressbar.setVisibility(View.GONE);
+
+        NetworkClient.makeRetrofitNull();
 
         forgot_password.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,6 +124,8 @@ public class LoginScreenActivity extends BaseActivity implements LoginScreenMvpV
         String token = response.getToken();
 
         Intent intent = new Intent(LoginScreenActivity.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+
         MySharedPreferences.registerUserId(preferences, response.getUser().getId().toString());
         MySharedPreferences.registerToken(preferences, response.getToken());
         intent.putExtra("isLoggedIn", true);

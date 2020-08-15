@@ -31,6 +31,10 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class NetworkClient {
     public static Retrofit retrofit;
 
+    public static void makeRetrofitNull(){
+        retrofit = null;
+    }
+
     public void NetworkClient(){
 
     }

@@ -120,7 +120,6 @@ public class MainActivity extends BaseActivity implements MainActivityMvpView{
                 user_name_String = response.getUser().getName();
                 moderator_String = response.getUser().getProfile().getModerator().getName() + "@" + response.getUser().getProfile().getModerator().getPhone();
 
-
                 gridAdapter.addAll(response);
 
             }

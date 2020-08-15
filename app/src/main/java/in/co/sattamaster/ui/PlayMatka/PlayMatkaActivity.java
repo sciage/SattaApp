@@ -688,7 +688,7 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
         place_bid_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                place_bid_button.setClickable(false);
 
                 if (joinComb.size() > Integer.parseInt(MySharedPreferences.getCombinationLimit(preferences))){
 
@@ -700,6 +700,8 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                         public void onClick(DialogInterface dialog, int which) {
 
                             dialog.dismiss();
+                            place_bid_button.setClickable(true);
+
                         }
                     });
                     alertDialogBuilder.show();
@@ -707,11 +709,14 @@ public class PlayMatkaActivity extends BaseActivity implements PlayMatkaActivity
                 } else {
                     if (Integer.parseInt(wallet)< Integer.parseInt(satta_net_total_value.getText().toString())){
                         balanceInsufficient();
+                        place_bid_button.setClickable(true);
+
                     } else {
                         play_matkaloading.setVisibility(View.VISIBLE);
                         try {
                             // writeJsonSimpleDemo();
                             mPresenter.sendBidSet(writeJsonSimpleDemo(), preferences);
+                            place_bid_button.setClickable(false);
                         } catch (Exception ex){
                             ex.printStackTrace();
                         }

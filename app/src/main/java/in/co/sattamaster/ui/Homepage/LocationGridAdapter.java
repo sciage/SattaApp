@@ -35,6 +35,8 @@ public class LocationGridAdapter extends BaseAdapter {
     long timeInMilliseconds;
     private Context context;
 
+    Date ghaziabadDayBeforeTime;
+    Date ghaziabadDayAfterTime;
     Date disawarBeforeDate;
     Date disawarAfterDate;
     Date faridabadBeforeTime;
@@ -203,6 +205,17 @@ public class LocationGridAdapter extends BaseAdapter {
             }
             currentCalender = toCalendar(trueDate); // current time
 
+
+            Calendar ghaziabadDayBefore = toCalendar(trueDate);
+          //  createNewCalender(disawarBefore, 4, 30);
+            Calendar ghaziabadDayBefore02 = createNewCalender(ghaziabadDayBefore, 11, 30);
+            ghaziabadDayBeforeTime = ghaziabadDayBefore02.getTime();
+
+            Calendar ghaziabadDayAfter = toCalendar(trueDate);
+            Calendar ghaziabadDayAfter02 = createNewCalender(ghaziabadDayAfter, 12, 30);
+            ghaziabadDayAfterTime = ghaziabadDayAfter02.getTime();
+
+
             Calendar disawarBefore = toCalendar(trueDate);
           //  createNewCalender(disawarBefore, 4, 30);
             Calendar disawarBefore02 = createNewCalender(disawarBefore, 4, 30);
@@ -367,6 +380,19 @@ public class LocationGridAdapter extends BaseAdapter {
         switch (position02) {
             case "5":
                 if (trueDate.after(disawarBeforeDate) && trueDate.before(disawarAfterDate)) {
+                    currentTest.setVisibility(View.VISIBLE);
+                    currentTest.setText("Bidding Stopped");
+                    biddingClosed();
+                } else {
+                    gotoNextPage(v, position);
+                }
+
+                break;
+                case "13":
+                    //Date ghaziabadBeforeTime;
+                    //    Date ghaziabadAfterTime;
+
+                    if (trueDate.after(ghaziabadDayAfterTime) && trueDate.before(ghaziabadDayBeforeTime)) {
                     currentTest.setVisibility(View.VISIBLE);
                     currentTest.setText("Bidding Stopped");
                     biddingClosed();
